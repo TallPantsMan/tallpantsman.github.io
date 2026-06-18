@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caul Haus Group | Automated Efficiency Solutions</title>
+  <meta name="description" content="We build automated systems to enhance team efficiency. We&#39;ll build it behind the scenes and hand you the keys.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/tailwind.css">
+  <style>
+    /* Page load fade-in animation */
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-slate-100 flex flex-col min-h-screen selection:bg-brand-primary selection:text-white">
+  <!-- Glowing decorative backgrounds -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 w-full glass-card border-x-0 border-t-0 bg-brand-dark/65 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white font-extrabold shadow-md shadow-brand-primary/20 group-hover:scale-105 transition-transform">
+          C
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white group-hover:text-brand-secondary transition-colors">
+          Caul Haus <span class="text-xs font-semibold uppercase px-1.5 py-0.5 rounded bg-brand-primary/20 text-brand-primary ml-1">Group</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="/" class="hover:text-brand-secondary transition-colors text-brand-secondary">Home</a>
+        <a href="/services/" class="hover:text-brand-secondary transition-colors ">Services</a>
+        <a href="/projects/" class="hover:text-brand-secondary transition-colors ">Projects</a>
+        <a href="/about/" class="hover:text-brand-secondary transition-colors ">About Us</a>
+        <a href="/blog/" class="hover:text-brand-secondary transition-colors ">Blog</a>
+        <a href="/contact/" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold shadow-md shadow-brand-primary/25 hover:shadow-brand-primary/45 hover:scale-102 hover:brightness-105 active:scale-98 transition-all">
+          Get a Quote
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/80 bg-brand-dark/95 backdrop-blur-lg">
+      <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 flex flex-col text-base font-medium">
+        <a href="/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white text-brand-secondary bg-slate-800/30">Home</a>
+        <a href="/services/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Services</a>
+        <a href="/projects/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Projects</a>
+        <a href="/about/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">About Us</a>
+        <a href="/blog/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Blog</a>
+        <div class="pt-2 px-3">
+          <a href="/contact/" class="block text-center py-3 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold shadow-md">
+            Get a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow fade-in">
+    
+<!-- Hero Section -->
+<section class="relative overflow-hidden py-20 lg:py-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-brand-primary text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
+          Enterprise Workflow Architecture
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
+          We’ll build it behind <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-indigo-400 to-brand-secondary">
+            the scenes
+          </span> and <br/>
+          hand you the keys.
+        </h1>
+        <p class="text-lg text-slate-300 max-w-xl mb-8 leading-relaxed">
+          Struggling to scale operations? We design and deploy high-performance automated workflows and custom AI integrations that run silently in the background of your business.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/contact/" class="px-8 py-4 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold shadow-lg shadow-brand-primary/25 hover:shadow-brand-primary/45 hover:scale-102 transition-all">
+            Get a Quote
+          </a>
+          <a href="/services/" class="px-8 py-4 rounded-full bg-slate-900 border border-slate-800 text-slate-300 font-semibold hover:bg-slate-800 hover:text-white transition-all">
+            Explore Services
+          </a>
+        </div>
+      </div>
+      
+      <!-- Premium Hero Graphic Mockup -->
+      <div class="lg:col-span-5 relative">
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-brand-secondary/20 rounded-3xl blur-2xl opacity-60"></div>
+        <div class="glass-card rounded-3xl p-6 relative z-10 border border-slate-800/80 shadow-2xl">
+          <div class="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-6">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500"></span>
+            </div>
+            <span class="text-xs font-mono text-slate-500">caulhaus-engine.sh</span>
+          </div>
+          <div class="font-mono text-xs text-slate-300 space-y-3">
+            <p class="text-slate-500"># Evaluating process friction...</p>
+            <p class="text-emerald-400">✓ Detected 4 manual data paths in Salesforce & Airtable</p>
+            <p class="text-brand-secondary">Executing workflow compilation...</p>
+            <div class="p-3 bg-slate-950/80 rounded border border-slate-800 font-semibold flex items-center justify-between">
+              <span>Task: Order Inventory Sync</span>
+              <span class="text-brand-primary animate-pulse">Running</span>
+            </div>
+            <div class="p-3 bg-slate-950/80 rounded border border-slate-800 font-semibold flex items-center justify-between">
+              <span>Task: Lead Dispatch LLM</span>
+              <span class="text-emerald-400">Active</span>
+            </div>
+            <p class="text-slate-500"># Current System Friction: 0%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Integrations Logo Cloud Section -->
+<section class="py-12 border-y border-slate-900 bg-slate-950/50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-8">
+      CONNECTING YOUR ENTIRE TECH STACK
+    </p>
+    <div class="relative w-full flex overflow-x-hidden">
+      <!-- Continuous horizontal marquee -->
+      <div class="animate-marquee whitespace-nowrap flex items-center gap-12 text-slate-500 text-sm font-semibold tracking-wider">
+        <span>Asana</span>
+        <span>Trello</span>
+        <span>Google Sheets</span>
+        <span>Jira</span>
+        <span>Monday.com</span>
+        <span>ClickUp</span>
+        <span>Google Docs</span>
+        <span>Smartsheet</span>
+        <span>Notion</span>
+        <span>Figma</span>
+        <span>Adobe XD</span>
+        <span>Google Drive</span>
+        <span>Miro</span>
+        <span>Canva</span>
+        <span>HubSpot</span>
+        <span>Marketo</span>
+        <span>Google Slides</span>
+        <span>Salesforce</span>
+        <span>Mailchimp</span>
+        <span>Zapier</span>
+        <span>Google Analytics</span>
+        <span>Mixpanel</span>
+        <span>AppScript</span>
+        <span>Tableau</span>
+        <span>Google Forms</span>
+        <span>Power BI</span>
+        <span>Google Ads</span>
+        <span>LinkedIn Ads</span>
+        <span>SEMrush</span>
+        <span>Ahrefs</span>
+      </div>
+      <!-- Marquee Duplicate for seamless loop -->
+      <div class="absolute top-0 animate-marquee2 whitespace-nowrap flex items-center gap-12 text-slate-500 text-sm font-semibold tracking-wider ml-12">
+        <span>Asana</span>
+        <span>Trello</span>
+        <span>Google Sheets</span>
+        <span>Jira</span>
+        <span>Monday.com</span>
+        <span>ClickUp</span>
+        <span>Google Docs</span>
+        <span>Smartsheet</span>
+        <span>Notion</span>
+        <span>Figma</span>
+        <span>Adobe XD</span>
+        <span>Google Drive</span>
+        <span>Miro</span>
+        <span>Canva</span>
+        <span>HubSpot</span>
+        <span>Marketo</span>
+        <span>Google Slides</span>
+        <span>Salesforce</span>
+        <span>Mailchimp</span>
+        <span>Zapier</span>
+        <span>Google Analytics</span>
+        <span>Mixpanel</span>
+        <span>AppScript</span>
+        <span>Tableau</span>
+        <span>Google Forms</span>
+        <span>Power BI</span>
+        <span>Google Ads</span>
+        <span>LinkedIn Ads</span>
+        <span>SEMrush</span>
+        <span>Ahrefs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About & Metrics Section -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+      <div class="lg:col-span-5">
+        <h2 class="text-xs font-bold text-brand-primary uppercase tracking-widest mb-3">ABOUT US</h2>
+        <h3 class="text-3xl lg:text-4xl font-extrabold text-white leading-tight mb-6">
+          We help your team move fast <br class="hidden sm:inline"/>
+          without breaking things.
+        </h3>
+        <p class="text-slate-400 leading-relaxed mb-6">
+          If your team is struggling to keep up with tasks, and your tools aren’t effectively integrated, Caul Haus Group can help. We specialize in designing and implementing automation systems that streamline processes, improve collaboration, and ensure nothing slips through the cracks. Partner with us to transform the way your team works.
+        </p>
+        <a href="/about/" class="inline-flex items-center gap-2 text-sm font-bold text-brand-secondary hover:text-brand-primary transition-colors">
+          Read Our Story
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Metrics Grid -->
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="glass-card rounded-2xl p-8 text-center flex flex-col justify-center">
+          <div class="text-5xl font-extrabold text-brand-primary mb-2">42%</div>
+          <p class="text-slate-300 text-sm font-medium">Less time spent on manual reporting on average</p>
+        </div>
+        <div class="glass-card rounded-2xl p-8 text-center flex flex-col justify-center">
+          <div class="text-5xl font-extrabold text-brand-secondary mb-2">8+</div>
+          <p class="text-slate-300 text-sm font-medium">Hours saved per employee, per week</p>
+        </div>
+        <div class="glass-card rounded-2xl p-8 text-center flex flex-col justify-center">
+          <div class="text-5xl font-extrabold text-emerald-400 mb-2">&lt;5m</div>
+          <p class="text-slate-300 text-sm font-medium">Lead routing and assignment time</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Services Section -->
+<section class="py-20 bg-slate-950/30 border-y border-slate-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-xs font-bold text-brand-secondary uppercase tracking-widest mb-3">WHAT WE DO</h2>
+      <h3 class="text-3xl lg:text-4xl font-extrabold text-white leading-tight">
+        We build systems that run your work for you.
+      </h3>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">Process Automation</h4>
+        <p class="text-sm text-slate-400">
+          We map your workflows and turn repetitive tasks into automated systems that just work.
+        </p>
+      </div>
+      
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-brand-secondary/10 border border-brand-secondary/20 flex items-center justify-center text-brand-secondary mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">AI Workflows</h4>
+        <p class="text-sm text-slate-400">
+          We build simple AI tools that draft, route, summarize, and respond so your team stops doing it manually.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">Systems Setup</h4>
+        <p class="text-sm text-slate-400">
+          From client onboarding to reporting, we design and set up the operational backbone your team relies on.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-violet-400/10 border border-violet-400/20 flex items-center justify-center text-violet-400 mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+          </svg>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">Tool Integration</h4>
+        <p class="text-sm text-slate-400">
+          Your tools should talk to each other. We connect them and remove the manual data copy-paste gaps.
+        </p>
+      </div>
+    </div>
+    
+    <div class="text-center mt-12">
+      <a href="/services/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 border border-slate-800 text-slate-300 font-semibold hover:text-white hover:bg-slate-850 transition-all">
+        See All Services
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study Highlight -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-xs font-bold text-brand-primary uppercase tracking-widest mb-3">FEATURED CASE STUDY</h2>
+      <h3 class="text-3xl lg:text-4xl font-extrabold text-white">
+        Automating Processes During Parental Leave
+      </h3>
+    </div>
+    
+    <div class="glass-card rounded-3xl p-8 lg:p-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10 border-b border-slate-800/80 pb-8">
+        <div>
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Client</span>
+          <p class="text-lg font-bold text-white mt-1">Mid-size digital agency (120 employees)</p>
+        </div>
+        <div>
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">The Challenge</span>
+          <p class="text-slate-300 text-sm mt-1 leading-relaxed">
+            The Resource Manager went on maternity leave for 5 months. Their resourcing process lived in Google Sheets, manually updated every Friday. With 40+ projects and 20+ designers, manual updates were error-prone and time-consuming.
+          </p>
+        </div>
+        <div>
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">The Outcome</span>
+          <p class="text-lg font-bold text-emerald-400 mt-1">80+ total hours saved & 100% resourcing data accuracy</p>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div>
+          <h4 class="text-lg font-bold text-white mb-4">Our Approach</h4>
+          <ul class="space-y-4">
+            <li class="flex gap-3 text-slate-300 text-sm">
+              <span class="text-brand-secondary font-bold font-mono">01</span>
+              <span>Stepped in as interim PM support, learning their complex resourcing model in under a week.</span>
+            </li>
+            <li class="flex gap-3 text-slate-300 text-sm">
+              <span class="text-brand-secondary font-bold font-mono">02</span>
+              <span>Designed and deployed a Google Apps Script to auto-pull data from project trackers, highlight overbooked staff with conditional formatting, and send weekly snapshots to team leads.</span>
+            </li>
+            <li class="flex gap-3 text-slate-300 text-sm">
+              <span class="text-brand-secondary font-bold font-mono">03</span>
+              <span>Documented the entire custom automation architecture for the returning Resource Manager.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold text-white mb-4">Key Outcomes</h4>
+          <ul class="space-y-3">
+            <li class="flex gap-2 items-start text-slate-300 text-sm">
+              <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>100% accuracy in resourcing updates (zero missed allocations vs. ~5 errors per month previously).</span>
+            </li>
+            <li class="flex gap-2 items-start text-slate-300 text-sm">
+              <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Team leads received automated resourcing reports every Monday morning.</span>
+            </li>
+            <li class="flex gap-2 items-start text-slate-300 text-sm">
+              <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>COO Win: "We expected to tread water; instead, our resourcing got better while [she] was out."</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final Call to Action -->
+<section class="py-20 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 opacity-50"></div>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <div class="glass-card rounded-3xl p-12 lg:p-16 border border-brand-primary/20">
+      <h3 class="text-3xl lg:text-5xl font-extrabold text-white mb-6">
+        Ready to automate your operations?
+      </h3>
+      <p class="text-slate-300 max-w-xl mx-auto mb-8 text-lg">
+        Get a quote and we will outline scope, timeline, and cost. Let's make your workflows run themselves.
+      </p>
+      <a href="/contact/" class="inline-flex px-8 py-4 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold shadow-lg shadow-brand-primary/25 hover:shadow-brand-primary/45 hover:scale-102 transition-all">
+        Get a Quote Today
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Custom Styles for Continuous Loop Marquee -->
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes marquee2 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  }
+  .animate-marquee {
+    animation: marquee 45s linear infinite;
+  }
+  .animate-marquee2 {
+    animation: marquee2 45s linear infinite;
+  }
+</style>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-brand-dark/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white font-extrabold">
+              C
+            </div>
+            <span class="text-lg font-bold text-white">Caul Haus Group</span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-sm mb-6">
+            We specialize in building automated systems to enhance team efficiency. We evaluate, automate, integrate, and optimize.
+          </p>
+          <p class="text-xs text-slate-500">
+            &copy; 2026 Caul Haus Group, Inc. All rights reserved.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="/" class="hover:text-brand-secondary transition-colors">Home</a></li>
+            <li><a href="/services/" class="hover:text-brand-secondary transition-colors">Services</a></li>
+            <li><a href="/projects/" class="hover:text-brand-secondary transition-colors">Projects</a></li>
+            <li><a href="/about/" class="hover:text-brand-secondary transition-colors">About Us</a></li>
+            <li><a href="/blog/" class="hover:text-brand-secondary transition-colors">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Get in Touch</h3>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="/contact/" class="hover:text-brand-secondary transition-colors">Get a Quote</a></li>
+            <li>Email: <a href="mailto:hello@caulhaus.com" class="hover:text-brand-secondary transition-colors">hello@caulhaus.com</a></li>
+            <li class="pt-2">
+              <span class="text-xs px-2.5 py-1 rounded-full bg-slate-800/80 text-slate-300 border border-slate-700/60">Remote Worldwide</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconPath = document.getElementById('menu-icon-path');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenu.classList.toggle('hidden');
+      if (isExpanded) {
+        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      } else {
+        menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      }
+    });
+  </script>
+</body>
+</html>

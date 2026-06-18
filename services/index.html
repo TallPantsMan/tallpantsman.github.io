@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERVICES | Caul Haus Group</title>
+  <meta name="description" content="Detailed automation consulting, system integrations, AI workflows, and operational audit services from Caul Haus Group.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/tailwind.css">
+  <style>
+    /* Page load fade-in animation */
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-slate-100 flex flex-col min-h-screen selection:bg-brand-primary selection:text-white">
+  <!-- Glowing decorative backgrounds -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 w-full glass-card border-x-0 border-t-0 bg-brand-dark/65 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white font-extrabold shadow-md shadow-brand-primary/20 group-hover:scale-105 transition-transform">
+          C
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white group-hover:text-brand-secondary transition-colors">
+          Caul Haus <span class="text-xs font-semibold uppercase px-1.5 py-0.5 rounded bg-brand-primary/20 text-brand-primary ml-1">Group</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="/" class="hover:text-brand-secondary transition-colors ">Home</a>
+        <a href="/services/" class="hover:text-brand-secondary transition-colors text-brand-secondary">Services</a>
+        <a href="/projects/" class="hover:text-brand-secondary transition-colors ">Projects</a>
+        <a href="/about/" class="hover:text-brand-secondary transition-colors ">About Us</a>
+        <a href="/blog/" class="hover:text-brand-secondary transition-colors ">Blog</a>
+        <a href="/contact/" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold shadow-md shadow-brand-primary/25 hover:shadow-brand-primary/45 hover:scale-102 hover:brightness-105 active:scale-98 transition-all">
+          Get a Quote
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/80 bg-brand-dark/95 backdrop-blur-lg">
+      <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 flex flex-col text-base font-medium">
+        <a href="/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Home</a>
+        <a href="/services/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white text-brand-secondary bg-slate-800/30">Services</a>
+        <a href="/projects/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Projects</a>
+        <a href="/about/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">About Us</a>
+        <a href="/blog/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Blog</a>
+        <div class="pt-2 px-3">
+          <a href="/contact/" class="block text-center py-3 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold shadow-md">
+            Get a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow fade-in">
+    
+<!-- Services Header -->
+<section class="py-20 relative">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-brand-primary text-xs font-semibold uppercase tracking-wider mb-6">
+      Core Offerings
+    </div>
+    <h1 class="text-4xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
+      What We Do
+    </h1>
+    <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+      We evaluate how your team operates today, identify where automation will create measurable impact, and deliver lightweight, scalable solutions.
+    </p>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section class="py-12 pb-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Service 1: Automation Assessment -->
+      <div class="glass-card rounded-2xl p-8 border border-slate-800">
+        <div class="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A2 2 0 013 15.382V6m18 14l-5.447-2.724A2 2 0 0015 15.382V6m0 0v14m0-14L10.553 4.276a2 2 0 00-1.106 0L4 6m8 2v12"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Automation Assessment</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          We evaluate how your team operates today and identify where automation will create measurable impact. You receive a clear, prioritized plan for implementation.
+        </p>
+      </div>
+
+      <!-- Service 2: Workflow Automation -->
+      <div class="glass-card rounded-2xl p-8 border border-slate-800">
+        <div class="w-12 h-12 rounded-xl bg-brand-secondary/10 border border-brand-secondary/20 flex items-center justify-center text-brand-secondary mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.21"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Workflow Automation</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          We design and deploy automated workflows that reduce manual effort and improve consistency. Routine tasks are handled reliably without ongoing oversight.
+        </p>
+      </div>
+
+      <!-- Service 3: AI Enablement -->
+      <div class="glass-card rounded-2xl p-8 border border-slate-800">
+        <div class="w-12 h-12 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">AI Enablement</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          We implement practical AI tools that support drafting, summarization, routing, and internal coordination. These tools integrate into your existing workflows.
+        </p>
+      </div>
+
+      <!-- Service 4: System Integration -->
+      <div class="glass-card rounded-2xl p-8 border border-slate-800">
+        <div class="w-12 h-12 rounded-xl bg-violet-400/10 border border-violet-400/20 flex items-center justify-center text-violet-400 mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">System Integration</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          We connect your core platforms to ensure information moves accurately between systems. This reduces duplication and improves operational visibility.
+        </p>
+      </div>
+
+      <!-- Service 5: Operational Infrastructure -->
+      <div class="glass-card rounded-2xl p-8 border border-slate-800">
+        <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400 mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Operational Infrastructure</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          We build structured systems for onboarding, reporting, approvals, and internal requests. These foundations support scalable growth and operational stability.
+        </p>
+      </div>
+
+      <!-- Service 6: Ongoing Optimization -->
+      <div class="glass-card rounded-2xl p-8 border border-slate-800">
+        <div class="w-12 h-12 rounded-xl bg-pink-400/10 border border-pink-400/20 flex items-center justify-center text-pink-400 mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Ongoing Optimization</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          We review performance and refine automations over time. As your business operations evolve, your automated systems evolve alongside it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Automation Savings Calculator -->
+<section class="py-20 bg-slate-950/40 border-t border-slate-900">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-xs font-bold text-brand-primary uppercase tracking-widest mb-3">OPERATIONAL ROI</h2>
+      <h3 class="text-3xl lg:text-4xl font-extrabold text-white">
+        Friction & Savings Calculator
+      </h3>
+      <p class="text-slate-400 text-sm mt-3">
+        Determine how much manual administrative copy-pasting is costing your organization annually, and calculate potential automation savings.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <!-- Calculator Inputs -->
+      <div class="lg:col-span-6 glass-card rounded-3xl p-8 flex flex-col justify-between border border-slate-850">
+        <h4 class="text-lg font-bold text-white mb-6 border-b border-slate-800 pb-3">Operational Inputs</h4>
+        
+        <div class="space-y-6">
+          <!-- Input 1: Team Size -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <label for="employees" class="text-slate-300">Team Size (Employees)</label>
+              <span id="employees-val" class="text-brand-secondary">25</span>
+            </div>
+            <input type="range" id="employees" min="1" max="250" value="25" class="w-full accent-brand-secondary bg-slate-800 h-2 rounded-lg cursor-pointer">
+          </div>
+
+          <!-- Input 2: Hours Lost -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <label for="hours" class="text-slate-300">Wasted Hours / Week (Per Employee)</label>
+              <span id="hours-val" class="text-brand-secondary">6</span>
+            </div>
+            <input type="range" id="hours" min="1" max="25" value="6" class="w-full accent-brand-secondary bg-slate-800 h-2 rounded-lg cursor-pointer">
+            <span class="text-[10px] text-slate-500 mt-1 block">Time spent copying data, generating reports, routing emails, etc.</span>
+          </div>
+
+          <!-- Input 3: Hourly Wage -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <label for="rate" class="text-slate-300">Average Blended Hourly Wage ($)</label>
+              <span id="rate-val" class="text-brand-secondary">$45</span>
+            </div>
+            <input type="range" id="rate" min="15" max="150" value="45" class="w-full accent-brand-secondary bg-slate-800 h-2 rounded-lg cursor-pointer">
+          </div>
+        </div>
+        
+        <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-500 leading-relaxed">
+          *Calculations based on 52 working weeks per year. Projected savings assume 80% process efficiency reclamation via custom API/iPaaS bridges and AI assistants.
+        </div>
+      </div>
+
+      <!-- Calculator Outputs -->
+      <div class="lg:col-span-6 glass-card rounded-3xl p-8 bg-gradient-to-br from-brand-card to-slate-950 flex flex-col justify-between border border-brand-primary/20 shadow-xl shadow-brand-primary/5">
+        <h4 class="text-lg font-bold text-white mb-6 border-b border-slate-800 pb-3">Projected Savings Roadmap</h4>
+        
+        <div class="space-y-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850">
+              <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wide block">Wasted Hours / Yr</span>
+              <span id="out-wasted-hours" class="text-2xl font-extrabold text-white">7,800 hrs</span>
+            </div>
+            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850">
+              <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wide block">Monthly Loss</span>
+              <span id="out-monthly-loss" class="text-2xl font-extrabold text-red-400">$29,250</span>
+            </div>
+          </div>
+
+          <!-- Main cost display -->
+          <div class="p-6 bg-red-950/20 rounded-2xl border border-red-500/10 text-center">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Current Annual Cost of Friction</span>
+            <span id="out-annual-loss" class="text-4xl lg:text-5xl font-black text-red-500">$351,000</span>
+          </div>
+
+          <!-- Reclaimed Savings Display -->
+          <div class="p-6 bg-brand-primary/10 rounded-2xl border border-brand-primary/30 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/10 to-brand-secondary/10 opacity-30"></div>
+            <span class="text-xs font-bold text-brand-secondary uppercase tracking-widest block mb-1">Projected Annual Savings (80% Reclaimed)</span>
+            <span id="out-savings" class="text-4xl lg:text-5xl font-black text-emerald-400">$280,800</span>
+            <span id="out-reclaimed-hours" class="text-xs text-indigo-300 block mt-2 font-medium">Reclaiming 6,240 operator hours annually</span>
+          </div>
+        </div>
+
+        <a href="/contact/" class="mt-8 w-full py-4 text-center rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold shadow-lg shadow-brand-primary/25 hover:brightness-105 active:scale-98 transition-all">
+          Request an Operational Audit
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI Calculator Logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const employeesInput = document.getElementById('employees');
+    const hoursInput = document.getElementById('hours');
+    const rateInput = document.getElementById('rate');
+
+    const employeesVal = document.getElementById('employees-val');
+    const hoursVal = document.getElementById('hours-val');
+    const rateVal = document.getElementById('rate-val');
+
+    const outWastedHours = document.getElementById('out-wasted-hours');
+    const outMonthlyLoss = document.getElementById('out-monthly-loss');
+    const outAnnualLoss = document.getElementById('out-annual-loss');
+    const outSavings = document.getElementById('out-savings');
+    const outReclaimedHours = document.getElementById('out-reclaimed-hours');
+
+    function formatCurrency(val) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+      }).format(val);
+    }
+
+    function formatNumber(val) {
+      return new Intl.NumberFormat('en-US').format(val);
+    }
+
+    function recalculate() {
+      const emp = parseInt(employeesInput.value);
+      const hrs = parseInt(hoursInput.value);
+      const rate = parseInt(rateInput.value);
+
+      // Update labels
+      employeesVal.textContent = emp;
+      hoursVal.textContent = hrs;
+      rateVal.textContent = `$${rate}`;
+
+      // Calculate formulas
+      const annualHoursWasted = emp * hrs * 52;
+      const annualLossVal = annualHoursWasted * rate;
+      const monthlyLossVal = annualLossVal / 12;
+      const annualSavingsVal = annualLossVal * 0.8;
+      const hoursReclaimedVal = annualHoursWasted * 0.8;
+
+      // Update display outputs
+      outWastedHours.textContent = `${formatNumber(annualHoursWasted)} hrs`;
+      outMonthlyLoss.textContent = formatCurrency(monthlyLossVal);
+      outAnnualLoss.textContent = formatCurrency(annualLossVal);
+      outSavings.textContent = formatCurrency(annualSavingsVal);
+      outReclaimedHours.textContent = `Reclaiming ${formatNumber(hoursReclaimedVal)} operator hours annually`;
+    }
+
+    // Attach listeners
+    employeesInput.addEventListener('input', recalculate);
+    hoursInput.addEventListener('input', recalculate);
+    rateInput.addEventListener('input', recalculate);
+
+    // Initial run
+    recalculate();
+  });
+</script>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-brand-dark/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white font-extrabold">
+              C
+            </div>
+            <span class="text-lg font-bold text-white">Caul Haus Group</span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-sm mb-6">
+            We specialize in building automated systems to enhance team efficiency. We evaluate, automate, integrate, and optimize.
+          </p>
+          <p class="text-xs text-slate-500">
+            &copy; 2026 Caul Haus Group, Inc. All rights reserved.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="/" class="hover:text-brand-secondary transition-colors">Home</a></li>
+            <li><a href="/services/" class="hover:text-brand-secondary transition-colors">Services</a></li>
+            <li><a href="/projects/" class="hover:text-brand-secondary transition-colors">Projects</a></li>
+            <li><a href="/about/" class="hover:text-brand-secondary transition-colors">About Us</a></li>
+            <li><a href="/blog/" class="hover:text-brand-secondary transition-colors">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Get in Touch</h3>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="/contact/" class="hover:text-brand-secondary transition-colors">Get a Quote</a></li>
+            <li>Email: <a href="mailto:hello@caulhaus.com" class="hover:text-brand-secondary transition-colors">hello@caulhaus.com</a></li>
+            <li class="pt-2">
+              <span class="text-xs px-2.5 py-1 rounded-full bg-slate-800/80 text-slate-300 border border-slate-700/60">Remote Worldwide</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconPath = document.getElementById('menu-icon-path');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenu.classList.toggle('hidden');
+      if (isExpanded) {
+        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      } else {
+        menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      }
+    });
+  </script>
+</body>
+</html>

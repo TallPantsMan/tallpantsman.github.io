@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Caul Haus Group</title>
+  <meta name="description" content="Practical automation tips, system integration advice, and AI operational strategies from Caul Haus Group.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/tailwind.css">
+  <style>
+    /* Page load fade-in animation */
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-slate-100 flex flex-col min-h-screen selection:bg-brand-primary selection:text-white">
+  <!-- Glowing decorative backgrounds -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 w-full glass-card border-x-0 border-t-0 bg-brand-dark/65 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white font-extrabold shadow-md shadow-brand-primary/20 group-hover:scale-105 transition-transform">
+          C
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white group-hover:text-brand-secondary transition-colors">
+          Caul Haus <span class="text-xs font-semibold uppercase px-1.5 py-0.5 rounded bg-brand-primary/20 text-brand-primary ml-1">Group</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="/" class="hover:text-brand-secondary transition-colors ">Home</a>
+        <a href="/services/" class="hover:text-brand-secondary transition-colors ">Services</a>
+        <a href="/projects/" class="hover:text-brand-secondary transition-colors ">Projects</a>
+        <a href="/about/" class="hover:text-brand-secondary transition-colors ">About Us</a>
+        <a href="/blog/" class="hover:text-brand-secondary transition-colors text-brand-secondary">Blog</a>
+        <a href="/contact/" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold shadow-md shadow-brand-primary/25 hover:shadow-brand-primary/45 hover:scale-102 hover:brightness-105 active:scale-98 transition-all">
+          Get a Quote
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/80 bg-brand-dark/95 backdrop-blur-lg">
+      <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 flex flex-col text-base font-medium">
+        <a href="/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Home</a>
+        <a href="/services/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Services</a>
+        <a href="/projects/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Projects</a>
+        <a href="/about/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">About Us</a>
+        <a href="/blog/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white text-brand-secondary bg-slate-800/30">Blog</a>
+        <div class="pt-2 px-3">
+          <a href="/contact/" class="block text-center py-3 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold shadow-md">
+            Get a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow fade-in">
+    
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-brand-primary text-xs font-semibold uppercase tracking-wider mb-6">
+        Operations Insights
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">The Caul Haus Blog</h1>
+      <p class="text-lg text-slate-400">Practical automation tips, system integration advice, and AI operational strategies.</p>
+    </div>
+
+    <!-- Blog Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><article class="glass-card rounded-3xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/5 transition-all duration-300">
+          <div class="p-8">
+            <div class="flex items-center gap-3 text-xs text-slate-500 font-semibold mb-4 uppercase tracking-wider">
+              <span>June 10, 2026</span>
+              <span>•</span>
+              <span>5 min read</span>
+            </div>
+            
+            <h2 class="text-xl font-bold text-white mb-3 hover:text-brand-secondary transition-colors line-clamp-2">
+              <a href="/blog/build-your-email-list-automated/">Build Your Email List with Automated Sign-Ups: Streamlining Your Success</a>
+            </h2>
+            
+            <p class="text-slate-400 text-sm leading-relaxed line-clamp-3 mb-6">
+              In today&#39;s digital world, building an email list is critical for any business wanting to grow its customer base and enhance revenue. Discover how to automate the sign-up process.
+            </p>
+          </div>
+          
+          <div class="p-8 pt-0 border-t border-slate-900 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-mono">By Alex Herbstman</span>
+            <a href="/blog/build-your-email-list-automated/" class="text-xs font-bold text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-1">
+              Read Article
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article><article class="glass-card rounded-3xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/5 transition-all duration-300">
+          <div class="p-8">
+            <div class="flex items-center gap-3 text-xs text-slate-500 font-semibold mb-4 uppercase tracking-wider">
+              <span>May 27, 2026</span>
+              <span>•</span>
+              <span>4 min read</span>
+            </div>
+            
+            <h2 class="text-xl font-bold text-white mb-3 hover:text-brand-secondary transition-colors line-clamp-2">
+              <a href="/blog/customer-feedback-collection/">The Role of Automation in Customer Feedback Collection</a>
+            </h2>
+            
+            <p class="text-slate-400 text-sm leading-relaxed line-clamp-3 mb-6">
+              Customer feedback is essential for improvement, but collecting it manually is time-consuming and yields low response rates. Learn how to automate the loop.
+            </p>
+          </div>
+          
+          <div class="p-8 pt-0 border-t border-slate-900 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-mono">By Alex Herbstman</span>
+            <a href="/blog/customer-feedback-collection/" class="text-xs font-bold text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-1">
+              Read Article
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article><article class="glass-card rounded-3xl overflow-hidden border border-slate-800 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/5 transition-all duration-300">
+          <div class="p-8">
+            <div class="flex items-center gap-3 text-xs text-slate-500 font-semibold mb-4 uppercase tracking-wider">
+              <span>February 11, 2026</span>
+              <span>•</span>
+              <span>3 min read</span>
+            </div>
+            
+            <h2 class="text-xl font-bold text-white mb-3 hover:text-brand-secondary transition-colors line-clamp-2">
+              <a href="/blog/what-makes-caul-haus-group-unique/">What Makes Caul Haus Group Unique in Automation?</a>
+            </h2>
+            
+            <p class="text-slate-400 text-sm leading-relaxed line-clamp-3 mb-6">
+              Smart automation enhances business efficiency by reducing confusion caused by managing too many tasks and disconnected tools. It serves as a reliable assistant.
+            </p>
+          </div>
+          
+          <div class="p-8 pt-0 border-t border-slate-900 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-mono">By Alex Herbstman</span>
+            <a href="/blog/what-makes-caul-haus-group-unique/" class="text-xs font-bold text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-1">
+              Read Article
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article></div>
+  </div>
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-brand-dark/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white font-extrabold">
+              C
+            </div>
+            <span class="text-lg font-bold text-white">Caul Haus Group</span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-sm mb-6">
+            We specialize in building automated systems to enhance team efficiency. We evaluate, automate, integrate, and optimize.
+          </p>
+          <p class="text-xs text-slate-500">
+            &copy; 2026 Caul Haus Group, Inc. All rights reserved.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="/" class="hover:text-brand-secondary transition-colors">Home</a></li>
+            <li><a href="/services/" class="hover:text-brand-secondary transition-colors">Services</a></li>
+            <li><a href="/projects/" class="hover:text-brand-secondary transition-colors">Projects</a></li>
+            <li><a href="/about/" class="hover:text-brand-secondary transition-colors">About Us</a></li>
+            <li><a href="/blog/" class="hover:text-brand-secondary transition-colors">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Get in Touch</h3>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="/contact/" class="hover:text-brand-secondary transition-colors">Get a Quote</a></li>
+            <li>Email: <a href="mailto:hello@caulhaus.com" class="hover:text-brand-secondary transition-colors">hello@caulhaus.com</a></li>
+            <li class="pt-2">
+              <span class="text-xs px-2.5 py-1 rounded-full bg-slate-800/80 text-slate-300 border border-slate-700/60">Remote Worldwide</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconPath = document.getElementById('menu-icon-path');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenu.classList.toggle('hidden');
+      if (isExpanded) {
+        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      } else {
+        menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      }
+    });
+  </script>
+</body>
+</html>
