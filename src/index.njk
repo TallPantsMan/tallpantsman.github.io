@@ -5,23 +5,114 @@ description: We streamline operations and fuel growth with data-driven strategy.
 ---
 
 <!-- Hero Section -->
-<section class="py-32 md:py-48 px-6 md:px-16 relative">
-  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <div class="ambient-glow top-1/4 left-1/4"></div>
-    <div class="ambient-glow top-1/3 right-1/4"></div>
+<section class="py-32 md:py-48 px-margin-mobile md:px-margin-desktop relative bg-transparent reveal">
+  <!-- STITCH_THREEJS_START:ANIMATION_22 class="absolute inset-0 w-full h-full bg-transparent pointer-events-none -z-10" -->
+  <div class="absolute inset-0 w-full h-full bg-transparent pointer-events-none -z-10" style="display:block;">
+    <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+    <div id="threejs-container-ANIMATION_22" style="width:100%;height:100%"></div>
+    <script>
+      (function() {
+        const container = document.getElementById('threejs-container-ANIMATION_22');
+        if (!container) return;
+        const scene = new THREE.Scene();
+        const width = container.clientWidth || window.innerWidth;
+        const height = container.clientHeight || window.innerHeight;
+        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(window.devicePixelRatio || 1);
+        container.appendChild(renderer.domElement);
+
+        const group = new THREE.Group();
+        const material = new THREE.MeshPhongMaterial({
+            color: 0x3b82f6, // Primary Blue
+            specular: 0xffffff,
+            shininess: 100,
+            transparent: true,
+            opacity: 0.9,
+            flatShading: true
+        });
+
+        const edgeMaterial = new THREE.LineBasicMaterial({ color: 0x1e3a8a, transparent: true, opacity: 0.3 });
+
+        for (let i = 0; i < 12; i++) {
+            const size = 0.5 + Math.random() * 1.5;
+            const geometry = new THREE.BoxGeometry(size, size * 2, size);
+            const mesh = new THREE.Mesh(geometry, material);
+            
+            mesh.position.set(
+                (Math.random() - 0.5) * 4,
+                i * 0.8 - 4,
+                (Math.random() - 0.5) * 4
+            );
+            
+            mesh.rotation.y = Math.random() * Math.PI;
+            
+            const edges = new THREE.EdgesGeometry(geometry);
+            const line = new THREE.LineSegments(edges, edgeMaterial);
+            mesh.add(line);
+            
+            group.add(mesh);
+        }
+
+        scene.add(group);
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0xffffff, 1);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+
+        camera.position.z = 10;
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            group.rotation.y += 0.005;
+            group.position.y = Math.sin(Date.now() * 0.001) * 0.2;
+            
+            group.rotation.x += (mouseY * 0.2 - group.rotation.x) * 0.05;
+            group.rotation.z += (mouseX * 0.2 - group.rotation.z) * 0.05;
+            
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            const w = container.clientWidth || window.innerWidth;
+            const h = container.clientHeight || window.innerHeight;
+            renderer.setSize(w, h);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+        });
+
+        animate();
+      })();
+    </script>
   </div>
-  <div class="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 relative z-10 animate-fade-in-up">
+  <!-- STITCH_THREEJS_END:ANIMATION_22 -->
+
+  <div class="max-w-3xl mx-auto text-center flex flex-col items-center gap-stack-md relative z-10">
     <h1 class="font-display-sm text-display-sm md:font-display-lg md:text-display-lg text-on-surface leading-tight font-light">
       Scale with <span class="text-primary font-normal">Clarity.</span>
     </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl font-light delay-100">
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl font-light">
       We streamline operations and fuel growth with data-driven strategy. Stop working in your business, start working on it.
     </p>
-    <div class="flex flex-wrap justify-center gap-4 pt-8 delay-200">
-      <a class="bg-on-surface text-surface font-label-md text-label-md rounded-full px-8 py-3.5 hover:bg-on-surface/80 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg transition-all duration-300 flex items-center gap-2" href="/about/">
+    <div class="flex flex-wrap justify-center gap-base pt-8">
+      <a class="bg-on-surface text-surface font-label-md text-label-md rounded-full px-8 py-3 hover:bg-on-surface/80 transition-all flex items-center gap-2" href="/about/">
         Start Journey
       </a>
-      <a class="text-on-surface font-label-md text-label-md px-8 py-3.5 hover:text-primary hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-medium" href="/projects/">
+      <a class="text-on-surface font-label-md text-label-md px-8 py-3 hover:text-primary transition-all" href="/projects/">
         Case Studies
       </a>
     </div>
@@ -29,19 +120,19 @@ description: We streamline operations and fuel growth with data-driven strategy.
 </section>
 
 <!-- Core Pillars -->
-<section class="py-32 px-6 md:px-16 bg-surface border-t border-outline-variant/30">
-  <div class="max-w-[1024px] mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-transparent reveal">
+  <div class="max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
       <!-- Pillar 1 -->
-      <div class="flex flex-col group animate-fade-in-up">
-        <div class="w-12 h-12 flex items-center justify-center text-primary mb-4 transition-transform duration-500 group-hover:scale-110">
+      <div class="flex flex-col group p-6 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-surface-container-lowest/50">
+        <div class="w-12 h-12 flex items-center justify-center text-primary mb-stack-sm animate-float">
           <span class="material-symbols-outlined text-[32px] font-light">settings</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal">Business Automation</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant mb-6 font-light leading-relaxed">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm font-normal">Business Automation</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md font-light leading-relaxed">
           Focus on efficiency. Custom workflows that save hours, reduce errors, and let your team focus on high-value tasks.
         </p>
-        <ul class="flex flex-col gap-3 mb-8">
+        <ul class="flex flex-col gap-3 mb-stack-md">
           <li class="flex items-center gap-3 text-on-surface-variant font-body-md text-body-md font-light">
             <span class="material-symbols-outlined text-primary/50 text-[18px]">check</span>
             CRM & Pipeline Automation
@@ -61,15 +152,15 @@ description: We streamline operations and fuel growth with data-driven strategy.
         </a>
       </div>
       <!-- Pillar 2 -->
-      <div class="flex flex-col group animate-fade-in-up delay-100">
-        <div class="w-12 h-12 flex items-center justify-center text-primary mb-4 transition-transform duration-500 group-hover:scale-110">
+      <div class="flex flex-col group p-6 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-surface-container-lowest/50">
+        <div class="w-12 h-12 flex items-center justify-center text-primary mb-stack-sm animate-float" style="animation-delay: 0.5s;">
           <span class="material-symbols-outlined text-[32px] font-light">campaign</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal">Full-Stack Marketing</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant mb-6 font-light leading-relaxed">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm font-normal">Full-Stack Marketing</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md font-light leading-relaxed">
           Focus on growth. Multi-channel strategies and execution to generate B2B leads and drive sustainable revenue.
         </p>
-        <ul class="flex flex-col gap-3 mb-8">
+        <ul class="flex flex-col gap-3 mb-stack-md">
           <li class="flex items-center gap-3 text-on-surface-variant font-body-md text-body-md font-light">
             <span class="material-symbols-outlined text-primary/50 text-[18px]">check</span>
             B2B Lead Generation
@@ -93,28 +184,28 @@ description: We streamline operations and fuel growth with data-driven strategy.
 </section>
 
 <!-- Trust / Why Choose Us -->
-<section class="py-32 px-6 md:px-16 bg-surface-container/20 border-t border-outline-variant/30">
-  <div class="max-w-[1024px] mx-auto text-center">
-    <p class="font-label-sm text-label-sm text-on-surface-variant/60 uppercase tracking-[0.2em] mb-12 animate-fade-in-up">Trusted by Industry Leaders</p>
-    <div class="flex flex-wrap justify-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 mb-32 animate-fade-in-up delay-100">
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-transparent reveal">
+  <div class="max-w-container-max mx-auto text-center">
+    <p class="font-label-sm text-label-sm text-on-surface-variant/60 uppercase tracking-[0.2em] mb-12">Trusted by Industry Leaders</p>
+    <div class="flex flex-wrap justify-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 mb-32">
       <div class="h-8 md:h-10 flex items-center font-headline-md text-headline-md font-light text-on-surface-variant">TechCorp</div>
       <div class="h-8 md:h-10 flex items-center font-headline-md text-headline-md font-light text-on-surface-variant">Innovate.io</div>
       <div class="h-8 md:h-10 flex items-center font-headline-md text-headline-md font-light text-on-surface-variant">GlobalSys</div>
     </div>
     
-    <div class="max-w-3xl mx-auto flex flex-col gap-6 items-center animate-fade-in-up delay-200">
+    <div class="max-w-3xl mx-auto flex flex-col gap-stack-md items-center">
       <h2 class="font-display-sm text-display-sm text-on-surface font-light">Why CaulHaus?</h2>
-      <p class="font-body-lg text-body-lg text-on-surface-variant font-light leading-relaxed">
+      <p class="font-body-lg text-body-lg text-on-surface-variant font-light">
         We don't just deliver tools; we deliver outcomes. Combining technical expertise with strategic insight for measurable ROI.
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-16 mt-12 w-full">
-        <div class="flex flex-col items-center transition-transform duration-500 hover:scale-105">
-          <div class="font-display-sm text-display-sm md:text-display-lg text-primary font-light mb-2">3x</div>
-          <div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Pipeline Velocity</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-16 mt-8 w-full">
+        <div class="flex flex-col items-center">
+          <div class="font-display-sm text-display-sm text-primary font-light mb-2">3x</div>
+          <div class="font-label-md text-label-md text-on-surface-variant/60 uppercase tracking-wider">Pipeline Velocity</div>
         </div>
-        <div class="flex flex-col items-center transition-transform duration-500 hover:scale-105">
-          <div class="font-display-sm text-display-sm md:text-display-lg text-primary font-light mb-2">40h</div>
-          <div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Weekly Hours Saved</div>
+        <div class="flex flex-col items-center">
+          <div class="font-display-sm text-display-sm text-primary font-light mb-2">40h</div>
+          <div class="font-label-md text-label-md text-on-surface-variant/60 uppercase tracking-wider">Weekly Hours Saved</div>
         </div>
       </div>
     </div>
@@ -122,12 +213,12 @@ description: We streamline operations and fuel growth with data-driven strategy.
 </section>
 
 <!-- Testimonial -->
-<section class="py-32 px-6 md:px-16 bg-surface border-t border-outline-variant/30">
-  <div class="max-w-4xl mx-auto text-center animate-fade-in-up">
-    <h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-12 font-light leading-relaxed italic">
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface-container/30 relative reveal">
+  <div class="max-w-4xl mx-auto text-center">
+    <h3 class="font-headline-lg text-headline-lg text-on-surface mb-12 font-light leading-relaxed italic">
       "CaulHaus transformed our disjointed sales process. The automation saved countless hours, and the marketing generated higher quality leads than ever. A true partner."
     </h3>
-    <div class="flex flex-col items-center justify-center gap-4 delay-100">
+    <div class="flex flex-col items-center justify-center gap-4">
       <div class="text-center">
         <div class="font-label-md text-label-md text-on-surface font-semibold">Sarah Jenkins</div>
         <div class="font-body-md text-body-md text-on-surface-variant font-light mt-1">VP of Operations, TechCorp</div>
@@ -137,48 +228,45 @@ description: We streamline operations and fuel growth with data-driven strategy.
 </section>
 
 <!-- Engagement Models -->
-<section class="py-32 px-6 md:px-16 bg-surface-container/30 border-t border-outline-variant/30">
-  <div class="max-w-[1024px] mx-auto">
-    <div class="text-center mb-24 animate-fade-in-up">
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-transparent reveal">
+  <div class="max-w-container-max mx-auto">
+    <div class="text-center mb-24">
       <h2 class="font-display-sm text-display-sm text-on-surface mb-6 font-light">Engagement Models</h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light">Tailored partnership structures to meet your growth stage.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
       <!-- Card 1 -->
-      <div class="glass-card rounded-2xl p-8 flex flex-col gap-4 animate-fade-in-up delay-100">
-        <span class="material-symbols-outlined text-primary/80 text-[28px] font-light">managed_history</span>
-        <h3 class="font-headline-md text-[20px] text-on-surface font-semibold">Managed Services</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Ongoing support and optimization for business processes.</p>
+      <div class="flex flex-col gap-4 p-6 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-surface-container-lowest/50">
+        <span class="material-symbols-outlined text-primary/60 text-[24px] font-light animate-float" style="animation-delay: 0.1s;">managed_history</span>
+        <h3 class="font-headline-md text-[20px] text-on-surface font-normal">Managed Services</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant font-light">Ongoing support and optimization for business processes.</p>
       </div>
       <!-- Card 2 -->
-      <div class="glass-card rounded-2xl p-8 flex flex-col gap-4 animate-fade-in-up delay-200">
-        <span class="material-symbols-outlined text-primary/80 text-[28px] font-light">assignment</span>
-        <h3 class="font-headline-md text-[20px] text-on-surface font-semibold">Project Based</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Defined scope for specific goals with clear timelines.</p>
+      <div class="flex flex-col gap-4 p-6 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-surface-container-lowest/50">
+        <span class="material-symbols-outlined text-primary/60 text-[24px] font-light animate-float" style="animation-delay: 0.3s;">assignment</span>
+        <h3 class="font-headline-md text-[20px] text-on-surface font-normal">Project Based</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant font-light">Defined scope for specific goals with clear timelines.</p>
       </div>
       <!-- Card 3 -->
-      <div class="glass-card rounded-2xl p-8 flex flex-col gap-4 animate-fade-in-up delay-300">
-        <span class="material-symbols-outlined text-primary/80 text-[28px] font-light">group_add</span>
-        <h3 class="font-headline-md text-[20px] text-on-surface font-semibold">Staff Augmentation</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Seamlessly integrate experts to scale internal capabilities.</p>
+      <div class="flex flex-col gap-4 p-6 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-surface-container-lowest/50">
+        <span class="material-symbols-outlined text-primary/60 text-[24px] font-light animate-float" style="animation-delay: 0.5s;">group_add</span>
+        <h3 class="font-headline-md text-[20px] text-on-surface font-normal">Staff Augmentation</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant font-light">Seamlessly integrate experts to scale internal capabilities.</p>
       </div>
       <!-- Card 4 -->
-      <div class="glass-card rounded-2xl p-8 flex flex-col gap-4 animate-fade-in-up delay-400">
-        <span class="material-symbols-outlined text-primary/80 text-[28px] font-light">insights</span>
-        <h3 class="font-headline-md text-[20px] text-on-surface font-semibold">Strategic Advisory</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">High-level consulting to align roadmap with objectives.</p>
+      <div class="flex flex-col gap-4 p-6 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-surface-container-lowest/50">
+        <span class="material-symbols-outlined text-primary/60 text-[24px] font-light animate-float" style="animation-delay: 0.7s;">insights</span>
+        <h3 class="font-headline-md text-[20px] text-on-surface font-normal">Strategic Advisory</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant font-light">High-level consulting to align roadmap with objectives.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Final Call to Action -->
-<section class="py-24 px-6 md:px-16 bg-surface border-t border-outline-variant/30 text-center">
-  <div class="glass-card rounded-3xl p-12 md:p-20 max-w-4xl mx-auto border border-outline-variant/50 relative overflow-hidden animate-fade-in-up">
-    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      <div class="ambient-glow top-0 left-0"></div>
-    </div>
-    <div class="relative z-10 max-w-2xl mx-auto">
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-transparent reveal">
+  <div class="rounded-3xl p-12 md:p-20 max-w-4xl mx-auto border border-outline-variant bg-surface-container-lowest/50 relative overflow-hidden shadow-lg transition-transform duration-500 hover:scale-[1.01] hover:shadow-xl">
+    <div class="relative z-10 max-w-2xl mx-auto text-center">
       <h3 class="font-display-sm text-display-sm text-on-surface mb-6 font-light">
         Ready to scale your operations?
       </h3>

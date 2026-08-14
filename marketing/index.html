@@ -17,7 +17,119 @@
     }
   </style>
 </head>
-<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+<body class="text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container relative z-0 bg-transparent">
+
+  <!-- STITCH_SHADER_START:ANIMATION_21 class="fixed inset-0 w-full h-full -z-10" -->
+  <div class="fixed inset-0 w-full h-full -z-10" style="display:block; pointer-events: none;">
+    <canvas id="shader-canvas-ANIMATION_21" style="display:block;width:100%;height:100%"></canvas>
+    <script>
+      (function() {
+        const canvas = document.getElementById('shader-canvas-ANIMATION_21');
+        function syncSize() {
+          const w = canvas.clientWidth  || 1280;
+          const h = canvas.clientHeight || 720;
+          if (canvas.width !== w || canvas.height !== h) {
+            canvas.width  = w;
+            canvas.height = h;
+          }
+        }
+        if (typeof ResizeObserver !== 'undefined') {
+          new ResizeObserver(syncSize).observe(canvas);
+        }
+        syncSize();
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return;
+        const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+        const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 m = u_mouse / u_resolution;
+    
+    float t = u_time * 0.15;
+    
+    // Base colors from Kinetic Enterprise palette (Light Mode)
+    vec3 color1 = vec3(0.97, 0.98, 1.0);  // Surface
+    vec3 color2 = vec3(0.92, 0.95, 1.0);  // Soft Blue
+    vec3 color3 = vec3(0.98, 1.0, 0.98);  // Soft Mint
+    
+    // Interactive influence
+    float dist = distance(uv, m);
+    float active = smoothstep(0.5, 0.0, dist) * 0.2;
+    
+    // Flowing noise patterns
+    float n1 = sin(uv.x * 4.0 + t + active) * cos(uv.y * 3.0 - t);
+    float n2 = cos(uv.y * 5.0 + t * 0.7) * sin(uv.x * 2.5 - t * 1.2);
+    
+    vec3 color = mix(color1, color2, clamp(n1 * 0.5 + 0.5, 0.0, 1.0));
+    color = mix(color, color3, clamp(n2 * 0.3, 0.0, 1.0));
+    
+    // Subtle glow near mouse
+    color += vec3(0.2, 0.4, 1.0) * active * 0.1;
+    
+    gl_FragColor = vec4(color, 1.0);
+}`;
+        function cs(type, src) {
+          const s = gl.createShader(type);
+          gl.shaderSource(s, src);
+          gl.compileShader(s);
+          return s;
+        }
+        const prog = gl.createProgram();
+        gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+        gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+        gl.linkProgram(prog);
+        gl.useProgram(prog);
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+        const pos = gl.getAttribLocation(prog, 'a_position');
+        gl.enableVertexAttribArray(pos);
+        gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+        const uTime = gl.getUniformLocation(prog, 'u_time');
+        const uRes = gl.getUniformLocation(prog, 'u_resolution');
+        const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+        let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+        window.addEventListener('mousemove', (event) => {
+          const rect = canvas.getBoundingClientRect();
+          if (rect.width && rect.height) {
+            const nx = (event.clientX - rect.left) / rect.width;
+            const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+            mouse.x = nx * canvas.width;
+            mouse.y = ny * canvas.height;
+          }
+        });
+
+        function render(t) {
+          if (typeof ResizeObserver === 'undefined') syncSize();
+          gl.viewport(0, 0, canvas.width, canvas.height);
+          if (uTime) gl.uniform1f(uTime, t * 0.001);
+          if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+          if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+          requestAnimationFrame(render);
+        }
+        render(0);
+      })();
+    </script>
+  </div>
+  <!-- STITCH_SHADER_END:ANIMATION_21 -->
+
+  <div class="fixed inset-0 z-[-1] pointer-events-none bg-transparent">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-primary-fixed/40 via-primary-fixed/5 to-transparent"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-secondary-fixed/40 via-secondary-fixed/5 to-transparent"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(currentColor_1px,transparent_1px)] text-on-surface bg-[size:24px_24px] opacity-[0.04]"></div>
+  </div>
 
   <!-- TopNavBar -->
   <header class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-outline-variant/30">
@@ -95,12 +207,8 @@
   <main class="flex-grow pt-24 animate-fade-in-up">
     
 <!-- Hero Section -->
-<section class="relative pt-20 md:pt-32 pb-32 overflow-hidden max-w-[1024px] mx-auto px-6 md:px-16">
-  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <div class="ambient-glow top-1/4 left-1/4"></div>
-  </div>
-  
-  <div class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8 mt-12 animate-fade-in-up">
+<section class="relative pt-20 md:pt-32 pb-32 overflow-hidden max-w-[1024px] mx-auto px-6 md:px-16 reveal">
+  <div class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8 mt-12">
     <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-outline-variant/60 bg-surface-container/50 text-on-surface-variant font-label-sm text-label-sm">
       <span class="material-symbols-outlined text-[16px] mr-2" data-icon="insights">insights</span>
       Full-Stack Marketing Solutions
@@ -108,10 +216,10 @@
     <h1 class="font-display-sm text-headline-lg-mobile md:text-display-lg text-on-surface font-light">
       Full-Stack Marketing <span class="text-primary font-light">That Scales.</span>
     </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed delay-100">
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
       From strategy to execution, we manage your entire marketing ecosystem to drive predictable B2B pipeline growth with precision and clarity.
     </p>
-    <div class="pt-8 flex flex-col sm:flex-row gap-4 justify-center delay-200">
+    <div class="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
       <a class="bg-primary hover:bg-primary-container hover:scale-[1.02] active:scale-[0.98] text-on-primary font-label-md text-label-md px-10 py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center font-semibold" href="#book-session">
         Start a Conversation
         <span class="material-symbols-outlined ml-2 text-[18px]" data-icon="arrow_forward">arrow_forward</span>
@@ -124,44 +232,44 @@
 </section>
 
 <!-- Bento Grid of Services -->
-<section class="py-32 bg-surface-container-low border-t border-outline-variant/30">
+<section class="py-32 border-t border-outline-variant/20 bg-transparent reveal">
   <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="text-center mb-24 max-w-2xl mx-auto animate-fade-in-up">
-      <h2 class="font-display-sm text-display-sm text-on-surface mb-6 font-light">Integrated Marketing</h2>
+    <div class="text-center mb-24 max-w-2xl mx-auto">
+      <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-6 font-light">Integrated Marketing</h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant font-light leading-relaxed">A unified approach where every channel works together for systemic growth.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- SEO & Content -->
-      <div class="lg:col-span-2 bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 animate-fade-in-up delay-100">
-        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 transition-transform duration-500 group-hover:scale-110">
+      <div class="lg:col-span-2 bg-surface/50 backdrop-blur-md rounded-2xl p-10 border border-outline-variant/45 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/5">
+        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 animate-float">
           <span class="material-symbols-outlined text-[20px]" data-icon="search_insights">search_insights</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Content Architecture</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Semantic clusters and high-intent content capturing demand at every B2B journey stage.</p>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal relative z-10">Content Architecture</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed max-w-md relative z-10">Semantic clusters and high-intent content capturing demand at every B2B journey stage.</p>
       </div>
       <!-- Paid Ads -->
-      <div class="bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 animate-fade-in-up delay-200">
-        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 transition-transform duration-500 group-hover:scale-110">
+      <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-10 border border-outline-variant/45 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/5">
+        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 animate-float" style="animation-delay: 0.5s;">
           <span class="material-symbols-outlined text-[20px]" data-icon="ads_click">ads_click</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Paid Acquisition</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Precision targeting and optimal ROAS management.</p>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal relative z-10">Paid Acquisition</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed relative z-10">Precision targeting and optimal ROAS management.</p>
       </div>
       <!-- Email Marketing -->
-      <div class="bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 animate-fade-in-up delay-300">
-        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 transition-transform duration-500 group-hover:scale-110">
+      <div class="bg-surface/50 backdrop-blur-md rounded-2xl p-10 border border-outline-variant/45 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/5">
+        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 animate-float" style="animation-delay: 1s;">
           <span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Email & Outbound</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Automated sequences turning cold leads into pipeline.</p>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal relative z-10">Email & Outbound</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed relative z-10">Automated sequences turning cold leads into pipeline.</p>
       </div>
       <!-- CRO & Brand Strategy -->
-      <div class="lg:col-span-4 bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 animate-fade-in-up delay-400">
+      <div class="lg:col-span-4 bg-surface/50 backdrop-blur-md rounded-2xl p-10 border border-outline-variant/45 relative overflow-hidden transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30">
         <div class="max-w-3xl">
-          <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 transition-transform duration-500 group-hover:scale-110">
+          <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 animate-float" style="animation-delay: 1.5s;">
             <span class="material-symbols-outlined text-[20px]" data-icon="speed">speed</span>
           </div>
-          <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Conversion & Brand Strategy</h3>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal">Conversion & Brand Strategy</h3>
           <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">Optimizing the entire funnel from landing page architecture to overall brand positioning, ensuring every touchpoint converts elegantly.</p>
         </div>
       </div>
@@ -170,35 +278,35 @@
 </section>
 
 <!-- Our Approach Process -->
-<section class="py-32 bg-surface border-t border-outline-variant/30">
+<section class="py-32 border-t border-outline-variant/20 bg-transparent reveal">
   <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="mb-24 text-center max-w-2xl mx-auto animate-fade-in-up">
-      <h2 class="font-display-sm text-display-sm text-on-surface mb-6 font-light">The Methodology</h2>
+    <div class="mb-24 text-center max-w-2xl mx-auto">
+      <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-6 font-light">The Methodology</h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant font-light leading-relaxed">A rigorous framework aligning initiatives directly with revenue.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
       <!-- Step 1 -->
-      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up delay-100">
-        <div class="text-primary/20 font-display-lg text-[80px] leading-none mb-4 font-light">01</div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Discovery</h3>
+      <div class="relative z-10 bg-surface/30 p-8 rounded-2xl backdrop-blur-sm border border-outline-variant/20 hover:scale-105 hover:shadow-lg transition-all duration-300">
+        <div class="text-primary/40 font-display-lg text-[80px] leading-none mb-6 font-light animate-float">01</div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal">Discovery</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Deep dive into ICP, stack, and data to find growth levers.</p>
       </div>
       <!-- Step 2 -->
-      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up delay-200">
-        <div class="text-on-surface-variant/20 font-display-lg text-[80px] leading-none mb-4 font-light">02</div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Strategy</h3>
+      <div class="relative z-10 bg-surface/30 p-8 rounded-2xl backdrop-blur-sm border border-outline-variant/20 hover:scale-105 hover:shadow-lg transition-all duration-300">
+        <div class="text-on-surface-variant/30 font-display-lg text-[80px] leading-none mb-6 font-light animate-float" style="animation-delay: 0.5s;">02</div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal">Strategy</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Cohesive planning with clear KPIs and expectations.</p>
       </div>
       <!-- Step 3 -->
-      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up delay-300">
-        <div class="text-on-surface-variant/20 font-display-lg text-[80px] leading-none mb-4 font-light">03</div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Implementation</h3>
+      <div class="relative z-10 bg-surface/30 p-8 rounded-2xl backdrop-blur-sm border border-outline-variant/20 hover:scale-105 hover:shadow-lg transition-all duration-300">
+        <div class="text-on-surface-variant/30 font-display-lg text-[80px] leading-none mb-6 font-light animate-float" style="animation-delay: 1s;">03</div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal">Implementation</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Technical setup and campaign launches.</p>
       </div>
       <!-- Step 4 -->
-      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up delay-400">
-        <div class="text-on-surface-variant/20 font-display-lg text-[80px] leading-none mb-4 font-light">04</div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Optimization</h3>
+      <div class="relative z-10 bg-surface/30 p-8 rounded-2xl backdrop-blur-sm border border-outline-variant/20 hover:scale-105 hover:shadow-lg transition-all duration-300">
+        <div class="text-on-surface-variant/30 font-display-lg text-[80px] leading-none mb-6 font-light animate-float" style="animation-delay: 1.5s;">04</div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-normal">Optimization</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Continuous testing and adjustments for max ROI.</p>
       </div>
     </div>
@@ -206,9 +314,9 @@
 </section>
 
 <!-- Call to Action Form Section -->
-<section id="book-session" class="py-32 bg-surface-container-low border-t border-outline-variant/30">
+<section id="book-session" class="py-32 border-t border-outline-variant/20 bg-transparent reveal">
   <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="glass-card rounded-3xl p-8 md:p-16 border border-outline-variant/50 relative overflow-hidden animate-fade-in-up">
+    <div class="border border-outline-variant/40 rounded-3xl p-12 md:p-20 bg-surface/40 backdrop-blur-md relative overflow-hidden">
       <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div class="ambient-glow top-0 left-0"></div>
       </div>
@@ -222,7 +330,7 @@
             <div class="flex items-center"><span class="material-symbols-outlined mr-3 text-primary/75" data-icon="check">check</span> Custom roadmap</div>
           </div>
         </div>
-        <div class="w-full lg:w-[400px] shrink-0 bg-surface rounded-2xl p-8 md:p-10 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md" id="form-container">
+        <div class="w-full lg:w-[400px] shrink-0 bg-surface/70 backdrop-blur-lg rounded-2xl p-8 md:p-10 border border-outline-variant/30 shadow-sm transition-all duration-300 hover:shadow-md" id="form-container">
           <h3 class="font-headline-md text-headline-md text-on-surface mb-8 font-light">Book a Session</h3>
           <form id="marketing-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
             <!-- Hidden access key -->
@@ -232,17 +340,17 @@
 
             <div>
               <label class="block font-label-md text-label-md text-on-surface-variant mb-2 font-normal">Work Email</label>
-              <input name="email" required class="w-full h-12 px-4 rounded border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow bg-transparent" placeholder="name@company.com" type="email"/>
+              <input name="email" required class="w-full h-12 px-4 rounded border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-shadow bg-surface/50 backdrop-blur-sm text-on-surface" placeholder="name@company.com" type="email"/>
             </div>
             <div>
               <label class="block font-label-md text-label-md text-on-surface-variant mb-2 font-normal">Company Size</label>
-              <select name="company_size" class="w-full h-12 px-4 rounded border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none bg-transparent text-on-surface">
+              <select name="company_size" class="w-full h-12 px-4 rounded border border-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none bg-surface/50 backdrop-blur-sm text-on-surface">
                 <option value="1-50 employees">1-50 employees</option>
                 <option value="51-200 employees">51-200 employees</option>
                 <option value="201+ employees">201+ employees</option>
               </select>
             </div>
-            <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/95 hover:scale-[1.02] active:scale-[0.98] text-on-primary font-label-md text-label-md h-12 rounded-full transition-all mt-4 font-semibold cursor-pointer">
+            <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/95 hover:scale-[1.02] active:scale-[0.98] text-on-primary font-label-md text-label-md h-12 rounded transition-all mt-4 font-semibold cursor-pointer">
               Submit Request
             </button>
           </form>
@@ -253,45 +361,45 @@
 </section>
 
 <!-- Engagement Options -->
-<section class="py-32 bg-surface border-t border-outline-variant/30">
+<section class="py-32 border-t border-outline-variant/20 bg-surface/40 backdrop-blur-sm reveal">
   <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="text-center mb-20 max-w-2xl mx-auto animate-fade-in-up">
-      <h2 class="font-display-sm text-display-sm text-on-surface mb-6 font-light">Engagement Options</h2>
+    <div class="text-center mb-20 max-w-2xl mx-auto">
+      <h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-6 font-light">Engagement Options</h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light">Flexible partnership models for your specific growth stage.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
       <!-- Managed Services -->
-      <div class="flex flex-col items-center group animate-fade-in-up delay-100">
-        <div class="w-12 h-12 flex items-center justify-center text-primary/80 mb-6 group-hover:text-primary transition-colors">
-          <span class="material-symbols-outlined text-[36px]" data-icon="hub">hub</span>
+      <a href="#book-session" class="flex flex-col items-center group bg-surface/40 p-8 rounded-2xl backdrop-blur-md border border-outline-variant/20 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
+        <div class="w-12 h-12 flex items-center justify-center text-primary/70 mb-6 group-hover:text-primary transition-colors animate-float">
+          <span class="material-symbols-outlined text-[32px]" data-icon="hub">hub</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-light">Managed</h3>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-light">Managed Services</h3>
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light leading-relaxed">Full-scale marketing department outsourcing.</p>
-      </div>
+      </a>
       <!-- Project Based -->
-      <div class="flex flex-col items-center group animate-fade-in-up delay-200">
-        <div class="w-12 h-12 flex items-center justify-center text-primary/80 mb-6 group-hover:text-primary transition-colors">
-          <span class="material-symbols-outlined text-[36px]" data-icon="assignment">assignment</span>
+      <a href="#book-session" class="flex flex-col items-center group bg-surface/40 p-8 rounded-2xl backdrop-blur-md border border-outline-variant/20 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer" style="animation-delay: 0.5s;">
+        <div class="w-12 h-12 flex items-center justify-center text-primary/70 mb-6 group-hover:text-primary transition-colors animate-float">
+          <span class="material-symbols-outlined text-[32px]" data-icon="assignment">assignment</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-light">Project</h3>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-light">Project Based</h3>
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light leading-relaxed">Specific high-impact initiatives and launches.</p>
-      </div>
+      </a>
       <!-- Staff Augmentation -->
-      <div class="flex flex-col items-center group animate-fade-in-up delay-300">
-        <div class="w-12 h-12 flex items-center justify-center text-primary/80 mb-6 group-hover:text-primary transition-colors">
-          <span class="material-symbols-outlined text-[36px]" data-icon="group_add">group_add</span>
+      <a href="#book-session" class="flex flex-col items-center group bg-surface/40 p-8 rounded-2xl backdrop-blur-md border border-outline-variant/20 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer" style="animation-delay: 1s;">
+        <div class="w-12 h-12 flex items-center justify-center text-primary/70 mb-6 group-hover:text-primary transition-colors animate-float">
+          <span class="material-symbols-outlined text-[32px]" data-icon="group_add">group_add</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-light">Augmentation</h3>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-light">Staff Augmentation</h3>
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light leading-relaxed">Embedded specialists to fill internal skill gaps.</p>
-      </div>
+      </a>
       <!-- Strategic Advisory -->
-      <div class="flex flex-col items-center group animate-fade-in-up delay-400">
-        <div class="w-12 h-12 flex items-center justify-center text-primary/80 mb-6 group-hover:text-primary transition-colors">
-          <span class="material-symbols-outlined text-[36px]" data-icon="query_stats">query_stats</span>
+      <a href="#book-session" class="flex flex-col items-center group bg-surface/40 p-8 rounded-2xl backdrop-blur-md border border-outline-variant/20 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer" style="animation-delay: 1.5s;">
+        <div class="w-12 h-12 flex items-center justify-center text-primary/70 mb-6 group-hover:text-primary transition-colors animate-float">
+          <span class="material-symbols-outlined text-[32px]" data-icon="query_stats">query_stats</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-light">Advisory</h3>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-light">Strategic Advisory</h3>
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light leading-relaxed">High-level consulting and fractional CMO support.</p>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -300,6 +408,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('marketing-form');
+    if (!form) return;
     const container = document.getElementById('form-container');
     const submitBtn = document.getElementById('submit-btn');
 
@@ -310,9 +419,7 @@
       const emailVal = form.elements['email'].value;
       const compSizeVal = form.elements['company_size'].value;
 
-      // Check if user has updated the key placeholder
       if (accessKey === 'YOUR_ACCESS_KEY_HERE' || accessKey.trim() === '') {
-        // Intercept and do mailto fallback
         const subject = encodeURIComponent('New B2B Session Booking - CaulHaus Marketing');
         const body = encodeURIComponent(`Hello CaulHaus,\n\nI would like to book a B2B marketing strategy session.\n\nWork Email: ${emailVal}\nCompany Size: ${compSizeVal}\n\n(Note: Form submitted via mailto fallback because Web3Forms access key is not yet configured in local files)`);
         
@@ -322,7 +429,7 @@
         container.innerHTML = `
           <div class="text-center py-8">
             <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4 animate-bounce">mail</span>
-            <h3 class="text-xl font-bold text-on-surface mb-2 animate-pulse">Email Client Opened!</h3>
+            <h3 class="text-xl font-bold text-on-surface mb-2">Email Client Opened!</h3>
             <p class="text-on-surface-variant text-sm font-light mb-6">
               Your inquiry has been compiled. Please send the pre-filled email opened on your computer.
             </p>
@@ -332,7 +439,6 @@
         return;
       }
 
-      // Normal AJAX submission
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending Request...';
       submitBtn.style.opacity = '0.7';
@@ -403,7 +509,7 @@
     </div>
   </footer>
 
-  <!-- Mobile Menu Toggle Script -->
+  <!-- Mobile Menu Toggle & Scroll Reveal Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -417,6 +523,21 @@
         } else {
           menuIcon.textContent = 'close';
         }
+      });
+
+      // Scroll-Reveal Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
       });
     });
   </script>

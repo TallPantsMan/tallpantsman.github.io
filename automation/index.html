@@ -17,7 +17,119 @@
     }
   </style>
 </head>
-<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+<body class="text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container relative z-0 bg-transparent">
+
+  <!-- STITCH_SHADER_START:ANIMATION_21 class="fixed inset-0 w-full h-full -z-10" -->
+  <div class="fixed inset-0 w-full h-full -z-10" style="display:block; pointer-events: none;">
+    <canvas id="shader-canvas-ANIMATION_21" style="display:block;width:100%;height:100%"></canvas>
+    <script>
+      (function() {
+        const canvas = document.getElementById('shader-canvas-ANIMATION_21');
+        function syncSize() {
+          const w = canvas.clientWidth  || 1280;
+          const h = canvas.clientHeight || 720;
+          if (canvas.width !== w || canvas.height !== h) {
+            canvas.width  = w;
+            canvas.height = h;
+          }
+        }
+        if (typeof ResizeObserver !== 'undefined') {
+          new ResizeObserver(syncSize).observe(canvas);
+        }
+        syncSize();
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return;
+        const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+        const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 m = u_mouse / u_resolution;
+    
+    float t = u_time * 0.15;
+    
+    // Base colors from Kinetic Enterprise palette (Light Mode)
+    vec3 color1 = vec3(0.97, 0.98, 1.0);  // Surface
+    vec3 color2 = vec3(0.92, 0.95, 1.0);  // Soft Blue
+    vec3 color3 = vec3(0.98, 1.0, 0.98);  // Soft Mint
+    
+    // Interactive influence
+    float dist = distance(uv, m);
+    float active = smoothstep(0.5, 0.0, dist) * 0.2;
+    
+    // Flowing noise patterns
+    float n1 = sin(uv.x * 4.0 + t + active) * cos(uv.y * 3.0 - t);
+    float n2 = cos(uv.y * 5.0 + t * 0.7) * sin(uv.x * 2.5 - t * 1.2);
+    
+    vec3 color = mix(color1, color2, clamp(n1 * 0.5 + 0.5, 0.0, 1.0));
+    color = mix(color, color3, clamp(n2 * 0.3, 0.0, 1.0));
+    
+    // Subtle glow near mouse
+    color += vec3(0.2, 0.4, 1.0) * active * 0.1;
+    
+    gl_FragColor = vec4(color, 1.0);
+}`;
+        function cs(type, src) {
+          const s = gl.createShader(type);
+          gl.shaderSource(s, src);
+          gl.compileShader(s);
+          return s;
+        }
+        const prog = gl.createProgram();
+        gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+        gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+        gl.linkProgram(prog);
+        gl.useProgram(prog);
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+        const pos = gl.getAttribLocation(prog, 'a_position');
+        gl.enableVertexAttribArray(pos);
+        gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+        const uTime = gl.getUniformLocation(prog, 'u_time');
+        const uRes = gl.getUniformLocation(prog, 'u_resolution');
+        const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+        let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+        window.addEventListener('mousemove', (event) => {
+          const rect = canvas.getBoundingClientRect();
+          if (rect.width && rect.height) {
+            const nx = (event.clientX - rect.left) / rect.width;
+            const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+            mouse.x = nx * canvas.width;
+            mouse.y = ny * canvas.height;
+          }
+        });
+
+        function render(t) {
+          if (typeof ResizeObserver === 'undefined') syncSize();
+          gl.viewport(0, 0, canvas.width, canvas.height);
+          if (uTime) gl.uniform1f(uTime, t * 0.001);
+          if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+          if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+          requestAnimationFrame(render);
+        }
+        render(0);
+      })();
+    </script>
+  </div>
+  <!-- STITCH_SHADER_END:ANIMATION_21 -->
+
+  <div class="fixed inset-0 z-[-1] pointer-events-none bg-transparent">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-primary-fixed/40 via-primary-fixed/5 to-transparent"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-secondary-fixed/40 via-secondary-fixed/5 to-transparent"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(currentColor_1px,transparent_1px)] text-on-surface bg-[size:24px_24px] opacity-[0.04]"></div>
+  </div>
 
   <!-- TopNavBar -->
   <header class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-outline-variant/30">
@@ -95,24 +207,20 @@
   <main class="flex-grow pt-24 animate-fade-in-up">
     
 <!-- Hero Section -->
-<section class="max-w-[1024px] mx-auto px-6 md:px-16 py-20 md:py-32 flex flex-col items-center text-center relative overflow-hidden">
-  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <div class="ambient-glow top-1/4 left-1/3"></div>
-  </div>
-  
-  <div class="space-y-8 max-w-3xl relative z-10 animate-fade-in-up">
+<section class="max-w-[1024px] mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-32 flex flex-col items-center text-center relative overflow-hidden reveal">
+  <div class="space-y-8 max-w-3xl relative z-10">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-outline-variant/60 rounded-full bg-surface-container/50">
       <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Business Operations</span>
     </div>
     <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface font-light">
       Automate Your Operations.
     </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light delay-100">
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
       Reclaim hours lost to repetitive tasks. We build intelligent, secure workflows that connect systems, eliminate errors, and scale effortlessly.
     </p>
-    <div class="pt-8 flex flex-col sm:flex-row gap-4 justify-center delay-200">
-      <a class="bg-primary text-on-primary px-10 py-4 font-label-md text-label-md rounded-full hover:bg-primary-container hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 font-semibold" href="/contact/">
-        <span>Book an Audit Session</span>
+    <div class="pt-8 flex flex-col sm:flex-row gap-6 justify-center">
+      <a class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-primary-container hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 font-semibold" href="/contact/">
+        <span>Book an Audit</span>
         <span class="material-symbols-outlined font-light text-[18px]">arrow_forward</span>
       </a>
       <a class="text-on-surface hover:text-primary hover:scale-[1.02] active:scale-[0.98] px-10 py-4 font-label-md text-label-md transition-all duration-300 flex items-center justify-center underline underline-offset-4 font-semibold" href="/projects/">
@@ -123,18 +231,18 @@
 </section>
 
 <!-- Key Benefits Section -->
-<section class="py-24 bg-surface-container/20 border-y border-outline-variant/30">
-  <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 text-center">
-      <div class="space-y-4 animate-fade-in-up">
+<section class="reveal py-24 border-y border-outline-variant/30 bg-transparent">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+      <div class="space-y-4">
         <h3 class="font-display-sm text-headline-lg-mobile md:text-display-sm text-primary font-light">100+</h3>
         <p class="font-body-md text-body-md text-on-surface-variant">Hours saved monthly per department</p>
       </div>
-      <div class="space-y-4 animate-fade-in-up delay-100">
+      <div class="space-y-4">
         <h3 class="font-display-sm text-headline-lg-mobile md:text-display-sm text-primary font-light">Zero</h3>
         <p class="font-body-md text-body-md text-on-surface-variant">Human error in data transfer</p>
       </div>
-      <div class="space-y-4 animate-fade-in-up delay-200">
+      <div class="space-y-4">
         <h3 class="font-display-sm text-headline-lg-mobile md:text-display-sm text-primary font-light">Seamless</h3>
         <p class="font-body-md text-body-md text-on-surface-variant">Integration across your tools</p>
       </div>
@@ -143,9 +251,9 @@
 </section>
 
 <!-- ROI Calculator Section -->
-<section class="py-32 bg-surface">
+<section class="py-32 bg-transparent reveal">
   <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="text-center max-w-2xl mx-auto mb-20 animate-fade-in-up">
+    <div class="text-center max-w-2xl mx-auto mb-20">
       <h2 class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-3">OPERATIONAL ROI</h2>
       <h3 class="font-display-sm text-display-sm text-on-surface font-light">
         Friction & Savings Calculator
@@ -157,7 +265,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
       <!-- Calculator Inputs -->
-      <div class="lg:col-span-6 glass-card rounded-3xl p-8 flex flex-col justify-between border border-outline-variant/60 animate-fade-in-up delay-100">
+      <div class="lg:col-span-6 glass-card rounded-3xl p-8 flex flex-col justify-between border border-outline-variant/60">
         <h4 class="font-headline-md text-[20px] text-on-surface mb-8 border-b border-outline-variant/50 pb-3 font-semibold">Operational Inputs</h4>
         
         <div class="space-y-8">
@@ -196,7 +304,7 @@
       </div>
 
       <!-- Calculator Outputs -->
-      <div class="lg:col-span-6 glass-card rounded-3xl p-8 bg-surface-container-low flex flex-col justify-between border border-primary/20 shadow-sm animate-fade-in-up delay-200">
+      <div class="lg:col-span-6 glass-card rounded-3xl p-8 bg-surface-container-lowest/50 flex flex-col justify-between border border-primary/20 shadow-sm">
         <h4 class="font-headline-md text-[20px] text-on-surface mb-8 border-b border-outline-variant/50 pb-3 font-semibold">Projected Savings Roadmap</h4>
         
         <div class="space-y-6">
@@ -225,7 +333,7 @@
           </div>
         </div>
 
-        <a href="/contact/" class="mt-8 w-full py-4 text-center rounded-full bg-primary hover:bg-primary/95 hover:scale-[1.02] active:scale-[0.98] text-surface font-semibold shadow-md hover:shadow-lg transition-all duration-300 block">
+        <a href="/contact/" class="mt-8 w-full py-4 text-center rounded-full bg-primary hover:bg-primary-container hover:scale-[1.02] active:scale-[0.98] text-surface font-semibold shadow-md hover:shadow-lg transition-all duration-300 block">
           Request an Operational Audit
         </a>
       </div>
@@ -234,37 +342,37 @@
 </section>
 
 <!-- Engagement Options -->
-<section class="py-32 bg-surface-container-highest border-t border-outline-variant/30">
-  <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="text-center mb-24 animate-fade-in-up">
+<section class="reveal py-32 bg-surface-container-highest/30 backdrop-blur-sm border-t border-outline-variant/30">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-center mb-24">
       <h2 class="font-display-sm text-headline-lg-mobile md:text-display-sm text-on-surface mb-6 font-light">Engagement Options</h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light">Flexible partnership models designed to scale with your needs.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
       <!-- Managed Services -->
-      <div class="flex flex-col items-center text-center space-y-6 group animate-fade-in-up delay-100">
-        <span class="material-symbols-outlined text-primary text-4xl font-light transition-transform duration-500 group-hover:scale-115">settings_suggest</span>
+      <a href="/contact/" class="flex flex-col items-center text-center space-y-6 p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:bg-surface-container-high/50 cursor-pointer">
+        <span class="material-symbols-outlined text-primary text-4xl font-light animate-float">settings_suggest</span>
         <h3 class="font-headline-md text-headline-md text-on-surface font-light">Managed</h3>
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light">End-to-end management with 24/7 monitoring.</p>
-      </div>
+      </a>
       <!-- Project Based -->
-      <div class="flex flex-col items-center text-center space-y-6 group animate-fade-in-up delay-200">
-        <span class="material-symbols-outlined text-primary text-4xl font-light transition-transform duration-500 group-hover:scale-115">account_tree</span>
+      <a href="/contact/" class="flex flex-col items-center text-center space-y-6 p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:bg-surface-container-high/50 cursor-pointer" style="animation-delay: 0.2s;">
+        <span class="material-symbols-outlined text-primary text-4xl font-light animate-float">account_tree</span>
         <h3 class="font-headline-md text-headline-md text-on-surface font-light">Project</h3>
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light">Targeted implementations for specific challenges.</p>
-      </div>
+      </a>
       <!-- Staff Augmentation -->
-      <div class="flex flex-col items-center text-center space-y-6 group animate-fade-in-up delay-300">
-        <span class="material-symbols-outlined text-primary text-4xl font-light transition-transform duration-500 group-hover:scale-115">group_add</span>
+      <a href="/contact/" class="flex flex-col items-center text-center space-y-6 p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:bg-surface-container-high/50 cursor-pointer" style="animation-delay: 0.4s;">
+        <span class="material-symbols-outlined text-primary text-4xl font-light animate-float">group_add</span>
         <h3 class="font-headline-md text-headline-md text-on-surface font-light">Augmentation</h3>
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light">Expert engineers integrated into your team.</p>
-      </div>
+      </a>
       <!-- Strategic Advisory -->
-      <div class="flex flex-col items-center text-center space-y-6 group animate-fade-in-up delay-400">
-        <span class="material-symbols-outlined text-primary text-4xl font-light transition-transform duration-500 group-hover:scale-115">insights</span>
+      <a href="/contact/" class="flex flex-col items-center text-center space-y-6 p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:bg-surface-container-high/50 cursor-pointer" style="animation-delay: 0.6s;">
+        <span class="material-symbols-outlined text-primary text-4xl font-light animate-float">insights</span>
         <h3 class="font-headline-md text-headline-md text-on-surface font-light">Advisory</h3>
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light">High-level consulting to define your strategy.</p>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -273,6 +381,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const employeesInput = document.getElementById('employees');
+    if (!employeesInput) return;
     const hoursInput = document.getElementById('hours');
     const rateInput = document.getElementById('rate');
 
@@ -299,7 +408,6 @@
     }
 
     function triggerPopEffect(element) {
-      // Small visual scale pop effect to indicate data update
       element.classList.remove('scale-100');
       element.classList.add('scale-102', 'text-primary');
       setTimeout(() => {
@@ -313,19 +421,16 @@
       const hrs = parseInt(hoursInput.value);
       const rate = parseInt(rateInput.value);
 
-      // Update labels
       employeesVal.textContent = emp;
       hoursVal.textContent = hrs;
       rateVal.textContent = `$${rate}`;
 
-      // Calculate formulas
       const annualHoursWasted = emp * hrs * 52;
       const annualLossVal = annualHoursWasted * rate;
       const monthlyLossVal = annualLossVal / 12;
       const annualSavingsVal = annualLossVal * 0.8;
       const hoursReclaimedVal = annualHoursWasted * 0.8;
 
-      // Update display outputs
       outWastedHours.textContent = `${formatNumber(annualHoursWasted)} hrs`;
       outMonthlyLoss.textContent = formatCurrency(monthlyLossVal);
       outAnnualLoss.textContent = formatCurrency(annualLossVal);
@@ -333,7 +438,6 @@
       outReclaimedHours.textContent = `Reclaiming ${formatNumber(hoursReclaimedVal)} operator hours annually`;
 
       if (e) {
-        // Trigger subtle indicator pops on interactive update
         triggerPopEffect(outWastedHours);
         triggerPopEffect(outMonthlyLoss);
         triggerPopEffect(outAnnualLoss);
@@ -341,12 +445,10 @@
       }
     }
 
-    // Attach listeners
     employeesInput.addEventListener('input', recalculate);
     hoursInput.addEventListener('input', recalculate);
     rateInput.addEventListener('input', recalculate);
 
-    // Initial run
     recalculate();
   });
 </script>
@@ -379,7 +481,7 @@
     </div>
   </footer>
 
-  <!-- Mobile Menu Toggle Script -->
+  <!-- Mobile Menu Toggle & Scroll Reveal Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -393,6 +495,21 @@
         } else {
           menuIcon.textContent = 'close';
         }
+      });
+
+      // Scroll-Reveal Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
       });
     });
   </script>
