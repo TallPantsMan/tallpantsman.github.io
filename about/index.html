@@ -1,73 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ABOUT US | Caul Haus Group</title>
-  <meta name="description" content="Caul Haus is an automation firm. We design and implement systems that replace manual work with reliable workflows and practical AI tools.">
+  <title>About Us | CaulHaus</title>
+  <meta name="description" content="We handle complex technical infrastructure, automate workflows, and drive marketing growth so you can scale efficiently without the overhead.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles/tailwind.css">
   <style>
-    /* Page load fade-in animation */
-    .fade-in {
-      animation: fadeIn 0.6s ease-out forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Mobile nav transition */
+    #mobile-menu {
+      transition: all 0.3s ease-in-out;
     }
   </style>
 </head>
-<body class="bg-brand-dark text-slate-100 flex flex-col min-h-screen selection:bg-brand-primary selection:text-white">
-  <!-- Glowing decorative backgrounds -->
-  <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-  <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
 
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 w-full glass-card border-x-0 border-t-0 bg-brand-dark/65 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white font-extrabold shadow-md shadow-brand-primary/20 group-hover:scale-105 transition-transform">
-          C
-        </div>
-        <span class="text-xl font-bold tracking-tight text-white group-hover:text-brand-secondary transition-colors">
-          Caul Haus <span class="text-xs font-semibold uppercase px-1.5 py-0.5 rounded bg-brand-primary/20 text-brand-primary ml-1">Group</span>
-        </span>
+  <!-- TopNavBar -->
+  <header class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-outline-variant/30">
+    <div class="flex justify-between items-center max-w-[1024px] mx-auto px-6 md:px-16 h-24">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity">
+        <img alt="CaulHaus Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida/AP1WRLv8ECppKBDFBef6_HU24FE9X3YNKHsPWiDoiCsBjkQy_02CK3HVbvLmJkyIoir6WR8Y9SpNem4grNfMwlvFjFDuhhiBAMMYJyVOxgZ4OOi1EZnnqzN4_UyRT3L2zSOU1A98DgLMSI02RdA1Lj0--6lN8MCQEAUV-2HN0aB60XmBRKqGFW0xo74xYruGLWm9zu1ytXFU0D1OxpSsMVhhJZumzAOh8k6fyNWM2uiGldqYQCxy7tRMt6yrNXo"/>
+        <span class="text-lg font-bold font-heading text-on-surface tracking-tight">CaulHaus</span>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="/" class="hover:text-brand-secondary transition-colors ">Home</a>
-        <a href="/services/" class="hover:text-brand-secondary transition-colors ">Services</a>
-        <a href="/projects/" class="hover:text-brand-secondary transition-colors ">Projects</a>
-        <a href="/about/" class="hover:text-brand-secondary transition-colors text-brand-secondary">About Us</a>
-        <a href="/blog/" class="hover:text-brand-secondary transition-colors ">Blog</a>
-        <a href="/contact/" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold shadow-md shadow-brand-primary/25 hover:shadow-brand-primary/45 hover:scale-102 hover:brightness-105 active:scale-98 transition-all">
-          Get a Quote
-        </a>
+      <nav class="hidden md:flex gap-10 items-center font-body-md text-body-md">
+        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/">Home</a>
+        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/automation/">Automation</a>
+        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/marketing/">Marketing</a>
+        <a class="text-on-surface font-medium border-b border-on-surface pb-1 transition-colors duration-200" href="/about/">About</a>
+        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/contact/">Contact</a>
+        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/blog/">Blog</a>
+        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/projects/">Projects</a>
       </nav>
 
-      <!-- Mobile Menu Toggle -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle menu">
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+      <!-- Trailing Action Button -->
+      <div class="flex items-center gap-4">
+        <a class="hidden md:inline-flex border border-on-surface text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-6 py-2.5 rounded-full transition-all" href="/contact/">
+          Get an Audit
+        </a>
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-on-surface p-2 focus:outline-none" aria-label="Toggle menu">
+          <span id="menu-icon" class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/80 bg-brand-dark/95 backdrop-blur-lg">
-      <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 flex flex-col text-base font-medium">
-        <a href="/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Home</a>
-        <a href="/services/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Services</a>
-        <a href="/projects/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Projects</a>
-        <a href="/about/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white text-brand-secondary bg-slate-800/30">About Us</a>
-        <a href="/blog/" class="px-3 py-3 rounded-md hover:bg-slate-800/50 hover:text-white ">Blog</a>
-        <div class="pt-2 px-3">
-          <a href="/contact/" class="block text-center py-3 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold shadow-md">
-            Get a Quote
+    <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-md">
+      <div class="px-6 py-6 space-y-4 flex flex-col text-base font-medium">
+        <a class="text-secondary" href="/">Home</a>
+        <a class="text-secondary" href="/automation/">Automation</a>
+        <a class="text-secondary" href="/marketing/">Marketing</a>
+        <a class="text-primary font-semibold" href="/about/">About</a>
+        <a class="text-secondary" href="/contact/">Contact</a>
+        <a class="text-secondary" href="/blog/">Blog</a>
+        <a class="text-secondary" href="/projects/">Projects</a>
+        <div class="pt-4 border-t border-outline-variant/30">
+          <a class="block text-center border border-on-surface text-on-surface font-label-md text-label-md py-3 rounded-full" href="/contact/">
+            Get an Audit
           </a>
         </div>
       </div>
@@ -75,215 +71,293 @@
   </header>
 
   <!-- Main Content Area -->
-  <main class="flex-grow fade-in">
+  <main class="flex-grow pt-24">
     
-<!-- Intro / Promise Section -->
-<section class="py-20 lg:py-28 relative">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-secondary/10 border border-brand-secondary/30 text-brand-secondary text-xs font-semibold uppercase tracking-wider mb-6">
-      Our Operational Promise
-    </div>
-    <h1 class="text-4xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-8 max-w-4xl mx-auto">
-      We won’t throw a binder of <br class="hidden sm:inline" />
-      frameworks at you.
+<!-- Hero / About Section -->
+<section class="max-w-[1024px] mx-auto px-6 md:px-16 pt-20 md:pt-32 pb-16 flex flex-col items-center text-center gap-6 relative">
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="ambient-glow top-1/4 left-1/4"></div>
+  </div>
+  
+  <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 relative z-10">
+    <h1 class="font-display-sm text-display-sm md:font-display-lg md:text-display-lg text-on-surface font-light">
+      Empowering Growth, Simplifying Tech.
     </h1>
-    <p class="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-10 font-light">
-      We’ll roll up our sleeves, find the bottlenecks, and design solutions you can <span class="text-brand-secondary font-semibold">actually maintain</span> after we’re gone.
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl font-light leading-relaxed">
+      We handle complex technical infrastructure, automate workflows, and drive marketing growth so you can scale efficiently without the overhead.
     </p>
-    <div class="p-8 lg:p-12 glass-card rounded-3xl text-left max-w-4xl mx-auto border border-slate-800">
-      <h3 class="text-lg font-semibold text-slate-400 uppercase tracking-widest mb-4">WHO WE ARE</h3>
-      <p class="text-lg text-slate-200 leading-relaxed mb-6">
-        Caul Haus is an automation firm. We design and implement systems that replace manual work with reliable workflows and practical AI tools.
-      </p>
-      <p class="text-lg text-slate-200 leading-relaxed">
-        We focus on execution. We build the infrastructure that helps teams operate with less friction and more consistency.
-      </p>
+    <div class="flex gap-8 pt-8 justify-center flex-wrap">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-2xl font-light">rocket_launch</span>
+        <span class="font-label-md text-label-md text-on-surface font-medium">Fast Implementation</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-2xl font-light">security</span>
+        <span class="font-label-md text-label-md text-on-surface font-medium">Enterprise Security</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Beliefs Section -->
-<section class="py-20 bg-slate-950/30 border-y border-slate-900">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-xs font-bold text-brand-primary uppercase tracking-widest mb-3">WHAT WE BELIEVE</h2>
-      <h3 class="text-3xl lg:text-4xl font-extrabold text-white">Our Core Philosophy</h3>
+<!-- Leadership Team -->
+<section class="py-24 bg-surface-container/20 border-y border-outline-variant/30">
+  <div class="max-w-[1024px] mx-auto px-6 md:px-16 space-y-16">
+    <div class="text-center max-w-2xl mx-auto space-y-4">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface font-light">Meet the Experts</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant font-light">Professionals committed to elevating your business.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 pt-8">
+      <!-- Team Member 1 -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-28 h-28 rounded-full overflow-hidden mb-6 border border-outline-variant/60 shadow-sm">
+          <img alt="Sarah Jenkins" class="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAToIWRQGiIYaqS90PnmAze0tILH0L9r5wLHMZV8UNsmplR_o9Njafr1ekZ6uCQnhs4YjmzPe-zaps_1XQ2LBrWWNt2s_W4McYmE99H91mGTAvYfCGuPfGIBHP8SXdBocwS3HAe_TgK1N_2BVP3CbQrSNofWMKlC7WQLmXJzf6OaF838gLtNBnANuWv_Jn-6cTqHVp7Wq-lQfJw5FXRYQjilg15R38HO1JAzUB1zkKurAvASGeK-j5X"/>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Sarah Jenkins</h3>
+        <p class="font-label-sm text-label-sm text-primary mt-1 uppercase tracking-widest font-semibold">CEO & Founder</p>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-4 text-sm leading-relaxed font-light">Visionary leader scaling SaaS enterprises.</p>
+      </div>
+      <!-- Team Member 2 -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-28 h-28 rounded-full overflow-hidden mb-6 border border-outline-variant/60 shadow-sm">
+          <img alt="David Chen" class="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgG2wgm15X2_MDUXq8avZIGQiSVTAMw-_VCSt3bUJTr7Qov84wrMWg8E9aBxfBExcJcB_AuzurrZ30IKV2gxqigj4KbuR2mJzaGjFHGB4CmcTWfFJ9nrkcmaV1WOcVwKnblnFzqQH5FZQDeI-XthvFNGksg69oT5r6k9OHddjs-3UzeumkCKJ6vWr5ljwveFsYSAngJZMnDRXGie69iNdmdfleUlpHa5CQBU6g2rhEXfDCFVg99w3S"/>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">David Chen</h3>
+        <p class="font-label-sm text-label-sm text-primary mt-1 uppercase tracking-widest font-semibold">CTO</p>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-4 text-sm leading-relaxed font-light">Architect behind robust automation infrastructure.</p>
+      </div>
+      <!-- Team Member 3 -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-28 h-28 rounded-full overflow-hidden mb-6 border border-outline-variant/60 shadow-sm">
+          <img alt="Elena Rodriguez" class="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0B2VAk5o2Mu3KidteIt_k1iMFra2SKSJMLFwuPlW5AZPzegE4oZjI4biPf5OBmq0A_HRrQYIoXqMTh0f7o_Z_rb4XQ0L2_J2LIgIBg6qxpd0XJ8ZEKXmvu5CkpJ0J1au1V8HF-_-aneZBmTOewQGoyh9Tz_ywhRtHiUAAVxizeZQvGqK3XKE2ZELfcSym3gEZMe7OpRaY2zOn3iW1y1IP2f9AJtGOfdtJyrNGxWzLN__qRq6Ds4qw"/>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Elena Rodriguez</h3>
+        <p class="font-label-sm text-label-sm text-primary mt-1 uppercase tracking-widest font-semibold">Head of Growth</p>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-4 text-sm leading-relaxed font-light">Data-driven strategist turning analytics into growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact & FAQ Layout -->
+<section id="contact" class="max-w-[1024px] mx-auto px-6 md:px-16 py-32">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
+    <!-- Contact Form -->
+    <div class="glass-card rounded-3xl p-8 border border-outline-variant/50 relative overflow-hidden" id="about-form-container">
+      <div class="mb-12">
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4 font-light">Let's Discuss Growth</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant font-light">Fill out the form and our team will reply within 24 hours.</p>
+      </div>
+      <form id="about-contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+        <!-- Hidden config keys -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New B2B Inquire - CaulHaus About & Contact">
+        <input type="hidden" name="from_name" value="CaulHaus Website - About Page">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="space-y-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Full Name</label>
+            <input name="name" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="Jane Doe" type="text"/>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Work Email</label>
+            <input name="email" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="jane@company.com" type="email"/>
+          </div>
+        </div>
+        <div class="space-y-1">
+          <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Service Interest</label>
+          <select name="interest" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface">
+            <option disabled selected value="">Select an option...</option>
+            <option value="automation">Business Automation</option>
+            <option value="marketing">Growth Marketing</option>
+            <option value="both">Both Services</option>
+          </select>
+        </div>
+        <div class="space-y-1">
+          <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Message</label>
+          <textarea name="message" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all resize-none text-on-surface placeholder:text-outline" placeholder="How can we help you grow?" rows="3"></textarea>
+        </div>
+        <button type="submit" id="submit-btn" class="bg-on-surface text-surface hover:bg-primary hover:text-on-primary font-label-md text-label-md px-8 py-3.5 rounded-full shadow-sm transition-all active:scale-[0.98] mt-4 font-semibold cursor-pointer">
+          Submit Inquiry
+        </button>
+      </form>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="glass-card rounded-2xl p-8 border border-slate-800/80">
-        <div class="text-xs font-extrabold text-brand-primary tracking-widest uppercase mb-4">01 / SIMPLICITY</div>
-        <h4 class="text-xl font-bold text-white mb-3">Simple beats complicated.</h4>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          The right spreadsheet, dashboard, or workflow can save hours every week. We don't build over-engineered systems that break under pressure.
-        </p>
-      </div>
-
-      <div class="glass-card rounded-2xl p-8 border border-slate-800/80">
-        <div class="text-xs font-extrabold text-brand-secondary tracking-widest uppercase mb-4">02 / HUMAN-CENTRIC</div>
-        <h4 class="text-xl font-bold text-white mb-3">People first.</h4>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          Tools matter, but adoption only sticks when the process feels natural for the humans using it. We focus heavily on training and change management.
-        </p>
-      </div>
-
-      <div class="glass-card rounded-2xl p-8 border border-slate-800/80">
-        <div class="text-xs font-extrabold text-emerald-400 tracking-widest uppercase mb-4">03 / EMPIRICAL</div>
-        <h4 class="text-xl font-bold text-white mb-3">Proof over promises.</h4>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          We measure the impact of every engagement—time saved, projects delivered, stress reduced. You see the ROI clearly on day one.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- How We Work (Pragmatic Journey Timeline) -->
-<section class="py-20 lg:py-28">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-      <div class="lg:col-span-5 lg:sticky lg:top-32 self-start">
-        <h2 class="text-xs font-bold text-brand-secondary uppercase tracking-widest mb-3">HOW WE WORK</h2>
-        <h3 class="text-3xl lg:text-4xl font-extrabold text-white mb-6">
-          Lightweight systems, <br/>
-          pragmatic execution.
-        </h3>
-        <p class="text-slate-400 leading-relaxed mb-6">
-          We embed with your team, listen carefully, and then build the lightweight systems that get you unstuck. Our approach is pragmatic: fewer tools, more focus, and no extra jargon.
-        </p>
-        <a href="/contact/" class="px-6 py-3 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold inline-block text-center shadow-lg">
-          Partner With Us
-        </a>
+    <!-- Contact Details & FAQ -->
+    <div class="flex flex-col gap-16">
+      <!-- Contact Details -->
+      <div>
+        <h3 class="font-headline-md text-headline-md mb-8 text-on-surface font-semibold">Direct Contact</h3>
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined mt-1 text-primary font-light">mail</span>
+            <div>
+              <p class="font-body-md text-body-md text-on-surface">hello@caulhaus.com</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined mt-1 text-primary font-light">location_on</span>
+            <div>
+              <p class="font-body-md text-body-md text-on-surface">San Francisco, CA</p>
+            </div>
+          </div>
+        </div>
       </div>
       
-      <!-- Interactive Process Steps -->
-      <div class="lg:col-span-7 space-y-12 relative before:absolute before:left-6 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800">
-        <div class="relative pl-16">
-          <div class="absolute left-4 top-1.5 w-4 h-4 rounded-full bg-brand-primary border-4 border-brand-dark ring-4 ring-brand-primary/10"></div>
-          <h4 class="text-lg font-bold text-white mb-2">Step 1: Embed & Listen</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            We spend the initial phase observing your team's workflow, analyzing your existing tools, and cataloging manual data bottlenecks. We speak directly to operators to learn what causes friction.
-          </p>
-        </div>
-
-        <div class="relative pl-16">
-          <div class="absolute left-4 top-1.5 w-4 h-4 rounded-full bg-brand-secondary border-4 border-brand-dark ring-4 ring-brand-secondary/10"></div>
-          <h4 class="text-lg font-bold text-white mb-2">Step 2: Map & Simplify</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            We draft a clear, visual map of your process and outline a prioritized automation roadmap. We identify which software bridges are needed to ensure smooth, automated handoffs.
-          </p>
-        </div>
-
-        <div class="relative pl-16">
-          <div class="absolute left-4 top-1.5 w-4 h-4 rounded-full bg-emerald-400 border-4 border-brand-dark ring-4 ring-emerald-400/10"></div>
-          <h4 class="text-lg font-bold text-white mb-2">Step 3: Build & Integrate</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            We build the integrations and deploy custom scripts behind the scenes. We perform rigorous testing on data flows to make sure your Monday, HubSpot, or Salesforce fields sync with absolute accuracy.
-          </p>
-        </div>
-
-        <div class="relative pl-16">
-          <div class="absolute left-4 top-1.5 w-4 h-4 rounded-full bg-violet-400 border-4 border-brand-dark ring-4 ring-violet-400/10"></div>
-          <h4 class="text-lg font-bold text-white mb-2">Step 4: Hand Over the Keys</h4>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            We build personalized documentation and conduct onboarding sessions for your team. You walk away with fully documented systems that you completely own and can easily maintain.
-          </p>
+      <!-- FAQ Accordion -->
+      <div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-8 font-semibold">Common Questions</h3>
+        <div class="space-y-6">
+          <details class="group border-b border-outline-variant/50 pb-4" open>
+            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-semibold">
+              Implementation timeline?
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
+            </summary>
+            <p class="font-body-md text-body-md text-on-surface-variant pt-4 text-sm font-light leading-relaxed">Most standard setups are completed within 4-6 weeks, depending on infrastructure complexity.</p>
+          </details>
+          <details class="group border-b border-outline-variant/50 pb-4">
+            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-semibold">
+              Pricing structure?
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
+            </summary>
+            <p class="font-body-md text-body-md text-on-surface-variant pt-4 text-sm font-light leading-relaxed">Tiered monthly retainers based on service volume, starting with a free initial audit.</p>
+          </details>
+          <details class="group pb-2">
+            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-semibold">
+              CRM Integration?
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
+            </summary>
+            <p class="font-body-md text-body-md text-on-surface-variant pt-4 text-sm font-light leading-relaxed">Yes, our systems interface seamlessly with major CRMs including Salesforce, HubSpot, and Dynamics.</p>
+          </details>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Who We Help Section -->
-<section class="py-20 bg-slate-950/30 border-t border-slate-900">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-xs font-bold text-brand-primary uppercase tracking-widest mb-3">WHO WE HELP</h2>
-      <h3 class="text-3xl lg:text-4xl font-extrabold text-white">Is Caul Haus a Fit for Your Team?</h3>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800">
-        <h4 class="text-lg font-bold text-white mb-3">Growing Startups</h4>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          Need lightweight operational processes and automations set up quickly to support sudden growth without introducing unnecessary bureaucracy.
-        </p>
-      </div>
+<!-- Form Submission JavaScript with Mailto Fallback -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('about-contact-form');
+    const container = document.getElementById('about-form-container');
+    const submitBtn = document.getElementById('submit-btn');
 
-      <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800">
-        <h4 class="text-lg font-bold text-white mb-3">Mid-Size Teams</h4>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          Struggling with too many disconnected spreadsheets, manual copy-pasting, and a lack of data alignment across sales, marketing, and delivery.
-        </p>
-      </div>
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-      <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800">
-        <h4 class="text-lg font-bold text-white mb-3">Enterprise Groups</h4>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          Large organizational groups where team communication and task coordination breakdown due to tools failing to sync at scale.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+      const accessKey = form.elements['access_key'].value;
+      const nameVal = form.elements['name'].value;
+      const emailVal = form.elements['email'].value;
+      const interestVal = form.elements['interest'].value;
+      const messageVal = form.elements['message'].value;
+
+      // Check if user has updated the key placeholder
+      if (accessKey === 'YOUR_ACCESS_KEY_HERE' || accessKey.trim() === '') {
+        // Intercept and do mailto fallback
+        const subject = encodeURIComponent('New B2B Inquire - CaulHaus About & Contact');
+        const body = encodeURIComponent(`Hello CaulHaus,\n\nI would like to contact your team.\n\nName: ${nameVal}\nWork Email: ${emailVal}\nService Interest: ${interestVal}\n\nMessage Details:\n${messageVal}\n\n(Note: Form submitted via mailto fallback because Web3Forms access key is not yet configured in local files)`);
+        
+        alert('Notice: The Web3Forms access key is not yet configured by the developer. Opening your default email client with your form details so your inquiry is sent successfully!');
+        window.location.href = `mailto:hello@caulhaus.com?subject=${subject}&body=${body}`;
+        
+        container.innerHTML = `
+          <div class="text-center py-12">
+            <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">mail</span>
+            <h3 class="text-xl font-bold text-on-surface mb-2">Email Client Opened!</h3>
+            <p class="text-on-surface-variant text-sm font-light mb-6">
+              Your inquiry has been compiled. Please send the pre-filled email opened on your computer.
+            </p>
+            <a href="/about/" class="text-primary font-semibold hover:underline">Go Back</a>
+          </div>
+        `;
+        return;
+      }
+
+      // Normal AJAX submission
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.style.opacity = '0.7';
+
+      const formData = new FormData(form);
+      const dataObj = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(dataObj)
+        });
+
+        if (response.ok) {
+          container.innerHTML = `
+            <div class="text-center py-12">
+              <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">check_circle</span>
+              <h3 class="text-xl font-bold text-on-surface mb-2">Inquiry Received!</h3>
+              <p class="text-on-surface-variant text-sm font-light mb-6">
+                Thank you, ${nameVal}. Our team will review your B2B brief and contact you within 24 hours.
+              </p>
+              <a href="/" class="text-primary font-semibold hover:underline">Return Home</a>
+            </div>
+          `;
+        } else {
+          throw new Error('Submit failed');
+        }
+      } catch (err) {
+        alert('Submission failed. Directing to hello@caulhaus.com.');
+        window.location.href = `mailto:hello@caulhaus.com?subject=B2B Inquiry&body=Name: ${nameVal}%0D%0AEmail: ${emailVal}%0D%0AInterest: ${interestVal}%0D%0AMessage: ${messageVal}`;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Inquiry';
+        submitBtn.style.opacity = '1';
+      }
+    });
+  });
+</script>
 
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800/80 bg-brand-dark/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-        <div class="md:col-span-2">
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white font-extrabold">
-              C
-            </div>
-            <span class="text-lg font-bold text-white">Caul Haus Group</span>
-          </div>
-          <p class="text-slate-400 text-sm max-w-sm mb-6">
-            We specialize in building automated systems to enhance team efficiency. We evaluate, automate, integrate, and optimize.
-          </p>
-          <p class="text-xs text-slate-500">
-            &copy; 2026 Caul Haus Group, Inc. All rights reserved.
-          </p>
-        </div>
-        <div>
-          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Navigation</h3>
-          <ul class="space-y-2 text-sm text-slate-400">
-            <li><a href="/" class="hover:text-brand-secondary transition-colors">Home</a></li>
-            <li><a href="/services/" class="hover:text-brand-secondary transition-colors">Services</a></li>
-            <li><a href="/projects/" class="hover:text-brand-secondary transition-colors">Projects</a></li>
-            <li><a href="/about/" class="hover:text-brand-secondary transition-colors">About Us</a></li>
-            <li><a href="/blog/" class="hover:text-brand-secondary transition-colors">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Get in Touch</h3>
-          <ul class="space-y-2 text-sm text-slate-400">
-            <li><a href="/contact/" class="hover:text-brand-secondary transition-colors">Get a Quote</a></li>
-            <li>Email: <a href="mailto:hello@caulhaus.com" class="hover:text-brand-secondary transition-colors">hello@caulhaus.com</a></li>
-            <li class="pt-2">
-              <span class="text-xs px-2.5 py-1 rounded-full bg-slate-800/80 text-slate-300 border border-slate-700/60">Remote Worldwide</span>
-            </li>
-          </ul>
-        </div>
+  <footer class="border-t border-outline-variant/30 bg-surface w-full mt-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1024px] mx-auto px-6 md:px-16 py-16">
+      <div class="col-span-1 md:col-span-1">
+        <img alt="CaulHaus Logo" class="h-8 w-auto mb-4 grayscale opacity-80 rounded" src="https://lh3.googleusercontent.com/aida/AP1WRLv8ECppKBDFBef6_HU24FE9X3YNKHsPWiDoiCsBjkQy_02CK3HVbvLmJkyIoir6WR8Y9SpNem4grNfMwlvFjFDuhhiBAMMYJyVOxgZ4OOi1EZnnqzN4_UyRT3L2zSOU1A98DgLMSI02RdA1Lj0--6lN8MCQEAUV-2HN0aB60XmBRKqGFW0xo74xYruGLWm9zu1ytXFU0D1OxpSsMVhhJZumzAOh8k6fyNWM2uiGldqYQCxy7tRMt6yrNXo"/>
+        <p class="font-label-sm text-label-sm text-on-surface-variant">© 2026 CaulHaus. All rights reserved.</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Services</h4>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/automation/">Business Automation</a>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/marketing/">Growth Marketing</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Company</h4>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/about/">About Us</a>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/contact/">Contact</a>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/blog/">Blog</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Legal</h4>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="#">Privacy</a>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="#">Terms</a>
       </div>
     </div>
   </footer>
 
-  <!-- Mobile Menu Script -->
+  <!-- Mobile Menu Toggle Script -->
   <script>
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIconPath = document.getElementById('menu-icon-path');
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
 
-    mobileMenuBtn.addEventListener('click', () => {
-      const isExpanded = mobileMenu.classList.toggle('hidden');
-      if (isExpanded) {
-        menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-      } else {
-        menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-      }
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        if (isHidden) {
+          menuIcon.textContent = 'menu';
+        } else {
+          menuIcon.textContent = 'close';
+        }
+      });
     });
   </script>
 </body>
