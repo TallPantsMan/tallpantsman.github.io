@@ -23,25 +23,46 @@
   <header class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-outline-variant/30">
     <div class="flex justify-between items-center max-w-[1024px] mx-auto px-6 md:px-16 h-24">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity">
+      <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity duration-300">
         <img alt="CaulHaus Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida/AP1WRLv8ECppKBDFBef6_HU24FE9X3YNKHsPWiDoiCsBjkQy_02CK3HVbvLmJkyIoir6WR8Y9SpNem4grNfMwlvFjFDuhhiBAMMYJyVOxgZ4OOi1EZnnqzN4_UyRT3L2zSOU1A98DgLMSI02RdA1Lj0--6lN8MCQEAUV-2HN0aB60XmBRKqGFW0xo74xYruGLWm9zu1ytXFU0D1OxpSsMVhhJZumzAOh8k6fyNWM2uiGldqYQCxy7tRMt6yrNXo"/>
         <span class="text-lg font-bold font-heading text-on-surface tracking-tight">CaulHaus</span>
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation with Sliding Underline Transitions -->
       <nav class="hidden md:flex gap-10 items-center font-body-md text-body-md">
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/">Home</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/automation/">Automation</a>
-        <a class="text-on-surface font-medium border-b border-on-surface pb-1 transition-colors duration-200" href="/marketing/">Marketing</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/about/">About</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/contact/">Contact</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/blog/">Blog</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/projects/">Projects</a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/">
+          Home
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/automation/">
+          Automation
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-on-surface font-medium group" href="/marketing/">
+          Marketing
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/about/">
+          About
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/contact/">
+          Contact
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/blog/">
+          Blog
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/projects/">
+          Projects
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
       </nav>
 
-      <!-- Trailing Action Button -->
+      <!-- Trailing Action Button with micro-scaling -->
       <div class="flex items-center gap-4">
-        <a class="hidden md:inline-flex border border-on-surface text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-6 py-2.5 rounded-full transition-all" href="/contact/">
+        <a class="hidden md:inline-flex border border-on-surface text-on-surface hover:border-primary hover:text-primary hover:bg-surface-container-low font-label-md text-label-md px-6 py-2.5 rounded-full hover:scale-[1.02] active:scale-[0.98] hover:shadow-sm transition-all duration-300" href="/contact/">
           Get an Audit
         </a>
         <!-- Mobile Menu Toggle Button -->
@@ -70,8 +91,8 @@
     </div>
   </header>
 
-  <!-- Main Content Area -->
-  <main class="flex-grow pt-24">
+  <!-- Main Content Area with global fade-in -->
+  <main class="flex-grow pt-24 animate-fade-in-up">
     
 <!-- Hero Section -->
 <section class="relative pt-20 md:pt-32 pb-32 overflow-hidden max-w-[1024px] mx-auto px-6 md:px-16">
@@ -79,7 +100,7 @@
     <div class="ambient-glow top-1/4 left-1/4"></div>
   </div>
   
-  <div class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8 mt-12">
+  <div class="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8 mt-12 animate-fade-in-up">
     <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-outline-variant/60 bg-surface-container/50 text-on-surface-variant font-label-sm text-label-sm">
       <span class="material-symbols-outlined text-[16px] mr-2" data-icon="insights">insights</span>
       Full-Stack Marketing Solutions
@@ -87,15 +108,15 @@
     <h1 class="font-display-sm text-headline-lg-mobile md:text-display-lg text-on-surface font-light">
       Full-Stack Marketing <span class="text-primary font-light">That Scales.</span>
     </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed delay-100">
       From strategy to execution, we manage your entire marketing ecosystem to drive predictable B2B pipeline growth with precision and clarity.
     </p>
-    <div class="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
-      <a class="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-10 py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center font-semibold" href="#book-session">
+    <div class="pt-8 flex flex-col sm:flex-row gap-4 justify-center delay-200">
+      <a class="bg-primary hover:bg-primary-container hover:scale-[1.02] active:scale-[0.98] text-on-primary font-label-md text-label-md px-10 py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center font-semibold" href="#book-session">
         Start a Conversation
         <span class="material-symbols-outlined ml-2 text-[18px]" data-icon="arrow_forward">arrow_forward</span>
       </a>
-      <a class="bg-transparent border border-outline-variant text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md px-10 py-4 rounded-full transition-all duration-200 flex items-center justify-center font-semibold" href="/projects/">
+      <a class="bg-transparent border border-outline-variant text-on-surface-variant hover:bg-surface-container-low hover:scale-[1.02] active:scale-[0.98] font-label-md text-label-md px-10 py-4 rounded-full transition-all duration-300 flex items-center justify-center font-semibold" href="/projects/">
         View Our Work
       </a>
     </div>
@@ -105,39 +126,39 @@
 <!-- Bento Grid of Services -->
 <section class="py-32 bg-surface-container-low border-t border-outline-variant/30">
   <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="text-center mb-24 max-w-2xl mx-auto">
-      <h2 class="font-display-sm text-headline-lg-mobile md:text-display-sm text-on-surface mb-6 font-light">Integrated Marketing</h2>
+    <div class="text-center mb-24 max-w-2xl mx-auto animate-fade-in-up">
+      <h2 class="font-display-sm text-display-sm text-on-surface mb-6 font-light">Integrated Marketing</h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant font-light leading-relaxed">A unified approach where every channel works together for systemic growth.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- SEO & Content -->
-      <div class="lg:col-span-2 bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 transition-all shadow-sm">
-        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10">
+      <div class="lg:col-span-2 bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 animate-fade-in-up delay-100">
+        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 transition-transform duration-500 group-hover:scale-110">
           <span class="material-symbols-outlined text-[20px]" data-icon="search_insights">search_insights</span>
         </div>
         <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Content Architecture</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Semantic clusters and high-intent content capturing demand at every B2B journey stage.</p>
       </div>
       <!-- Paid Ads -->
-      <div class="bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 transition-all shadow-sm">
-        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10">
+      <div class="bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 animate-fade-in-up delay-200">
+        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 transition-transform duration-500 group-hover:scale-110">
           <span class="material-symbols-outlined text-[20px]" data-icon="ads_click">ads_click</span>
         </div>
         <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Paid Acquisition</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Precision targeting and optimal ROAS management.</p>
       </div>
       <!-- Email Marketing -->
-      <div class="bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 transition-all shadow-sm">
-        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10">
+      <div class="bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 animate-fade-in-up delay-300">
+        <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 transition-transform duration-500 group-hover:scale-110">
           <span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
         </div>
         <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Email & Outbound</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Automated sequences turning cold leads into pipeline.</p>
       </div>
       <!-- CRO & Brand Strategy -->
-      <div class="lg:col-span-4 bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden hover:border-primary/30 transition-all shadow-sm">
+      <div class="lg:col-span-4 bg-surface rounded-2xl p-10 border border-outline-variant/40 relative overflow-hidden group hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 animate-fade-in-up delay-400">
         <div class="max-w-3xl">
-          <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10">
+          <div class="w-10 h-10 rounded bg-primary/5 flex items-center justify-center text-primary mb-8 border border-primary/10 transition-transform duration-500 group-hover:scale-110">
             <span class="material-symbols-outlined text-[20px]" data-icon="speed">speed</span>
           </div>
           <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Conversion & Brand Strategy</h3>
@@ -151,31 +172,31 @@
 <!-- Our Approach Process -->
 <section class="py-32 bg-surface border-t border-outline-variant/30">
   <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="mb-24 text-center max-w-2xl mx-auto">
+    <div class="mb-24 text-center max-w-2xl mx-auto animate-fade-in-up">
       <h2 class="font-display-sm text-display-sm text-on-surface mb-6 font-light">The Methodology</h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant font-light leading-relaxed">A rigorous framework aligning initiatives directly with revenue.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
       <!-- Step 1 -->
-      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
+      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up delay-100">
         <div class="text-primary/20 font-display-lg text-[80px] leading-none mb-4 font-light">01</div>
         <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Discovery</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Deep dive into ICP, stack, and data to find growth levers.</p>
       </div>
       <!-- Step 2 -->
-      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
+      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up delay-200">
         <div class="text-on-surface-variant/20 font-display-lg text-[80px] leading-none mb-4 font-light">02</div>
         <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Strategy</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Cohesive planning with clear KPIs and expectations.</p>
       </div>
       <!-- Step 3 -->
-      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
+      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up delay-300">
         <div class="text-on-surface-variant/20 font-display-lg text-[80px] leading-none mb-4 font-light">03</div>
         <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Implementation</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Technical setup and campaign launches.</p>
       </div>
       <!-- Step 4 -->
-      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left">
+      <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up delay-400">
         <div class="text-on-surface-variant/20 font-display-lg text-[80px] leading-none mb-4 font-light">04</div>
         <h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-semibold">Optimization</h3>
         <p class="font-body-md text-body-md text-on-surface-variant font-light text-sm leading-relaxed">Continuous testing and adjustments for max ROI.</p>
@@ -187,7 +208,7 @@
 <!-- Call to Action Form Section -->
 <section id="book-session" class="py-32 bg-surface-container-low border-t border-outline-variant/30">
   <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="glass-card rounded-3xl p-8 md:p-16 border border-outline-variant/50 relative overflow-hidden">
+    <div class="glass-card rounded-3xl p-8 md:p-16 border border-outline-variant/50 relative overflow-hidden animate-fade-in-up">
       <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div class="ambient-glow top-0 left-0"></div>
       </div>
@@ -201,7 +222,7 @@
             <div class="flex items-center"><span class="material-symbols-outlined mr-3 text-primary/75" data-icon="check">check</span> Custom roadmap</div>
           </div>
         </div>
-        <div class="w-full lg:w-[400px] shrink-0 bg-surface rounded-2xl p-8 md:p-10 border border-outline-variant/40 shadow-sm" id="form-container">
+        <div class="w-full lg:w-[400px] shrink-0 bg-surface rounded-2xl p-8 md:p-10 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md" id="form-container">
           <h3 class="font-headline-md text-headline-md text-on-surface mb-8 font-light">Book a Session</h3>
           <form id="marketing-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
             <!-- Hidden access key -->
@@ -221,7 +242,7 @@
                 <option value="201+ employees">201+ employees</option>
               </select>
             </div>
-            <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/95 text-on-primary font-label-md text-label-md h-12 rounded-full transition-all mt-4 font-semibold cursor-pointer">
+            <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/95 hover:scale-[1.02] active:scale-[0.98] text-on-primary font-label-md text-label-md h-12 rounded-full transition-all mt-4 font-semibold cursor-pointer">
               Submit Request
             </button>
           </form>
@@ -234,13 +255,13 @@
 <!-- Engagement Options -->
 <section class="py-32 bg-surface border-t border-outline-variant/30">
   <div class="max-w-[1024px] mx-auto px-6 md:px-16">
-    <div class="text-center mb-20 max-w-2xl mx-auto">
+    <div class="text-center mb-20 max-w-2xl mx-auto animate-fade-in-up">
       <h2 class="font-display-sm text-display-sm text-on-surface mb-6 font-light">Engagement Options</h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light">Flexible partnership models for your specific growth stage.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
       <!-- Managed Services -->
-      <div class="flex flex-col items-center group">
+      <div class="flex flex-col items-center group animate-fade-in-up delay-100">
         <div class="w-12 h-12 flex items-center justify-center text-primary/80 mb-6 group-hover:text-primary transition-colors">
           <span class="material-symbols-outlined text-[36px]" data-icon="hub">hub</span>
         </div>
@@ -248,7 +269,7 @@
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light leading-relaxed">Full-scale marketing department outsourcing.</p>
       </div>
       <!-- Project Based -->
-      <div class="flex flex-col items-center group">
+      <div class="flex flex-col items-center group animate-fade-in-up delay-200">
         <div class="w-12 h-12 flex items-center justify-center text-primary/80 mb-6 group-hover:text-primary transition-colors">
           <span class="material-symbols-outlined text-[36px]" data-icon="assignment">assignment</span>
         </div>
@@ -256,7 +277,7 @@
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light leading-relaxed">Specific high-impact initiatives and launches.</p>
       </div>
       <!-- Staff Augmentation -->
-      <div class="flex flex-col items-center group">
+      <div class="flex flex-col items-center group animate-fade-in-up delay-300">
         <div class="w-12 h-12 flex items-center justify-center text-primary/80 mb-6 group-hover:text-primary transition-colors">
           <span class="material-symbols-outlined text-[36px]" data-icon="group_add">group_add</span>
         </div>
@@ -264,7 +285,7 @@
         <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light leading-relaxed">Embedded specialists to fill internal skill gaps.</p>
       </div>
       <!-- Strategic Advisory -->
-      <div class="flex flex-col items-center group">
+      <div class="flex flex-col items-center group animate-fade-in-up delay-400">
         <div class="w-12 h-12 flex items-center justify-center text-primary/80 mb-6 group-hover:text-primary transition-colors">
           <span class="material-symbols-outlined text-[36px]" data-icon="query_stats">query_stats</span>
         </div>
@@ -300,8 +321,8 @@
         
         container.innerHTML = `
           <div class="text-center py-8">
-            <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">mail</span>
-            <h3 class="text-xl font-bold text-on-surface mb-2">Email Client Opened!</h3>
+            <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4 animate-bounce">mail</span>
+            <h3 class="text-xl font-bold text-on-surface mb-2 animate-pulse">Email Client Opened!</h3>
             <p class="text-on-surface-variant text-sm font-light mb-6">
               Your inquiry has been compiled. Please send the pre-filled email opened on your computer.
             </p>

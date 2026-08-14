@@ -23,25 +23,46 @@
   <header class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-outline-variant/30">
     <div class="flex justify-between items-center max-w-[1024px] mx-auto px-6 md:px-16 h-24">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity">
+      <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity duration-300">
         <img alt="CaulHaus Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida/AP1WRLv8ECppKBDFBef6_HU24FE9X3YNKHsPWiDoiCsBjkQy_02CK3HVbvLmJkyIoir6WR8Y9SpNem4grNfMwlvFjFDuhhiBAMMYJyVOxgZ4OOi1EZnnqzN4_UyRT3L2zSOU1A98DgLMSI02RdA1Lj0--6lN8MCQEAUV-2HN0aB60XmBRKqGFW0xo74xYruGLWm9zu1ytXFU0D1OxpSsMVhhJZumzAOh8k6fyNWM2uiGldqYQCxy7tRMt6yrNXo"/>
         <span class="text-lg font-bold font-heading text-on-surface tracking-tight">CaulHaus</span>
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation with Sliding Underline Transitions -->
       <nav class="hidden md:flex gap-10 items-center font-body-md text-body-md">
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/">Home</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/automation/">Automation</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/marketing/">Marketing</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/about/">About</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/contact/">Contact</a>
-        <a class="text-on-surface font-medium border-b border-on-surface pb-1 transition-colors duration-200" href="/blog/">Blog</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/projects/">Projects</a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/">
+          Home
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/automation/">
+          Automation
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/marketing/">
+          Marketing
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/about/">
+          About
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/contact/">
+          Contact
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-on-surface font-medium group" href="/blog/">
+          Blog
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/projects/">
+          Projects
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
       </nav>
 
-      <!-- Trailing Action Button -->
+      <!-- Trailing Action Button with micro-scaling -->
       <div class="flex items-center gap-4">
-        <a class="hidden md:inline-flex border border-on-surface text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-6 py-2.5 rounded-full transition-all" href="/contact/">
+        <a class="hidden md:inline-flex border border-on-surface text-on-surface hover:border-primary hover:text-primary hover:bg-surface-container-low font-label-md text-label-md px-6 py-2.5 rounded-full hover:scale-[1.02] active:scale-[0.98] hover:shadow-sm transition-all duration-300" href="/contact/">
           Get an Audit
         </a>
         <!-- Mobile Menu Toggle Button -->
@@ -70,8 +91,8 @@
     </div>
   </header>
 
-  <!-- Main Content Area -->
-  <main class="flex-grow pt-24">
+  <!-- Main Content Area with global fade-in -->
+  <main class="flex-grow pt-24 animate-fade-in-up">
     <article class="max-w-3xl mx-auto px-6 md:px-16 py-20 relative">
   <!-- Back to blog link -->
   <a href="/blog/" class="inline-flex items-center gap-2 text-sm text-secondary hover:text-on-surface mb-12 group transition-colors font-medium">

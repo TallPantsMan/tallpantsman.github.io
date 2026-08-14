@@ -23,25 +23,46 @@
   <header class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-outline-variant/30">
     <div class="flex justify-between items-center max-w-[1024px] mx-auto px-6 md:px-16 h-24">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity">
+      <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity duration-300">
         <img alt="CaulHaus Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida/AP1WRLv8ECppKBDFBef6_HU24FE9X3YNKHsPWiDoiCsBjkQy_02CK3HVbvLmJkyIoir6WR8Y9SpNem4grNfMwlvFjFDuhhiBAMMYJyVOxgZ4OOi1EZnnqzN4_UyRT3L2zSOU1A98DgLMSI02RdA1Lj0--6lN8MCQEAUV-2HN0aB60XmBRKqGFW0xo74xYruGLWm9zu1ytXFU0D1OxpSsMVhhJZumzAOh8k6fyNWM2uiGldqYQCxy7tRMt6yrNXo"/>
         <span class="text-lg font-bold font-heading text-on-surface tracking-tight">CaulHaus</span>
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation with Sliding Underline Transitions -->
       <nav class="hidden md:flex gap-10 items-center font-body-md text-body-md">
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/">Home</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/automation/">Automation</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/marketing/">Marketing</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/about/">About</a>
-        <a class="text-on-surface font-medium border-b border-on-surface pb-1 transition-colors duration-200" href="/contact/">Contact</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/blog/">Blog</a>
-        <a class="text-secondary hover:text-on-surface transition-colors duration-200" href="/projects/">Projects</a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/">
+          Home
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/automation/">
+          Automation
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/marketing/">
+          Marketing
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/about/">
+          About
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-on-surface font-medium group" href="/contact/">
+          Contact
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/blog/">
+          Blog
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
+        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/projects/">
+          Projects
+          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
+        </a>
       </nav>
 
-      <!-- Trailing Action Button -->
+      <!-- Trailing Action Button with micro-scaling -->
       <div class="flex items-center gap-4">
-        <a class="hidden md:inline-flex border border-on-surface text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-6 py-2.5 rounded-full transition-all" href="/contact/">
+        <a class="hidden md:inline-flex border border-on-surface text-on-surface hover:border-primary hover:text-primary hover:bg-surface-container-low font-label-md text-label-md px-6 py-2.5 rounded-full hover:scale-[1.02] active:scale-[0.98] hover:shadow-sm transition-all duration-300" href="/contact/">
           Get an Audit
         </a>
         <!-- Mobile Menu Toggle Button -->
@@ -70,8 +91,8 @@
     </div>
   </header>
 
-  <!-- Main Content Area -->
-  <main class="flex-grow pt-24">
+  <!-- Main Content Area with global fade-in -->
+  <main class="flex-grow pt-24 animate-fade-in-up">
     
 <!-- Header Section -->
 <section class="max-w-[1024px] mx-auto px-6 md:px-16 pt-20 md:pt-32 pb-12 text-center relative">
@@ -79,14 +100,14 @@
     <div class="ambient-glow top-1/4 left-1/3"></div>
   </div>
   
-  <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 relative z-10">
+  <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 relative z-10 animate-fade-in-up">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-outline-variant/60 rounded-full bg-surface-container/50">
       <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Let's Connect</span>
     </div>
     <h1 class="font-display-sm text-headline-lg-mobile md:text-display-lg text-on-surface font-light">
       Get a Quote Today
     </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed delay-100">
       Ready to automate your operations or scale your lead pipeline? Fill out our form below, and we will prepare a high-level operational scope within 24 hours.
     </p>
   </div>
@@ -97,7 +118,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
     
     <!-- Left Column: Form -->
-    <div class="lg:col-span-7 glass-card rounded-3xl p-8 md:p-10 border border-outline-variant/50 relative overflow-hidden" id="contact-form-card">
+    <div class="lg:col-span-7 glass-card rounded-3xl p-8 md:p-10 border border-outline-variant/50 relative overflow-hidden animate-fade-in-up delay-100" id="contact-form-card">
       <h2 class="font-headline-md text-headline-md text-on-surface mb-2 font-semibold">Request a Project Quote</h2>
       <p class="font-body-md text-body-md text-on-surface-variant mb-8 font-light text-sm">Describe your manual database gaps, workflow friction, or marketing goals.</p>
       
@@ -126,7 +147,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="space-y-1">
             <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Primary Need</label>
-            <select name="category" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface">
+            <select name="category" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface text-sm">
               <option value="Process Automation">Process Automation</option>
               <option value="Workflow Integrations">Workflow Integrations</option>
               <option value="AI Enablement">AI Enablement & LLMs</option>
@@ -137,7 +158,7 @@
           
           <div class="space-y-1">
             <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Project Budget</label>
-            <select name="budget" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface">
+            <select name="budget" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface text-sm">
               <option value="Under $5k">Under $5,000</option>
               <option value="$5k - $15k">$5,000 - $15,000</option>
               <option value="$15k - $30k">$15,000 - $30,000</option>
@@ -151,14 +172,14 @@
           <textarea name="message" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all resize-none text-on-surface placeholder:text-outline" placeholder="Describe the manual processes, software bottlenecks, or databases you need automated..." rows="4"></textarea>
         </div>
 
-        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/95 text-on-primary font-label-md text-label-md py-4 rounded-full shadow-md hover:shadow-lg transition-all font-semibold cursor-pointer">
+        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/95 hover:scale-[1.02] active:scale-[0.98] text-on-primary font-label-md text-label-md py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 font-semibold cursor-pointer">
           Send Quote Request
         </button>
       </form>
     </div>
 
     <!-- Right Column: Details & FAQs -->
-    <div class="lg:col-span-5 flex flex-col gap-12">
+    <div class="lg:col-span-5 flex flex-col gap-12 animate-fade-in-up delay-200">
       <!-- Contact details card -->
       <div class="glass-card rounded-3xl p-8 border border-outline-variant/50">
         <h3 class="font-headline-md text-headline-md mb-6 text-on-surface font-semibold">Direct Channels</h3>
@@ -185,14 +206,14 @@
         <h3 class="font-headline-md text-headline-md text-on-surface mb-8 font-semibold">FAQ</h3>
         <div class="space-y-4">
           <details class="group border-b border-outline-variant/50 pb-4">
-            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-semibold">
+            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-semibold hover:text-primary transition-colors">
               How do we get started?
               <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
             </summary>
             <p class="font-body-md text-body-md text-on-surface-variant pt-3 text-sm font-light leading-relaxed">Fill out this request form. We will analyze your inputs and set up a free 15-minute briefing to walk through a roadmap solution.</p>
           </details>
           <details class="group border-b border-outline-variant/50 pb-4">
-            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-semibold">
+            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-semibold hover:text-primary transition-colors">
               What tools do you integrate?
               <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
             </summary>
@@ -233,9 +254,9 @@
         window.location.href = `mailto:hello@caulhaus.com?subject=${subject}&body=${body}`;
         
         container.innerHTML = `
-          <div class="text-center py-12">
-            <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">mail</span>
-            <h3 class="text-xl font-bold text-on-surface mb-2">Email Client Opened!</h3>
+          <div class="text-center py-12 animate-fade-in-up">
+            <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4 animate-bounce">mail</span>
+            <h3 class="text-xl font-bold text-on-surface mb-2 animate-pulse">Email Client Opened!</h3>
             <p class="text-on-surface-variant text-sm font-light mb-6">
               Your inquiry has been compiled. Please send the pre-filled email opened on your computer.
             </p>
@@ -265,7 +286,7 @@
 
         if (response.ok) {
           container.innerHTML = `
-            <div class="text-center py-12">
+            <div class="text-center py-12 animate-fade-in-up">
               <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">check_circle</span>
               <h3 class="text-xl font-bold text-on-surface mb-2">Quote Request Received!</h3>
               <p class="text-on-surface-variant text-sm font-light mb-6">

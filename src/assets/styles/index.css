@@ -85,31 +85,76 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
+/* Elegant Thin Profile Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24 !important;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
 /* Glassmorphism custom card helper for Light Mode */
 .glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.015);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
+  transform: translateY(-4px);
   border-color: rgba(0, 88, 190, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 88, 190, 0.05);
+  box-shadow: 0 12px 30px rgba(0, 88, 190, 0.04);
 }
 
-/* Ambient glow container */
+/* Ambient glow container with slow breathing animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+}
+
 .ambient-glow {
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(0, 88, 190, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(0, 88, 190, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
   border-radius: 50%;
   z-index: 0;
   pointer-events: none;
+  filter: blur(30px);
+  animation: pulseGlow 12s ease-in-out infinite;
 }
+
+/* Entrance Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
 
 /* Custom scrollbar for light mode */
 ::-webkit-scrollbar {
