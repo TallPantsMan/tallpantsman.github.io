@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/tailwind.css">
+  <style>
+    /* Mobile nav transition */
+    #mobile-menu {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- TopNavBar -->
+  <header class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-outline-variant/30">
+    <div class="flex justify-between items-center max-w-[1024px] mx-auto px-6 md:px-16 h-24">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity">
+        <img alt="CaulHaus Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida/AP1WRLv8ECppKBDFBef6_HU24FE9X3YNKHsPWiDoiCsBjkQy_02CK3HVbvLmJkyIoir6WR8Y9SpNem4grNfMwlvFjFDuhhiBAMMYJyVOxgZ4OOi1EZnnqzN4_UyRT3L2zSOU1A98DgLMSI02RdA1Lj0--6lN8MCQEAUV-2HN0aB60XmBRKqGFW0xo74xYruGLWm9zu1ytXFU0D1OxpSsMVhhJZumzAOh8k6fyNWM2uiGldqYQCxy7tRMt6yrNXo"/>
+        <span class="text-lg font-bold font-heading text-on-surface tracking-tight">CaulHaus</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex gap-10 items-center font-body-md text-body-md">
+        <a class="{% if page.url == '/' %}text-on-surface font-medium border-b border-on-surface pb-1{% else %}text-secondary hover:text-on-surface{% endif %} transition-colors duration-200" href="/">Home</a>
+        <a class="{% if page.url == '/automation/' %}text-on-surface font-medium border-b border-on-surface pb-1{% else %}text-secondary hover:text-on-surface{% endif %} transition-colors duration-200" href="/automation/">Automation</a>
+        <a class="{% if page.url == '/marketing/' %}text-on-surface font-medium border-b border-on-surface pb-1{% else %}text-secondary hover:text-on-surface{% endif %} transition-colors duration-200" href="/marketing/">Marketing</a>
+        <a class="{% if page.url == '/about/' %}text-on-surface font-medium border-b border-on-surface pb-1{% else %}text-secondary hover:text-on-surface{% endif %} transition-colors duration-200" href="/about/">About</a>
+        <a class="{% if page.url == '/contact/' %}text-on-surface font-medium border-b border-on-surface pb-1{% else %}text-secondary hover:text-on-surface{% endif %} transition-colors duration-200" href="/contact/">Contact</a>
+        <a class="{% if page.url.startsWith('/blog/') %}text-on-surface font-medium border-b border-on-surface pb-1{% else %}text-secondary hover:text-on-surface{% endif %} transition-colors duration-200" href="/blog/">Blog</a>
+        <a class="{% if page.url == '/projects/' %}text-on-surface font-medium border-b border-on-surface pb-1{% else %}text-secondary hover:text-on-surface{% endif %} transition-colors duration-200" href="/projects/">Projects</a>
+      </nav>
+
+      <!-- Trailing Action Button -->
+      <div class="flex items-center gap-4">
+        <a class="hidden md:inline-flex border border-on-surface text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-6 py-2.5 rounded-full transition-all" href="/contact/">
+          Get an Audit
+        </a>
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-on-surface p-2 focus:outline-none" aria-label="Toggle menu">
+          <span id="menu-icon" class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-md">
+      <div class="px-6 py-6 space-y-4 flex flex-col text-base font-medium">
+        <a class="{% if page.url == '/' %}text-primary font-semibold{% else %}text-secondary{% endif %}" href="/">Home</a>
+        <a class="{% if page.url == '/automation/' %}text-primary font-semibold{% else %}text-secondary{% endif %}" href="/automation/">Automation</a>
+        <a class="{% if page.url == '/marketing/' %}text-primary font-semibold{% else %}text-secondary{% endif %}" href="/marketing/">Marketing</a>
+        <a class="{% if page.url == '/about/' %}text-primary font-semibold{% else %}text-secondary{% endif %}" href="/about/">About</a>
+        <a class="{% if page.url == '/contact/' %}text-primary font-semibold{% else %}text-secondary{% endif %}" href="/contact/">Contact</a>
+        <a class="{% if page.url.startsWith('/blog/') %}text-primary font-semibold{% else %}text-secondary{% endif %}" href="/blog/">Blog</a>
+        <a class="{% if page.url == '/projects/' %}text-primary font-semibold{% else %}text-secondary{% endif %}" href="/projects/">Projects</a>
+        <div class="pt-4 border-t border-outline-variant/30">
+          <a class="block text-center border border-on-surface text-on-surface font-label-md text-label-md py-3 rounded-full" href="/contact/">
+            Get an Audit
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow pt-24">
+    {{ content | safe }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-outline-variant/30 bg-surface w-full mt-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1024px] mx-auto px-6 md:px-16 py-16">
+      <div class="col-span-1 md:col-span-1">
+        <img alt="CaulHaus Logo" class="h-8 w-auto mb-4 grayscale opacity-80 rounded" src="https://lh3.googleusercontent.com/aida/AP1WRLv8ECppKBDFBef6_HU24FE9X3YNKHsPWiDoiCsBjkQy_02CK3HVbvLmJkyIoir6WR8Y9SpNem4grNfMwlvFjFDuhhiBAMMYJyVOxgZ4OOi1EZnnqzN4_UyRT3L2zSOU1A98DgLMSI02RdA1Lj0--6lN8MCQEAUV-2HN0aB60XmBRKqGFW0xo74xYruGLWm9zu1ytXFU0D1OxpSsMVhhJZumzAOh8k6fyNWM2uiGldqYQCxy7tRMt6yrNXo"/>
+        <p class="font-label-sm text-label-sm text-on-surface-variant">© 2026 CaulHaus. All rights reserved.</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Services</h4>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/automation/">Business Automation</a>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/marketing/">Growth Marketing</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Company</h4>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/about/">About Us</a>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/contact/">Contact</a>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/blog/">Blog</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Legal</h4>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="#">Privacy</a>
+        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        if (isHidden) {
+          menuIcon.textContent = 'menu';
+        } else {
+          menuIcon.textContent = 'close';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

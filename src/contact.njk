@@ -1,0 +1,220 @@
+---
+layout: base.njk
+title: Get a Quote | CaulHaus
+description: Contact CaulHaus. Request a quote or book an audit for B2B workflow integrations, AI automations, and operational assessments.
+---
+
+<!-- Header Section -->
+<section class="max-w-[1024px] mx-auto px-6 md:px-16 pt-20 md:pt-32 pb-12 text-center relative">
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="ambient-glow top-1/4 left-1/3"></div>
+  </div>
+  
+  <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 relative z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-outline-variant/60 rounded-full bg-surface-container/50">
+      <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Let's Connect</span>
+    </div>
+    <h1 class="font-display-sm text-headline-lg-mobile md:text-display-lg text-on-surface font-light">
+      Get a Quote Today
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
+      Ready to automate your operations or scale your lead pipeline? Fill out our form below, and we will prepare a high-level operational scope within 24 hours.
+    </p>
+  </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="max-w-[1024px] mx-auto px-6 md:px-16 pb-32">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
+    
+    <!-- Left Column: Form -->
+    <div class="lg:col-span-7 glass-card rounded-3xl p-8 md:p-10 border border-outline-variant/50 relative overflow-hidden" id="contact-form-card">
+      <h2 class="font-headline-md text-headline-md text-on-surface mb-2 font-semibold">Request a Project Quote</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-8 font-light text-sm">Describe your manual database gaps, workflow friction, or marketing goals.</p>
+      
+      <form id="quote-contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+        <!-- Hidden config keys -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New B2B Project Quote Request - CaulHaus">
+        <input type="hidden" name="from_name" value="CaulHaus Website - Contact Page">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="space-y-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Your Name</label>
+            <input name="name" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="Jane Doe" type="text"/>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Company Name</label>
+            <input name="company" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="Acme Corp" type="text"/>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Work Email</label>
+          <input name="email" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="jane@company.com" type="email"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="space-y-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Primary Need</label>
+            <select name="category" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface">
+              <option value="Process Automation">Process Automation</option>
+              <option value="Workflow Integrations">Workflow Integrations</option>
+              <option value="AI Enablement">AI Enablement & LLMs</option>
+              <option value="Growth Marketing">B2B Growth Marketing</option>
+              <option value="Operational Audit">Operational Audit</option>
+            </select>
+          </div>
+          
+          <div class="space-y-1">
+            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Project Budget</label>
+            <select name="budget" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface">
+              <option value="Under $5k">Under $5,000</option>
+              <option value="$5k - $15k">$5,000 - $15,000</option>
+              <option value="$15k - $30k">$15,000 - $30,000</option>
+              <option value="$30k+">$30,000+ / Retainer</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-[11px] font-semibold">Project Brief & Details</label>
+          <textarea name="message" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all resize-none text-on-surface placeholder:text-outline" placeholder="Describe the manual processes, software bottlenecks, or databases you need automated..." rows="4"></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/95 text-on-primary font-label-md text-label-md py-4 rounded-full shadow-md hover:shadow-lg transition-all font-semibold cursor-pointer">
+          Send Quote Request
+        </button>
+      </form>
+    </div>
+
+    <!-- Right Column: Details & FAQs -->
+    <div class="lg:col-span-5 flex flex-col gap-12">
+      <!-- Contact details card -->
+      <div class="glass-card rounded-3xl p-8 border border-outline-variant/50">
+        <h3 class="font-headline-md text-headline-md mb-6 text-on-surface font-semibold">Direct Channels</h3>
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined mt-1 text-primary font-light">mail</span>
+            <div>
+              <span class="text-xs text-on-surface-variant block uppercase tracking-wider font-semibold">General Inquiry</span>
+              <p class="font-body-md text-body-md text-on-surface">hello@caulhaus.com</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined mt-1 text-primary font-light">location_on</span>
+            <div>
+              <span class="text-xs text-on-surface-variant block uppercase tracking-wider font-semibold">Office Location</span>
+              <p class="font-body-md text-body-md text-on-surface">San Francisco, CA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-8 font-semibold">FAQ</h3>
+        <div class="space-y-4">
+          <details class="group border-b border-outline-variant/50 pb-4">
+            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-semibold">
+              How do we get started?
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
+            </summary>
+            <p class="font-body-md text-body-md text-on-surface-variant pt-3 text-sm font-light leading-relaxed">Fill out this request form. We will analyze your inputs and set up a free 15-minute briefing to walk through a roadmap solution.</p>
+          </details>
+          <details class="group border-b border-outline-variant/50 pb-4">
+            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-semibold">
+              What tools do you integrate?
+              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
+            </summary>
+            <p class="font-body-md text-body-md text-on-surface-variant pt-3 text-sm font-light leading-relaxed">HubSpot, Salesforce, Monday.com, ClickUp, Slack, Gmail, Airtable, OpenAI API, Zapier, n8n, Make, and more.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Form Submission JavaScript with Mailto Fallback -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('quote-contact-form');
+    const container = document.getElementById('contact-form-card');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const accessKey = form.elements['access_key'].value;
+      const nameVal = form.elements['name'].value;
+      const compVal = form.elements['company'].value;
+      const emailVal = form.elements['email'].value;
+      const categoryVal = form.elements['category'].value;
+      const budgetVal = form.elements['budget'].value;
+      const messageVal = form.elements['message'].value;
+
+      // Check if user has updated the key placeholder
+      if (accessKey === 'YOUR_ACCESS_KEY_HERE' || accessKey.trim() === '') {
+        // Intercept and do mailto fallback
+        const subject = encodeURIComponent('New B2B Project Quote Request - CaulHaus');
+        const body = encodeURIComponent(`Hello CaulHaus,\n\nI would like to request a quote for my project.\n\nName: \${nameVal}\nCompany: \${compVal}\nWork Email: \${emailVal}\nPrimary Need: \${categoryVal}\nProject Budget: \${budgetVal}\n\nProject Details:\n\${messageVal}\n\n(Note: Form submitted via mailto fallback because Web3Forms access key is not yet configured in local files)`);
+        
+        alert('Notice: The Web3Forms access key is not yet configured by the developer. Opening your default email client with your form details so your quote inquiry is sent successfully!');
+        window.location.href = `mailto:hello@caulhaus.com?subject=\${subject}&body=\${body}`;
+        
+        container.innerHTML = `
+          <div class="text-center py-12">
+            <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">mail</span>
+            <h3 class="text-xl font-bold text-on-surface mb-2">Email Client Opened!</h3>
+            <p class="text-on-surface-variant text-sm font-light mb-6">
+              Your inquiry has been compiled. Please send the pre-filled email opened on your computer.
+            </p>
+            <a href="/contact/" class="text-primary font-semibold hover:underline">Go Back</a>
+          </div>
+        `;
+        return;
+      }
+
+      // Normal AJAX submission
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting Request...';
+      submitBtn.style.opacity = '0.7';
+
+      const formData = new FormData(form);
+      const dataObj = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(dataObj)
+        });
+
+        if (response.ok) {
+          container.innerHTML = `
+            <div class="text-center py-12">
+              <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">check_circle</span>
+              <h3 class="text-xl font-bold text-on-surface mb-2">Quote Request Received!</h3>
+              <p class="text-on-surface-variant text-sm font-light mb-6">
+                Thank you, \${nameVal}. Our Principal Architect will review your brief for \${compVal} and reply with an estimated operational scope within 24 hours.
+              </p>
+              <a href="/" class="text-primary font-semibold hover:underline">Return Home</a>
+            </div>
+          `;
+        } else {
+          throw new Error('Submit failed');
+        }
+      } catch (err) {
+        alert('Submission failed. Directing to hello@caulhaus.com.');
+        window.location.href = `mailto:hello@caulhaus.com?subject=B2B Quote Request&body=Name: \${nameVal}%0D%0ACompany: \${compVal}%0D%0AEmail: \${emailVal}%0D%0ANeed: \${categoryVal}%0D%0ABudget: \${budgetVal}%0D%0ADetails: \${messageVal}`;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Quote Request';
+        submitBtn.style.opacity = '1';
+      }
+    });
+  });
+</script>

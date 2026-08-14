@@ -1,0 +1,244 @@
+---
+layout: base.njk
+title: Business Operations Automation | CaulHaus
+description: Reclaim hours lost to repetitive tasks. We build intelligent, secure workflows that connect systems, eliminate errors, and scale effortlessly.
+---
+
+<!-- Hero Section -->
+<section class="max-w-[1024px] mx-auto px-6 md:px-16 py-20 md:py-32 flex flex-col items-center text-center relative">
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="ambient-glow top-1/4 left-1/3"></div>
+  </div>
+  
+  <div class="space-y-8 max-w-3xl relative z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-outline-variant/60 rounded-full bg-surface-container/50">
+      <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Business Operations</span>
+    </div>
+    <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface font-light">
+      Automate Your Operations.
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light">
+      Reclaim hours lost to repetitive tasks. We build intelligent, secure workflows that connect systems, eliminate errors, and scale effortlessly.
+    </p>
+    <div class="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
+      <a class="bg-primary text-on-primary px-10 py-4 font-label-md text-label-md rounded-full hover:bg-primary/95 shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-3 font-semibold" href="/contact/">
+        <span>Book an Audit Session</span>
+        <span class="material-symbols-outlined font-light text-[18px]">arrow_forward</span>
+      </a>
+      <a class="text-on-surface hover:text-primary px-10 py-4 font-label-md text-label-md transition-colors flex items-center justify-center underline underline-offset-4 font-semibold" href="/projects/">
+        Explore Cases
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Key Benefits Section -->
+<section class="py-24 bg-surface-container/20 border-y border-outline-variant/30">
+  <div class="max-w-[1024px] mx-auto px-6 md:px-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 text-center">
+      <div class="space-y-4">
+        <h3 class="font-display-sm text-headline-lg-mobile md:text-display-sm text-primary font-light">100+</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">Hours saved monthly per department</p>
+      </div>
+      <div class="space-y-4">
+        <h3 class="font-display-sm text-headline-lg-mobile md:text-display-sm text-primary font-light">Zero</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">Human error in data transfer</p>
+      </div>
+      <div class="space-y-4">
+        <h3 class="font-display-sm text-headline-lg-mobile md:text-display-sm text-primary font-light">Seamless</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">Integration across your tools</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI Calculator Section -->
+<section class="py-32 bg-surface">
+  <div class="max-w-[1024px] mx-auto px-6 md:px-16">
+    <div class="text-center max-w-2xl mx-auto mb-20">
+      <h2 class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-3">OPERATIONAL ROI</h2>
+      <h3 class="font-display-sm text-display-sm text-on-surface font-light">
+        Friction & Savings Calculator
+      </h3>
+      <p class="font-body-md text-body-md text-on-surface-variant mt-4 font-light">
+        Determine how much manual administrative copy-pasting is costing your organization annually, and calculate potential automation savings.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+      <!-- Calculator Inputs -->
+      <div class="lg:col-span-6 glass-card rounded-3xl p-8 flex flex-col justify-between border border-outline-variant/60">
+        <h4 class="font-headline-md text-[20px] text-on-surface mb-8 border-b border-outline-variant/50 pb-3 font-semibold">Operational Inputs</h4>
+        
+        <div class="space-y-8">
+          <!-- Input 1: Team Size -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <label for="employees" class="text-on-surface-variant">Team Size (Employees)</label>
+              <span id="employees-val" class="text-primary font-bold">25</span>
+            </div>
+            <input type="range" id="employees" min="1" max="250" value="25" class="w-full accent-primary bg-outline-variant h-2 rounded-lg cursor-pointer">
+          </div>
+
+          <!-- Input 2: Hours Lost -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <label for="hours" class="text-on-surface-variant">Wasted Hours / Week (Per Employee)</label>
+              <span id="hours-val" class="text-primary font-bold">6</span>
+            </div>
+            <input type="range" id="hours" min="1" max="25" value="6" class="w-full accent-primary bg-outline-variant h-2 rounded-lg cursor-pointer">
+            <span class="text-xs text-on-surface-variant/60 mt-1 block">Time spent copying data, generating reports, routing emails, etc.</span>
+          </div>
+
+          <!-- Input 3: Hourly Wage -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <label for="rate" class="text-on-surface-variant">Average Blended Hourly Wage ($)</label>
+              <span id="rate-val" class="text-primary font-bold">$45</span>
+            </div>
+            <input type="range" id="rate" min="15" max="150" value="45" class="w-full accent-primary bg-outline-variant h-2 rounded-lg cursor-pointer">
+          </div>
+        </div>
+        
+        <div class="mt-8 pt-6 border-t border-outline-variant/50 text-xs text-on-surface-variant/60 leading-relaxed font-light">
+          *Calculations based on 52 working weeks per year. Projected savings assume 80% process efficiency reclamation via custom API/iPaaS bridges and AI assistants.
+        </div>
+      </div>
+
+      <!-- Calculator Outputs -->
+      <div class="lg:col-span-6 glass-card rounded-3xl p-8 bg-surface-container-low flex flex-col justify-between border border-primary/20 shadow-sm">
+        <h4 class="font-headline-md text-[20px] text-on-surface mb-8 border-b border-outline-variant/50 pb-3 font-semibold">Projected Savings Roadmap</h4>
+        
+        <div class="space-y-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 bg-surface rounded-xl border border-outline-variant/50">
+              <span class="text-xs font-bold text-on-surface-variant/60 uppercase tracking-wide block">Wasted Hours / Yr</span>
+              <span id="out-wasted-hours" class="text-xl font-extrabold text-on-surface">7,800 hrs</span>
+            </div>
+            <div class="p-4 bg-surface rounded-xl border border-outline-variant/50">
+              <span class="text-xs font-bold text-on-surface-variant/60 uppercase tracking-wide block">Monthly Loss</span>
+              <span id="out-monthly-loss" class="text-xl font-extrabold text-red-500">$29,250</span>
+            </div>
+          </div>
+
+          <!-- Main cost display -->
+          <div class="p-6 bg-red-50 rounded-2xl border border-red-200 text-center">
+            <span class="text-xs font-bold text-on-surface-variant/75 uppercase tracking-widest block mb-1">Current Annual Cost of Friction</span>
+            <span id="out-annual-loss" class="text-3xl md:text-4xl font-black text-red-600">$351,000</span>
+          </div>
+
+          <!-- Reclaimed Savings Display -->
+          <div class="p-6 bg-emerald-50 rounded-2xl border border-emerald-200 text-center relative overflow-hidden">
+            <span class="text-xs font-bold text-on-surface-variant/75 uppercase tracking-widest block mb-1">Projected Annual Savings (80% Reclaimed)</span>
+            <span id="out-savings" class="text-3xl md:text-4xl font-black text-emerald-600">$280,800</span>
+            <span id="out-reclaimed-hours" class="text-xs text-emerald-700 block mt-2 font-medium">Reclaiming 6,240 operator hours annually</span>
+          </div>
+        </div>
+
+        <a href="/contact/" class="mt-8 w-full py-4 text-center rounded-full bg-primary hover:bg-primary/95 text-surface font-semibold shadow-md hover:shadow-lg transition-all block">
+          Request an Operational Audit
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Engagement Options -->
+<section class="py-32 bg-surface-container-highest border-t border-outline-variant/30">
+  <div class="max-w-[1024px] mx-auto px-6 md:px-16">
+    <div class="text-center mb-24">
+      <h2 class="font-display-sm text-headline-lg-mobile md:text-display-sm text-on-surface mb-6 font-light">Engagement Options</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light">Flexible partnership models designed to scale with your needs.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Managed Services -->
+      <div class="flex flex-col items-center text-center space-y-6">
+        <span class="material-symbols-outlined text-primary text-4xl font-light">settings_suggest</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface font-light">Managed</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light">End-to-end management with 24/7 monitoring.</p>
+      </div>
+      <!-- Project Based -->
+      <div class="flex flex-col items-center text-center space-y-6">
+        <span class="material-symbols-outlined text-primary text-4xl font-light">account_tree</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface font-light">Project</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light">Targeted implementations for specific challenges.</p>
+      </div>
+      <!-- Staff Augmentation -->
+      <div class="flex flex-col items-center text-center space-y-6">
+        <span class="material-symbols-outlined text-primary text-4xl font-light">group_add</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface font-light">Augmentation</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light">Expert engineers integrated into your team.</p>
+      </div>
+      <!-- Strategic Advisory -->
+      <div class="flex flex-col items-center text-center space-y-6">
+        <span class="material-symbols-outlined text-primary text-4xl font-light">insights</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface font-light">Advisory</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant text-sm font-light">High-level consulting to define your strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI Calculator Logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const employeesInput = document.getElementById('employees');
+    const hoursInput = document.getElementById('hours');
+    const rateInput = document.getElementById('rate');
+
+    const employeesVal = document.getElementById('employees-val');
+    const hoursVal = document.getElementById('hours-val');
+    const rateVal = document.getElementById('rate-val');
+
+    const outWastedHours = document.getElementById('out-wasted-hours');
+    const outMonthlyLoss = document.getElementById('out-monthly-loss');
+    const outAnnualLoss = document.getElementById('out-annual-loss');
+    const outSavings = document.getElementById('out-savings');
+    const outReclaimedHours = document.getElementById('out-reclaimed-hours');
+
+    function formatCurrency(val) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+      }).format(val);
+    }
+
+    function formatNumber(val) {
+      return new Intl.NumberFormat('en-US').format(val);
+    }
+
+    function recalculate() {
+      const emp = parseInt(employeesInput.value);
+      const hrs = parseInt(hoursInput.value);
+      const rate = parseInt(rateInput.value);
+
+      // Update labels
+      employeesVal.textContent = emp;
+      hoursVal.textContent = hrs;
+      rateVal.textContent = `$${rate}`;
+
+      // Calculate formulas
+      const annualHoursWasted = emp * hrs * 52;
+      const annualLossVal = annualHoursWasted * rate;
+      const monthlyLossVal = annualLossVal / 12;
+      const annualSavingsVal = annualLossVal * 0.8;
+      const hoursReclaimedVal = annualHoursWasted * 0.8;
+
+      // Update display outputs
+      outWastedHours.textContent = `${formatNumber(annualHoursWasted)} hrs`;
+      outMonthlyLoss.textContent = formatCurrency(monthlyLossVal);
+      outAnnualLoss.textContent = formatCurrency(annualLossVal);
+      outSavings.textContent = formatCurrency(annualSavingsVal);
+      outReclaimedHours.textContent = `Reclaiming ${formatNumber(hoursReclaimedVal)} operator hours annually`;
+    }
+
+    // Attach listeners
+    employeesInput.addEventListener('input', recalculate);
+    hoursInput.addEventListener('input', recalculate);
+    rateInput.addEventListener('input', recalculate);
+
+    // Initial run
+    recalculate();
+  });
+</script>
