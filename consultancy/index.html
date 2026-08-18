@@ -143,10 +143,10 @@ void main() {
   <!-- STITCH_SHADER_END:ANIMATION_21 -->
 
   <!-- Top Sticky Navigation Bar -->
-  <nav class="bg-white/80 dark:bg-deep-charcoal/80 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/20">
+  <nav class="bg-white/90 dark:bg-deep-charcoal/95 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/20 dark:border-slate-800">
     <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max-width mx-auto">
       <!-- Logo -->
-      <a class="font-headline-md text-headline-md font-bold text-deep-charcoal dark:text-surface-container-lowest" href="/">
+      <a class="font-headline-md text-headline-md font-bold text-deep-charcoal dark:text-white hover:opacity-90 transition-opacity" href="/">
         CaulHaus
       </a>
 
@@ -154,47 +154,47 @@ void main() {
       <div class="hidden md:flex space-x-8 items-center">
         <!-- Solutions Dropdown -->
         <div class="relative" id="services-dropdown">
-          <button id="services-btn" class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-body-md text-body-md flex items-center gap-1 focus:outline-none cursor-pointer">
+          <button id="services-btn" class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium flex items-center gap-1 focus:outline-none cursor-pointer">
             Solutions
-            <span id="services-arrow" class="material-symbols-outlined text-[16px] transition-transform duration-200">keyboard_arrow_down</span>
+            <span id="services-arrow" class="material-symbols-outlined text-[16px] transition-transform duration-200 text-slate-800 dark:text-slate-100">keyboard_arrow_down</span>
           </button>
           <div id="services-menu" class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 z-50 transition-all duration-200 opacity-0 pointer-events-none translate-y-1">
-            <div class="rounded-xl bg-white border border-outline-variant/20 shadow-lg p-2">
-              <a href="/marketing/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-colors ">Marketing Systems</a>
-              <a href="/automation/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-colors ">Process Automation</a>
-              <a href="/services/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-colors ">How We Engage</a>
+            <div class="rounded-xl bg-white dark:bg-slate-900 border border-outline-variant/20 dark:border-slate-800 shadow-xl p-2">
+              <a href="/marketing/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors ">Marketing Systems</a>
+              <a href="/automation/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors ">Process Automation</a>
+              <a href="/services/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors ">How We Engage</a>
             </div>
           </div>
         </div>
 
-        <a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-body-md text-body-md " href="/about/">How We Work</a>
-        <a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-body-md text-body-md " href="/projects/">Results</a>
+        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium " href="/about/">How We Work</a>
+        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium " href="/projects/">Results</a>
       </div>
 
       <!-- CTA -->
       <div class="hidden md:block">
-        <a class="bg-electric-blue text-white px-6 py-2 rounded font-body-md text-body-md hover:opacity-90 transition-opacity active:scale-95" href="/contact/">Contact Us</a>
+        <a class="bg-electric-blue text-white px-6 py-2.5 rounded font-body-md text-body-md font-semibold hover:opacity-90 transition-opacity active:scale-95 shadow-sm" href="/contact/">Contact Us</a>
       </div>
 
       <!-- Mobile Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-on-surface focus:outline-none cursor-pointer">
+      <button id="mobile-menu-btn" class="md:hidden text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer">
         <span id="menu-icon" class="material-symbols-outlined">menu</span>
       </button>
     </div>
 
     <!-- Mobile Navigation Panel -->
-    <div id="mobile-menu" class="hidden md:hidden px-grid-margin pb-6 pt-2 border-t border-outline-variant/10 bg-white/95 w-full">
+    <div id="mobile-menu" class="hidden md:hidden px-grid-margin pb-6 pt-2 border-t border-outline-variant/10 dark:border-slate-800 bg-white/95 dark:bg-deep-charcoal/95 w-full">
       <div class="flex flex-col gap-4 font-body-md text-body-md">
-        <span class="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Solutions</span>
-        <a class="pl-4 text-on-surface-variant" href="/marketing/">Marketing Systems</a>
-        <a class="pl-4 text-on-surface-variant" href="/automation/">Process Automation</a>
-        <a class="pl-4 text-on-surface-variant" href="/services/">How We Engage</a>
+        <span class="font-mono-label text-[10px] text-slate-400 uppercase tracking-widest mt-2 font-bold">Solutions</span>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/marketing/">Marketing Systems</a>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/automation/">Process Automation</a>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/services/">How We Engage</a>
         
-        <span class="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Company</span>
-        <a class="pl-4 text-on-surface-variant" href="/about/">How We Work</a>
-        <a class="pl-4 text-on-surface-variant" href="/projects/">Results</a>
+        <span class="font-mono-label text-[10px] text-slate-400 uppercase tracking-widest mt-2 font-bold">Company</span>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/about/">How We Work</a>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/projects/">Results</a>
         
-        <a class="bg-electric-blue text-white px-6 py-3 rounded text-center mt-4 shadow-sm" href="/contact/">
+        <a class="bg-electric-blue text-white px-6 py-3 rounded text-center mt-4 shadow-sm font-semibold" href="/contact/">
           Contact Us
         </a>
       </div>
