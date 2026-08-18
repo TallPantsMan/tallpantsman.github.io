@@ -1,6 +1,7 @@
 export default function(eleventyConfig) {
   // Pass through copy of images and assets
   eleventyConfig.addPassthroughCopy("src/assets/images");
+  eleventyConfig.addPassthroughCopy("src/assets/js");
   
   // Pass through CNAME file for GitHub Pages custom domain
   // eleventyConfig.addPassthroughCopy("src/CNAME");

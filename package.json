@@ -7,14 +7,23 @@
     "start": "concurrently \"npm run start:eleventy\" \"npm run start:css\"",
     "start:eleventy": "eleventy --serve --port 8080",
     "start:css": "tailwindcss -i ./src/assets/styles/index.css -o ./_site/assets/styles/tailwind.css --watch",
-    "build": "npm run build:eleventy && npm run build:css",
+    "build": "npm run build:js && npm run build:eleventy && npm run build:css",
+    "build:js": "esbuild src/components/entry.tsx --bundle --minify --target=es2020 --outfile=src/assets/js/hero-pipeline.js",
     "build:eleventy": "eleventy",
     "build:css": "tailwindcss -i ./src/assets/styles/index.css -o ./_site/assets/styles/tailwind.css --minify"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@tailwindcss/cli": "^4.0.0",
-    "tailwindcss": "^4.0.0",
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "tailwindcss": "^4.0.0"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.11.3",
+    "esbuild": "^0.28.2",
+    "framer-motion": "^13.1.0",
+    "lucide-react": "^1.32.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   }
 }

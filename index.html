@@ -227,77 +227,14 @@ void main() {
     </div>
   </div>
   
-  <!-- Technical Illustration Panel with live connector animations -->
+  <!-- Interactive Hero Pipeline Component -->
   <div class="lg:col-span-5 mt-12 lg:mt-0 relative" id="systems-map">
-    <div class="bg-white border border-surface-container-highest rounded-lg p-6 tech-shadow w-full aspect-square flex flex-col justify-between">
-      <div class="flex justify-between items-center w-full relative">
-        
-        <!-- Step 1 -->
-        <div class="flex flex-col items-center space-y-2 z-10 w-16">
-          <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-electric-blue">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
-          </div>
-          <span class="font-mono-label text-mono-label text-slate-gray text-center block">Strategy Defined</span>
-        </div>
-        
-        <!-- Connector line 1 -->
-        <div class="hidden sm:block flex-grow h-[1px] bg-surface-container-highest mx-1 relative overflow-hidden">
-          <div class="absolute top-0 left-0 h-full w-6 bg-gradient-to-r from-transparent via-electric-blue to-transparent" style="animation: flowLeftToRight 2s linear infinite;"></div>
-        </div>
-        
-        <!-- Step 2 -->
-        <div class="flex flex-col items-center space-y-2 z-10 w-16">
-          <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-electric-blue">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">build</span>
-          </div>
-          <span class="font-mono-label text-mono-label text-slate-gray text-center block">Campaign / Process Built</span>
-        </div>
-
-        <!-- Connector line 2 -->
-        <div class="hidden sm:block flex-grow h-[1px] bg-surface-container-highest mx-1 relative overflow-hidden">
-          <div class="absolute top-0 left-0 h-full w-6 bg-gradient-to-r from-transparent via-electric-blue to-transparent" style="animation: flowLeftToRight 2s linear infinite; animation-delay: 0.6s;"></div>
-        </div>
-        
-        <!-- Step 3 -->
-        <div class="flex flex-col items-center space-y-2 z-10 w-16">
-          <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-electric-blue">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
-          </div>
-          <span class="font-mono-label text-mono-label text-slate-gray text-center block">Automated &amp; Connected</span>
-        </div>
-
-        <!-- Connector line 3 -->
-        <div class="hidden sm:block flex-grow h-[1px] bg-surface-container-highest mx-1 relative overflow-hidden">
-          <div class="absolute top-0 left-0 h-full w-6 bg-gradient-to-r from-transparent via-terminal-green to-transparent" style="animation: flowLeftToRight 2s linear infinite; animation-delay: 1.2s;"></div>
-        </div>
-        
-        <!-- Step 4 -->
-        <div class="flex flex-col items-center space-y-2 z-10 w-16">
-          <div class="w-12 h-12 rounded-full bg-deep-charcoal flex items-center justify-center text-terminal-green">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">schedule</span>
-          </div>
-          <span class="font-mono-label text-mono-label text-terminal-green text-center block">Time Given Back</span>
-        </div>
-      </div>
-      
-      <div class="mt-8 border-t border-surface-container-highest pt-4 flex justify-between items-center">
-        <span class="font-mono-label text-mono-label text-slate-gray uppercase">Visualizing: How a System Replaces Manual Work</span>
-        <div class="flex items-center space-x-2">
-          <div class="w-2 h-2 rounded-full bg-terminal-green animate-pulse"></div>
-          <span class="font-mono-label text-mono-label text-terminal-green uppercase">Live Loop</span>
-        </div>
-      </div>
-    </div>
+    <div id="hero-pipeline-root" class="w-full"></div>
   </div>
 </section>
 
-<!-- Flowing Lines Keyframe Animation -->
-<style>
-  @keyframes flowLeftToRight {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(300%); }
-  }
-</style>
+<!-- Hero Pipeline Component Script -->
+<script src="/assets/js/hero-pipeline.js" defer></script>
 
 <!-- Metrics Banner -->
 <section class="border-y border-surface-container-highest bg-surface-container-lowest reveal">
