@@ -13,13 +13,13 @@ description: Tell us about the software tools you're struggling with. We'll help
     Schedule Your System Review
   </h1>
   <p class="font-body-lg text-body-lg text-on-surface-variant font-light max-w-xl mx-auto">
-    Answer a few questions about your software and choose an available time slot below to schedule your system review call.
+    Answer a few questions about your software and we'll get back to you shortly to schedule your system review call.
   </p>
 </section>
 
 <!-- Multi-Step Form Wrapper -->
 <section class="max-w-[600px] mx-auto px-margin-mobile pb-32 reveal">
-  <div class="glass-panel p-8 md:p-12 rounded-3xl border border-glass-stroke shadow-xl bg-white relative min-h-[480px] flex flex-col justify-between">
+  <div class="glass-panel p-8 md:p-12 rounded-3xl border border-glass-stroke shadow-xl bg-white relative min-h-[400px] flex flex-col justify-between">
     
     <!-- Form Tag -->
     <form id="contact-wizard-form" class="space-y-6 flex-grow flex flex-col justify-between">
@@ -32,7 +32,7 @@ description: Tell us about the software tools you're struggling with. We'll help
       <!-- Step 1: Objective -->
       <div id="wizard-step-1" class="wizard-step space-y-6">
         <div>
-          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 1 OF 4</span>
+          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 1 OF 3</span>
           <h3 class="font-headline-md text-headline-md font-bold text-primary">What is your primary goal?</h3>
         </div>
         <div class="flex flex-col gap-3">
@@ -54,7 +54,7 @@ description: Tell us about the software tools you're struggling with. We'll help
       <!-- Step 2: Customer Database -->
       <div id="wizard-step-2" class="wizard-step hidden space-y-6">
         <div>
-          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 2 OF 4</span>
+          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 2 OF 3</span>
           <h3 class="font-headline-md text-headline-md font-bold text-primary">What database do you use to store customer list info?</h3>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -80,7 +80,7 @@ description: Tell us about the software tools you're struggling with. We'll help
       <!-- Step 3: Business Details -->
       <div id="wizard-step-3" class="wizard-step hidden space-y-4">
         <div>
-          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 3 OF 4</span>
+          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 3 OF 3</span>
           <h3 class="font-headline-md text-headline-md font-bold text-primary">Tell us about your company</h3>
         </div>
         <div class="space-y-3 pt-2">
@@ -110,62 +110,6 @@ description: Tell us about the software tools you're struggling with. We'll help
         </div>
       </div>
 
-      <!-- Step 4: Interactive Calendar Mockup -->
-      <div id="wizard-step-4" class="wizard-step hidden space-y-4">
-        <div>
-          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 4 OF 4</span>
-          <h3 class="font-headline-md text-headline-md font-bold text-primary">Choose a Meeting Time</h3>
-        </div>
-        
-        <input type="hidden" id="selected-date" name="booking_date" value="2026-08-20">
-        <input type="hidden" id="selected-time" name="booking_time" value="10:00 AM">
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-          <!-- Calendar grid selection -->
-          <div class="border border-glass-stroke rounded-xl p-3 bg-surface-gray">
-            <div class="text-[10px] font-bold text-center uppercase tracking-wider mb-2 text-on-surface-variant">August 2026</div>
-            <div class="grid grid-cols-7 gap-1 text-center text-[9px] font-bold text-on-surface-variant/60 mb-1">
-              <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
-            </div>
-            <div class="grid grid-cols-7 gap-1">
-              <!-- Empty buffer -->
-              <span class="py-1"></span><span class="py-1"></span><span class="py-1"></span><span class="py-1"></span><span class="py-1"></span><span class="py-1"></span>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">1</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">2</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">3</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">4</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">5</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">6</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">7</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">8</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">9</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">10</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">11</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">12</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">13</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">14</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">15</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">16</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">17</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">18</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">19</button>
-              <button type="button" id="cal-selected-day" class="py-1 bg-brand-indigo text-white rounded font-bold border border-brand-indigo">20</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">21</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">22</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">23</button>
-              <button type="button" class="py-1 bg-white hover:bg-glass-stroke rounded font-semibold border border-glass-stroke">24</button>
-            </div>
-          </div>
-
-          <!-- Time slots -->
-          <div class="flex flex-col gap-2 justify-center">
-            <button type="button" class="slot-btn p-2 border-2 border-brand-indigo bg-brand-indigo/5 text-primary text-xs font-semibold rounded-xl text-center cursor-pointer transition-all">10:00 AM Eastern Time</button>
-            <button type="button" class="slot-btn p-2 border border-glass-stroke hover:bg-surface-gray text-on-surface-variant text-xs font-medium rounded-xl text-center cursor-pointer transition-all">1:30 PM Eastern Time</button>
-            <button type="button" class="slot-btn p-2 border border-glass-stroke hover:bg-surface-gray text-on-surface-variant text-xs font-medium rounded-xl text-center cursor-pointer transition-all">3:00 PM Eastern Time</button>
-          </div>
-        </div>
-      </div>
-
       <!-- Navigation buttons -->
       <div class="flex justify-between items-center pt-8 border-t border-glass-stroke mt-6">
         <button type="button" id="prev-btn" class="hidden px-5 py-2.5 rounded-full border border-outline-variant hover:bg-surface-gray text-xs font-semibold cursor-pointer transition-all select-none">
@@ -176,7 +120,7 @@ description: Tell us about the software tools you're struggling with. We'll help
           Continue
         </button>
         <button type="submit" id="submit-btn" class="hidden px-6 py-2.5 rounded-full bg-brand-emerald text-white text-xs font-bold cursor-pointer hover:bg-brand-emerald/90 transition-all select-none shadow-sm shadow-brand-emerald/10">
-          Schedule Call
+          Submit Details
         </button>
       </div>
 
@@ -187,9 +131,9 @@ description: Tell us about the software tools you're struggling with. We'll help
       <div class="w-16 h-16 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center animate-pulse">
         <span class="material-symbols-outlined text-4xl font-bold">check_circle</span>
       </div>
-      <h3 class="font-headline-lg text-headline-lg font-bold text-primary">Meeting Scheduled!</h3>
+      <h3 class="font-headline-lg text-headline-lg font-bold text-primary">Thank You!</h3>
       <p class="font-body-md text-body-md text-on-surface-variant max-w-sm font-light">
-        We have received your details. A calendar invitation has been sent directly to your email address.
+        We have received your details and will get back to you shortly.
       </p>
     </div>
 
@@ -199,7 +143,7 @@ description: Tell us about the software tools you're struggling with. We'll help
 <!-- Multi-Step Wizard Script -->
 <script>
   let currentStep = 1;
-  const totalSteps = 4;
+  const totalSteps = 3;
 
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
@@ -225,19 +169,13 @@ description: Tell us about the software tools you're struggling with. We'll help
   }
 
   nextBtn.addEventListener('click', () => {
-    // Basic field validation before proceeding
-    if (currentStep === 3) {
-      const name = document.querySelector('input[name="name"]');
-      const email = document.querySelector('input[name="email"]');
-      const website = document.querySelector('input[name="website"]');
-      if (!name.value || !email.value || !website.value) {
-        alert('Please fill out all contact fields before continuing.');
-        return;
-      }
-      if (!email.checkValidity()) {
-        alert('Please enter a valid email address.');
-        return;
-      }
+    // Validation before going from Step 1 to 2
+    if (currentStep === 1) {
+      // Step 1 uses radio buttons which always have one selected, so it's always valid
+    }
+    // Validation before going from Step 2 to 3
+    if (currentStep === 2) {
+      // Step 2 uses radio buttons, always valid
     }
 
     if (currentStep < totalSteps) {
@@ -274,23 +212,26 @@ description: Tell us about the software tools you're struggling with. We'll help
     });
   });
 
-  // Calendar time slots highlight
-  document.querySelectorAll('.slot-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.slot-btn').forEach(b => {
-        b.className = "slot-btn p-2 border border-glass-stroke hover:bg-surface-gray text-on-surface-variant text-xs font-medium rounded-xl text-center cursor-pointer transition-all";
-      });
-      btn.className = "slot-btn p-2 border border-brand-indigo bg-brand-indigo/5 text-primary text-xs font-semibold rounded-xl text-center cursor-pointer transition-all";
-      document.getElementById('selected-time').value = btn.textContent.replace(' Eastern Time', '');
-    });
-  });
-
   // Submitting the wizard
   const form = document.getElementById('contact-wizard-form');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // Final checks before submitting
+    const name = document.querySelector('input[name="name"]');
+    const email = document.querySelector('input[name="email"]');
+    const website = document.querySelector('input[name="website"]');
+    if (!name.value || !email.value || !website.value) {
+      alert('Please fill out all contact fields before submitting.');
+      return;
+    }
+    if (!email.checkValidity()) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Scheduling...';
+    submitBtn.textContent = 'Submitting...';
 
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
@@ -313,12 +254,12 @@ description: Tell us about the software tools you're struggling with. We'll help
       }
     } catch (err) {
       console.error(err);
-      // Fallback mailto
-      const mailtoLink = `mailto:alex@caulhaus.com?subject=Operations Audit Request&body=Objective: ${object.objective}%0D%0ACustomer Database: ${object.crm}%0D%0AName: ${object.name}%0D%0AWebsite: ${object.website}%0D%0ALeads: ${object.leads}%0D%0ABooked Date: ${object.booking_date} at ${object.booking_time}`;
+      // Fallback mailto link
+      const mailtoLink = `mailto:alex@caulhaus.com?subject=Operations Audit Request&body=Objective: ${object.objective}%0D%0ACustomer Database: ${object.crm}%0D%0AName: ${object.name}%0D%0AWebsite: ${object.website}%0D%0ALeads: ${object.leads}`;
       alert('There was a connection issue. We are opening your email client to submit details directly!');
       window.location.href = mailtoLink;
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Schedule Call';
+      submitBtn.textContent = 'Submit Details';
     }
   });
 
