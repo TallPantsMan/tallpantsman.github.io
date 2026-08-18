@@ -1,143 +1,101 @@
 ---
 layout: base.njk
-title: Get a Quote | CaulHaus
-description: Contact CaulHaus. Request a quote or book an audit for B2B workflow integrations, AI automations, and operational assessments.
+title: Contact CaulHaus - Systems Consulting
+description: Tell us about the systems you're struggling with. We'll help you find a better way to work.
 ---
 
-<!-- Header Section -->
-<section class="max-w-[1024px] mx-auto px-6 md:px-16 pt-20 md:pt-32 pb-12 text-center relative reveal">
-  <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 relative z-10 animate-fade-in-up">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-outline-variant/60 rounded-full bg-surface-container/50">
-      <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Let's Connect</span>
-    </div>
-    <h1 class="font-display-sm text-headline-lg-mobile md:text-display-lg text-on-surface font-light">
-      Get a Quote Today
-    </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
-      Ready to automate your operations or scale your lead pipeline? Fill out our form below, and we will prepare a high-level operational scope within 24 hours.
-    </p>
+<!-- Hero Section -->
+<header class="max-w-container-max mx-auto px-margin-mobile mb-section-gap-sm md:mb-section-gap-lg pt-12">
+  <div class="max-w-3xl">
+    <h1 class="font-display-lg text-display-lg text-primary tracking-tight mb-6">Let's Get to Work.</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">Tell us about the systems you're struggling with. We'll help you find a better way to work.</p>
   </div>
-</section>
+</header>
 
-<!-- Contact Form Section -->
-<section class="max-w-[1024px] mx-auto px-6 md:px-16 pb-32 reveal">
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
+<!-- Main Grid Layout -->
+<section class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-20">
+  <!-- Contact Information (Left Column) -->
+  <div class="md:col-span-4 flex flex-col gap-12 pt-4">
+    <div class="group">
+      <div class="flex items-center gap-4 mb-3">
+        <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+          <span class="material-symbols-outlined">mail</span>
+        </div>
+        <h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Direct Inquiry</h3>
+      </div>
+      <a class="font-headline-md text-headline-md text-primary hover:text-hyper-blue transition-colors" href="mailto:strategy@caulhaus.com">strategy@caulhaus.com</a>
+    </div>
     
-    <!-- Left Column: Form -->
-    <div class="lg:col-span-7 glass-card rounded-3xl p-8 md:p-10 border border-outline-variant/50 relative overflow-hidden" id="contact-form-card">
-      <h2 class="font-headline-md text-headline-md text-on-surface mb-2 font-normal">Request a Project Quote</h2>
-      <p class="font-body-md text-body-md text-on-surface-variant mb-8 font-light text-sm">Describe your manual database gaps, workflow friction, or marketing goals.</p>
+    <div class="group">
+      <div class="flex items-center gap-4 mb-3">
+        <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+          <span class="material-symbols-outlined">share</span>
+        </div>
+        <h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Professional Network</h3>
+      </div>
+      <a class="font-headline-md text-headline-md text-primary hover:text-hyper-blue transition-colors" href="#">LinkedIn Profile</a>
+    </div>
+    
+    <div class="group">
+      <div class="flex items-center gap-4 mb-3">
+        <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+          <span class="material-symbols-outlined">location_on</span>
+        </div>
+        <h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Headquarters</h3>
+      </div>
+      <p class="font-body-md text-body-md text-primary">
+        Precision Sector<br>
+        San Francisco, CA
+      </p>
+    </div>
+  </div>
+  
+  <!-- Contact Form (Right Column) -->
+  <div class="md:col-span-8">
+    <div id="contact-form-container" class="bg-surface-container-lowest border border-glass-stroke rounded-xl p-8 md:p-12 ambient-shadow transition-all duration-300 relative overflow-hidden">
+      <!-- Decorative subtle background element -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-surface-container-low rounded-full blur-3xl -mr-32 -mt-32 opacity-50 pointer-events-none"></div>
       
-      <form id="quote-contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-8">
-        <!-- Hidden config keys -->
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-        <input type="hidden" name="subject" value="New B2B Project Quote Request - CaulHaus">
+      <form id="contact-page-form" action="https://api.web3forms.com/submit" method="POST" class="relative z-10 flex flex-col gap-10">
+        <input type="hidden" name="access_key" value="ccefd948-13ab-4d13-bc57-993d0edb7eb8">
+        <input type="hidden" name="subject" value="New B2B Inquiry - CaulHaus Contact Page">
         <input type="hidden" name="from_name" value="CaulHaus Website - Contact Page">
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <div class="space-y-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Your Name</label>
-            <input name="name" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="Jane Doe" type="text"/>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div class="flex flex-col relative group">
+            <label class="font-label-caps text-label-caps text-on-surface-variant mb-2" for="name">Your Name or Company</label>
+            <input required class="input-minimal w-full font-body-lg text-body-lg text-primary placeholder-surface-dim" id="name" name="name" placeholder="Jane Doe" type="text">
           </div>
-          <div class="space-y-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Company Name</label>
-            <input name="company" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="Acme Corp" type="text"/>
-          </div>
-        </div>
-
-        <div class="space-y-1">
-          <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Work Email</label>
-          <input name="email" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="jane@company.com" type="email"/>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <div class="space-y-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Primary Need</label>
-            <select name="category" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface text-sm">
-              <option value="Process Automation">Process Automation</option>
-              <option value="Workflow Integrations">Workflow Integrations</option>
-              <option value="AI Enablement">AI Enablement & LLMs</option>
-              <option value="Growth Marketing">B2B Growth Marketing</option>
-              <option value="Operational Audit">Operational Audit</option>
-            </select>
-          </div>
-          
-          <div class="space-y-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Project Budget</label>
-            <select name="budget" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface text-sm">
-              <option value="Under $5k">Under $5,000</option>
-              <option value="$5k - $15k">$5,000 - $15,000</option>
-              <option value="$15k - $30k">$15,000 - $30,000</option>
-              <option value="$30k+">$30,000+ / Retainer</option>
-            </select>
+          <div class="flex flex-col relative group">
+            <label class="font-label-caps text-label-caps text-on-surface-variant mb-2" for="email">Your Email</label>
+            <input required class="input-minimal w-full font-body-lg text-body-lg text-primary placeholder-surface-dim" id="email" name="email" placeholder="jane@company.com" type="email">
           </div>
         </div>
-
-        <div class="space-y-1">
-          <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Project Brief & Details</label>
-          <textarea name="message" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all resize-none text-on-surface placeholder:text-outline" placeholder="Describe the manual processes, software bottlenecks, or databases you need automated..." rows="4"></textarea>
+        
+        <div class="flex flex-col relative group">
+          <label class="font-label-caps text-label-caps text-on-surface-variant mb-2" for="project">How can we help?</label>
+          <textarea required class="input-minimal w-full font-body-lg text-body-lg text-primary placeholder-surface-dim resize-none" id="project" name="message" placeholder="Describe the automation objective..." rows="4"></textarea>
         </div>
-
-        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary/95 hover:scale-[1.02] active:scale-[0.98] text-on-primary font-label-md text-label-md py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 font-semibold cursor-pointer">
-          Send Quote Request
-        </button>
+        
+        <div class="pt-4 flex justify-between items-center border-t border-glass-stroke">
+          <p class="font-code-sm text-code-sm text-on-surface-variant max-w-sm">
+            All data transmitted is encrypted and handled per our rigid security protocols.
+          </p>
+          <button id="submit-btn" class="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-full flex items-center gap-2 hover:bg-hyper-blue transition-colors duration-300 group cursor-pointer" type="submit">
+            Send Message <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </button>
+        </div>
       </form>
     </div>
-
-    <!-- Right Column: Details & FAQs -->
-    <div class="lg:col-span-5 flex flex-col gap-12" style="animation-delay: 0.2s;">
-      <!-- Contact details card -->
-      <div class="glass-card rounded-3xl p-8 border border-outline-variant/50">
-        <h3 class="font-headline-md text-headline-md mb-6 text-on-surface font-normal">Direct Channels</h3>
-        <div class="space-y-6">
-          <div class="flex items-start gap-4">
-            <span class="material-symbols-outlined mt-1 text-primary font-light">mail</span>
-            <div>
-              <span class="text-xs text-on-surface-variant block uppercase tracking-wider font-semibold">General Inquiry</span>
-              <p class="font-body-md text-body-md text-on-surface">hello@caulhaus.com</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <span class="material-symbols-outlined mt-1 text-primary font-light">location_on</span>
-            <div>
-              <span class="text-xs text-on-surface-variant block uppercase tracking-wider font-semibold">Office Location</span>
-              <p class="font-body-md text-body-md text-on-surface">San Francisco, CA</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ Section -->
-      <div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-8 font-normal">FAQ</h3>
-        <div class="space-y-4">
-          <details class="group border-b border-outline-variant/50 pb-4">
-            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-normal hover:text-primary transition-colors">
-              How do we get started?
-              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
-            </summary>
-            <p class="font-body-md text-body-md text-on-surface-variant pt-3 text-sm font-light leading-relaxed">Fill out this request form. We will analyze your inputs and set up a free 15-minute briefing to walk through a roadmap solution.</p>
-          </details>
-          <details class="group border-b border-outline-variant/50 pb-4">
-            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-normal hover:text-primary transition-colors">
-              What tools do you integrate?
-              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
-            </summary>
-            <p class="font-body-md text-body-md text-on-surface-variant pt-3 text-sm font-light leading-relaxed">HubSpot, Salesforce, Monday.com, ClickUp, Slack, Gmail, Airtable, OpenAI API, Zapier, n8n, Make, and more.</p>
-          </details>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- Form Submission JavaScript with Mailto Fallback -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('quote-contact-form');
+    const form = document.getElementById('contact-page-form');
     if (!form) return;
-    const container = document.getElementById('contact-form-card');
+    const container = document.getElementById('contact-form-container');
     const submitBtn = document.getElementById('submit-btn');
 
     form.addEventListener('submit', async (e) => {
@@ -145,23 +103,20 @@ description: Contact CaulHaus. Request a quote or book an audit for B2B workflow
 
       const accessKey = form.elements['access_key'].value;
       const nameVal = form.elements['name'].value;
-      const compVal = form.elements['company'].value;
       const emailVal = form.elements['email'].value;
-      const categoryVal = form.elements['category'].value;
-      const budgetVal = form.elements['budget'].value;
       const messageVal = form.elements['message'].value;
 
       if (accessKey === 'YOUR_ACCESS_KEY_HERE' || accessKey.trim() === '') {
-        const subject = encodeURIComponent('New B2B Project Quote Request - CaulHaus');
-        const body = encodeURIComponent(`Hello CaulHaus,\n\nI would like to request a quote for my project.\n\nName: ${nameVal}\nCompany: ${compVal}\nWork Email: ${emailVal}\nPrimary Need: ${categoryVal}\nProject Budget: ${budgetVal}\n\nProject Details:\n${messageVal}\n\n(Note: Form submitted via mailto fallback because Web3Forms access key is not yet configured in local files)`);
+        const subject = encodeURIComponent('New B2B Inquiry - CaulHaus Contact Page');
+        const body = encodeURIComponent(`Hello CaulHaus,\n\nI would like to contact your team.\n\nName: ${nameVal}\nEmail: ${emailVal}\n\nMessage Details:\n${messageVal}\n\n(Note: Form submitted via mailto fallback because Web3Forms access key is not yet configured in local files)`);
         
-        alert('Notice: The Web3Forms access key is not yet configured by the developer. Opening your default email client with your form details so your quote inquiry is sent successfully!');
-        window.location.href = `mailto:hello@caulhaus.com?subject=${subject}&body=${body}`;
+        alert('Notice: The Web3Forms access key is not yet configured by the developer. Opening your default email client with your form details so your inquiry is sent successfully!');
+        window.location.href = `mailto:strategy@caulhaus.com?subject=${subject}&body=${body}`;
         
         container.innerHTML = `
           <div class="text-center py-12 animate-fade-in-up">
             <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4 animate-bounce">mail</span>
-            <h3 class="text-xl font-bold text-on-surface mb-2 animate-pulse">Email Client Opened!</h3>
+            <h3 class="text-xl font-bold text-on-surface mb-2">Email Client Opened!</h3>
             <p class="text-on-surface-variant text-sm font-light mb-6">
               Your inquiry has been compiled. Please send the pre-filled email opened on your computer.
             </p>
@@ -172,7 +127,7 @@ description: Contact CaulHaus. Request a quote or book an audit for B2B workflow
       }
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting Request...';
+      submitBtn.innerHTML = 'Sending... <span class="material-symbols-outlined text-sm animate-spin">sync</span>';
       submitBtn.style.opacity = '0.7';
 
       const formData = new FormData(form);
@@ -192,9 +147,9 @@ description: Contact CaulHaus. Request a quote or book an audit for B2B workflow
           container.innerHTML = `
             <div class="text-center py-12 animate-fade-in-up">
               <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">check_circle</span>
-              <h3 class="text-xl font-bold text-on-surface mb-2">Quote Request Received!</h3>
+              <h3 class="text-xl font-bold text-on-surface mb-2">Message Sent!</h3>
               <p class="text-on-surface-variant text-sm font-light mb-6">
-                Thank you, ${nameVal}. Our Principal Architect will review your brief for ${compVal} and reply with an estimated operational scope within 24 hours.
+                Thank you, ${nameVal}. Our team will review your B2B brief and contact you within 24 hours.
               </p>
               <a href="/" class="text-primary font-semibold hover:underline">Return Home</a>
             </div>
@@ -203,12 +158,13 @@ description: Contact CaulHaus. Request a quote or book an audit for B2B workflow
           throw new Error('Submit failed');
         }
       } catch (err) {
-        alert('Submission failed. Directing to hello@caulhaus.com.');
-        window.location.href = `mailto:hello@caulhaus.com?subject=B2B Quote Request&body=Name: ${nameVal}%0D%0ACompany: ${compVal}%0D%0AEmail: ${emailVal}%0D%0ANeed: ${categoryVal}%0D%0ABudget: ${budgetVal}%0D%0ADetails: ${messageVal}`;
+        alert('Submission failed. Directing to strategy@caulhaus.com.');
+        window.location.href = `mailto:strategy@caulhaus.com?subject=B2B Inquiry&body=Name: ${nameVal}%0D%0AEmail: ${emailVal}%0D%0AMessage: ${messageVal}`;
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Quote Request';
+        submitBtn.innerHTML = 'Send Message <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>';
         submitBtn.style.opacity = '1';
       }
     });
   });
 </script>
+

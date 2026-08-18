@@ -32,6 +32,8 @@
         <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/marketing/">Marketing</a>
         <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/automation/">Automation</a>
         <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/services/">Services</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/projects/">Projects</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/blog/">Blog</a>
         <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/about/">About</a>
         <a class="font-body-md text-body-md text-hyper-blue font-semibold border-b border-hyper-blue transition-colors rounded-full px-4 py-2" href="/contact/">Contact</a>
       </nav>
@@ -53,6 +55,8 @@
         <a class="text-on-surface-variant" href="/marketing/">Marketing</a>
         <a class="text-on-surface-variant" href="/automation/">Automation</a>
         <a class="text-on-surface-variant" href="/services/">Services</a>
+        <a class="text-on-surface-variant" href="/projects/">Projects</a>
+        <a class="text-on-surface-variant" href="/blog/">Blog</a>
         <a class="text-on-surface-variant" href="/about/">About</a>
         <a class="text-hyper-blue font-semibold" href="/contact/">Contact</a>
         <a class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps uppercase text-center mt-2" href="/contact/">
@@ -113,32 +117,36 @@
   
   <!-- Contact Form (Right Column) -->
   <div class="md:col-span-8">
-    <div class="bg-surface-container-lowest border border-glass-stroke rounded-xl p-8 md:p-12 ambient-shadow transition-all duration-300 relative overflow-hidden">
+    <div id="contact-form-container" class="bg-surface-container-lowest border border-glass-stroke rounded-xl p-8 md:p-12 ambient-shadow transition-all duration-300 relative overflow-hidden">
       <!-- Decorative subtle background element -->
       <div class="absolute top-0 right-0 w-64 h-64 bg-surface-container-low rounded-full blur-3xl -mr-32 -mt-32 opacity-50 pointer-events-none"></div>
       
-      <form class="relative z-10 flex flex-col gap-10">
+      <form id="contact-page-form" action="https://api.web3forms.com/submit" method="POST" class="relative z-10 flex flex-col gap-10">
+        <input type="hidden" name="access_key" value="ccefd948-13ab-4d13-bc57-993d0edb7eb8">
+        <input type="hidden" name="subject" value="New B2B Inquiry - CaulHaus Contact Page">
+        <input type="hidden" name="from_name" value="CaulHaus Website - Contact Page">
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div class="flex flex-col relative group">
             <label class="font-label-caps text-label-caps text-on-surface-variant mb-2" for="name">Your Name or Company</label>
-            <input class="input-minimal w-full font-body-lg text-body-lg text-primary placeholder-surface-dim" id="name" name="name" placeholder="Jane Doe" type="text">
+            <input required class="input-minimal w-full font-body-lg text-body-lg text-primary placeholder-surface-dim" id="name" name="name" placeholder="Jane Doe" type="text">
           </div>
           <div class="flex flex-col relative group">
             <label class="font-label-caps text-label-caps text-on-surface-variant mb-2" for="email">Your Email</label>
-            <input class="input-minimal w-full font-body-lg text-body-lg text-primary placeholder-surface-dim" id="email" name="email" placeholder="jane@company.com" type="email">
+            <input required class="input-minimal w-full font-body-lg text-body-lg text-primary placeholder-surface-dim" id="email" name="email" placeholder="jane@company.com" type="email">
           </div>
         </div>
         
         <div class="flex flex-col relative group">
           <label class="font-label-caps text-label-caps text-on-surface-variant mb-2" for="project">How can we help?</label>
-          <textarea class="input-minimal w-full font-body-lg text-body-lg text-primary placeholder-surface-dim resize-none" id="project" name="project" placeholder="Describe the automation objective..." rows="4"></textarea>
+          <textarea required class="input-minimal w-full font-body-lg text-body-lg text-primary placeholder-surface-dim resize-none" id="project" name="message" placeholder="Describe the automation objective..." rows="4"></textarea>
         </div>
         
         <div class="pt-4 flex justify-between items-center border-t border-glass-stroke">
           <p class="font-code-sm text-code-sm text-on-surface-variant max-w-sm">
             All data transmitted is encrypted and handled per our rigid security protocols.
           </p>
-          <button class="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-full flex items-center gap-2 hover:bg-hyper-blue transition-colors duration-300 group" type="button">
+          <button id="submit-btn" class="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-full flex items-center gap-2 hover:bg-hyper-blue transition-colors duration-300 group cursor-pointer" type="submit">
             Send Message <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </button>
         </div>
@@ -146,6 +154,85 @@
     </div>
   </div>
 </section>
+
+<!-- Form Submission JavaScript with Mailto Fallback -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-page-form');
+    if (!form) return;
+    const container = document.getElementById('contact-form-container');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const accessKey = form.elements['access_key'].value;
+      const nameVal = form.elements['name'].value;
+      const emailVal = form.elements['email'].value;
+      const messageVal = form.elements['message'].value;
+
+      if (accessKey === 'YOUR_ACCESS_KEY_HERE' || accessKey.trim() === '') {
+        const subject = encodeURIComponent('New B2B Inquiry - CaulHaus Contact Page');
+        const body = encodeURIComponent(`Hello CaulHaus,\n\nI would like to contact your team.\n\nName: ${nameVal}\nEmail: ${emailVal}\n\nMessage Details:\n${messageVal}\n\n(Note: Form submitted via mailto fallback because Web3Forms access key is not yet configured in local files)`);
+        
+        alert('Notice: The Web3Forms access key is not yet configured by the developer. Opening your default email client with your form details so your inquiry is sent successfully!');
+        window.location.href = `mailto:strategy@caulhaus.com?subject=${subject}&body=${body}`;
+        
+        container.innerHTML = `
+          <div class="text-center py-12 animate-fade-in-up">
+            <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4 animate-bounce">mail</span>
+            <h3 class="text-xl font-bold text-on-surface mb-2">Email Client Opened!</h3>
+            <p class="text-on-surface-variant text-sm font-light mb-6">
+              Your inquiry has been compiled. Please send the pre-filled email opened on your computer.
+            </p>
+            <a href="/contact/" class="text-primary font-semibold hover:underline">Go Back</a>
+          </div>
+        `;
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending... <span class="material-symbols-outlined text-sm animate-spin">sync</span>';
+      submitBtn.style.opacity = '0.7';
+
+      const formData = new FormData(form);
+      const dataObj = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(dataObj)
+        });
+
+        if (response.ok) {
+          container.innerHTML = `
+            <div class="text-center py-12 animate-fade-in-up">
+              <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">check_circle</span>
+              <h3 class="text-xl font-bold text-on-surface mb-2">Message Sent!</h3>
+              <p class="text-on-surface-variant text-sm font-light mb-6">
+                Thank you, ${nameVal}. Our team will review your B2B brief and contact you within 24 hours.
+              </p>
+              <a href="/" class="text-primary font-semibold hover:underline">Return Home</a>
+            </div>
+          `;
+        } else {
+          throw new Error('Submit failed');
+        }
+      } catch (err) {
+        alert('Submission failed. Directing to strategy@caulhaus.com.');
+        window.location.href = `mailto:strategy@caulhaus.com?subject=B2B Inquiry&body=Name: ${nameVal}%0D%0AEmail: ${emailVal}%0D%0AMessage: ${messageVal}`;
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send Message <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>';
+        submitBtn.style.opacity = '1';
+      }
+    });
+  });
+</script>
+
 
   </main>
 
@@ -170,6 +257,8 @@
       <div class="col-span-1">
         <ul class="space-y-3">
           <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/about/">About Us</a></li>
+          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/projects/">Projects</a></li>
+          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/blog/">Blog</a></li>
           <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/contact/">Contact</a></li>
         </ul>
       </div>
