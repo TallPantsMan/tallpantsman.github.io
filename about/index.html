@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | CaulHaus</title>
-  <meta name="description" content="We handle complex technical infrastructure, automate workflows, and drive marketing growth so you can scale efficiently without the overhead.">
+  <title>About CaulHaus - Strategic RevOps Partner</title>
+  <meta name="description" content="We&#39;re more than just consultants. We roll up our sleeves to fix your processes and build the software that keeps your business moving.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles/tailwind.css">
   <style>
@@ -17,489 +17,202 @@
     }
   </style>
 </head>
-<body class="text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container relative z-0 bg-transparent">
+<body class="bg-white text-on-background font-body-md antialiased min-h-screen flex flex-col selection:bg-hyper-blue selection:text-white">
 
-  <!-- STITCH_SHADER_START:ANIMATION_21 class="fixed inset-0 w-full h-full -z-10" -->
-  <div class="fixed inset-0 w-full h-full -z-10" style="display:block; pointer-events: none;">
-    <canvas id="shader-canvas-ANIMATION_21" style="display:block;width:100%;height:100%"></canvas>
-    <script>
-      (function() {
-        const canvas = document.getElementById('shader-canvas-ANIMATION_21');
-        function syncSize() {
-          const w = canvas.clientWidth  || 1280;
-          const h = canvas.clientHeight || 720;
-          if (canvas.width !== w || canvas.height !== h) {
-            canvas.width  = w;
-            canvas.height = h;
-          }
-        }
-        if (typeof ResizeObserver !== 'undefined') {
-          new ResizeObserver(syncSize).observe(canvas);
-        }
-        syncSize();
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        if (!gl) return;
-        const vs = `attribute vec2 a_position;
-varying vec2 v_texCoord;
-void main() {
-  v_texCoord = a_position * 0.5 + 0.5;
-  gl_Position = vec4(a_position, 0.0, 1.0);
-}`;
-        const fs = `precision highp float;
-uniform float u_time;
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
-varying vec2 v_texCoord;
-
-void main() {
-    vec2 uv = v_texCoord;
-    vec2 m = u_mouse / u_resolution;
-    
-    float t = u_time * 0.15;
-    
-    // Base colors from Kinetic Enterprise palette (Light Mode)
-    vec3 color1 = vec3(0.97, 0.98, 1.0);  // Surface
-    vec3 color2 = vec3(0.92, 0.95, 1.0);  // Soft Blue
-    vec3 color3 = vec3(0.98, 1.0, 0.98);  // Soft Mint
-    
-    // Interactive influence
-    float dist = distance(uv, m);
-    float active = smoothstep(0.5, 0.0, dist) * 0.2;
-    
-    // Flowing noise patterns
-    float n1 = sin(uv.x * 4.0 + t + active) * cos(uv.y * 3.0 - t);
-    float n2 = cos(uv.y * 5.0 + t * 0.7) * sin(uv.x * 2.5 - t * 1.2);
-    
-    vec3 color = mix(color1, color2, clamp(n1 * 0.5 + 0.5, 0.0, 1.0));
-    color = mix(color, color3, clamp(n2 * 0.3, 0.0, 1.0));
-    
-    // Subtle glow near mouse
-    color += vec3(0.2, 0.4, 1.0) * active * 0.1;
-    
-    gl_FragColor = vec4(color, 1.0);
-}`;
-        function cs(type, src) {
-          const s = gl.createShader(type);
-          gl.shaderSource(s, src);
-          gl.compileShader(s);
-          return s;
-        }
-        const prog = gl.createProgram();
-        gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
-        gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
-        gl.linkProgram(prog);
-        gl.useProgram(prog);
-        const buf = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-        const pos = gl.getAttribLocation(prog, 'a_position');
-        gl.enableVertexAttribArray(pos);
-        gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-        const uTime = gl.getUniformLocation(prog, 'u_time');
-        const uRes = gl.getUniformLocation(prog, 'u_resolution');
-        const uMouse = gl.getUniformLocation(prog, 'u_mouse');
-
-        let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-        window.addEventListener('mousemove', (event) => {
-          const rect = canvas.getBoundingClientRect();
-          if (rect.width && rect.height) {
-            const nx = (event.clientX - rect.left) / rect.width;
-            const ny = 1.0 - (event.clientY - rect.top) / rect.height;
-            mouse.x = nx * canvas.width;
-            mouse.y = ny * canvas.height;
-          }
-        });
-
-        function render(t) {
-          if (typeof ResizeObserver === 'undefined') syncSize();
-          gl.viewport(0, 0, canvas.width, canvas.height);
-          if (uTime) gl.uniform1f(uTime, t * 0.001);
-          if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
-          if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
-          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-          requestAnimationFrame(render);
-        }
-        render(0);
-      })();
-    </script>
-  </div>
-  <!-- STITCH_SHADER_END:ANIMATION_21 -->
-
-  <div class="fixed inset-0 z-[-1] pointer-events-none bg-transparent">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-primary-fixed/40 via-primary-fixed/5 to-transparent"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-secondary-fixed/40 via-secondary-fixed/5 to-transparent"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(currentColor_1px,transparent_1px)] text-on-surface bg-[size:24px_24px] opacity-[0.04]"></div>
-  </div>
-
-  <!-- TopNavBar -->
-  <header class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-outline-variant/30">
-    <div class="flex justify-between items-center max-w-[1024px] mx-auto px-6 md:px-16 h-24">
+  <!-- Top Navigation Pill -->
+  <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-container-max rounded-full bg-white/80 backdrop-blur-xl border border-glass-stroke shadow-sm z-[100] transition-all duration-300 ease-in-out">
+    <div class="flex justify-between items-center px-8 py-3">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity duration-300">
-        <img alt="CaulHaus Logo" class="h-10 w-auto rounded-md" src="https://lh3.googleusercontent.com/aida/AP1WRLv8ECppKBDFBef6_HU24FE9X3YNKHsPWiDoiCsBjkQy_02CK3HVbvLmJkyIoir6WR8Y9SpNem4grNfMwlvFjFDuhhiBAMMYJyVOxgZ4OOi1EZnnqzN4_UyRT3L2zSOU1A98DgLMSI02RdA1Lj0--6lN8MCQEAUV-2HN0aB60XmBRKqGFW0xo74xYruGLWm9zu1ytXFU0D1OxpSsMVhhJZumzAOh8k6fyNWM2uiGldqYQCxy7tRMt6yrNXo"/>
-        <span class="text-lg font-bold font-heading text-on-surface tracking-tight">CaulHaus</span>
+      <a class="text-headline-md font-headline-md font-bold tracking-tight text-primary hover:opacity-80 transition-opacity" href="/">
+        CaulHaus
       </a>
-
-      <!-- Desktop Navigation with Sliding Underline Transitions -->
-      <nav class="hidden md:flex gap-10 items-center font-body-md text-body-md">
-        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/">
-          Home
-          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
-        </a>
-        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/automation/">
-          Automation
-          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
-        </a>
-        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/marketing/">
-          Marketing
-          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
-        </a>
-        <a class="relative py-2 transition-colors duration-300 text-on-surface font-medium group" href="/about/">
-          About
-          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-full"></span>
-        </a>
-        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/contact/">
-          Contact
-          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
-        </a>
-        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/blog/">
-          Blog
-          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
-        </a>
-        <a class="relative py-2 transition-colors duration-300 text-secondary hover:text-on-surface group" href="/projects/">
-          Projects
-          <span class="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full"></span>
-        </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-1">
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/marketing/">Marketing</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/automation/">Automation</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/services/">Services</a>
+        <a class="font-body-md text-body-md text-hyper-blue font-semibold border-b border-hyper-blue transition-colors rounded-full px-4 py-2" href="/about/">About</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/contact/">Contact</a>
       </nav>
-
-      <!-- Trailing Action Button with micro-scaling -->
-      <div class="flex items-center gap-4">
-        <a class="hidden md:inline-flex border border-on-surface text-on-surface hover:border-primary hover:text-primary hover:bg-surface-container-low font-label-md text-label-md px-6 py-2.5 rounded-full hover:scale-[1.02] active:scale-[0.98] hover:shadow-sm transition-all duration-300" href="/contact/">
-          Get an Audit
+      
+      <!-- Call to Action -->
+      <div class="flex items-center">
+        <a class="hidden md:inline-flex bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md font-medium hover:bg-hyper-blue transition-colors" href="/contact/">
+          Get Started
         </a>
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-on-surface p-2 focus:outline-none" aria-label="Toggle menu">
-          <span id="menu-icon" class="material-symbols-outlined text-[24px]">menu</span>
+        <button id="mobile-menu-btn" class="md:hidden text-primary p-1 focus:outline-none" aria-label="Toggle Menu">
+          <span id="menu-icon" class="material-symbols-outlined">menu</span>
         </button>
       </div>
     </div>
-
-    <!-- Mobile Navigation Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-md">
-      <div class="px-6 py-6 space-y-4 flex flex-col text-base font-medium">
-        <a class="text-secondary" href="/">Home</a>
-        <a class="text-secondary" href="/automation/">Automation</a>
-        <a class="text-secondary" href="/marketing/">Marketing</a>
-        <a class="text-primary font-semibold" href="/about/">About</a>
-        <a class="text-secondary" href="/contact/">Contact</a>
-        <a class="text-secondary" href="/blog/">Blog</a>
-        <a class="text-secondary" href="/projects/">Projects</a>
-        <div class="pt-4 border-t border-outline-variant/30">
-          <a class="block text-center border border-on-surface text-on-surface font-label-md text-label-md py-3 rounded-full" href="/contact/">
-            Get an Audit
-          </a>
-        </div>
+    
+    <!-- Mobile Navigation Panel -->
+    <div id="mobile-menu" class="hidden md:hidden px-8 pb-6 pt-2 border-t border-glass-stroke bg-white/95 rounded-b-3xl">
+      <div class="flex flex-col gap-4 font-body-md text-body-md">
+        <a class="text-on-surface-variant" href="/marketing/">Marketing</a>
+        <a class="text-on-surface-variant" href="/automation/">Automation</a>
+        <a class="text-on-surface-variant" href="/services/">Services</a>
+        <a class="text-hyper-blue font-semibold" href="/about/">About</a>
+        <a class="text-on-surface-variant" href="/contact/">Contact</a>
+        <a class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps uppercase text-center mt-2" href="/contact/">
+          Get Started
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- Main Content Area with global fade-in -->
-  <main class="flex-grow pt-24 animate-fade-in-up">
+  <!-- Main Content Area -->
+  <main class="flex-grow pt-24">
     
-<!-- Hero / About Section -->
-<section class="max-w-[1024px] mx-auto px-6 md:px-16 pt-20 md:pt-32 pb-16 flex flex-col items-center text-center gap-6 relative reveal">
-  <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 relative z-10">
-    <h1 class="font-display-sm text-display-sm md:font-display-lg md:text-display-lg text-on-surface font-light">
-      Empowering Growth, Simplifying Tech.
-    </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl font-light leading-relaxed">
-      We handle complex technical infrastructure, automate workflows, and drive marketing growth so you can scale efficiently without the overhead.
-    </p>
-    <div class="flex gap-8 pt-8 justify-center flex-wrap">
-      <div class="flex items-center gap-3">
-        <span class="material-symbols-outlined text-primary text-2xl font-light">rocket_launch</span>
-        <span class="font-label-md text-label-md text-on-surface font-normal">Fast Implementation</span>
-      </div>
-      <div class="flex items-center gap-3">
-        <span class="material-symbols-outlined text-primary text-2xl font-light">security</span>
-        <span class="font-label-md text-label-md text-on-surface font-normal">Enterprise Security</span>
-      </div>
-    </div>
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-20 pb-section-gap-sm flex flex-col items-center text-center relative">
+  <h1 class="font-display-lg text-display-lg md:text-[80px] md:leading-[88px] font-bold text-primary mb-6 max-w-4xl mx-auto">We Help You Build Better Systems.</h1>
+  <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">We're more than just consultants. We roll up our sleeves to fix your processes and build the software that keeps your business moving.</p>
+  <div class="relative w-full max-w-5xl mx-auto rounded-xl overflow-hidden border border-glass-stroke bg-surface-gray aspect-video flex items-center justify-center">
+    <img class="absolute inset-0 w-full h-full object-cover opacity-90" alt="Minimalist structural framework with glowing light representing digital RevOps infrastructure" src="/assets/images/about_hero.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent"></div>
   </div>
 </section>
 
-<!-- Leadership Team -->
-<section class="py-24 border-t border-outline-variant/30 bg-transparent reveal">
-  <div class="max-w-[1024px] mx-auto px-6 md:px-16 space-y-16">
-    <div class="text-center max-w-2xl mx-auto space-y-4">
-      <h2 class="font-headline-lg text-headline-lg text-on-surface font-light">Meet the Experts</h2>
-      <p class="font-body-md text-body-md text-on-surface-variant font-light">Professionals committed to elevating your business.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 pt-8">
-      <!-- Team Member 1 -->
-      <div class="flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-300 cursor-default">
-        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 border border-outline-variant/60 shadow-sm group-hover:shadow-md transition-shadow duration-500">
-          <img alt="Sarah Jenkins" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAToIWRQGiIYaqS90PnmAze0tILH0L9r5wLHMZV8UNsmplR_o9Njafr1ekZ6uCQnhs4YjmzPe-zaps_1XQ2LBrWWNt2s_W4McYmE99H91mGTAvYfCGuPfGIBHP8SXdBocwS3HAe_TgK1N_2BVP3CbQrSNofWMKlC7WQLmXJzf6OaF838gLtNBnANuWv_Jn-6cTqHVp7Wq-lQfJw5FXRYQjilg15R38HO1JAzUB1zkKurAvASGeK-j5X"/>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface font-normal">Sarah Jenkins</h3>
-        <p class="font-label-sm text-label-sm text-primary mt-1 uppercase tracking-widest font-semibold">CEO & Founder</p>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-4 text-sm leading-relaxed font-light">Visionary leader scaling SaaS enterprises.</p>
-      </div>
-      <!-- Team Member 2 -->
-      <div class="flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-300 cursor-default" style="animation-delay: 0.2s;">
-        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 border border-outline-variant/60 shadow-sm group-hover:shadow-md transition-shadow duration-500">
-          <img alt="David Chen" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgG2wgm15X2_MDUXq8avZIGQiSVTAMw-_VCSt3bUJTr7Qov84wrMWg8E9aBxfBExcJcB_AuzurrZ30IKV2gxqigj4KbuR2mJzaGjFHGB4CmcTWfFJ9nrkcmaV1WOcVwKnblnFzqQH5FZQDeI-XthvFNGksg69oT5r6k9OHddjs-3UzeumkCKJ6vWr5ljwveFsYSAngJZMnDRXGie69iNdmdfleUlpHa5CQBU6g2rhEXfDCFVg99w3S"/>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface font-normal">David Chen</h3>
-        <p class="font-label-sm text-label-sm text-primary mt-1 uppercase tracking-widest font-semibold">CTO</p>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-4 text-sm leading-relaxed font-light">Architect behind robust automation infrastructure.</p>
-      </div>
-      <!-- Team Member 3 -->
-      <div class="flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-300 cursor-default" style="animation-delay: 0.4s;">
-        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 border border-outline-variant/60 shadow-sm group-hover:shadow-md transition-shadow duration-500">
-          <img alt="Elena Rodriguez" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0B2VAk5o2Mu3KidteIt_k1iMFra2SKSJMLFwuPlW5AZPzegE4oZjI4biPf5OBmq0A_HRrQYIoXqMTh0f7o_Z_rb4XQ0L2_J2LIgIBg6qxpd0XJ8ZEKXmvu5CkpJ0J1au1V8HF-_-aneZBmTOewQGoyh9Tz_ywhRtHiUAAVxizeZQvGqK3XKE2ZELfcSym3gEZMe7OpRaY2zOn3iW1y1IP2f9AJtGOfdtJyrNGxWzLN__qRq6Ds4qw"/>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface font-normal">Elena Rodriguez</h3>
-        <p class="font-label-sm text-label-sm text-primary mt-1 uppercase tracking-widest font-semibold">Head of Growth</p>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-4 text-sm leading-relaxed font-light">Data-driven strategist turning analytics into growth.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact & FAQ Layout -->
-<section id="contact" class="max-w-[1024px] mx-auto px-6 md:px-16 py-32 border-t border-outline-variant/30 reveal">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-    <!-- Contact Form -->
-    <div class="glass-card rounded-3xl p-8 border border-outline-variant/50 relative overflow-hidden" id="about-form-container">
-      <div class="mb-12">
-        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4 font-light">Let's Discuss Growth</h2>
-        <p class="font-body-md text-body-md text-on-surface-variant font-light">Fill out the form and our team will reply within 24 hours.</p>
-      </div>
-      <form id="about-contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-8">
-        <!-- Hidden config keys -->
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-        <input type="hidden" name="subject" value="New B2B Inquire - CaulHaus About & Contact">
-        <input type="hidden" name="from_name" value="CaulHaus Website - About Page">
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <div class="space-y-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Full Name</label>
-            <input name="name" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="Jane Doe" type="text"/>
-          </div>
-          <div class="space-y-1">
-            <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Work Email</label>
-            <input name="email" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface placeholder:text-outline" placeholder="jane@company.com" type="email"/>
-          </div>
-        </div>
-        <div class="space-y-1">
-          <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Service Interest</label>
-          <select name="interest" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all text-on-surface">
-            <option disabled selected value="">Select an option...</option>
-            <option value="automation">Business Automation</option>
-            <option value="marketing">Growth Marketing</option>
-            <option value="both">Both Services</option>
-          </select>
-        </div>
-        <div class="space-y-1">
-          <label class="font-label-sm text-label-sm text-on-surface-variant block uppercase tracking-wider text-xs">Message</label>
-          <textarea name="message" required class="w-full border-b border-outline-variant/75 py-3 bg-transparent focus:border-primary focus:outline-none focus:ring-0 transition-all resize-none text-on-surface placeholder:text-outline" placeholder="How can we help you grow?" rows="3"></textarea>
-        </div>
-        <button type="submit" id="submit-btn" class="bg-on-surface text-surface hover:bg-primary hover:text-on-primary hover:scale-[1.02] active:scale-[0.98] font-label-md text-label-md px-8 py-3.5 rounded-full shadow-sm transition-all mt-4 font-semibold cursor-pointer">
-          Submit Inquiry
-        </button>
-      </form>
+<!-- Why CaulHaus Value Prop (Bento Grid) -->
+<section class="bg-surface-gray py-section-gap-lg border-y border-glass-stroke">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+    <div class="text-center mb-16">
+      <span class="font-label-caps text-label-caps text-hyper-blue uppercase mb-4 block">The Value Proposition</span>
+      <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Why CaulHaus?</h2>
     </div>
     
-    <!-- Contact Details & FAQ -->
-    <div class="flex flex-col gap-16" style="animation-delay: 0.2s;">
-      <!-- Contact Details -->
-      <div class="glass-card rounded-3xl p-8 border border-outline-variant/50">
-        <h3 class="font-headline-md text-headline-md mb-8 text-on-surface font-normal">Direct Contact</h3>
-        <div class="space-y-6">
-          <div class="flex items-start gap-4">
-            <span class="material-symbols-outlined mt-1 text-primary font-light">mail</span>
-            <div>
-              <p class="font-body-md text-body-md text-on-surface">hello@caulhaus.com</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <span class="material-symbols-outlined mt-1 text-primary font-light">location_on</span>
-            <div>
-              <p class="font-body-md text-body-md text-on-surface">San Francisco, CA</p>
-            </div>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-unit auto-rows-[300px]">
+      <!-- Core Competency Card (Large) -->
+      <div class="md:col-span-8 bg-surface rounded-xl border border-glass-stroke p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300">
+        <div class="z-10 relative max-w-lg">
+          <h3 class="font-headline-md text-headline-md font-semibold text-primary mb-4">Complete System Setup</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">We build everything from the ground up, making sure your software talks to each other.</p>
+        </div>
+        <span class="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] text-surface-container-high/50 group-hover:scale-110 transition-transform duration-700 pointer-events-none">account_tree</span>
+      </div>
+      
+      <!-- Expertise Card (Small) -->
+      <div class="md:col-span-4 bg-surface rounded-xl border border-glass-stroke p-8 flex flex-col justify-between hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300">
+        <div>
+          <span class="material-symbols-outlined text-hyper-blue text-3xl mb-4 block">speed</span>
+          <h3 class="font-headline-md text-headline-md font-semibold text-primary mb-2">Real Results</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">We focus on changes that save your team time and make your business more money.</p>
         </div>
       </div>
       
-      <!-- FAQ Accordion with smooth transitions -->
-      <div>
-        <h3 class="font-headline-md text-headline-md text-on-surface mb-8 font-normal">Common Questions</h3>
-        <div class="space-y-6">
-          <details class="group border-b border-outline-variant/50 pb-4" open>
-            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-normal hover:text-primary transition-colors">
-              Implementation timeline?
-              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
-            </summary>
-            <p class="font-body-md text-body-md text-on-surface-variant pt-4 text-sm font-light leading-relaxed">Most standard setups are completed within 4-6 weeks, depending on infrastructure complexity.</p>
-          </details>
-          <details class="group border-b border-outline-variant/50 pb-4">
-            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-normal hover:text-primary transition-colors">
-              Pricing structure?
-              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
-            </summary>
-            <p class="font-body-md text-body-md text-on-surface-variant pt-4 text-sm font-light leading-relaxed">Tiered monthly retainers based on service volume, starting with a free initial audit.</p>
-          </details>
-          <details class="group pb-2">
-            <summary class="font-body-md text-body-md text-on-surface cursor-pointer list-none flex justify-between items-center font-normal hover:text-primary transition-colors">
-              CRM Integration?
-              <span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform font-light">expand_more</span>
-            </summary>
-            <p class="font-body-md text-body-md text-on-surface-variant pt-4 text-sm font-light leading-relaxed">Yes, our systems interface seamlessly with major CRMs including Salesforce, HubSpot, and Dynamics.</p>
-          </details>
+      <!-- Integration Card (Small) -->
+      <div class="md:col-span-4 bg-surface rounded-xl border border-glass-stroke p-8 flex flex-col justify-between hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300 bg-primary text-surface-bright">
+        <div>
+          <span class="material-symbols-outlined text-surface-bright text-3xl mb-4 block">hub</span>
+          <h3 class="font-headline-md text-headline-md font-semibold text-surface-bright mb-2">Seamless Integration</h3>
+          <p class="font-body-md text-body-md text-tertiary-fixed-dim">We build the cohesive foundation across your revenue systems, simplifying complex architectures.</p>
+        </div>
+      </div>
+      
+      <!-- Trust Card (Large) -->
+      <div class="md:col-span-8 bg-surface rounded-xl border border-glass-stroke p-8 md:p-12 flex flex-col justify-center items-start hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300 relative overflow-hidden">
+        <img class="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-luminosity grayscale" alt="Professional RevOps consultants working on digital infrastructure in modern workspace" src="/assets/images/about_team.png">
+        <div class="relative z-10">
+          <h3 class="font-headline-md text-headline-md font-semibold text-primary mb-4">Companies We've Helped</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-lg mb-6">Startups and Fortune 500 companies alike trust us to deliver solutions that drive real impact. We act as an extension of your team.</p>
+          <a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-hyper-blue transition-colors uppercase tracking-wider" href="/contact/">
+            Start a Project <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Form Submission JavaScript with Mailto Fallback -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('about-contact-form');
-    if (!form) return;
-    const container = document.getElementById('about-form-container');
-    const submitBtn = document.getElementById('submit-btn');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const accessKey = form.elements['access_key'].value;
-      const nameVal = form.elements['name'].value;
-      const emailVal = form.elements['email'].value;
-      const interestVal = form.elements['interest'].value;
-      const messageVal = form.elements['message'].value;
-
-      if (accessKey === 'YOUR_ACCESS_KEY_HERE' || accessKey.trim() === '') {
-        const subject = encodeURIComponent('New B2B Inquire - CaulHaus About & Contact');
-        const body = encodeURIComponent(`Hello CaulHaus,\n\nI would like to contact your team.\n\nName: ${nameVal}\nWork Email: ${emailVal}\nService Interest: ${interestVal}\n\nMessage Details:\n${messageVal}\n\n(Note: Form submitted via mailto fallback because Web3Forms access key is not yet configured in local files)`);
-        
-        alert('Notice: The Web3Forms access key is not yet configured by the developer. Opening your default email client with your form details so your inquiry is sent successfully!');
-        window.location.href = `mailto:hello@caulhaus.com?subject=${subject}&body=${body}`;
-        
-        container.innerHTML = `
-          <div class="text-center py-12 animate-fade-in-up">
-            <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4 animate-bounce">mail</span>
-            <h3 class="text-xl font-bold text-on-surface mb-2 animate-pulse">Email Client Opened!</h3>
-            <p class="text-on-surface-variant text-sm font-light mb-6">
-              Your inquiry has been compiled. Please send the pre-filled email opened on your computer.
-            </p>
-            <a href="/about/" class="text-primary font-semibold hover:underline">Go Back</a>
-          </div>
-        `;
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-      submitBtn.style.opacity = '0.7';
-
-      const formData = new FormData(form);
-      const dataObj = Object.fromEntries(formData.entries());
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(dataObj)
-        });
-
-        if (response.ok) {
-          container.innerHTML = `
-            <div class="text-center py-12 animate-fade-in-up">
-              <span class="material-symbols-outlined text-emerald-500 text-5xl mb-4">check_circle</span>
-              <h3 class="text-xl font-bold text-on-surface mb-2">Inquiry Received!</h3>
-              <p class="text-on-surface-variant text-sm font-light mb-6">
-                Thank you, ${nameVal}. Our team will review your B2B brief and contact you within 24 hours.
-              </p>
-              <a href="/" class="text-primary font-semibold hover:underline">Return Home</a>
-            </div>
-          `;
-        } else {
-          throw new Error('Submit failed');
-        }
-      } catch (err) {
-        alert('Submission failed. Directing to hello@caulhaus.com.');
-        window.location.href = `mailto:hello@caulhaus.com?subject=B2B Inquiry&body=Name: ${nameVal}%0D%0AEmail: ${emailVal}%0D%0AInterest: ${interestVal}%0D%0AMessage: ${messageVal}`;
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Inquiry';
-        submitBtn.style.opacity = '1';
-      }
-    });
-  });
-</script>
+<!-- Testimonials / Client Trust Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-lg">
+  <div class="text-center mb-16">
+    <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Hear from our clients</h2>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+    <!-- Testimonial 1 -->
+    <div class="bg-surface-gray rounded-xl p-8 border border-glass-stroke flex flex-col justify-between">
+      <div>
+        <span class="material-symbols-outlined text-hyper-blue text-4xl mb-6 opacity-50 block">format_quote</span>
+        <p class="font-body-md text-body-md text-on-surface mb-8">“The CaulHaus team brought a unique blend of whip smart technical expertise with business forward thinking, the type of Rev Ops team any start-up can benefit from to accelerate their GTM process. They felt like an extension of our team.”</p>
+      </div>
+      <div class="pt-6 border-t border-glass-stroke">
+        <p class="font-headline-md text-[18px] font-semibold text-primary">Jooree Na</p>
+        <p class="font-label-caps text-label-caps text-on-surface-variant mt-1">CFO, Anyscale</p>
+      </div>
+    </div>
+    
+    <!-- Testimonial 2 -->
+    <div class="bg-surface-gray rounded-xl p-8 border border-glass-stroke flex flex-col justify-between">
+      <div>
+        <span class="material-symbols-outlined text-hyper-blue text-4xl mb-6 opacity-50 block">format_quote</span>
+        <p class="font-body-md text-body-md text-on-surface mb-8">“CaulHaus was an invaluable partner during a key team transition, ensuring business continuity and driving a critical quoting tool implementation. Their deep expertise, reliability, and collaborative approach gave us confidence in our systems strategy.”</p>
+      </div>
+      <div class="pt-6 border-t border-glass-stroke">
+        <p class="font-headline-md text-[18px] font-semibold text-primary">Catherine Hsieh</p>
+        <p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Head of RevOps, Jasper.ai</p>
+      </div>
+    </div>
+    
+    <!-- Testimonial 3 -->
+    <div class="bg-surface-gray rounded-xl p-8 border border-glass-stroke flex flex-col justify-between">
+      <div>
+        <span class="material-symbols-outlined text-hyper-blue text-4xl mb-6 opacity-50 block">format_quote</span>
+        <p class="font-body-md text-body-md text-on-surface mb-8">“I’ve partnered with CaulHaus across multiple organizations and they consistently bring a thoughtful, systems-first approach to scaling GTM operations. They helped us streamline CPQ, simplify Salesforce, and build a more cohesive foundation.”</p>
+      </div>
+      <div class="pt-6 border-t border-glass-stroke">
+        <p class="font-headline-md text-[18px] font-semibold text-primary">Niel Hildebrand III</p>
+        <p class="font-label-caps text-label-caps text-on-surface-variant mt-1">VP Revenue Operations, ClickUp</p>
+      </div>
+    </div>
+  </div>
+</section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-outline-variant/30 bg-surface w-full mt-auto">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1024px] mx-auto px-6 md:px-16 py-16">
-      <div class="col-span-1 md:col-span-1">
-        <img alt="CaulHaus Logo" class="h-8 w-auto mb-4 grayscale opacity-80 rounded" src="https://lh3.googleusercontent.com/aida/AP1WRLv8ECppKBDFBef6_HU24FE9X3YNKHsPWiDoiCsBjkQy_02CK3HVbvLmJkyIoir6WR8Y9SpNem4grNfMwlvFjFDuhhiBAMMYJyVOxgZ4OOi1EZnnqzN4_UyRT3L2zSOU1A98DgLMSI02RdA1Lj0--6lN8MCQEAUV-2HN0aB60XmBRKqGFW0xo74xYruGLWm9zu1ytXFU0D1OxpSsMVhhJZumzAOh8k6fyNWM2uiGldqYQCxy7tRMt6yrNXo"/>
-        <p class="font-label-sm text-label-sm text-on-surface-variant">© 2026 CaulHaus. All rights reserved.</p>
+  <footer class="w-full pt-section-gap-lg pb-margin-mobile border-t border-glass-stroke bg-surface-bright text-on-surface">
+    <div class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter font-label-caps text-label-caps">
+      <div class="col-span-1 md:col-span-2 mb-8 md:mb-0">
+        <a class="font-headline-md text-headline-md font-black uppercase text-primary block mb-4" href="/">
+          CaulHaus
+        </a>
+        <p class="opacity-80 max-w-xs">
+          © 2026 CaulHaus Consultancy. Precision Automation.
+        </p>
       </div>
-      <div class="flex flex-col gap-3">
-        <h4 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Services</h4>
-        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/automation/">Business Automation</a>
-        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/marketing/">Growth Marketing</a>
+      <div class="col-span-1">
+        <ul class="space-y-3">
+          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/automation/">Automation</a></li>
+          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing</a></li>
+          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/services/">Services</a></li>
+        </ul>
       </div>
-      <div class="flex flex-col gap-3">
-        <h4 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Company</h4>
-        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/about/">About Us</a>
-        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/contact/">Contact</a>
-        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="/blog/">Blog</a>
-      </div>
-      <div class="flex flex-col gap-3">
-        <h4 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Legal</h4>
-        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="#">Privacy</a>
-        <a class="font-label-sm text-label-sm text-secondary hover:text-on-surface transition-all" href="#">Terms</a>
+      <div class="col-span-1">
+        <ul class="space-y-3">
+          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/about/">About Us</a></li>
+          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/contact/">Contact</a></li>
+        </ul>
       </div>
     </div>
   </footer>
 
-  <!-- Mobile Menu Toggle & Scroll Reveal Script -->
+  <!-- Mobile Menu toggle script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
       const menuIcon = document.getElementById('menu-icon');
 
-      mobileMenuBtn.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.toggle('hidden');
-        if (isHidden) {
-          menuIcon.textContent = 'menu';
-        } else {
-          menuIcon.textContent = 'close';
-        }
-      });
-
-      // Scroll-Reveal Intersection Observer
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
+      if (mobileMenuBtn && mobileMenu && menuIcon) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.toggle('hidden');
+          menuIcon.textContent = isHidden ? 'menu' : 'close';
         });
-      }, {
-        threshold: 0.1
-      });
-
-      document.querySelectorAll('.reveal').forEach((el) => {
-        observer.observe(el);
-      });
+      }
     });
   </script>
 </body>
