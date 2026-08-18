@@ -23,98 +23,98 @@ description: Manual, repetitive work is a tax on your team's time. We map how wo
   </div>
   
   <!-- Interactive Before/After Toggle Visual -->
-  <div class="md:w-1/2 w-full glass-panel rounded-3xl p-8 border border-glass-stroke shadow-lg flex flex-col justify-between min-h-[400px]">
+  <div class="md:w-1/2 w-full bg-white rounded-3xl p-6 md:p-8 border border-outline-variant/40 shadow-lg flex flex-col justify-between min-h-[420px]">
     <div>
-      <div class="flex justify-between items-center mb-6">
-        <span class="font-label-caps text-[10px] text-on-surface-variant/60 font-bold tracking-widest uppercase">Workflow Spotlight</span>
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-outline-variant/20">
+        <span class="font-mono-label text-[10px] text-slate-gray font-bold tracking-widest uppercase">Workflow Spotlight</span>
         
         <!-- Tab Toggles -->
-        <div class="inline-flex rounded-full bg-surface-gray border border-glass-stroke p-1">
-          <button onclick="toggleWorkflow('before')" id="tab-before" class="px-4 py-1.5 rounded-full text-[10px] font-label-caps font-bold transition-all bg-white text-primary shadow-sm cursor-pointer">
+        <div class="inline-flex rounded-full bg-surface-gray border border-outline-variant/40 p-1">
+          <button type="button" onclick="toggleWorkflow('before')" id="tab-before" class="px-4 py-1.5 rounded-full text-[10px] font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-sm cursor-pointer focus:outline-none">
             Old Way (Manual)
           </button>
-          <button onclick="toggleWorkflow('after')" id="tab-after" class="px-4 py-1.5 rounded-full text-[10px] font-label-caps font-medium transition-all bg-transparent text-on-surface-variant hover:text-primary cursor-pointer">
+          <button type="button" onclick="toggleWorkflow('after')" id="tab-after" class="px-4 py-1.5 rounded-full text-[10px] font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer focus:outline-none">
             New Way (Automated)
           </button>
         </div>
       </div>
 
       <!-- Before State Visual -->
-      <div id="flow-before" class="space-y-4">
-        <div class="p-4 bg-red-500/5 rounded-2xl border border-red-500/10 flex items-start gap-4">
-          <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-bold text-xs">1</span>
+      <div id="flow-before" class="space-y-3.5 animate-fade-in">
+        <div class="p-3.5 bg-red-500/5 rounded-2xl border border-red-500/15 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-mono-metric font-bold text-xs">1</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Manual Status Tracking</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Team leads chase updates across spreadsheets and Slack threads.</p>
+            <h4 class="text-xs font-bold text-deep-charcoal mb-0.5">Manual Status Tracking</h4>
+            <p class="text-[11px] text-slate-gray font-light leading-snug">Team leads chase updates across spreadsheets and Slack threads.</p>
           </div>
         </div>
 
-        <div class="p-4 bg-red-500/5 rounded-2xl border border-red-500/10 flex items-start gap-4 opacity-75">
-          <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-bold text-xs">2</span>
+        <div class="p-3.5 bg-red-500/5 rounded-2xl border border-red-500/15 flex items-start gap-3.5 opacity-80">
+          <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-mono-metric font-bold text-xs">2</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Manual Assignment</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Someone manually reconciles who's working on what.</p>
+            <h4 class="text-xs font-bold text-deep-charcoal mb-0.5">Manual Assignment</h4>
+            <p class="text-[11px] text-slate-gray font-light leading-snug">Someone manually reconciles who's working on what.</p>
           </div>
         </div>
 
-        <div class="p-4 bg-red-500/5 rounded-2xl border border-red-500/10 flex items-start gap-4 opacity-50">
-          <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-bold text-xs">3</span>
+        <div class="p-3.5 bg-red-500/5 rounded-2xl border border-red-500/15 flex items-start gap-3.5 opacity-60">
+          <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-mono-metric font-bold text-xs">3</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Delayed Visibility</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Leadership finds out about a bottleneck weeks later.</p>
+            <h4 class="text-xs font-bold text-deep-charcoal mb-0.5">Delayed Visibility</h4>
+            <p class="text-[11px] text-slate-gray font-light leading-snug">Leadership finds out about a bottleneck weeks later.</p>
           </div>
         </div>
 
-        <div class="p-4 bg-red-500/5 rounded-2xl border border-red-500/10 flex items-start gap-4 opacity-25">
-          <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-bold text-xs">4</span>
+        <div class="p-3.5 bg-red-500/5 rounded-2xl border border-red-500/15 flex items-start gap-3.5 opacity-40">
+          <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-mono-metric font-bold text-xs">4</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Redundant Data Entry</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">The same information gets typed into three different tools.</p>
+            <h4 class="text-xs font-bold text-deep-charcoal mb-0.5">Redundant Data Entry</h4>
+            <p class="text-[11px] text-slate-gray font-light leading-snug">The same information gets typed into three different tools.</p>
           </div>
         </div>
       </div>
 
       <!-- After State Visual -->
-      <div id="flow-after" class="hidden space-y-4">
-        <div class="p-4 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 flex items-start gap-4">
-          <span class="w-6 h-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0 font-bold text-xs">1</span>
+      <div id="flow-after" class="hidden space-y-3.5">
+        <div class="p-3.5 bg-brand-emerald/10 rounded-2xl border border-brand-emerald/30 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-brand-emerald text-white flex items-center justify-center shrink-0 font-mono-metric font-bold text-xs">1</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Centralized System</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">One source of truth for capacity and status, updated automatically.</p>
+            <h4 class="text-xs font-bold text-deep-charcoal mb-0.5">Centralized System</h4>
+            <p class="text-[11px] text-slate-gray font-light leading-snug">One source of truth for capacity and status, updated automatically.</p>
           </div>
         </div>
 
-        <div class="p-4 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 flex items-start gap-4">
-          <span class="w-6 h-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0 font-bold text-xs">2</span>
+        <div class="p-3.5 bg-brand-emerald/10 rounded-2xl border border-brand-emerald/30 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-brand-emerald text-white flex items-center justify-center shrink-0 font-mono-metric font-bold text-xs">2</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Automatic Routing</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Work and resources are allocated by the system based on your rules.</p>
+            <h4 class="text-xs font-bold text-deep-charcoal mb-0.5">Automatic Routing</h4>
+            <p class="text-[11px] text-slate-gray font-light leading-snug">Work and resources are allocated by the system based on your rules.</p>
           </div>
         </div>
 
-        <div class="p-4 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 flex items-start gap-4">
-          <span class="w-6 h-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0 font-bold text-xs">3</span>
+        <div class="p-3.5 bg-brand-emerald/10 rounded-2xl border border-brand-emerald/30 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-brand-emerald text-white flex items-center justify-center shrink-0 font-mono-metric font-bold text-xs">3</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Real-Time Visibility</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Managers see capacity and status as it happens.</p>
+            <h4 class="text-xs font-bold text-deep-charcoal mb-0.5">Real-Time Visibility</h4>
+            <p class="text-[11px] text-slate-gray font-light leading-snug">Managers see capacity and status as it happens.</p>
           </div>
         </div>
 
-        <div class="p-4 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 flex items-start gap-4">
-          <span class="w-6 h-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0 font-bold text-xs">4</span>
+        <div class="p-3.5 bg-brand-emerald/10 rounded-2xl border border-brand-emerald/30 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-brand-emerald text-white flex items-center justify-center shrink-0 font-mono-metric font-bold text-xs">4</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Connected Systems</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Data moves between tools automatically, entered once.</p>
+            <h4 class="text-xs font-bold text-deep-charcoal mb-0.5">Connected Systems</h4>
+            <p class="text-[11px] text-slate-gray font-light leading-snug">Data moves between tools automatically, entered once.</p>
           </div>
         </div>
       </div>
 
     </div>
 
-    <div class="border-t border-glass-stroke pt-4 mt-6 flex items-center justify-between text-xs text-on-surface-variant/70">
-      <span>Operational Process Automation</span>
-      <span class="text-brand-emerald font-semibold uppercase tracking-wider flex items-center gap-1.5 font-label-caps text-[9px]">
-        <span class="w-1 h-1 rounded-full bg-brand-emerald animate-pulse"></span>
+    <div class="border-t border-outline-variant/20 pt-4 mt-6 flex items-center justify-between text-xs text-slate-gray">
+      <span class="font-mono-label text-[10px]">Operational Process Automation</span>
+      <span class="text-brand-emerald font-semibold uppercase tracking-wider flex items-center gap-1.5 font-mono-label text-[9px]">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-pulse"></span>
         Zero Manual Friction
       </span>
     </div>
@@ -123,16 +123,27 @@ description: Manual, repetitive work is a tax on your team's time. We map how wo
 
 <script>
   function toggleWorkflow(state) {
+    const flowBefore = document.getElementById('flow-before');
+    const flowAfter = document.getElementById('flow-after');
+    const tabBefore = document.getElementById('tab-before');
+    const tabAfter = document.getElementById('tab-after');
+
     if (state === 'before') {
-      document.getElementById('flow-before').classList.remove('hidden');
-      document.getElementById('flow-after').classList.add('hidden');
-      document.getElementById('tab-before').className = "px-4 py-1.5 rounded-full text-[10px] font-label-caps font-bold transition-all bg-white text-primary shadow-sm cursor-pointer";
-      document.getElementById('tab-after').className = "px-4 py-1.5 rounded-full text-[10px] font-label-caps font-medium transition-all bg-transparent text-on-surface-variant hover:text-primary cursor-pointer";
+      flowBefore.classList.remove('hidden');
+      flowBefore.classList.add('animate-fade-in');
+      flowAfter.classList.add('hidden');
+      flowAfter.classList.remove('animate-fade-in');
+      
+      tabBefore.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-sm cursor-pointer focus:outline-none";
+      tabAfter.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer focus:outline-none";
     } else {
-      document.getElementById('flow-before').classList.add('hidden');
-      document.getElementById('flow-after').classList.remove('hidden');
-      document.getElementById('tab-before').className = "px-4 py-1.5 rounded-full text-[10px] font-label-caps font-medium transition-all bg-transparent text-on-surface-variant hover:text-primary cursor-pointer";
-      document.getElementById('tab-after').className = "px-4 py-1.5 rounded-full text-[10px] font-label-caps font-bold transition-all bg-white text-primary shadow-sm cursor-pointer";
+      flowBefore.classList.add('hidden');
+      flowBefore.classList.remove('animate-fade-in');
+      flowAfter.classList.remove('hidden');
+      flowAfter.classList.add('animate-fade-in');
+      
+      tabBefore.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer focus:outline-none";
+      tabAfter.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-sm cursor-pointer focus:outline-none";
     }
   }
 </script>

@@ -18,9 +18,20 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
 </section>
 
 <!-- Multi-Step Form Wrapper -->
-<section class="max-w-[600px] mx-auto px-margin-mobile pb-32 reveal">
-  <div class="glass-panel p-8 md:p-12 rounded-3xl border border-glass-stroke shadow-xl bg-white relative min-h-[400px] flex flex-col justify-between">
+<section class="max-w-[640px] mx-auto px-margin-mobile pb-32 reveal">
+  <div class="bg-white p-8 md:p-12 rounded-3xl border border-outline-variant/40 shadow-xl relative min-h-[440px] flex flex-col justify-between">
     
+    <!-- Step Progress Indicator Bar -->
+    <div class="mb-8">
+      <div class="flex justify-between items-center mb-2">
+        <span id="step-indicator-text" class="font-mono-label text-[10px] text-brand-indigo font-bold tracking-widest uppercase">STEP 1 OF 3</span>
+        <span id="step-percentage" class="font-mono-label text-[10px] text-slate-gray font-bold">33%</span>
+      </div>
+      <div class="w-full h-1.5 bg-surface-gray rounded-full overflow-hidden border border-outline-variant/20">
+        <div id="step-progress-bar" class="h-full bg-brand-indigo rounded-full transition-all duration-400 ease-out" style="width: 33.33%;"></div>
+      </div>
+    </div>
+
     <!-- Form Tag -->
     <form id="contact-wizard-form" class="space-y-6 flex-grow flex flex-col justify-between">
       
@@ -30,76 +41,76 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
       <input type="hidden" name="from_name" value="CaulHaus Lead Qualification">
 
       <!-- Step 1: Goal -->
-      <div id="wizard-step-1" class="wizard-step space-y-6">
+      <div id="wizard-step-1" class="wizard-step space-y-6 animate-fade-in">
         <div>
-          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 1 OF 3</span>
-          <h3 class="font-headline-md text-headline-md font-bold text-primary">What's your primary goal?</h3>
+          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">What's your primary goal?</h3>
+          <p class="text-xs text-slate-gray font-light">Select the main challenge you want to solve first.</p>
         </div>
         <div class="flex flex-col gap-3">
-          <label class="flex items-center gap-4 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="objective" value="Build or Execute a Marketing Strategy" checked class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">Build or Execute a Marketing Strategy</span>
+          <label class="wizard-option-card flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-indigo/30">
+            <input type="radio" name="objective" value="Build or Execute a Marketing Strategy" checked class="accent-brand-indigo w-4 h-4">
+            <span class="text-xs text-deep-charcoal font-semibold">Build or Execute a Marketing Strategy</span>
           </label>
-          <label class="flex items-center gap-4 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="objective" value="Automate a Manual Process" class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">Automate a Manual Process</span>
+          <label class="wizard-option-card flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-indigo/30">
+            <input type="radio" name="objective" value="Automate a Manual Process" class="accent-brand-indigo w-4 h-4">
+            <span class="text-xs text-deep-charcoal font-semibold">Automate a Manual Process</span>
           </label>
-          <label class="flex items-center gap-4 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="objective" value="Both / Not Sure Yet" class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">Both / Not Sure Yet</span>
+          <label class="wizard-option-card flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-indigo/30">
+            <input type="radio" name="objective" value="Both / Not Sure Yet" class="accent-brand-indigo w-4 h-4">
+            <span class="text-xs text-deep-charcoal font-semibold">Both / Not Sure Yet</span>
           </label>
         </div>
       </div>
 
       <!-- Step 2: Tools -->
-      <div id="wizard-step-2" class="wizard-step hidden space-y-6">
+      <div id="wizard-step-2" class="wizard-step hidden space-y-6 animate-fade-in">
         <div>
-          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 2 OF 3</span>
-          <h3 class="font-headline-md text-headline-md font-bold text-primary">What tools do you currently use?</h3>
+          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">What tools do you currently use?</h3>
+          <p class="text-xs text-slate-gray font-light">Helps us understand your current tech ecosystem.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <label class="flex items-center gap-3 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="crm" value="Google Workspace" checked class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">Google Workspace</span>
+          <label class="wizard-option-card flex items-center gap-3 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-indigo/30">
+            <input type="radio" name="crm" value="Google Workspace" checked class="accent-brand-indigo w-4 h-4">
+            <span class="text-xs text-deep-charcoal font-semibold">Google Workspace</span>
           </label>
-          <label class="flex items-center gap-3 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="crm" value="HubSpot / Salesforce / Other CRM" class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">HubSpot / Salesforce / Other CRM</span>
+          <label class="wizard-option-card flex items-center gap-3 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-indigo/30">
+            <input type="radio" name="crm" value="HubSpot / Salesforce / Other CRM" class="accent-brand-indigo w-4 h-4">
+            <span class="text-xs text-deep-charcoal font-semibold">HubSpot / Salesforce / Other CRM</span>
           </label>
-          <label class="flex items-center gap-3 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="crm" value="Marketing Automation Platform" class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">Marketing Automation Platform</span>
+          <label class="wizard-option-card flex items-center gap-3 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-indigo/30">
+            <input type="radio" name="crm" value="Marketing Automation Platform" class="accent-brand-indigo w-4 h-4">
+            <span class="text-xs text-deep-charcoal font-semibold">Marketing Automation Platform</span>
           </label>
-          <label class="flex items-center gap-3 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="crm" value="Other / None Yet" class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">Other / None Yet</span>
+          <label class="wizard-option-card flex items-center gap-3 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-indigo/30">
+            <input type="radio" name="crm" value="Other / None Yet" class="accent-brand-indigo w-4 h-4">
+            <span class="text-xs text-deep-charcoal font-semibold">Other / None Yet</span>
           </label>
         </div>
       </div>
 
       <!-- Step 3: Team Details -->
-      <div id="wizard-step-3" class="wizard-step hidden space-y-4">
+      <div id="wizard-step-3" class="wizard-step hidden space-y-4 animate-fade-in">
         <div>
-          <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 3 OF 3</span>
-          <h3 class="font-headline-md text-headline-md font-bold text-primary">Tell us about your team</h3>
+          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">Tell us about your team</h3>
+          <p class="text-xs text-slate-gray font-light">Where should we send your audit recommendations?</p>
         </div>
         <div class="space-y-3 pt-2">
           <div>
-            <label class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block mb-1">Your Name</label>
-            <input type="text" name="name" required placeholder="Alex Herbstman" class="w-full p-3 rounded-xl border border-glass-stroke text-xs focus:border-brand-indigo focus:outline-none">
+            <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Your Name</label>
+            <input type="text" name="name" required placeholder="Alex Herbstman" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-brand-indigo focus:ring-2 focus:ring-brand-indigo/20 focus:outline-none transition-all">
           </div>
           <div>
-            <label class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block mb-1">Work Email</label>
-            <input type="email" name="email" required placeholder="alex@company.com" class="w-full p-3 rounded-xl border border-glass-stroke text-xs focus:border-brand-indigo focus:outline-none">
+            <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Work Email</label>
+            <input type="email" name="email" required placeholder="alex@company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-brand-indigo focus:ring-2 focus:ring-brand-indigo/20 focus:outline-none transition-all">
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block mb-1">Company Website</label>
-              <input type="url" name="website" required placeholder="https://company.com" class="w-full p-3 rounded-xl border border-glass-stroke text-xs focus:border-brand-indigo focus:outline-none">
+              <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Company Website</label>
+              <input type="url" name="website" required placeholder="https://company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-brand-indigo focus:ring-2 focus:ring-brand-indigo/20 focus:outline-none transition-all">
             </div>
             <div>
-              <label class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block mb-1">Team Size</label>
-              <select name="leads" class="w-full p-3 rounded-xl border border-glass-stroke text-xs focus:border-brand-indigo focus:outline-none bg-white">
+              <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Team Size</label>
+              <select name="leads" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal focus:border-brand-indigo focus:ring-2 focus:ring-brand-indigo/20 focus:outline-none bg-white transition-all">
                 <option value="<10">&lt;10</option>
                 <option value="10-50">10-50</option>
                 <option value="50-200">50-200</option>
@@ -111,15 +122,15 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
       </div>
 
       <!-- Navigation buttons -->
-      <div class="flex justify-between items-center pt-8 border-t border-glass-stroke mt-6">
-        <button type="button" id="prev-btn" class="hidden px-5 py-2.5 rounded-full border border-outline-variant hover:bg-surface-gray text-xs font-semibold cursor-pointer transition-all select-none">
+      <div class="flex justify-between items-center pt-6 border-t border-outline-variant/20 mt-6">
+        <button type="button" id="prev-btn" class="hidden px-5 py-2.5 rounded-full border border-outline-variant/60 hover:bg-surface-gray text-xs font-semibold text-deep-charcoal cursor-pointer transition-all select-none focus:outline-none focus:ring-2 focus:ring-brand-indigo/30">
           Back
         </button>
         <div class="flex-grow"></div>
-        <button type="button" id="next-btn" class="px-6 py-2.5 rounded-full bg-brand-indigo text-white text-xs font-semibold cursor-pointer hover:bg-brand-indigo/90 transition-all select-none">
+        <button type="button" id="next-btn" class="px-6 py-2.5 rounded-full bg-brand-indigo text-white text-xs font-semibold cursor-pointer hover:bg-brand-indigo/90 transition-all select-none shadow-md active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-indigo/30">
           Continue
         </button>
-        <button type="submit" id="submit-btn" class="hidden px-6 py-2.5 rounded-full bg-brand-emerald text-white text-xs font-bold cursor-pointer hover:bg-brand-emerald/90 transition-all select-none shadow-sm shadow-brand-emerald/10">
+        <button type="submit" id="submit-btn" class="hidden px-6 py-2.5 rounded-full bg-brand-emerald text-white text-xs font-bold cursor-pointer hover:bg-brand-emerald/90 transition-all select-none shadow-md shadow-brand-emerald/20 active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-emerald/30">
           Submit Details
         </button>
       </div>
@@ -131,8 +142,8 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
       <div class="w-16 h-16 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center animate-pulse">
         <span class="material-symbols-outlined text-4xl font-bold">check_circle</span>
       </div>
-      <h3 class="font-headline-lg text-headline-lg font-bold text-primary">Thank you!</h3>
-      <p class="font-body-md text-body-md text-on-surface-variant max-w-sm font-light">
+      <h3 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Thank you!</h3>
+      <p class="font-body-md text-body-md text-slate-gray max-w-sm font-light leading-relaxed">
         We've received your details and will get back to you shortly.
       </p>
     </div>
@@ -148,10 +159,30 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
   const submitBtn = document.getElementById('submit-btn');
+  const stepIndicatorText = document.getElementById('step-indicator-text');
+  const stepPercentage = document.getElementById('step-percentage');
+  const stepProgressBar = document.getElementById('step-progress-bar');
+
+  function updateProgressBar(stepNum) {
+    const pct = Math.round((stepNum / totalSteps) * 100);
+    if (stepIndicatorText) stepIndicatorText.textContent = `STEP ${stepNum} OF ${totalSteps}`;
+    if (stepPercentage) stepPercentage.textContent = `${pct}%`;
+    if (stepProgressBar) stepProgressBar.style.width = `${pct}%`;
+  }
 
   function showStep(stepNum) {
-    document.querySelectorAll('.wizard-step').forEach(step => step.classList.add('hidden'));
-    document.getElementById('wizard-step-' + stepNum).classList.remove('hidden');
+    document.querySelectorAll('.wizard-step').forEach(step => {
+      step.classList.add('hidden');
+      step.classList.remove('animate-fade-in');
+    });
+
+    const activeStepEl = document.getElementById('wizard-step-' + stepNum);
+    if (activeStepEl) {
+      activeStepEl.classList.remove('hidden');
+      activeStepEl.classList.add('animate-fade-in');
+    }
+
+    updateProgressBar(stepNum);
 
     if (stepNum === 1) {
       prevBtn.classList.add('hidden');
@@ -182,24 +213,25 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
     }
   });
 
-  document.querySelectorAll('input[name="objective"]').forEach(input => {
-    input.addEventListener('change', () => {
-      document.querySelectorAll('input[name="objective"]').forEach(i => {
-        i.closest('label').className = i.checked 
-          ? "flex items-center gap-4 p-4 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all"
-          : "flex items-center gap-4 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
-      });
+  function updateRadioClasses(name) {
+    document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+      const label = input.closest('label');
+      if (label) {
+        if (input.checked) {
+          label.className = "wizard-option-card flex items-center gap-4 p-4 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-indigo/30";
+        } else {
+          label.className = "wizard-option-card flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-indigo/30";
+        }
+      }
     });
+  }
+
+  document.querySelectorAll('input[name="objective"]').forEach(input => {
+    input.addEventListener('change', () => updateRadioClasses('objective'));
   });
 
   document.querySelectorAll('input[name="crm"]').forEach(input => {
-    input.addEventListener('change', () => {
-      document.querySelectorAll('input[name="crm"]').forEach(i => {
-        i.closest('label').className = i.checked 
-          ? "flex items-center gap-3 p-4 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all"
-          : "flex items-center gap-3 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
-      });
-    });
+    input.addEventListener('change', () => updateRadioClasses('crm'));
   });
 
   const form = document.getElementById('contact-wizard-form');
@@ -251,12 +283,8 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
   });
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('input[name="objective"]').forEach(i => {
-      if(i.checked) i.closest('label').className = "flex items-center gap-4 p-4 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
-    });
-    document.querySelectorAll('input[name="crm"]').forEach(i => {
-      if(i.checked) i.closest('label').className = "flex items-center gap-3 p-4 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
-    });
+    updateRadioClasses('objective');
+    updateRadioClasses('crm');
     showStep(1);
   });
 </script>
