@@ -1,56 +1,55 @@
 ---
-title: "How We Use Clay + AI to Auto-Qualify 1,000+ Inbound Leads Weekly"
-date: 2026-07-05
-description: "Qualifying leads manually wastes valuable AE selling time. Discover how we built an automated, AI-driven lead enrichment and qualification engine using Clay."
+title: "How to Automatically Sort Good Leads Before Your Sales Team Calls Them"
+date: 2026-07-22
+description: "Save your sales team hours of research by using automated systems to look up company sizes and sort leads instantly."
 layout: post.njk
-tags: ["blog", "workflow-engineering"]
+tags: ["blog", "sales-automation"]
 author: "Alex Herbstman"
-readTime: "5 min"
+readTime: "6 min"
 ---
 
-## The Bottleneck of Manual Sales Triage
+## The Cost of Manual Lead Research
 
-For B2B SaaS companies, sorting inbound leads is a major operations bottleneck. Account Executives (AEs) spend hours researching company sites, checking employee counts on LinkedIn, and lookup tech stacks before booking calls. When lead volumes spike, response times slow, and hot prospects cool off.
+Every day, sales reps spend hours searching LinkedIn and company websites to answer basic questions:
+- *Is this company large enough to buy from us?*
+- *Do they use the software tools we integrate with?*
+- *Who is the right decision-maker to contact?*
 
-We solved this by building an automated qualification engine using **Clay** and **ChatGPT**. The system auto-qualifies over 1,000 leads weekly in under 30 seconds per lead, routing verified prospects directly to AEs.
+Doing this research manually slow down sales response times, allowing warm prospects to buy from faster competitors. By automating this lookup step, you can filter your lead list instantly.
 
-## Inside the Automated Enrichment Pipeline
+## The Old Way vs. The Automated Way
 
-Our lead triage pipeline uses API connections to research, qualify, and assign inbound leads dynamically.
+Most sales teams research prospects one-by-one by opening multiple browser tabs:
+- **The Manual Way:** A lead comes in. A rep opens LinkedIn, searches the company name, checks the employee count, copies the details to a spreadsheet, and decides if it is worth calling. This takes 10 to 15 minutes per lead.
+- **The Automated Way:** A lead comes in. An automatic database scanner instantly checks public records and adds company details, industry type, and key contact roles to the record in under 10 seconds.
+
+## Setting Up an Automatic Lookup System
+
+Here is how we set up a lead enrichment flow to sort leads automatically:
 
 ```
-[Lead Form Submit] ──► [Clay API Workspace] 
-                             │
-                             ├──► Google Scraper (Extracts Site Copy)
-                             ├──► LinkedIn API (Pulls Employee Count)
-                             ├──► Wappalyzer API (Finds CRM/Tech Stack)
-                             │
-                             ▼
-                    [OpenAI Classification] (Grades ICP Fit)
-                             │
-                             ├───► High Fit: Assigns AE + Slack Alert
-                             └───► Low Fit: Routes to Nurture Campaign
+[Lead Signs Up] 
+     │
+     ▼
+[Automatic Lookup Tool] ──► Checks public directories & sites
+     │
+     ▼
+[Pulls: Employee Count, Location, Tools Used]
+     │
+     ▼
+[Meets sales criteria?]
+    ├───► (Yes) ──► Mark as Hot Lead & Alert Sales Team
+    └───► (No)  ──► Save to Database (No alert sent)
 ```
 
-### Step 1: Trigger Enrichment on Lead Creation
-When a prospect fills out your site form, their domain is sent to a Clay workspace via webhook. Clay coordinates the lookup operations in parallel, bypassing the need for separate APIs.
+### 1. Identify Key Customer Criteria
+Define what makes a lead worth pursuing. For example, you might look for businesses with more than 50 employees that sell to other businesses.
 
-### Step 2: Extract Contextual Company Intelligence
-Clay executes four lookup steps:
-- **Google Search:** Queries the website to scrape home page copy and meta tags, revealing their core business.
-- **LinkedIn Integration:** Pulls the exact headcount and headquarters location.
-- **Technology Lookup (Wappalyzer):** Audits their tech stack (e.g. checking if they use HubSpot, Salesforce, or Stripe).
-- **Executive Lookup:** Identifies key decision makers (VPs, Director of GTM/Sales) and pulls verified work emails.
+### 2. Connect Your Website Form to a Lookup Tool
+We connect your website forms to a data-gathering tool. When a user submits their email, the system automatically checks public business directories and website profiles.
 
-### Step 3: Run OpenAI-Powered Qualification
-The scraped website data, headcount metrics, and tech stack parameters are passed to a GPT-4 model inside Clay. The model evaluates the lead against your Ideal Customer Profile (ICP) rules:
-- **Prompt Directive:** "Based on company description [desc], tech stack [tech], and employee count [count], classify the lead as High-Fit, Medium-Fit, or Low-Fit. Provide a 1-sentence reasoning summary."
-- **Classification Output:** Stamped directly onto custom CRM fields.
+### 3. Apply Sorting Rules
+Our system evaluates the gathered data against your criteria. If a lead matches, the database marks it as a "Hot Lead" and alerts your sales team immediately. If it does not match, it is saved for future marketing campaigns, but your reps aren't distracted.
 
-### Step 4: Route the Results Dynamically
-Based on the AI classification, the lead is routed to HubSpot:
-- **High-Fit Leads:** Assigned to an AE via round-robin, triggering a Slack notification with the AI qualification summary and booking link.
-- **Low-Fit Leads:** Routed to a nurture email sequence to save rep resources.
-
-## Reclaim Executive Selling Hours
-Automating enrichment allows your sales team to stop researching leads and start closing deals. Response times drop to seconds, data accuracy remains clean, and pipeline conversion rates scale.
+## Focus Your Team on Closing Deals
+Automating your lead sorting keeps your sales team focused on speaking to qualified prospects. They will have all the company information they need before they ever pick up the phone.

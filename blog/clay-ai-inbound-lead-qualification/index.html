@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How We Use Clay + AI to Auto-Qualify 1,000+ Inbound Leads Weekly</title>
-  <meta name="description" content="Qualifying leads manually wastes valuable AE selling time. Discover how we built an automated, AI-driven lead enrichment and qualification engine using Clay.">
+  <title>How to Automatically Sort Good Leads Before Your Sales Team Calls Them</title>
+  <meta name="description" content="Save your sales team hours of research by using automated systems to look up company sizes and sort leads instantly.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
@@ -215,7 +215,7 @@ void main() {
   <!-- Header -->
   <header class="mb-12 border-b border-outline-variant/40 pb-8">
     <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-on-surface-variant/60 uppercase tracking-wider mb-4">
-      <span>July 5, 2026</span>
+      <span>July 22, 2026</span>
       <span>•</span>
       <span>By Alex Herbstman</span>
       
@@ -225,14 +225,14 @@ void main() {
             
           
             
-              <span class="px-2.5 py-0.5 rounded bg-primary/5 text-primary border border-primary/10 text-[10px]">workflow engineering</span>
+              <span class="px-2.5 py-0.5 rounded bg-primary/5 text-primary border border-primary/10 text-[10px]">sales automation</span>
             
           
         </div>
       
     </div>
-    <h1 class="text-3xl md:text-4xl font-display-sm font-light text-on-surface tracking-tight leading-tight mb-6">How We Use Clay + AI to Auto-Qualify 1,000+ Inbound Leads Weekly</h1>
-    <p class="text-lg text-on-surface-variant leading-relaxed font-light">Qualifying leads manually wastes valuable AE selling time. Discover how we built an automated, AI-driven lead enrichment and qualification engine using Clay.</p>
+    <h1 class="text-3xl md:text-4xl font-display-sm font-light text-on-surface tracking-tight leading-tight mb-6">How to Automatically Sort Good Leads Before Your Sales Team Calls Them</h1>
+    <p class="text-lg text-on-surface-variant leading-relaxed font-light">Save your sales team hours of research by using automated systems to look up company sizes and sort leads instantly.</p>
   </header>
 
   <!-- Content -->
@@ -247,47 +247,43 @@ void main() {
     prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary/80 hover:prose-a:underline
     prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-on-surface-variant/80 prose-blockquote:my-8
     prose-code:bg-surface-container-highest prose-code:text-on-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm">
-    <h2>The Bottleneck of Manual Sales Triage</h2>
-<p>For B2B SaaS companies, sorting inbound leads is a major operations bottleneck. Account Executives (AEs) spend hours researching company sites, checking employee counts on LinkedIn, and lookup tech stacks before booking calls. When lead volumes spike, response times slow, and hot prospects cool off.</p>
-<p>We solved this by building an automated qualification engine using <strong>Clay</strong> and <strong>ChatGPT</strong>. The system auto-qualifies over 1,000 leads weekly in under 30 seconds per lead, routing verified prospects directly to AEs.</p>
-<h2>Inside the Automated Enrichment Pipeline</h2>
-<p>Our lead triage pipeline uses API connections to research, qualify, and assign inbound leads dynamically.</p>
-<pre><code>[Lead Form Submit] ──► [Clay API Workspace] 
-                             │
-                             ├──► Google Scraper (Extracts Site Copy)
-                             ├──► LinkedIn API (Pulls Employee Count)
-                             ├──► Wappalyzer API (Finds CRM/Tech Stack)
-                             │
-                             ▼
-                    [OpenAI Classification] (Grades ICP Fit)
-                             │
-                             ├───► High Fit: Assigns AE + Slack Alert
-                             └───► Low Fit: Routes to Nurture Campaign
+    <h2>The Cost of Manual Lead Research</h2>
+<p>Every day, sales reps spend hours searching LinkedIn and company websites to answer basic questions:</p>
+<ul>
+<li><em>Is this company large enough to buy from us?</em></li>
+<li><em>Do they use the software tools we integrate with?</em></li>
+<li><em>Who is the right decision-maker to contact?</em></li>
+</ul>
+<p>Doing this research manually slow down sales response times, allowing warm prospects to buy from faster competitors. By automating this lookup step, you can filter your lead list instantly.</p>
+<h2>The Old Way vs. The Automated Way</h2>
+<p>Most sales teams research prospects one-by-one by opening multiple browser tabs:</p>
+<ul>
+<li><strong>The Manual Way:</strong> A lead comes in. A rep opens LinkedIn, searches the company name, checks the employee count, copies the details to a spreadsheet, and decides if it is worth calling. This takes 10 to 15 minutes per lead.</li>
+<li><strong>The Automated Way:</strong> A lead comes in. An automatic database scanner instantly checks public records and adds company details, industry type, and key contact roles to the record in under 10 seconds.</li>
+</ul>
+<h2>Setting Up an Automatic Lookup System</h2>
+<p>Here is how we set up a lead enrichment flow to sort leads automatically:</p>
+<pre><code>[Lead Signs Up] 
+     │
+     ▼
+[Automatic Lookup Tool] ──► Checks public directories &amp; sites
+     │
+     ▼
+[Pulls: Employee Count, Location, Tools Used]
+     │
+     ▼
+[Meets sales criteria?]
+    ├───► (Yes) ──► Mark as Hot Lead &amp; Alert Sales Team
+    └───► (No)  ──► Save to Database (No alert sent)
 </code></pre>
-<h3>Step 1: Trigger Enrichment on Lead Creation</h3>
-<p>When a prospect fills out your site form, their domain is sent to a Clay workspace via webhook. Clay coordinates the lookup operations in parallel, bypassing the need for separate APIs.</p>
-<h3>Step 2: Extract Contextual Company Intelligence</h3>
-<p>Clay executes four lookup steps:</p>
-<ul>
-<li><strong>Google Search:</strong> Queries the website to scrape home page copy and meta tags, revealing their core business.</li>
-<li><strong>LinkedIn Integration:</strong> Pulls the exact headcount and headquarters location.</li>
-<li><strong>Technology Lookup (Wappalyzer):</strong> Audits their tech stack (e.g. checking if they use HubSpot, Salesforce, or Stripe).</li>
-<li><strong>Executive Lookup:</strong> Identifies key decision makers (VPs, Director of GTM/Sales) and pulls verified work emails.</li>
-</ul>
-<h3>Step 3: Run OpenAI-Powered Qualification</h3>
-<p>The scraped website data, headcount metrics, and tech stack parameters are passed to a GPT-4 model inside Clay. The model evaluates the lead against your Ideal Customer Profile (ICP) rules:</p>
-<ul>
-<li><strong>Prompt Directive:</strong> &quot;Based on company description [desc], tech stack [tech], and employee count [count], classify the lead as High-Fit, Medium-Fit, or Low-Fit. Provide a 1-sentence reasoning summary.&quot;</li>
-<li><strong>Classification Output:</strong> Stamped directly onto custom CRM fields.</li>
-</ul>
-<h3>Step 4: Route the Results Dynamically</h3>
-<p>Based on the AI classification, the lead is routed to HubSpot:</p>
-<ul>
-<li><strong>High-Fit Leads:</strong> Assigned to an AE via round-robin, triggering a Slack notification with the AI qualification summary and booking link.</li>
-<li><strong>Low-Fit Leads:</strong> Routed to a nurture email sequence to save rep resources.</li>
-</ul>
-<h2>Reclaim Executive Selling Hours</h2>
-<p>Automating enrichment allows your sales team to stop researching leads and start closing deals. Response times drop to seconds, data accuracy remains clean, and pipeline conversion rates scale.</p>
+<h3>1. Identify Key Customer Criteria</h3>
+<p>Define what makes a lead worth pursuing. For example, you might look for businesses with more than 50 employees that sell to other businesses.</p>
+<h3>2. Connect Your Website Form to a Lookup Tool</h3>
+<p>We connect your website forms to a data-gathering tool. When a user submits their email, the system automatically checks public business directories and website profiles.</p>
+<h3>3. Apply Sorting Rules</h3>
+<p>Our system evaluates the gathered data against your criteria. If a lead matches, the database marks it as a &quot;Hot Lead&quot; and alerts your sales team immediately. If it does not match, it is saved for future marketing campaigns, but your reps aren't distracted.</p>
+<h2>Focus Your Team on Closing Deals</h2>
+<p>Automating your lead sorting keeps your sales team focused on speaking to qualified prospects. They will have all the company information they need before they ever pick up the phone.</p>
 
   </div>
 </article>

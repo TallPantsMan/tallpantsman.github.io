@@ -1,18 +1,18 @@
 ---
 layout: base.njk
-title: B2B Sales Workflow & RevOps Automation | CaulHaus
-description: Transform manual data entry into instant sales action. We build automated routing, enrichment, and notification loops that keep reps closing.
+title: Sales Process & Team Automation | CaulHaus
+description: Stop copying and pasting information by hand. We build automatic systems that route leads, gather company info, and notify your team instantly.
 ---
 
 <!-- Hero Section -->
 <section class="pt-32 pb-section-gap-lg text-center md:text-left flex flex-col md:flex-row items-center gap-12 max-w-container-max mx-auto px-margin-mobile md:px-gutter reveal">
   <div class="md:w-1/2 flex flex-col items-center md:items-start space-y-6">
-    <div class="inline-block bg-brand-indigo/10 px-3 py-1 rounded-full font-label-caps text-label-caps text-brand-indigo font-bold">REVOPS FLOWS</div>
+    <div class="inline-block bg-brand-indigo/10 px-3 py-1 rounded-full font-label-caps text-label-caps text-brand-indigo font-bold uppercase tracking-wider">Sales Automation</div>
     <h1 class="font-display-lg text-display-sm md:text-display-lg text-primary max-w-2xl leading-tight font-bold">
-      Put Your Sales Operations <span class="text-brand-indigo">on Autopilot</span>
+      Put Your Daily Sales Tasks <span class="text-brand-indigo">on Autopilot</span>
     </h1>
     <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl font-light">
-      Transform manual data entry into instant sales action. We build automated routing, enrichment, and notification loops that keep reps closing.
+      Stop copying and pasting information by hand. We build automatic systems that route leads, gather company info, and notify your team instantly so they can focus on selling.
     </p>
     <div class="pt-4 flex gap-4">
       <a class="bg-brand-indigo text-white font-body-md text-body-md font-semibold px-8 py-4 rounded-full hover:bg-brand-indigo/90 transition-colors flex items-center gap-2 shadow-md shadow-brand-indigo/15" href="/contact/">
@@ -31,10 +31,10 @@ description: Transform manual data entry into instant sales action. We build aut
         <!-- Tab Toggles -->
         <div class="inline-flex rounded-full bg-surface-gray border border-glass-stroke p-1">
           <button onclick="toggleWorkflow('before')" id="tab-before" class="px-4 py-1.5 rounded-full text-[10px] font-label-caps font-bold transition-all bg-white text-primary shadow-sm cursor-pointer">
-            Before CaulHaus
+            Old Way (Manual)
           </button>
           <button onclick="toggleWorkflow('after')" id="tab-after" class="px-4 py-1.5 rounded-full text-[10px] font-label-caps font-medium transition-all bg-transparent text-on-surface-variant hover:text-primary cursor-pointer">
-            After CaulHaus
+            New Way (Automated)
           </button>
         </div>
       </div>
@@ -44,32 +44,32 @@ description: Transform manual data entry into instant sales action. We build aut
         <div class="p-4 bg-red-500/5 rounded-2xl border border-red-500/10 flex items-start gap-4">
           <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-bold text-xs">1</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Lead Submission</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Prospect completes contact form on site.</p>
+            <h4 class="text-xs font-bold text-primary mb-1">Lead Sign Up</h4>
+            <p class="text-[11px] text-on-surface-variant font-light">A customer fills out your website form.</p>
           </div>
         </div>
 
         <div class="p-4 bg-red-500/5 rounded-2xl border border-red-500/10 flex items-start gap-4 opacity-75">
           <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-bold text-xs">2</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Manual Review (2+ Hours delay)</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Lead sits in inbox waiting for manual assessment by manager.</p>
+            <h4 class="text-xs font-bold text-primary mb-1">Waiting for Review</h4>
+            <p class="text-[11px] text-on-surface-variant font-light">The lead sits in an inbox for hours waiting for someone to read it.</p>
           </div>
         </div>
 
         <div class="p-4 bg-red-500/5 rounded-2xl border border-red-500/10 flex items-start gap-4 opacity-50">
           <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-bold text-xs">3</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Manual CRM Copy-Paste</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Manager copy-pastes names, company, and emails into CRM fields.</p>
+            <h4 class="text-xs font-bold text-primary mb-1">Manual Copy-Paste</h4>
+            <p class="text-[11px] text-on-surface-variant font-light">A manager manually copies and pastes details into your main spreadsheet or list.</p>
           </div>
         </div>
 
         <div class="p-4 bg-red-500/5 rounded-2xl border border-red-500/10 flex items-start gap-4 opacity-25">
           <span class="w-6 h-6 rounded-full bg-red-500/10 text-red-600 flex items-center justify-center shrink-0 font-bold text-xs">4</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Email Sent Next Day</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Reps manually email meeting invite. Lead has cooled down.</p>
+            <h4 class="text-xs font-bold text-primary mb-1">Slow Follow-up</h4>
+            <p class="text-[11px] text-on-surface-variant font-light">A sales rep manually sends an email the next day. By then, the customer has cooled off.</p>
           </div>
         </div>
       </div>
@@ -79,32 +79,32 @@ description: Transform manual data entry into instant sales action. We build aut
         <div class="p-4 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 flex items-start gap-4">
           <span class="w-6 h-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0 font-bold text-xs">1</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Lead Submission</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Prospect completes contact form on site.</p>
+            <h4 class="text-xs font-bold text-primary mb-1">Lead Sign Up</h4>
+            <p class="text-[11px] text-on-surface-variant font-light">A customer fills out your website form.</p>
           </div>
         </div>
 
         <div class="p-4 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 flex items-start gap-4">
           <span class="w-6 h-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0 font-bold text-xs">2</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Automated Clay / Clearbit Enrichment</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">System instantly pulls employee count, tech stack, and LinkedIn profile data.</p>
+            <h4 class="text-xs font-bold text-primary mb-1">Instant Info Lookup</h4>
+            <p class="text-[11px] text-on-surface-variant font-light">Our system immediately finds key company details, like their size and what tools they use.</p>
           </div>
         </div>
 
         <div class="p-4 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 flex items-start gap-4">
           <span class="w-6 h-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0 font-bold text-xs">3</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Instant Round-Robin Assignment</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">CRM assigns rep based on territory rules and triggers instant Slack alert to sales rep.</p>
+            <h4 class="text-xs font-bold text-primary mb-1">Instant Assignment</h4>
+            <p class="text-[11px] text-on-surface-variant font-light">The system automatically assigns the lead to the right sales rep and alerts them immediately.</p>
           </div>
         </div>
 
         <div class="p-4 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 flex items-start gap-4">
           <span class="w-6 h-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0 font-bold text-xs">4</span>
           <div>
-            <h4 class="text-xs font-bold text-primary mb-1">Booking Link Sent in 30 Seconds</h4>
-            <p class="text-[11px] text-on-surface-variant font-light">Calendar invites distributed immediately. Speed-to-lead is maximized.</p>
+            <h4 class="text-xs font-bold text-primary mb-1">30-Second Booking Link</h4>
+            <p class="text-[11px] text-on-surface-variant font-light">A calendar invite is sent immediately, letting the customer book a call in seconds.</p>
           </div>
         </div>
       </div>
@@ -140,8 +140,8 @@ description: Transform manual data entry into instant sales action. We build aut
 <!-- Key Automation Solutions -->
 <section class="py-section-gap-lg max-w-container-max mx-auto px-margin-mobile md:px-gutter border-t border-glass-stroke reveal">
   <div class="text-center mb-16">
-    <span class="font-label-caps text-[10px] text-brand-indigo uppercase tracking-wider font-bold block mb-4">Tactical Engineering</span>
-    <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Sales Automation Solutions</h2>
+    <span class="font-label-caps text-[10px] text-brand-indigo uppercase tracking-wider font-bold block mb-4">How We Help</span>
+    <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Sales Automation Systems</h2>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -151,9 +151,9 @@ description: Transform manual data entry into instant sales action. We build aut
       <div class="w-10 h-10 rounded-full bg-brand-indigo/10 text-brand-indigo flex items-center justify-center mb-6">
         <span class="material-symbols-outlined">person_add</span>
       </div>
-      <h3 class="font-headline-md text-headline-md font-bold text-primary mb-4">Automated Lead Enrichment</h3>
+      <h3 class="font-headline-md text-headline-md font-bold text-primary mb-4">Automated Information Lookup</h3>
       <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
-        Instantly pull company size, tech stack, and LinkedIn profiles upon form submit using Clay/Clearbit. Reps speak to leads with full contextual intelligence.
+        Instantly gather company size, tool usage, and profiles when a form is submitted. Your reps will have all the details they need before they speak to a lead.
       </p>
     </div>
 
@@ -162,9 +162,9 @@ description: Transform manual data entry into instant sales action. We build aut
       <div class="w-10 h-10 rounded-full bg-brand-indigo/10 text-brand-indigo flex items-center justify-center mb-6">
         <span class="material-symbols-outlined">share</span>
       </div>
-      <h3 class="font-headline-md text-headline-md font-bold text-primary mb-4">Territory &amp; Round-Robin</h3>
+      <h3 class="font-headline-md text-headline-md font-bold text-primary mb-4">Automatic Lead Distribution</h3>
       <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
-        Ensure lead forms are instantly routed to the correct account executive based on account mapping and territory rules, triggering real-time Slack/Teams alerts.
+        Ensure website leads are immediately routed to the correct sales rep based on territory or round-robin rules, triggering instant chat alerts.
       </p>
     </div>
 
@@ -173,9 +173,9 @@ description: Transform manual data entry into instant sales action. We build aut
       <div class="w-10 h-10 rounded-full bg-brand-indigo/10 text-brand-indigo flex items-center justify-center mb-6">
         <span class="material-symbols-outlined">description</span>
       </div>
-      <h3 class="font-headline-md text-headline-md font-bold text-primary mb-4">Contract &amp; Quote Setup</h3>
+      <h3 class="font-headline-md text-headline-md font-bold text-primary mb-4">Document &amp; Invoice Automation</h3>
       <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
-        Automatically generate custom invoices and contracts in PandaDoc/DocuSign directly from CRM stage changes, removing repetitive admin tasks.
+        Automatically generate invoices, contract agreements, and quotes when a deal progresses, eliminating repetitive typing work.
       </p>
     </div>
 

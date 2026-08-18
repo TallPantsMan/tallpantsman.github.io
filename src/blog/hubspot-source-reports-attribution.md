@@ -1,53 +1,51 @@
 ---
-title: "Why Your HubSpot Source Reports Lie (and How to Fix First-Touch Attribution)"
-date: 2026-06-11
-description: "HubSpot's default source categorization is useful, but it often misrepresents first-touch attribution for complex B2B deals. Learn how to audit and fix UTM mapping."
+title: "How to Prevent Your Customer Database from Losing Marketing Details"
+date: 2026-06-15
+description: "Ensure your customer list reports show where your leads came from originally, without letting new visits overwrite key marketing sources."
 layout: post.njk
-tags: ["blog", "attribution-analytics"]
+tags: ["blog", "marketing-tracking"]
 author: "Alex Herbstman"
 readTime: "5 min"
 ---
 
-## The Illusion of HubSpot Attribution
+## The Problem with Overwritten Marketing Sources
 
-Every B2B marketer relies on HubSpot's "Original Source" and "Latest Source" properties to evaluate lead acquisition channels. However, out-of-the-box HubSpot reports regularly misattribute paid search clicks to "Organic Search", label retargeting conversions as "Direct Traffic", and fail to capture multi-touch attribution.
+When a potential client fills out a form on your website, your customer database records where they first heard of you. But if that same customer visits your site again later from a search engine or an email, many databases overwrite the original source data with the new visit. 
 
-If your marketing attribution reports lie, you waste marketing budget on underperforming ad channels. Let's audit how HubSpot categorizes traffic and how to configure custom attribution tracking variables.
+This causes your marketing reports to look incorrect, making it seem like your online ads aren't working when they actually brought in the customer first.
 
-## How HubSpot Categorizes Traffic (And Where It Fails)
+## How Marketing Information Gets Overwritten
 
-HubSpot groups leads based on the referrer URL and UTM parameters of their first page view. This default logic breaks down in three common scenarios:
-1. **The Subdomain Jump:** If your company website is on WordPress (`company.com`) but your lead forms load on a HubSpot landing page subdomain (`info.company.com`), a user jumping between the two without cross-domain tracking set up is marked as "Referral" traffic from your own site.
-2. **Missing UTM Parameters:** If your ad links in Google Ads lack proper tracking templates, HubSpot categorizes the click as "Organic Search" or "Direct Traffic", masking your true ad ROI.
-3. **The Auto-Enrichment Override:** When forms are submitted, third-party sales integrations (like Salesforce or outbound scrapers) sometimes overwrite CRM source parameters, erasing initial tracking.
+Most database systems use simple rules to track visitor history. For example:
+1. **The First Touch:** A user clicks on a Facebook ad and signs up. The database marks the source as "Facebook Ads."
+2. **The Return Visit:** A week later, they search your company name on Google to read a blog post. The system updates their record.
+3. **The Loss of Info:** Suddenly, the database replaces "Facebook Ads" with "Organic Search," hiding the fact that you paid to acquire that lead.
 
-## Establishing 100% Attribution Data Confidence
+## Three Steps to Lock in Original Marketing Sources
 
-To fix your attribution reporting, we implement a custom, deterministic UTM capture setup:
+To prevent your database from losing this valuable source info, we set up a locking system using tracking parameters and custom database fields.
+
+### 1. Create Locked Fields in Your Database
+We create new database columns specifically named "Original Marketing Source" and "Original Ad Campaign." Unlike the default fields, these custom columns are configured to never allow updates once they are written the first time.
+
+### 2. Capture Website Tracking Codes
+When users click your marketing links, we append simple tracking labels to the web link. We use a short script on your website to read these labels when a form is submitted.
 
 ```
-[User Click] ──► URL: company.com?utm_source=linkedin&utm_campaign=audit
-                        │
-                        ▼ (Coded UTM Cookie Script)
-[Stored Cookies] ───────┼──► UTM Source: linkedin
-                        ├──► UTM Campaign: audit
-                        └──► First Touch Click ID
-                        │
-                        ▼ (Lead Form Submission)
-[CRM Custom Fields] ───► Captures UTM variables (hidden fields) to prevent overrides
+[User clicks ad link: yoursite.com/?source=ads]
+                     │
+                     ▼
+[Website reads "source=ads" label]
+                     │
+                     ▼
+[Writes details to "Original Marketing Source" field]
+                     │
+                     ▼
+[Field is locked and cannot be overwritten]
 ```
 
-### 1. Set Up Custom UTM Hidden Fields
-Create custom contact properties in HubSpot for first-touch and last-touch parameters:
-- `first_touch_utm_source`
-- `first_touch_utm_medium`
-- `first_touch_utm_campaign`
+### 3. Build Workflows to Set the Fields
+We write automatic database rules: when a new customer profile is created, the system checks if the custom fields are blank. If they are, it fills them with the website tracking data and locks the field. If a return visit happens, the database rule rejects any edits to those specific fields.
 
-### 2. Inject a Cookie-Based UTM Grabber Script
-Instead of relying on HubSpot's script to read the URL parameter on submission, run a lightweight custom JavaScript utility that grabs UTM queries from the URL upon the user's initial landing, saves them to a cookie, and automatically populates the hidden fields when they complete a form.
-
-### 3. Implement Attributor Workflows
-Build workflows inside HubSpot that stamp custom UTM properties onto contact fields on creation, making them permanent and immune to overrides from subsequent sales integrations.
-
-## Leverage Clean Attribution for Scale
-By resolving these data leaks, your RevOps dashboards gain high-fidelity attribution. You can now trace deals back to the original LinkedIn campaign, optimize ad algorithms, and confidently report marketing ROI to the leadership team.
+## Clear Reports for Growing Teams
+Locking in your original customer sources ensures your marketing dashboards are reliable. You will always know exactly which advertising channels started the customer relationship, allowing you to spend your budget wisely.

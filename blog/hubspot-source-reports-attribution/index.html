@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Why Your HubSpot Source Reports Lie (and How to Fix First-Touch Attribution)</title>
-  <meta name="description" content="HubSpot&#39;s default source categorization is useful, but it often misrepresents first-touch attribution for complex B2B deals. Learn how to audit and fix UTM mapping.">
+  <title>How to Prevent Your Customer Database from Losing Marketing Details</title>
+  <meta name="description" content="Ensure your customer list reports show where your leads came from originally, without letting new visits overwrite key marketing sources.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
@@ -215,7 +215,7 @@ void main() {
   <!-- Header -->
   <header class="mb-12 border-b border-outline-variant/40 pb-8">
     <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-on-surface-variant/60 uppercase tracking-wider mb-4">
-      <span>June 11, 2026</span>
+      <span>June 15, 2026</span>
       <span>•</span>
       <span>By Alex Herbstman</span>
       
@@ -225,14 +225,14 @@ void main() {
             
           
             
-              <span class="px-2.5 py-0.5 rounded bg-primary/5 text-primary border border-primary/10 text-[10px]">attribution analytics</span>
+              <span class="px-2.5 py-0.5 rounded bg-primary/5 text-primary border border-primary/10 text-[10px]">marketing tracking</span>
             
           
         </div>
       
     </div>
-    <h1 class="text-3xl md:text-4xl font-display-sm font-light text-on-surface tracking-tight leading-tight mb-6">Why Your HubSpot Source Reports Lie (and How to Fix First-Touch Attribution)</h1>
-    <p class="text-lg text-on-surface-variant leading-relaxed font-light">HubSpot&#39;s default source categorization is useful, but it often misrepresents first-touch attribution for complex B2B deals. Learn how to audit and fix UTM mapping.</p>
+    <h1 class="text-3xl md:text-4xl font-display-sm font-light text-on-surface tracking-tight leading-tight mb-6">How to Prevent Your Customer Database from Losing Marketing Details</h1>
+    <p class="text-lg text-on-surface-variant leading-relaxed font-light">Ensure your customer list reports show where your leads came from originally, without letting new visits overwrite key marketing sources.</p>
   </header>
 
   <!-- Content -->
@@ -247,41 +247,37 @@ void main() {
     prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary/80 hover:prose-a:underline
     prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-on-surface-variant/80 prose-blockquote:my-8
     prose-code:bg-surface-container-highest prose-code:text-on-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm">
-    <h2>The Illusion of HubSpot Attribution</h2>
-<p>Every B2B marketer relies on HubSpot's &quot;Original Source&quot; and &quot;Latest Source&quot; properties to evaluate lead acquisition channels. However, out-of-the-box HubSpot reports regularly misattribute paid search clicks to &quot;Organic Search&quot;, label retargeting conversions as &quot;Direct Traffic&quot;, and fail to capture multi-touch attribution.</p>
-<p>If your marketing attribution reports lie, you waste marketing budget on underperforming ad channels. Let's audit how HubSpot categorizes traffic and how to configure custom attribution tracking variables.</p>
-<h2>How HubSpot Categorizes Traffic (And Where It Fails)</h2>
-<p>HubSpot groups leads based on the referrer URL and UTM parameters of their first page view. This default logic breaks down in three common scenarios:</p>
+    <h2>The Problem with Overwritten Marketing Sources</h2>
+<p>When a potential client fills out a form on your website, your customer database records where they first heard of you. But if that same customer visits your site again later from a search engine or an email, many databases overwrite the original source data with the new visit.</p>
+<p>This causes your marketing reports to look incorrect, making it seem like your online ads aren't working when they actually brought in the customer first.</p>
+<h2>How Marketing Information Gets Overwritten</h2>
+<p>Most database systems use simple rules to track visitor history. For example:</p>
 <ol>
-<li><strong>The Subdomain Jump:</strong> If your company website is on WordPress (<code>company.com</code>) but your lead forms load on a HubSpot landing page subdomain (<code>info.company.com</code>), a user jumping between the two without cross-domain tracking set up is marked as &quot;Referral&quot; traffic from your own site.</li>
-<li><strong>Missing UTM Parameters:</strong> If your ad links in Google Ads lack proper tracking templates, HubSpot categorizes the click as &quot;Organic Search&quot; or &quot;Direct Traffic&quot;, masking your true ad ROI.</li>
-<li><strong>The Auto-Enrichment Override:</strong> When forms are submitted, third-party sales integrations (like Salesforce or outbound scrapers) sometimes overwrite CRM source parameters, erasing initial tracking.</li>
+<li><strong>The First Touch:</strong> A user clicks on a Facebook ad and signs up. The database marks the source as &quot;Facebook Ads.&quot;</li>
+<li><strong>The Return Visit:</strong> A week later, they search your company name on Google to read a blog post. The system updates their record.</li>
+<li><strong>The Loss of Info:</strong> Suddenly, the database replaces &quot;Facebook Ads&quot; with &quot;Organic Search,&quot; hiding the fact that you paid to acquire that lead.</li>
 </ol>
-<h2>Establishing 100% Attribution Data Confidence</h2>
-<p>To fix your attribution reporting, we implement a custom, deterministic UTM capture setup:</p>
-<pre><code>[User Click] ──► URL: company.com?utm_source=linkedin&amp;utm_campaign=audit
-                        │
-                        ▼ (Coded UTM Cookie Script)
-[Stored Cookies] ───────┼──► UTM Source: linkedin
-                        ├──► UTM Campaign: audit
-                        └──► First Touch Click ID
-                        │
-                        ▼ (Lead Form Submission)
-[CRM Custom Fields] ───► Captures UTM variables (hidden fields) to prevent overrides
+<h2>Three Steps to Lock in Original Marketing Sources</h2>
+<p>To prevent your database from losing this valuable source info, we set up a locking system using tracking parameters and custom database fields.</p>
+<h3>1. Create Locked Fields in Your Database</h3>
+<p>We create new database columns specifically named &quot;Original Marketing Source&quot; and &quot;Original Ad Campaign.&quot; Unlike the default fields, these custom columns are configured to never allow updates once they are written the first time.</p>
+<h3>2. Capture Website Tracking Codes</h3>
+<p>When users click your marketing links, we append simple tracking labels to the web link. We use a short script on your website to read these labels when a form is submitted.</p>
+<pre><code>[User clicks ad link: yoursite.com/?source=ads]
+                     │
+                     ▼
+[Website reads &quot;source=ads&quot; label]
+                     │
+                     ▼
+[Writes details to &quot;Original Marketing Source&quot; field]
+                     │
+                     ▼
+[Field is locked and cannot be overwritten]
 </code></pre>
-<h3>1. Set Up Custom UTM Hidden Fields</h3>
-<p>Create custom contact properties in HubSpot for first-touch and last-touch parameters:</p>
-<ul>
-<li><code>first_touch_utm_source</code></li>
-<li><code>first_touch_utm_medium</code></li>
-<li><code>first_touch_utm_campaign</code></li>
-</ul>
-<h3>2. Inject a Cookie-Based UTM Grabber Script</h3>
-<p>Instead of relying on HubSpot's script to read the URL parameter on submission, run a lightweight custom JavaScript utility that grabs UTM queries from the URL upon the user's initial landing, saves them to a cookie, and automatically populates the hidden fields when they complete a form.</p>
-<h3>3. Implement Attributor Workflows</h3>
-<p>Build workflows inside HubSpot that stamp custom UTM properties onto contact fields on creation, making them permanent and immune to overrides from subsequent sales integrations.</p>
-<h2>Leverage Clean Attribution for Scale</h2>
-<p>By resolving these data leaks, your RevOps dashboards gain high-fidelity attribution. You can now trace deals back to the original LinkedIn campaign, optimize ad algorithms, and confidently report marketing ROI to the leadership team.</p>
+<h3>3. Build Workflows to Set the Fields</h3>
+<p>We write automatic database rules: when a new customer profile is created, the system checks if the custom fields are blank. If they are, it fills them with the website tracking data and locks the field. If a return visit happens, the database rule rejects any edits to those specific fields.</p>
+<h2>Clear Reports for Growing Teams</h2>
+<p>Locking in your original customer sources ensures your marketing dashboards are reliable. You will always know exactly which advertising channels started the customer relationship, allowing you to spend your budget wisely.</p>
 
   </div>
 </article>

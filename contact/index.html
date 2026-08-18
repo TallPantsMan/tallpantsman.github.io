@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Your Systems Audit | CaulHaus</title>
-  <meta name="description" content="Tell us about the systems you&#39;re struggling with. We&#39;ll help you find a better way to work.">
+  <title>Schedule a System Review | CaulHaus</title>
+  <meta name="description" content="Tell us about the software tools you&#39;re struggling with. We&#39;ll help you find a better, simpler way to work.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
@@ -209,13 +209,13 @@ void main() {
 <!-- Header Section -->
 <section class="max-w-[700px] mx-auto px-margin-mobile pt-24 pb-12 text-center reveal">
   <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-indigo/30 bg-brand-indigo/5 text-brand-indigo text-xs font-semibold uppercase tracking-wider mb-4">
-    Qualification Audit
+    System Review
   </div>
   <h1 class="font-display-lg text-display-sm md:text-display-lg text-primary leading-tight font-bold mb-4">
-    Book Your Systems Audit
+    Schedule Your System Review
   </h1>
   <p class="font-body-lg text-body-lg text-on-surface-variant font-light max-w-xl mx-auto">
-    Complete our qualification flow to isolate tracking leaks, map manual overhead, and book a direct RevOps audit session.
+    Answer a few questions about your software and choose an available time slot below to schedule your system review call.
   </p>
 </section>
 
@@ -235,20 +235,20 @@ void main() {
       <div id="wizard-step-1" class="wizard-step space-y-6">
         <div>
           <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 1 OF 4</span>
-          <h3 class="font-headline-md text-headline-md font-bold text-primary">What is your primary RevOps objective?</h3>
+          <h3 class="font-headline-md text-headline-md font-bold text-primary">What is your primary goal?</h3>
         </div>
         <div class="flex flex-col gap-3">
           <label class="flex items-center gap-4 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="objective" value="Fix MarTech & Attribution Tracking" checked class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">Fix MarTech &amp; Attribution Tracking</span>
+            <input type="radio" name="objective" value="Fix Website & Ad Tracking" checked class="accent-brand-indigo">
+            <span class="text-xs text-primary font-medium">Fix Website &amp; Ad Tracking</span>
           </label>
           <label class="flex items-center gap-4 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="objective" value="Automate Sales Workflows & CRM" class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">Automate Sales Workflows &amp; CRM</span>
+            <input type="radio" name="objective" value="Automate Sales Tasks & Databases" class="accent-brand-indigo">
+            <span class="text-xs text-primary font-medium">Automate Sales Tasks &amp; Databases</span>
           </label>
           <label class="flex items-center gap-4 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
-            <input type="radio" name="objective" value="Full RevOps Infrastructure Build" class="accent-brand-indigo">
-            <span class="text-xs text-primary font-medium">Full RevOps Infrastructure Build</span>
+            <input type="radio" name="objective" value="Set Up Complete Software Connections" class="accent-brand-indigo">
+            <span class="text-xs text-primary font-medium">Set Up Complete Software Connections</span>
           </label>
         </div>
       </div>
@@ -257,7 +257,7 @@ void main() {
       <div id="wizard-step-2" class="wizard-step hidden space-y-6">
         <div>
           <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 2 OF 4</span>
-          <h3 class="font-headline-md text-headline-md font-bold text-primary">What is your current core CRM?</h3>
+          <h3 class="font-headline-md text-headline-md font-bold text-primary">What database do you use to store customer list info?</h3>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <label class="flex items-center gap-3 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
@@ -283,7 +283,7 @@ void main() {
       <div id="wizard-step-3" class="wizard-step hidden space-y-4">
         <div>
           <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 3 OF 4</span>
-          <h3 class="font-headline-md text-headline-md font-bold text-primary">Tell us about your business</h3>
+          <h3 class="font-headline-md text-headline-md font-bold text-primary">Tell us about your company</h3>
         </div>
         <div class="space-y-3 pt-2">
           <div>
@@ -296,16 +296,16 @@ void main() {
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block mb-1">Company Website</label>
+              <label class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block mb-1">Company Website Link</label>
               <input type="url" name="website" required placeholder="https://company.com" class="w-full p-3 rounded-xl border border-glass-stroke text-xs focus:border-brand-indigo focus:outline-none">
             </div>
             <div>
-              <label class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block mb-1">Monthly Lead Volume</label>
+              <label class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block mb-1">How many leads do you get per month?</label>
               <select name="leads" class="w-full p-3 rounded-xl border border-glass-stroke text-xs focus:border-brand-indigo focus:outline-none bg-white">
-                <option value="<100">&lt; 100 leads / mo</option>
-                <option value="100-500">100 - 500 leads / mo</option>
-                <option value="500-2000">500 - 2,000 leads / mo</option>
-                <option value="2000+">2,000+ leads / mo</option>
+                <option value="<100">Less than 100 leads / month</option>
+                <option value="100-500">100 to 500 leads / month</option>
+                <option value="500-2000">500 to 2,000 leads / month</option>
+                <option value="2000+">More than 2,000 leads / month</option>
               </select>
             </div>
           </div>
@@ -316,7 +316,7 @@ void main() {
       <div id="wizard-step-4" class="wizard-step hidden space-y-4">
         <div>
           <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 4 OF 4</span>
-          <h3 class="font-headline-md text-headline-md font-bold text-primary">Schedule Audit Consultation</h3>
+          <h3 class="font-headline-md text-headline-md font-bold text-primary">Choose a Meeting Time</h3>
         </div>
         
         <input type="hidden" id="selected-date" name="booking_date" value="2026-08-20">
@@ -378,7 +378,7 @@ void main() {
           Continue
         </button>
         <button type="submit" id="submit-btn" class="hidden px-6 py-2.5 rounded-full bg-brand-emerald text-white text-xs font-bold cursor-pointer hover:bg-brand-emerald/90 transition-all select-none shadow-sm shadow-brand-emerald/10">
-          Book Audit
+          Schedule Call
         </button>
       </div>
 
@@ -389,9 +389,9 @@ void main() {
       <div class="w-16 h-16 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center animate-pulse">
         <span class="material-symbols-outlined text-4xl font-bold">check_circle</span>
       </div>
-      <h3 class="font-headline-lg text-headline-lg font-bold text-primary">Audit Scheduled!</h3>
+      <h3 class="font-headline-lg text-headline-lg font-bold text-primary">Meeting Scheduled!</h3>
       <p class="font-body-md text-body-md text-on-surface-variant max-w-sm font-light">
-        We have received your qualification parameters. Your systems audit calendar invitation has been dispatched to your email.
+        We have received your details. A calendar invitation has been sent directly to your email address.
       </p>
     </div>
 
@@ -520,7 +520,7 @@ void main() {
       alert('There was a connection issue. We are opening your email client to submit details directly!');
       window.location.href = mailtoLink;
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Book Audit';
+      submitBtn.textContent = 'Schedule Call';
     }
   });
 
