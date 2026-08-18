@@ -143,7 +143,7 @@ void main() {
   <!-- STITCH_SHADER_END:ANIMATION_21 -->
 
   <!-- Top Sticky Navigation Bar -->
-  <nav class="bg-background dark:bg-deep-charcoal w-full sticky top-0 z-[100] border-b border-outline-variant/20">
+  <nav class="bg-white/80 dark:bg-deep-charcoal/80 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/20">
     <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max-width mx-auto">
       <!-- Logo -->
       <a class="font-headline-md text-headline-md font-bold text-deep-charcoal dark:text-surface-container-lowest" href="/">
@@ -162,7 +162,7 @@ void main() {
             <div class="rounded-xl bg-white border border-outline-variant/20 shadow-lg p-2">
               <a href="/marketing/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-colors ">Marketing Systems</a>
               <a href="/automation/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-colors ">Sales Automation</a>
-              <a href="/services/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-colors ">Full-Stack RevOps</a>
+              <a href="/services/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-primary-fixed hover:text-primary transition-colors ">Connected Systems</a>
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@ void main() {
         <span class="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Solutions</span>
         <a class="pl-4 text-on-surface-variant" href="/marketing/">Marketing Systems</a>
         <a class="pl-4 text-on-surface-variant" href="/automation/">Sales Automation</a>
-        <a class="pl-4 text-on-surface-variant" href="/services/">Full-Stack RevOps</a>
+        <a class="pl-4 text-on-surface-variant" href="/services/">Connected Systems</a>
         
         <span class="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Company</span>
         <a class="pl-4 text-on-surface-variant" href="/about/">How it Works</a>
@@ -228,7 +228,7 @@ void main() {
       
       <!-- Hidden Web3Forms Setup -->
       <input type="hidden" name="access_key" value="ccefd948-13ab-4d13-bc57-993d0edb7eb8">
-      <input type="hidden" name="subject" value="New High-Intent RevOps Audit Request">
+      <input type="hidden" name="subject" value="New High-Intent Operations Audit Request">
       <input type="hidden" name="from_name" value="CaulHaus Lead Qualification">
 
       <!-- Step 1: Objective -->
@@ -253,7 +253,7 @@ void main() {
         </div>
       </div>
 
-      <!-- Step 2: CRM -->
+      <!-- Step 2: Customer Database -->
       <div id="wizard-step-2" class="wizard-step hidden space-y-6">
         <div>
           <span class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-widest block mb-2">STEP 2 OF 4</span>
@@ -361,9 +361,9 @@ void main() {
 
           <!-- Time slots -->
           <div class="flex flex-col gap-2 justify-center">
-            <button type="button" class="slot-btn p-2 border-2 border-brand-indigo bg-brand-indigo/5 text-primary text-xs font-semibold rounded-xl text-center cursor-pointer transition-all">10:00 AM EST</button>
-            <button type="button" class="slot-btn p-2 border border-glass-stroke hover:bg-surface-gray text-on-surface-variant text-xs font-medium rounded-xl text-center cursor-pointer transition-all">1:30 PM EST</button>
-            <button type="button" class="slot-btn p-2 border border-glass-stroke hover:bg-surface-gray text-on-surface-variant text-xs font-medium rounded-xl text-center cursor-pointer transition-all">3:00 PM EST</button>
+            <button type="button" class="slot-btn p-2 border-2 border-brand-indigo bg-brand-indigo/5 text-primary text-xs font-semibold rounded-xl text-center cursor-pointer transition-all">10:00 AM Eastern Time</button>
+            <button type="button" class="slot-btn p-2 border border-glass-stroke hover:bg-surface-gray text-on-surface-variant text-xs font-medium rounded-xl text-center cursor-pointer transition-all">1:30 PM Eastern Time</button>
+            <button type="button" class="slot-btn p-2 border border-glass-stroke hover:bg-surface-gray text-on-surface-variant text-xs font-medium rounded-xl text-center cursor-pointer transition-all">3:00 PM Eastern Time</button>
           </div>
         </div>
       </div>
@@ -460,7 +460,7 @@ void main() {
     input.addEventListener('change', () => {
       document.querySelectorAll('input[name="objective"]').forEach(i => {
         i.closest('label').className = i.checked 
-          ? "flex items-center gap-4 p-4 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all"
+          ? "flex items-center gap-4 p-4 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all"
           : "flex items-center gap-4 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
       });
     });
@@ -470,7 +470,7 @@ void main() {
     input.addEventListener('change', () => {
       document.querySelectorAll('input[name="crm"]').forEach(i => {
         i.closest('label').className = i.checked 
-          ? "flex items-center gap-3 p-4 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all"
+          ? "flex items-center gap-3 p-4 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all"
           : "flex items-center gap-3 p-4 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
       });
     });
@@ -482,8 +482,8 @@ void main() {
       document.querySelectorAll('.slot-btn').forEach(b => {
         b.className = "slot-btn p-2 border border-glass-stroke hover:bg-surface-gray text-on-surface-variant text-xs font-medium rounded-xl text-center cursor-pointer transition-all";
       });
-      btn.className = "slot-btn p-2 border-2 border-brand-indigo bg-brand-indigo/5 text-primary text-xs font-semibold rounded-xl text-center cursor-pointer transition-all";
-      document.getElementById('selected-time').value = btn.textContent.replace(' EST', '');
+      btn.className = "slot-btn p-2 border border-brand-indigo bg-brand-indigo/5 text-primary text-xs font-semibold rounded-xl text-center cursor-pointer transition-all";
+      document.getElementById('selected-time').value = btn.textContent.replace(' Eastern Time', '');
     });
   });
 
@@ -516,7 +516,7 @@ void main() {
     } catch (err) {
       console.error(err);
       // Fallback mailto
-      const mailtoLink = `mailto:alex@caulhaus.com?subject=RevOps Audit Request&body=Objective: ${object.objective}%0D%0ACRM: ${object.crm}%0D%0AName: ${object.name}%0D%0AWebsite: ${object.website}%0D%0ALeads: ${object.leads}%0D%0ABooked Date: ${object.booking_date} at ${object.booking_time}`;
+      const mailtoLink = `mailto:alex@caulhaus.com?subject=Operations Audit Request&body=Objective: ${object.objective}%0D%0ACustomer Database: ${object.crm}%0D%0AName: ${object.name}%0D%0AWebsite: ${object.website}%0D%0ALeads: ${object.leads}%0D%0ABooked Date: ${object.booking_date} at ${object.booking_time}`;
       alert('There was a connection issue. We are opening your email client to submit details directly!');
       window.location.href = mailtoLink;
       submitBtn.disabled = false;
@@ -528,10 +528,10 @@ void main() {
   document.addEventListener('DOMContentLoaded', () => {
     // Initial card classes triggers
     document.querySelectorAll('input[name="objective"]').forEach(i => {
-      if(i.checked) i.closest('label').className = "flex items-center gap-4 p-4 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
+      if(i.checked) i.closest('label').className = "flex items-center gap-4 p-4 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
     });
     document.querySelectorAll('input[name="crm"]').forEach(i => {
-      if(i.checked) i.closest('label').className = "flex items-center gap-3 p-4 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
+      if(i.checked) i.closest('label').className = "flex items-center gap-3 p-4 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
     });
     showStep(1);
   });
@@ -540,7 +540,7 @@ void main() {
   </main>
 
   <!-- Footer -->
-  <footer class="bg-deep-charcoal dark:bg-surface-container-lowest w-full mt-section-padding">
+  <footer class="bg-deep-charcoal w-full mt-section-padding">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-grid-margin py-16 max-w-container-max-width mx-auto">
       <div class="col-span-1 md:col-span-2 space-y-4">
         <div class="font-headline-sm text-headline-md font-black text-white">
@@ -555,7 +555,7 @@ void main() {
         <ul class="space-y-3">
           <li><a class="font-mono-label text-mono-label text-surface-container-lowest hover:text-electric-blue transition-colors opacity-80 hover:opacity-100" href="/services/">Solutions</a></li>
           <li><a class="font-mono-label text-mono-label text-surface-container-lowest hover:text-electric-blue transition-colors opacity-80 hover:opacity-100" href="/automation/">Sales Automation</a></li>
-          <li><a class="font-mono-label text-mono-label text-surface-container-lowest hover:text-electric-blue transition-colors opacity-80 hover:opacity-100" href="/services/">Full-Stack RevOps</a></li>
+          <li><a class="font-mono-label text-mono-label text-surface-container-lowest hover:text-electric-blue transition-colors opacity-80 hover:opacity-100" href="/services/">Connected Systems</a></li>
         </ul>
       </div>
       <div class="space-y-4">

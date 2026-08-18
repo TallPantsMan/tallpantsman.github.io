@@ -152,7 +152,7 @@ description: Choose the path that fits your business stage. No vague advice—ju
     <!-- Inputs Wrapper -->
     <div class="space-y-6">
       
-      <!-- Step 1: Select CRM -->
+      <!-- Step 1: Select Database -->
       <div>
         <label class="font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-widest font-bold block mb-3">1. Choose Your Primary Customer Database</label>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -271,7 +271,7 @@ description: Choose the path that fits your business stage. No vague advice—ju
     document.querySelectorAll('input[name="calc-crm"]').forEach(input => {
       const parent = input.closest('label');
       if (input.checked) {
-        parent.className = "flex flex-col items-center p-3 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
+        parent.className = "flex flex-col items-center p-3 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
       } else {
         parent.className = "flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
       }
@@ -280,7 +280,7 @@ description: Choose the path that fits your business stage. No vague advice—ju
     document.querySelectorAll('input[name="calc-volume"]').forEach(input => {
       const parent = input.closest('label');
       if (input.checked) {
-        parent.className = "flex flex-col items-center p-3 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
+        parent.className = "flex flex-col items-center p-3 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
       } else {
         parent.className = "flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
       }
@@ -289,7 +289,7 @@ description: Choose the path that fits your business stage. No vague advice—ju
     document.querySelectorAll('input[name="calc-tools"]').forEach(input => {
       const parent = input.closest('label');
       if (input.checked) {
-        parent.className = "flex items-center gap-2 p-3 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
+        parent.className = "flex items-center gap-2 p-3 rounded-xl border border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
       } else {
         parent.className = "flex items-center gap-2 p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
       }

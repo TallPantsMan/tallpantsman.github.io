@@ -109,9 +109,13 @@
 
   /* Spacing */
   --spacing-container-max-width: 1280px;
+  --spacing-container-max: 1280px;
   --spacing-element-gap: 1rem;
   --spacing-section-padding: 8rem;
+  --spacing-section-gap-lg: 8rem;
+  --spacing-section-gap-sm: 4rem;
   --spacing-grid-margin: 2rem;
+  --spacing-margin-mobile: 1.25rem;
   --spacing-gutter: 1.5rem;
 
   /* Border Radius */
@@ -119,6 +123,24 @@
   --radius-xl: 0.5rem;
   --radius-lg: 0.25rem;
   --radius-DEFAULT: 0.125rem;
+
+  /* Missing Colors used in templates */
+  --color-glass-stroke: rgba(15, 23, 42, 0.08);
+  --color-surface-gray: #f8fafc;
+  --color-hyper-blue: #4F46E5;
+
+  /* Typography extensions */
+  --font-label-caps: 'JetBrains Mono', monospace;
+  --text-label-caps: 11px;
+  --text-label-caps--line-height: 1.2;
+  --text-label-caps--letter-spacing: 0.05em;
+  --text-label-caps--font-weight: 600;
+
+  --font-display-sm: 'Hanken Grotesk', sans-serif;
+  --text-display-sm: 36px;
+  --text-display-sm--line-height: 1.2;
+  --text-display-sm--letter-spacing: -0.01em;
+  --text-display-sm--font-weight: 700;
 }
 
 /* Custom global overrides */
@@ -197,6 +219,19 @@ h1, h2, h3, h4, h5, h6 {
 .animate-fade-in-up {
   opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
 /* Floating Animation */
