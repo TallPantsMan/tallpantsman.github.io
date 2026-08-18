@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About CaulHaus - Strategic RevOps Partner</title>
-  <meta name="description" content="We&#39;re more than just consultants. We roll up our sleeves to fix your processes and build the software that keeps your business moving.">
+  <title>Built by Systems Engineers, Not Generic Marketers | CaulHaus</title>
+  <meta name="description" content="We are a team of RevOps engineers and marketing technologists who care about reliable code, clean data, and business metrics—not vanity impressions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
@@ -135,19 +135,27 @@ void main() {
       
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-1">
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/marketing/">Marketing</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/automation/">Automation</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/services/">Services</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/projects/">Projects</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/blog/">Blog</a>
-        <a class="font-body-md text-body-md bg-hyper-blue/10 text-hyper-blue font-semibold transition-colors rounded-full px-4 py-2" href="/about/">About</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/contact/">Contact</a>
+        <!-- Services Hover Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2 focus:outline-none cursor-default">
+            Services
+            <span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:rotate-180">keyboard_arrow_down</span>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-2xl bg-white border border-glass-stroke shadow-lg p-2 hidden group-hover:block z-50">
+            <a href="/marketing/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Marketing Systems</a>
+            <a href="/automation/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Sales Automation</a>
+            <a href="/services/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Full-Stack RevOps</a>
+          </div>
+        </div>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/projects/">Case Studies</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/blog/">Insights</a>
+        <a class="font-body-md text-body-md bg-brand-indigo/10 text-brand-indigo font-semibold transition-colors rounded-full px-4 py-2" href="/about/">About</a>
       </nav>
       
       <!-- Call to Action -->
       <div class="flex items-center">
-        <a class="hidden md:inline-flex bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md font-medium hover:bg-hyper-blue transition-colors" href="/contact/">
-          Get Started
+        <a class="hidden md:inline-flex bg-brand-indigo text-white px-6 py-2.5 rounded-full font-body-md text-body-md font-semibold hover:bg-brand-indigo/90 transition-colors shadow-sm" href="/contact/">
+          Book a Systems Audit
         </a>
         <button id="mobile-menu-btn" class="md:hidden text-primary p-1 focus:outline-none" aria-label="Toggle Menu">
           <span id="menu-icon" class="material-symbols-outlined">menu</span>
@@ -158,15 +166,17 @@ void main() {
     <!-- Mobile Navigation Panel -->
     <div id="mobile-menu" class="hidden md:hidden px-8 pb-6 pt-2 border-t border-glass-stroke bg-white/95 rounded-b-3xl">
       <div class="flex flex-col gap-4 font-body-md text-body-md">
-        <a class="text-on-surface-variant" href="/marketing/">Marketing</a>
-        <a class="text-on-surface-variant" href="/automation/">Automation</a>
-        <a class="text-on-surface-variant" href="/services/">Services</a>
-        <a class="text-on-surface-variant" href="/projects/">Projects</a>
-        <a class="text-on-surface-variant" href="/blog/">Blog</a>
-        <a class="text-hyper-blue font-semibold" href="/about/">About</a>
-        <a class="text-on-surface-variant" href="/contact/">Contact</a>
-        <a class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps uppercase text-center mt-2" href="/contact/">
-          Get Started
+        <span class="font-label-caps text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Services</span>
+        <a class="pl-4 text-on-surface-variant" href="/marketing/">Marketing Systems</a>
+        <a class="pl-4 text-on-surface-variant" href="/automation/">Sales Automation</a>
+        <a class="pl-4 text-on-surface-variant" href="/services/">Full-Stack RevOps</a>
+        
+        <span class="font-label-caps text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Company</span>
+        <a class="pl-4 text-on-surface-variant" href="/projects/">Case Studies</a>
+        <a class="pl-4 text-on-surface-variant" href="/blog/">Insights</a>
+        <a class="pl-4 text-brand-indigo font-semibold" href="/about/">About</a>
+        <a class="bg-brand-indigo text-white px-6 py-3 rounded-full font-label-caps text-label-caps uppercase text-center mt-4 shadow-sm" href="/contact/">
+          Book a Systems Audit
         </a>
       </div>
     </div>
@@ -176,107 +186,103 @@ void main() {
   <main class="flex-grow pt-24">
     
 <!-- Hero Section -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-20 pb-section-gap-sm flex flex-col items-center text-center relative reveal">
-  <h1 class="font-display-lg text-display-lg md:text-[80px] md:leading-[88px] font-bold text-primary mb-6 max-w-4xl mx-auto">We Help You Build Better Systems.</h1>
-  <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">We're more than just consultants. We roll up our sleeves to fix your processes and build the software that keeps your business moving.</p>
-  <div class="relative w-full max-w-5xl mx-auto rounded-xl overflow-hidden border border-glass-stroke bg-surface-gray aspect-video flex items-center justify-center">
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-24 pb-section-gap-sm flex flex-col items-center text-center relative reveal">
+  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-indigo/30 bg-brand-indigo/5 text-brand-indigo text-xs font-semibold uppercase tracking-wider mb-4">
+    Our Positioning
+  </div>
+  <h1 class="font-display-lg text-display-sm md:text-display-lg font-bold text-primary mb-6 max-w-4xl mx-auto leading-tight">
+    Built by Systems Engineers, <br><span class="text-brand-indigo">Not Generic Marketers.</span>
+  </h1>
+  <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+    We are a team of RevOps technologists and automation developers who care about reliable APIs, database integrity, and business revenue—not vanity impressions and clicks.
+  </p>
+  <div class="relative w-full max-w-4xl mx-auto rounded-3xl overflow-hidden border border-glass-stroke bg-surface-gray aspect-video flex items-center justify-center">
     <img class="absolute inset-0 w-full h-full object-cover opacity-90" alt="Minimalist structural framework with glowing light representing digital RevOps infrastructure" src="/assets/images/about_hero.png">
     <div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent"></div>
   </div>
 </section>
 
-<!-- Why CaulHaus Value Prop (Bento Grid) -->
+<!-- Operating Principles Section -->
 <section class="bg-surface-gray py-section-gap-lg border-y border-glass-stroke reveal">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
     <div class="text-center mb-16">
-      <span class="font-label-caps text-label-caps text-hyper-blue uppercase mb-4 block">The Value Proposition</span>
-      <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Why CaulHaus?</h2>
+      <span class="font-label-caps text-[10px] text-brand-indigo uppercase tracking-wider font-bold block mb-4">Operations Directive</span>
+      <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Our Operating Principles</h2>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-unit auto-rows-[300px]">
-      <!-- Core Competency Card (Large) -->
-      <div class="md:col-span-8 bg-surface rounded-xl border border-glass-stroke p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300">
-        <div class="z-10 relative max-w-lg">
-          <h3 class="font-headline-md text-headline-md font-semibold text-primary mb-4">Complete System Setup</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">We build everything from the ground up, making sure your software talks to each other.</p>
-        </div>
-        <span class="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] text-surface-container-high/50 group-hover:scale-110 transition-transform duration-700 pointer-events-none">account_tree</span>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       
-      <!-- Expertise Card (Small) -->
-      <div class="md:col-span-4 bg-surface rounded-xl border border-glass-stroke p-8 flex flex-col justify-between hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300">
+      <!-- Principle 1 -->
+      <div class="bg-white rounded-3xl border border-glass-stroke p-8 flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
         <div>
-          <span class="material-symbols-outlined text-hyper-blue text-3xl mb-4 block">speed</span>
-          <h3 class="font-headline-md text-headline-md font-semibold text-primary mb-2">Real Results</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">We focus on changes that save your team time and make your business more money.</p>
+          <span class="material-symbols-outlined text-brand-indigo text-3xl mb-6 block">biotech</span>
+          <h3 class="font-headline-md text-headline-md font-bold text-primary mb-3">Data Precision First</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+            If marketing data isn't clean, ad budget is wasted. We verify and sanitize attribution sources at the event root before they reach your databases.
+          </p>
         </div>
       </div>
-      
-      <!-- Integration Card (Small) -->
-      <div class="md:col-span-4 bg-surface rounded-xl border border-glass-stroke p-8 flex flex-col justify-between hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300 bg-primary text-surface-bright">
+
+      <!-- Principle 2 -->
+      <div class="bg-white rounded-3xl border border-glass-stroke p-8 flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
         <div>
-          <span class="material-symbols-outlined text-surface-bright text-3xl mb-4 block">hub</span>
-          <h3 class="font-headline-md text-headline-md font-semibold text-surface-bright mb-2">Seamless Integration</h3>
-          <p class="font-body-md text-body-md text-tertiary-fixed-dim">We build the cohesive foundation across your revenue systems, simplifying complex architectures.</p>
+          <span class="material-symbols-outlined text-brand-indigo text-3xl mb-6 block">remove_done</span>
+          <h3 class="font-headline-md text-headline-md font-bold text-primary mb-3">Zero Manual Bloat</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+            If a human operator does a data-entry task more than three times, it should be automated. We build pipelines that let talent focus on closing deals.
+          </p>
         </div>
       </div>
-      
-      <!-- Trust Card (Large) -->
-      <div class="md:col-span-8 bg-surface rounded-xl border border-glass-stroke p-8 md:p-12 flex flex-col justify-center items-start hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-all duration-300 relative overflow-hidden">
-        <img class="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-luminosity grayscale" alt="Professional RevOps consultants working on digital infrastructure in modern workspace" src="/assets/images/about_team.png">
-        <div class="relative z-10">
-          <h3 class="font-headline-md text-headline-md font-semibold text-primary mb-4">Companies We've Helped</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant max-w-lg mb-6">Startups and Fortune 500 companies alike trust us to deliver solutions that drive real impact. We act as an extension of your team.</p>
-          <a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-hyper-blue transition-colors uppercase tracking-wider" href="/contact/">
-            Start a Project <span class="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
+
+      <!-- Principle 3 -->
+      <div class="bg-white rounded-3xl border border-glass-stroke p-8 flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
+        <div>
+          <span class="material-symbols-outlined text-brand-indigo text-3xl mb-6 block">fact_check</span>
+          <h3 class="font-headline-md text-headline-md font-bold text-primary mb-3">Deterministic Systems</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+            We write custom error-handling into webhooks and APIs. If a destination is down, leads queue automatically and retry, ensuring zero leads fall into a void.
+          </p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- Testimonials / Client Trust Section -->
+<!-- Credentials & Certifications Ticker Section -->
 <section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-lg reveal">
   <div class="text-center mb-16">
-    <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Hear from our clients</h2>
+    <span class="font-label-caps text-[10px] text-brand-indigo uppercase tracking-wider font-bold block mb-4">Partner Badges</span>
+    <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Ecosystem Certifications</h2>
   </div>
-  
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-    <!-- Testimonial 1 -->
-    <div class="bg-surface-gray rounded-xl p-8 border border-glass-stroke flex flex-col justify-between">
-      <div>
-        <span class="material-symbols-outlined text-hyper-blue text-4xl mb-6 opacity-50 block">format_quote</span>
-        <p class="font-body-md text-body-md text-on-surface mb-8">“The CaulHaus team brought a unique blend of whip smart technical expertise with business forward thinking, the type of Rev Ops team any start-up can benefit from to accelerate their GTM process. They felt like an extension of our team.”</p>
-      </div>
-      <div class="pt-6 border-t border-glass-stroke">
-        <p class="font-headline-md text-[18px] font-semibold text-primary">Jooree Na</p>
-        <p class="font-label-caps text-label-caps text-on-surface-variant mt-1">CFO, Anyscale</p>
-      </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <!-- Cert 1 -->
+    <div class="glass-panel p-6 rounded-2xl border border-glass-stroke flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-brand-indigo text-3xl mb-3">verified</span>
+      <h4 class="font-label-caps text-xs font-bold text-primary tracking-wider">HubSpot Certified</h4>
+      <p class="text-[10px] text-on-surface-variant mt-1 font-light">RevOps &amp; CRM Implementation</p>
     </div>
     
-    <!-- Testimonial 2 -->
-    <div class="bg-surface-gray rounded-xl p-8 border border-glass-stroke flex flex-col justify-between">
-      <div>
-        <span class="material-symbols-outlined text-hyper-blue text-4xl mb-6 opacity-50 block">format_quote</span>
-        <p class="font-body-md text-body-md text-on-surface mb-8">“CaulHaus was an invaluable partner during a key team transition, ensuring business continuity and driving a critical quoting tool implementation. Their deep expertise, reliability, and collaborative approach gave us confidence in our systems strategy.”</p>
-      </div>
-      <div class="pt-6 border-t border-glass-stroke">
-        <p class="font-headline-md text-[18px] font-semibold text-primary">Catherine Hsieh</p>
-        <p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Head of RevOps, Jasper.ai</p>
-      </div>
+    <!-- Cert 2 -->
+    <div class="glass-panel p-6 rounded-2xl border border-glass-stroke flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-brand-indigo text-3xl mb-3">groups_3</span>
+      <h4 class="font-label-caps text-xs font-bold text-primary tracking-wider">Make Partner</h4>
+      <p class="text-[10px] text-on-surface-variant mt-1 font-light">Advanced Workflow Architect</p>
     </div>
-    
-    <!-- Testimonial 3 -->
-    <div class="bg-surface-gray rounded-xl p-8 border border-glass-stroke flex flex-col justify-between">
-      <div>
-        <span class="material-symbols-outlined text-hyper-blue text-4xl mb-6 opacity-50 block">format_quote</span>
-        <p class="font-body-md text-body-md text-on-surface mb-8">“I’ve partnered with CaulHaus across multiple organizations and they consistently bring a thoughtful, systems-first approach to scaling GTM operations. They helped us streamline CPQ, simplify Salesforce, and build a more cohesive foundation.”</p>
-      </div>
-      <div class="pt-6 border-t border-glass-stroke">
-        <p class="font-headline-md text-[18px] font-semibold text-primary">Niel Hildebrand III</p>
-        <p class="font-label-caps text-label-caps text-on-surface-variant mt-1">VP Revenue Operations, ClickUp</p>
-      </div>
+
+    <!-- Cert 3 -->
+    <div class="glass-panel p-6 rounded-2xl border border-glass-stroke flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-brand-indigo text-3xl mb-3">engineering</span>
+      <h4 class="font-label-caps text-xs font-bold text-primary tracking-wider">Zapier Expert</h4>
+      <p class="text-[10px] text-on-surface-variant mt-1 font-light">Custom App Integration</p>
+    </div>
+
+    <!-- Cert 4 -->
+    <div class="glass-panel p-6 rounded-2xl border border-glass-stroke flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-brand-indigo text-3xl mb-3">terminal</span>
+      <h4 class="font-label-caps text-xs font-bold text-primary tracking-wider">GitHub Verified</h4>
+      <p class="text-[10px] text-on-surface-variant mt-1 font-light">Custom Script &amp; API Setup</p>
     </div>
   </div>
 </section>
@@ -290,23 +296,25 @@ void main() {
         <a class="font-headline-md text-headline-md font-black uppercase text-primary block mb-4" href="/">
           CaulHaus
         </a>
-        <p class="opacity-80 max-w-xs">
+        <p class="opacity-80 max-w-xs normal-case">
           © 2026 Caul Haus Group, Inc. All rights reserved.
         </p>
       </div>
       <div class="col-span-1">
+        <div class="text-[10px] text-on-surface-variant/40 mb-3 tracking-widest font-bold uppercase">Services</div>
         <ul class="space-y-3">
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/automation/">Automation</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/services/">Services</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing Systems</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/automation/">Sales Automation</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/services/">Full-Stack RevOps</a></li>
         </ul>
       </div>
       <div class="col-span-1">
+        <div class="text-[10px] text-on-surface-variant/40 mb-3 tracking-widest font-bold uppercase">Company</div>
         <ul class="space-y-3">
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/about/">About Us</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/projects/">Projects</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/blog/">Blog</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/contact/">Contact</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/about/">About Us</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/projects/">Case Studies</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/blog/">Insights</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/contact/">Book an Audit</a></li>
         </ul>
       </div>
     </div>

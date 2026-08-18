@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technical RevOps &amp; MarTech Insights | CaulHaus</title>
-  <meta name="description" content="Highly technical, actionable guides on attribution modeling, workflow engineering, and lead enrichment automation.">
+  <title>How to Set Up GA4 Server-Side Tracking for B2B SaaS without Losing Conversions</title>
+  <meta name="description" content="Server-side tracking is becoming essential as browsers restrict third-party cookies. Learn how to implement a server-side GA4 setup for B2B SaaS.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
@@ -184,119 +184,90 @@ void main() {
 
   <!-- Main Content Area -->
   <main class="flex-grow pt-24">
-    
-<section class="py-20 max-w-[1024px] mx-auto px-6 md:px-16 relative reveal">
-  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <div class="ambient-glow top-1/4 left-1/4"></div>
-  </div>
-  
-  <div class="max-w-3xl mx-auto text-center mb-20 relative z-10">
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-indigo/30 bg-brand-indigo/5 text-brand-indigo text-xs font-semibold uppercase tracking-wider mb-6">
-      Operations Insights
-    </div>
-    <h1 class="font-display-sm text-display-sm md:font-display-lg md:text-display-lg text-primary mb-4 font-bold">Technical RevOps &amp; Insights</h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant font-light">Highly technical, actionable guides on attribution modeling, workflow engineering, and lead enrichment automation.</p>
-  </div>
+    <article class="max-w-3xl mx-auto px-6 md:px-16 py-20 relative">
+  <!-- Back to blog link -->
+  <a href="/blog/" class="inline-flex items-center gap-2 text-sm text-secondary hover:text-on-surface mb-12 group transition-colors font-medium">
+    <span class="material-symbols-outlined text-[16px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+    Back to Blog
+  </a>
 
-  <!-- Blog Cards Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"><article class="glass-card rounded-3xl overflow-hidden border border-outline-variant/50 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-        <div class="p-8">
-          <div class="flex items-center gap-3 text-xs text-on-surface-variant/60 font-semibold mb-4 uppercase tracking-wider">
-            <span>July 5, 2026</span>
-            <span>•</span>
-            <span>5 min read</span>
-          </div>
+  <!-- Header -->
+  <header class="mb-12 border-b border-outline-variant/40 pb-8">
+    <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-on-surface-variant/60 uppercase tracking-wider mb-4">
+      <span>May 28, 2026</span>
+      <span>•</span>
+      <span>By Alex Herbstman</span>
+      
+        <span>•</span>
+        <div class="flex flex-wrap gap-2">
           
-          <h2 class="font-headline-md text-xl text-on-surface mb-3 hover:text-primary transition-colors line-clamp-2 font-semibold">
-            <a href="/blog/clay-ai-inbound-lead-qualification/">How We Use Clay + AI to Auto-Qualify 1,000+ Inbound Leads Weekly</a>
-          </h2>
+            
           
-          <p class="font-body-md text-sm text-on-surface-variant line-clamp-3 mb-6 font-light leading-relaxed">
-            Qualifying leads manually wastes valuable AE selling time. Discover how we built an automated, AI-driven lead enrichment and qualification engine using Clay.
-          </p>
-        </div>
-        
-        <div class="p-8 pt-6 border-t border-outline-variant/30 flex items-center justify-between">
-          <span class="text-xs text-on-surface-variant/60 font-mono">By Alex Herbstman</span>
-          <a href="/blog/clay-ai-inbound-lead-qualification/" class="text-xs font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
-            Read Article
-            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-          </a>
-        </div>
-      </article><article class="glass-card rounded-3xl overflow-hidden border border-outline-variant/50 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-        <div class="p-8">
-          <div class="flex items-center gap-3 text-xs text-on-surface-variant/60 font-semibold mb-4 uppercase tracking-wider">
-            <span>June 11, 2026</span>
-            <span>•</span>
-            <span>5 min read</span>
-          </div>
+            
+              <span class="px-2.5 py-0.5 rounded bg-primary/5 text-primary border border-primary/10 text-[10px]">attribution analytics</span>
+            
           
-          <h2 class="font-headline-md text-xl text-on-surface mb-3 hover:text-primary transition-colors line-clamp-2 font-semibold">
-            <a href="/blog/hubspot-source-reports-attribution/">Why Your HubSpot Source Reports Lie (and How to Fix First-Touch Attribution)</a>
-          </h2>
-          
-          <p class="font-body-md text-sm text-on-surface-variant line-clamp-3 mb-6 font-light leading-relaxed">
-            HubSpot&#39;s default source categorization is useful, but it often misrepresents first-touch attribution for complex B2B deals. Learn how to audit and fix UTM mapping.
-          </p>
         </div>
-        
-        <div class="p-8 pt-6 border-t border-outline-variant/30 flex items-center justify-between">
-          <span class="text-xs text-on-surface-variant/60 font-mono">By Alex Herbstman</span>
-          <a href="/blog/hubspot-source-reports-attribution/" class="text-xs font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
-            Read Article
-            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-          </a>
-        </div>
-      </article><article class="glass-card rounded-3xl overflow-hidden border border-outline-variant/50 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-        <div class="p-8">
-          <div class="flex items-center gap-3 text-xs text-on-surface-variant/60 font-semibold mb-4 uppercase tracking-wider">
-            <span>May 28, 2026</span>
-            <span>•</span>
-            <span>6 min read</span>
-          </div>
-          
-          <h2 class="font-headline-md text-xl text-on-surface mb-3 hover:text-primary transition-colors line-clamp-2 font-semibold">
-            <a href="/blog/ga4-serverside-tracking/">How to Set Up GA4 Server-Side Tracking for B2B SaaS without Losing Conversions</a>
-          </h2>
-          
-          <p class="font-body-md text-sm text-on-surface-variant line-clamp-3 mb-6 font-light leading-relaxed">
-            Server-side tracking is becoming essential as browsers restrict third-party cookies. Learn how to implement a server-side GA4 setup for B2B SaaS.
-          </p>
-        </div>
-        
-        <div class="p-8 pt-6 border-t border-outline-variant/30 flex items-center justify-between">
-          <span class="text-xs text-on-surface-variant/60 font-mono">By Alex Herbstman</span>
-          <a href="/blog/ga4-serverside-tracking/" class="text-xs font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
-            Read Article
-            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-          </a>
-        </div>
-      </article><article class="glass-card rounded-3xl overflow-hidden border border-outline-variant/50 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-        <div class="p-8">
-          <div class="flex items-center gap-3 text-xs text-on-surface-variant/60 font-semibold mb-4 uppercase tracking-wider">
-            <span>February 12, 2026</span>
-            <span>•</span>
-            <span>4 min read</span>
-          </div>
-          
-          <h2 class="font-headline-md text-xl text-on-surface mb-3 hover:text-primary transition-colors line-clamp-2 font-semibold">
-            <a href="/blog/make-salesforce-webhook-integration/">Building Fault-Tolerant Webhook Integrations Between Make and Salesforce</a>
-          </h2>
-          
-          <p class="font-body-md text-sm text-on-surface-variant line-clamp-3 mb-6 font-light leading-relaxed">
-            Salesforce integrations can fail due to API rate limits or concurrent locking errors. Learn how to design robust, fault-tolerant Make.com workflows.
-          </p>
-        </div>
-        
-        <div class="p-8 pt-6 border-t border-outline-variant/30 flex items-center justify-between">
-          <span class="text-xs text-on-surface-variant/60 font-mono">By Alex Herbstman</span>
-          <a href="/blog/make-salesforce-webhook-integration/" class="text-xs font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
-            Read Article
-            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-          </a>
-        </div>
-      </article></div>
-</section>
+      
+    </div>
+    <h1 class="text-3xl md:text-4xl font-display-sm font-light text-on-surface tracking-tight leading-tight mb-6">How to Set Up GA4 Server-Side Tracking for B2B SaaS without Losing Conversions</h1>
+    <p class="text-lg text-on-surface-variant leading-relaxed font-light">Server-side tracking is becoming essential as browsers restrict third-party cookies. Learn how to implement a server-side GA4 setup for B2B SaaS.</p>
+  </header>
+
+  <!-- Content -->
+  <div class="prose prose-slate max-w-none
+    prose-headings:font-normal prose-headings:text-on-surface prose-headings:font-heading
+    prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+    prose-p:text-on-surface-variant prose-p:leading-relaxed prose-p:mb-6 prose-p:font-light
+    prose-li:text-on-surface-variant prose-li:mb-2 prose-li:font-light
+    prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6
+    prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6
+    prose-strong:text-on-surface prose-strong:font-semibold
+    prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary/80 hover:prose-a:underline
+    prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-on-surface-variant/80 prose-blockquote:my-8
+    prose-code:bg-surface-container-highest prose-code:text-on-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm">
+    <h2>The Transition to Server-Side Measurement</h2>
+<p>Browser privacy updates like Apple's ITP (Intelligent Tracking Prevention) and the gradual phasing out of third-party cookies have severely degraded client-side analytics. For B2B SaaS companies, this results in lost conversion events, broken attribution links, and inaccurate ad optimization metrics.</p>
+<p>By moving your Google Analytics 4 (GA4) configuration from a client-side browser context to a server-side container (via Google Tag Manager), you establish a first-party data stream that bypasses ad blockers and preserves tracking fidelity.</p>
+<h2>Why Client-Side Tracking Fails B2B SaaS</h2>
+<p>Standard client-side GTM containers load scripts directly in the client's browser. This introduces three operational vulnerabilities:</p>
+<ol>
+<li><strong>Ad Blocker Interception:</strong> Up to 30% of tech-focused users run ad blockers that completely block GTM scripts from loading.</li>
+<li><strong>Shortened Cookie Lifespans:</strong> Safari restricts third-party tracking cookies to a 1-day or 7-day lifespan, erasing the attribution history of long B2B purchase cycles.</li>
+<li><strong>Reduced Page Performance:</strong> Running multiple heavy advertising pixels in the browser browser-thread degrades Largest Contentful Paint (LCP).</li>
+</ol>
+<h2>Step-by-Step Server-Side GA4 Architecture</h2>
+<p>An enterprise server-side tracking architecture consists of three components: <strong>Client Website</strong>, <strong>GTM Server Container</strong>, and <strong>Conversions API Gateway</strong>.</p>
+<pre><code>[Browser Client] 
+     │
+     │ HTTP POST (First-Party Domain / custom sub-domain)
+     ▼
+[GTM Server Container] (Google Cloud Run / AWS)
+     │
+     ├───► GA4 Server (Attribution Attributed)
+     ├───► HubSpot / Salesforce Webhook Sync
+     └───► Meta / Google Ads Conversions API
+</code></pre>
+<h3>Step 1: Deploy a GTM Server Container</h3>
+<p>We deploy GTM Server Containers using Google Cloud Run or AWS. For optimal performance, set up a custom mapping domain so tracking requests flow to a first-party subdomain (e.g. <code>metrics.yourdomain.com</code>).</p>
+<h3>Step 2: Establish the Client-Side Transport Link</h3>
+<p>Configure your client-side GTM container to send all GA4 hits to your new subdomain instead of directly to Google's endpoints. This forces the browser to treat tracking traffic as standard first-party api requests.</p>
+<h3>Step 3: Configure Server-Side Clients &amp; Tags</h3>
+<p>Within GTM Server, the &quot;GA4 Client&quot; intercepts incoming payloads, sanitizes the user parameters (hashing IP addresses and personal identifiers), and routes them to:</p>
+<ul>
+<li><strong>GA4 Endpoint:</strong> Transmits clean event streams to your Google Analytics dashboard.</li>
+<li><strong>Conversion APIs:</strong> Dispatches server-to-server payloads directly to ad networks (Google Ads Offline Conversions and Meta CAPI) to optimize bid models.</li>
+</ul>
+<h2>Crucial Platform Integration Badges</h2>
+<p>To build a resilient data infrastructure, ensure your server tags are connected to:</p>
+<ul>
+<li><strong>Segment / Segment Edge:</strong> For unified client-to-server routing.</li>
+<li><strong>GA4 Measurement Protocol:</strong> To feed off-line CRM milestones (e.g. &quot;Demo Booked&quot;) back to GA4.</li>
+<li><strong>Attribution Software (e.g. HockeyStack, Caliber):</strong> For multi-touch attribution analysis.</li>
+</ul>
+
+  </div>
+</article>
 
   </main>
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | CaulHaus</title>
-  <meta name="description" content="We build the technical foundation your business needs to grow. No jargon, just systems that work.">
+  <title>CaulHaus Engagement Models &amp; Offerings | CaulHaus</title>
+  <meta name="description" content="We build the technical foundation your business needs to grow. Choose between audit roadmaps, full-scale custom builds, and ongoing RevOps retainers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
@@ -135,19 +135,27 @@ void main() {
       
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-1">
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/marketing/">Marketing</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/automation/">Automation</a>
-        <a class="font-body-md text-body-md bg-hyper-blue/10 text-hyper-blue font-semibold transition-colors rounded-full px-4 py-2" href="/services/">Services</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/projects/">Projects</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/blog/">Blog</a>
+        <!-- Services Hover Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 font-body-md text-body-md bg-brand-indigo/10 text-brand-indigo font-semibold transition-colors rounded-full px-4 py-2 focus:outline-none cursor-default">
+            Services
+            <span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:rotate-180">keyboard_arrow_down</span>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-2xl bg-white border border-glass-stroke shadow-lg p-2 hidden group-hover:block z-50">
+            <a href="/marketing/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Marketing Systems</a>
+            <a href="/automation/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Sales Automation</a>
+            <a href="/services/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors bg-brand-indigo/5 text-brand-indigo font-semibold">Full-Stack RevOps</a>
+          </div>
+        </div>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/projects/">Case Studies</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/blog/">Insights</a>
         <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/about/">About</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/contact/">Contact</a>
       </nav>
       
       <!-- Call to Action -->
       <div class="flex items-center">
-        <a class="hidden md:inline-flex bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md font-medium hover:bg-hyper-blue transition-colors" href="/contact/">
-          Get Started
+        <a class="hidden md:inline-flex bg-brand-indigo text-white px-6 py-2.5 rounded-full font-body-md text-body-md font-semibold hover:bg-brand-indigo/90 transition-colors shadow-sm" href="/contact/">
+          Book a Systems Audit
         </a>
         <button id="mobile-menu-btn" class="md:hidden text-primary p-1 focus:outline-none" aria-label="Toggle Menu">
           <span id="menu-icon" class="material-symbols-outlined">menu</span>
@@ -158,15 +166,17 @@ void main() {
     <!-- Mobile Navigation Panel -->
     <div id="mobile-menu" class="hidden md:hidden px-8 pb-6 pt-2 border-t border-glass-stroke bg-white/95 rounded-b-3xl">
       <div class="flex flex-col gap-4 font-body-md text-body-md">
-        <a class="text-on-surface-variant" href="/marketing/">Marketing</a>
-        <a class="text-on-surface-variant" href="/automation/">Automation</a>
-        <a class="text-hyper-blue font-semibold" href="/services/">Services</a>
-        <a class="text-on-surface-variant" href="/projects/">Projects</a>
-        <a class="text-on-surface-variant" href="/blog/">Blog</a>
-        <a class="text-on-surface-variant" href="/about/">About</a>
-        <a class="text-on-surface-variant" href="/contact/">Contact</a>
-        <a class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps uppercase text-center mt-2" href="/contact/">
-          Get Started
+        <span class="font-label-caps text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Services</span>
+        <a class="pl-4 text-on-surface-variant" href="/marketing/">Marketing Systems</a>
+        <a class="pl-4 text-on-surface-variant" href="/automation/">Sales Automation</a>
+        <a class="pl-4 text-brand-indigo font-semibold" href="/services/">Full-Stack RevOps</a>
+        
+        <span class="font-label-caps text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Company</span>
+        <a class="pl-4 text-on-surface-variant" href="/projects/">Case Studies</a>
+        <a class="pl-4 text-on-surface-variant" href="/blog/">Insights</a>
+        <a class="pl-4 text-on-surface-variant" href="/about/">About</a>
+        <a class="bg-brand-indigo text-white px-6 py-3 rounded-full font-label-caps text-label-caps uppercase text-center mt-4 shadow-sm" href="/contact/">
+          Book a Systems Audit
         </a>
       </div>
     </div>
@@ -176,93 +186,302 @@ void main() {
   <main class="flex-grow pt-24">
     
 <!-- Hero Section -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-20 pb-section-gap-sm text-center">
-  <h1 class="font-display-lg text-display-lg text-primary mb-6 max-w-4xl mx-auto">Systems That Help You Scale.</h1>
-  <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">We build the technical foundation your business needs to grow. No jargon, just systems that work.</p>
-  <div class="flex flex-wrap justify-center gap-4">
-    <span class="font-code-sm text-code-sm bg-surface-container py-2 px-4 uppercase tracking-widest text-on-surface-variant">Full Stack Marketing</span>
-    <span class="font-code-sm text-code-sm bg-surface-container py-2 px-4 uppercase tracking-widest text-on-surface-variant">Process Optimization</span>
-    <span class="font-code-sm text-code-sm bg-surface-container py-2 px-4 uppercase tracking-widest text-on-surface-variant">RevOps Architecture</span>
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-24 pb-section-gap-sm text-center reveal">
+  <div class="max-w-3xl mx-auto flex flex-col items-center gap-6">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-indigo/30 bg-brand-indigo/5 text-brand-indigo text-xs font-semibold uppercase tracking-wider">
+      Engagement Models
+    </div>
+    <h1 class="font-display-lg text-display-sm md:text-display-lg text-primary tracking-tight leading-tight font-bold">
+      Systems That Help You <span class="text-brand-indigo">Scale</span>
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl font-light">
+      Choose the exact partnership path that fits your company's stage. No vague consulting—just structured deliverables and guaranteed uptime.
+    </p>
   </div>
 </section>
 
-<!-- Services Bento Grid -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-sm">
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-    <!-- Service 1: Process & Ops (Large Card) -->
-    <div class="md:col-span-8 bg-surface-container-lowest border border-glass-stroke rounded-xl p-8 md:p-12 hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-shadow duration-300 relative overflow-hidden group">
-      <div class="relative z-10 w-full md:w-2/3">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="material-symbols-outlined text-hyper-blue text-[32px]">account_tree</span>
-          <h2 class="font-headline-lg text-headline-lg text-primary">Business Mapping</h2>
+<!-- Engagement Paths Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-12 reveal">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <!-- Path 1: Audit -->
+    <div class="glass-panel p-8 rounded-3xl border border-glass-stroke flex flex-col justify-between min-h-[450px]">
+      <div class="space-y-6">
+        <div class="flex justify-between items-center">
+          <span class="font-label-caps text-[10px] text-on-surface-variant/60 font-bold uppercase tracking-wider">PATH 01</span>
+          <span class="bg-brand-indigo/10 text-brand-indigo text-[10px] font-label-caps px-3 py-1 rounded-full font-bold uppercase">Audit</span>
         </div>
-        <p class="font-body-md text-body-md text-on-surface-variant mb-8">We map out how your business works today and find ways to make it faster and simpler.</p>
-        <a class="font-label-caps text-label-caps text-primary hover:text-hyper-blue flex items-center gap-2 transition-colors uppercase tracking-widest" href="/automation/">
-          Explore Capabilities <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        <h3 class="font-headline-md text-headline-md font-bold text-primary">MarTech &amp; RevOps Audit</h3>
+        <p class="text-xs text-on-surface-variant/80 font-light leading-relaxed">
+          Ideal for teams needing a strategic roadmap to identify system bottlenecks and clean up attribution before scaling ad budgets.
+        </p>
+        <ul class="space-y-3 pt-4 border-t border-glass-stroke">
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            Complete Stack Inventory &amp; Audit
+          </li>
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            CRM Data Leak Identification
+          </li>
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            Operational Blueprint Roadmap
+          </li>
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            Delivered in 2 Weeks
+          </li>
+        </ul>
+      </div>
+      <div class="pt-8">
+        <a href="/contact/" class="block bg-surface-gray hover:bg-glass-stroke text-primary text-center font-body-md text-xs font-semibold py-3 rounded-xl border border-glass-stroke transition-all">
+          Book Audit Path
         </a>
       </div>
-      <!-- Abstract Visualization -->
-      <div class="absolute right-0 top-0 bottom-0 w-1/3 opacity-20 group-hover:opacity-40 transition-opacity duration-500 hidden md:block">
-        <div class="bg-cover bg-center w-full h-full" alt="Clean abstract network diagram illustrating processes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgZxETq54zEo3bN1Pjph13V244imSzzOXlXiD5M17wfEfMIp8Y2IhD_-Bbtq7XNB8itH3xMj2b-DxTDJhM_TIxxSQmIyx5g2n4uuQRlOdTz-ZiZx9ZIqjlwQvwbgc2qUudlFe6uwzPb-SB2yiX_uFaKl_n-uxYn8AnoEp1vA3f_X2VcxtZ_CuVxMSDKgn-mEjFq0upGSlC00YbkG8wvIe65QvljVgfOCIunc-KbrT0-m1uBIwSca6B')"></div>
+    </div>
+
+    <!-- Path 2: Build -->
+    <div class="glass-panel p-8 rounded-3xl border-2 border-brand-indigo flex flex-col justify-between min-h-[450px] shadow-lg shadow-brand-indigo/5 relative bg-white">
+      <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-indigo text-white text-[9px] font-label-caps uppercase tracking-widest px-4 py-1 rounded-full font-bold">
+        Most Popular
+      </div>
+      
+      <div class="space-y-6">
+        <div class="flex justify-between items-center">
+          <span class="font-label-caps text-[10px] text-brand-indigo font-bold uppercase tracking-wider">PATH 02</span>
+          <span class="bg-brand-indigo text-white text-[10px] font-label-caps px-3 py-1 rounded-full font-bold uppercase">Build</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md font-bold text-primary">Custom Systems Architecture</h3>
+        <p class="text-xs text-on-surface-variant/80 font-light leading-relaxed">
+          Ideal for teams launching a new stack, migrating databases, or requiring end-to-end CRM custom routing architecture.
+        </p>
+        <ul class="space-y-3 pt-4 border-t border-glass-stroke">
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            Full Infrastructure Implementation
+          </li>
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            Custom API &amp; Webhook Integration
+          </li>
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            Complete Data Migrations
+          </li>
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            30-Day QA &amp; Interactive Handoff
+          </li>
+        </ul>
+      </div>
+      <div class="pt-8">
+        <a href="/contact/" class="block bg-brand-indigo hover:bg-brand-indigo/90 text-white text-center font-body-md text-xs font-semibold py-3 rounded-xl transition-all shadow-sm">
+          Get Started
+        </a>
       </div>
     </div>
-    
-    <!-- Service 2: Analytics (Small Card) -->
-    <div class="md:col-span-4 bg-surface-container-lowest border border-glass-stroke rounded-xl p-8 hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-shadow duration-300 flex flex-col justify-between">
-      <div>
-        <span class="material-symbols-outlined text-hyper-blue text-[28px] mb-4">insights</span>
-        <h3 class="font-headline-md text-headline-md text-primary mb-3">Better Data</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant">Get a clear view of your business performance with dashboards you can actually understand.</p>
+
+    <!-- Path 3: Retainer -->
+    <div class="glass-panel p-8 rounded-3xl border border-glass-stroke flex flex-col justify-between min-h-[450px]">
+      <div class="space-y-6">
+        <div class="flex justify-between items-center">
+          <span class="font-label-caps text-[10px] text-on-surface-variant/60 font-bold uppercase tracking-wider">PATH 03</span>
+          <span class="bg-brand-indigo/10 text-brand-indigo text-[10px] font-label-caps px-3 py-1 rounded-full font-bold uppercase">Retainer</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md font-bold text-primary">Managed RevOps Engine</h3>
+        <p class="text-xs text-on-surface-variant/80 font-light leading-relaxed">
+          Ideal for scaling teams needing ongoing RevOps support, regular workflow iterations, and server-side tracking monitoring.
+        </p>
+        <ul class="space-y-3 pt-4 border-t border-glass-stroke">
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            Ongoing Workflow Build Sprints
+          </li>
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            SLA-Backed Webhook Monitoring
+          </li>
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            Bi-Weekly Engineering Sprints
+          </li>
+          <li class="flex items-center gap-2 text-xs text-on-surface-variant font-light">
+            <span class="material-symbols-outlined text-brand-emerald text-base">check_circle</span>
+            Dedicated Lead Systems Engineer
+          </li>
+        </ul>
+      </div>
+      <div class="pt-8">
+        <a href="/contact/" class="block bg-surface-gray hover:bg-glass-stroke text-primary text-center font-body-md text-xs font-semibold py-3 rounded-xl border border-glass-stroke transition-all">
+          Secure Retainer
+        </a>
       </div>
     </div>
-    
-    <!-- Service 3: Implementations (Medium Card) -->
-    <div class="md:col-span-6 bg-surface-container-lowest border border-glass-stroke rounded-xl p-8 md:p-10 hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-shadow duration-300">
-      <span class="material-symbols-outlined text-hyper-blue text-[28px] mb-4">integration_instructions</span>
-      <h3 class="font-headline-md text-headline-md text-primary mb-4">Software Setup</h3>
-      <p class="font-body-md text-body-md text-on-surface-variant mb-6">We handle the technical setup of tools like Salesforce and HubSpot so you don't have to.</p>
-      <ul class="space-y-3 font-code-sm text-code-sm text-on-surface-variant">
-        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Salesforce CRM Setup</li>
-        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Marketing Automation (Marketo, Hubspot)</li>
-        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Custom API Integrations</li>
-      </ul>
-    </div>
-    
-    <!-- Service 4: Solution Management (Medium Card) -->
-    <div class="md:col-span-6 bg-surface-container-lowest border border-glass-stroke rounded-xl p-8 md:p-10 hover:shadow-[0_10px_40px_rgba(0,0,0,0.04)] transition-shadow duration-300">
-      <span class="material-symbols-outlined text-hyper-blue text-[28px] mb-4">architecture</span>
-      <h3 class="font-headline-md text-headline-md text-primary mb-4">Project Oversight</h3>
-      <p class="font-body-md text-body-md text-on-surface-variant mb-6">We act as the bridge between your business goals and the technical work needed to reach them.</p>
-      <img class="object-cover w-full h-32 rounded-lg border border-glass-stroke mt-4 grayscale opacity-80" alt="Minimalist professional workspace workspace layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFtIpeb97wGT4KE03StRaVcTEQ2M8dAXtgLeaM2-CretvomgUQVG0FyCchQa5ksV04UW9WSvxTyVvwxtRb3Kas6jpr3yjyWWLiy5G3cy2fikSxapCr_P3f3ig-M0ltKFbvfht1Yyw1unMZEdcSppeiZvbPIWSFjyYvmRYAmCe2dQM4VKPXUkyxPVvh2k9C_wTluOsyuTIABRgOGWVKobg8Fm6nXcqZpe9YzyHteEtsBlZzZyswLdK5">
-    </div>
+
   </div>
 </section>
 
-<!-- Deep Dive Section: Full Stack Marketing -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mb-section-gap-lg">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-section-gap-sm items-center">
-    <div class="order-2 md:order-1">
-      <img class="object-cover w-full h-[500px] rounded-xl border border-glass-stroke shadow-sm" alt="Abstract 3D rendering representing structured marketing systems and nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHk28z8OHJqCA2H7DalJ-NpZQV04MUZ-pBiYYpUBJ_MrJKcoYL5CNgQktCefvdvAa3EnJqWQ7tkH-faKjbYvYMfovE4I6F8nLL7XLC56LKqljMiIaRSkU760INAXm3WcRuK3TRW6IhNsdmYHb16UA_H21vejLOBiMCz-Zd6_RIyPESYy8Bw7vyDqvcoKFtw7n4BmFUBgem25CrcAfDEHKVS6--L_tODQ5L6uSerHFFVOQ_tE6xPsPz">
+<!-- Dynamic Calculator Widget Section -->
+<section class="max-w-[800px] mx-auto px-margin-mobile md:px-gutter py-section-gap-lg border-t border-glass-stroke reveal">
+  <div class="glass-panel p-8 md:p-12 rounded-3xl border border-glass-stroke shadow-lg bg-white">
+    <div class="text-center mb-8">
+      <span class="font-label-caps text-[10px] text-brand-indigo uppercase tracking-wider font-bold block mb-2">Estimate Your Scope</span>
+      <h3 class="font-headline-lg text-headline-lg font-bold text-primary">Interactive Scope &amp; Pricing Calculator</h3>
     </div>
-    <div class="order-1 md:order-2 space-y-6">
-      <div class="inline-block px-3 py-1 bg-surface-container text-primary font-label-caps text-label-caps uppercase tracking-widest rounded-sm mb-2">The Result</div>
-      <h2 class="font-headline-lg text-headline-lg text-primary">Full Stack Marketing Automation</h2>
-      <p class="font-body-lg text-body-lg text-on-surface-variant">Connecting your sales and marketing tools into one system that handles the busy work for you.</p>
-      <div class="border-t border-glass-stroke pt-6 mt-8">
-        <div class="grid grid-cols-2 gap-6">
-          <div>
-            <h4 class="font-code-sm text-code-sm text-primary mb-2 font-bold">Data Integrity</h4>
-            <p class="font-body-md text-body-md text-on-surface-variant text-sm">Automated cleansing and normalization protocols.</p>
-          </div>
-          <div>
-            <h4 class="font-code-sm text-code-sm text-primary mb-2 font-bold">GTM Alignment</h4>
-            <p class="font-body-md text-body-md text-on-surface-variant text-sm">Synchronizing marketing signals with sales pipelines.</p>
-          </div>
+
+    <!-- Inputs Wrapper -->
+    <div class="space-y-6">
+      
+      <!-- Step 1: Select CRM -->
+      <div>
+        <label class="font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-widest font-bold block mb-3">1. Select Core CRM</label>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <label class="flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="radio" name="calc-crm" value="hubspot" checked onchange="updateCalc()" class="sr-only">
+            <span class="text-xs font-semibold text-primary">HubSpot</span>
+          </label>
+          <label class="flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="radio" name="calc-crm" value="salesforce" onchange="updateCalc()" class="sr-only">
+            <span class="text-xs font-semibold text-primary">Salesforce</span>
+          </label>
+          <label class="flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="radio" name="calc-crm" value="pipedrive" onchange="updateCalc()" class="sr-only">
+            <span class="text-xs font-semibold text-primary">Pipedrive</span>
+          </label>
+          <label class="flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="radio" name="calc-crm" value="none" onchange="updateCalc()" class="sr-only">
+            <span class="text-xs font-semibold text-primary">Other/None</span>
+          </label>
         </div>
       </div>
+
+      <!-- Step 2: Select Lead Volume -->
+      <div>
+        <label class="font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-widest font-bold block mb-3">2. Monthly Inbound Lead Volume</label>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <label class="flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="radio" name="calc-volume" value="low" checked onchange="updateCalc()" class="sr-only">
+            <span class="text-xs font-semibold text-primary">&lt;100 leads</span>
+          </label>
+          <label class="flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="radio" name="calc-volume" value="medium" onchange="updateCalc()" class="sr-only">
+            <span class="text-xs font-semibold text-primary">100 - 500 leads</span>
+          </label>
+          <label class="flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="radio" name="calc-volume" value="high" onchange="updateCalc()" class="sr-only">
+            <span class="text-xs font-semibold text-primary">500 - 2,000 leads</span>
+          </label>
+          <label class="flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="radio" name="calc-volume" value="enterprise" onchange="updateCalc()" class="sr-only">
+            <span class="text-xs font-semibold text-primary">2,000+ leads</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 3: Integrations needed -->
+      <div>
+        <label class="font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-widest font-bold block mb-3">3. Needed Stack Integrations (Select all that apply)</label>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <label class="flex items-center gap-2 p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="checkbox" name="calc-tools" value="email" checked onchange="updateCalc()" class="accent-brand-indigo">
+            <span class="text-xs text-primary font-medium">Email / Campaigns</span>
+          </label>
+          <label class="flex items-center gap-2 p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="checkbox" name="calc-tools" value="ads" onchange="updateCalc()" class="accent-brand-indigo">
+            <span class="text-xs text-primary font-medium">Ad Track (CAPI)</span>
+          </label>
+          <label class="flex items-center gap-2 p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="checkbox" name="calc-tools" value="slack" onchange="updateCalc()" class="accent-brand-indigo">
+            <span class="text-xs text-primary font-medium">Slack/Teams Alerts</span>
+          </label>
+          <label class="flex items-center gap-2 p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="checkbox" name="calc-tools" value="quickbooks" onchange="updateCalc()" class="accent-brand-indigo">
+            <span class="text-xs text-primary font-medium">QuickBooks / Billing</span>
+          </label>
+          <label class="flex items-center gap-2 p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all">
+            <input type="checkbox" name="calc-tools" value="enrich" onchange="updateCalc()" class="accent-brand-indigo">
+            <span class="text-xs text-primary font-medium">Clay Lead Scoring</span>
+          </label>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Outputs Wrapper -->
+    <div class="mt-8 p-6 bg-surface-gray rounded-2xl border border-glass-stroke flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="font-label-caps text-[9px] text-on-surface-variant/50 font-bold uppercase tracking-wider mb-1">Recommended Engagement Path</p>
+        <p class="text-lg font-bold text-primary" id="calc-output-path">MarTech &amp; RevOps Audit</p>
+        
+        <p class="font-label-caps text-[9px] text-on-surface-variant/50 font-bold uppercase tracking-wider mb-1 mt-3">Estimated Build Timeline</p>
+        <p class="text-xs font-semibold text-brand-indigo" id="calc-output-timeline">2 Weeks (Fixed-price)</p>
+      </div>
+      <div>
+        <a href="/contact/" class="inline-flex bg-brand-indigo text-white px-8 py-3.5 rounded-xl font-body-md text-xs font-semibold hover:bg-brand-indigo/90 transition-colors shadow-sm whitespace-nowrap">
+          Book Audit Session
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<script>
+  function updateCalc() {
+    // Get inputs
+    const crm = document.querySelector('input[name="calc-crm"]:checked').value;
+    const volume = document.querySelector('input[name="calc-volume"]:checked').value;
+    const checkedTools = document.querySelectorAll('input[name="calc-tools"]:checked').length;
+
+    let path = "MarTech & RevOps Audit";
+    let timeline = "2 Weeks (Fixed-price)";
+
+    if (volume === 'enterprise' || checkedTools >= 4) {
+      path = "Managed RevOps Engine (Retainer)";
+      timeline = "Ongoing Monthly Sprints";
+    } else if (volume === 'high' || checkedTools >= 2 || crm === 'salesforce') {
+      path = "Custom Systems Architecture (Build)";
+      timeline = "4 - 6 Weeks (Full QA Handoff)";
+    }
+
+    document.getElementById('calc-output-path').textContent = path;
+    document.getElementById('calc-output-timeline').textContent = timeline;
+
+    // Highlight selected inputs visually
+    document.querySelectorAll('input[name="calc-crm"]').forEach(input => {
+      const parent = input.closest('label');
+      if (input.checked) {
+        parent.className = "flex flex-col items-center p-3 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
+      } else {
+        parent.className = "flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
+      }
+    });
+
+    document.querySelectorAll('input[name="calc-volume"]').forEach(input => {
+      const parent = input.closest('label');
+      if (input.checked) {
+        parent.className = "flex flex-col items-center p-3 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
+      } else {
+        parent.className = "flex flex-col items-center p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
+      }
+    });
+
+    document.querySelectorAll('input[name="calc-tools"]').forEach(input => {
+      const parent = input.closest('label');
+      if (input.checked) {
+        parent.className = "flex items-center gap-2 p-3 rounded-xl border-2 border-brand-indigo bg-brand-indigo/5 cursor-pointer transition-all";
+      } else {
+        parent.className = "flex items-center gap-2 p-3 rounded-xl border border-glass-stroke hover:bg-surface-gray cursor-pointer transition-all";
+      }
+    });
+  }
+
+  // Run on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCalc();
+  });
+</script>
 
   </main>
 
@@ -273,23 +492,25 @@ void main() {
         <a class="font-headline-md text-headline-md font-black uppercase text-primary block mb-4" href="/">
           CaulHaus
         </a>
-        <p class="opacity-80 max-w-xs">
+        <p class="opacity-80 max-w-xs normal-case">
           © 2026 Caul Haus Group, Inc. All rights reserved.
         </p>
       </div>
       <div class="col-span-1">
+        <div class="text-[10px] text-on-surface-variant/40 mb-3 tracking-widest font-bold uppercase">Services</div>
         <ul class="space-y-3">
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/automation/">Automation</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/services/">Services</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing Systems</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/automation/">Sales Automation</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/services/">Full-Stack RevOps</a></li>
         </ul>
       </div>
       <div class="col-span-1">
+        <div class="text-[10px] text-on-surface-variant/40 mb-3 tracking-widest font-bold uppercase">Company</div>
         <ul class="space-y-3">
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/about/">About Us</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/projects/">Projects</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/blog/">Blog</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/contact/">Contact</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/about/">About Us</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/projects/">Case Studies</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/blog/">Insights</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/contact/">Book an Audit</a></li>
         </ul>
       </div>
     </div>

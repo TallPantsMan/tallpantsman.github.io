@@ -135,19 +135,27 @@ void main() {
       
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-1">
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/marketing/">Marketing</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/automation/">Automation</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/services/">Services</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/projects/">Projects</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/blog/">Blog</a>
+        <!-- Services Hover Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2 focus:outline-none cursor-default">
+            Services
+            <span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:rotate-180">keyboard_arrow_down</span>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-2xl bg-white border border-glass-stroke shadow-lg p-2 hidden group-hover:block z-50">
+            <a href="/marketing/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Marketing Systems</a>
+            <a href="/automation/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Sales Automation</a>
+            <a href="/services/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Full-Stack RevOps</a>
+          </div>
+        </div>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/projects/">Case Studies</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/blog/">Insights</a>
         <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/about/">About</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2" href="/contact/">Contact</a>
       </nav>
       
       <!-- Call to Action -->
       <div class="flex items-center">
-        <a class="hidden md:inline-flex bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md font-medium hover:bg-hyper-blue transition-colors" href="/contact/">
-          Get Started
+        <a class="hidden md:inline-flex bg-brand-indigo text-white px-6 py-2.5 rounded-full font-body-md text-body-md font-semibold hover:bg-brand-indigo/90 transition-colors shadow-sm" href="/contact/">
+          Book a Systems Audit
         </a>
         <button id="mobile-menu-btn" class="md:hidden text-primary p-1 focus:outline-none" aria-label="Toggle Menu">
           <span id="menu-icon" class="material-symbols-outlined">menu</span>
@@ -158,15 +166,17 @@ void main() {
     <!-- Mobile Navigation Panel -->
     <div id="mobile-menu" class="hidden md:hidden px-8 pb-6 pt-2 border-t border-glass-stroke bg-white/95 rounded-b-3xl">
       <div class="flex flex-col gap-4 font-body-md text-body-md">
-        <a class="text-on-surface-variant" href="/marketing/">Marketing</a>
-        <a class="text-on-surface-variant" href="/automation/">Automation</a>
-        <a class="text-on-surface-variant" href="/services/">Services</a>
-        <a class="text-on-surface-variant" href="/projects/">Projects</a>
-        <a class="text-on-surface-variant" href="/blog/">Blog</a>
-        <a class="text-on-surface-variant" href="/about/">About</a>
-        <a class="text-on-surface-variant" href="/contact/">Contact</a>
-        <a class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps uppercase text-center mt-2" href="/contact/">
-          Get Started
+        <span class="font-label-caps text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Services</span>
+        <a class="pl-4 text-on-surface-variant" href="/marketing/">Marketing Systems</a>
+        <a class="pl-4 text-on-surface-variant" href="/automation/">Sales Automation</a>
+        <a class="pl-4 text-on-surface-variant" href="/services/">Full-Stack RevOps</a>
+        
+        <span class="font-label-caps text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2 font-bold">Company</span>
+        <a class="pl-4 text-on-surface-variant" href="/projects/">Case Studies</a>
+        <a class="pl-4 text-on-surface-variant" href="/blog/">Insights</a>
+        <a class="pl-4 text-on-surface-variant" href="/about/">About</a>
+        <a class="bg-brand-indigo text-white px-6 py-3 rounded-full font-label-caps text-label-caps uppercase text-center mt-4 shadow-sm" href="/contact/">
+          Book a Systems Audit
         </a>
       </div>
     </div>
@@ -192,23 +202,25 @@ void main() {
         <a class="font-headline-md text-headline-md font-black uppercase text-primary block mb-4" href="/">
           CaulHaus
         </a>
-        <p class="opacity-80 max-w-xs">
+        <p class="opacity-80 max-w-xs normal-case">
           © 2026 Caul Haus Group, Inc. All rights reserved.
         </p>
       </div>
       <div class="col-span-1">
+        <div class="text-[10px] text-on-surface-variant/40 mb-3 tracking-widest font-bold uppercase">Services</div>
         <ul class="space-y-3">
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/automation/">Automation</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/services/">Services</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing Systems</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/automation/">Sales Automation</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/services/">Full-Stack RevOps</a></li>
         </ul>
       </div>
       <div class="col-span-1">
+        <div class="text-[10px] text-on-surface-variant/40 mb-3 tracking-widest font-bold uppercase">Company</div>
         <ul class="space-y-3">
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/about/">About Us</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/projects/">Projects</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/blog/">Blog</a></li>
-          <li><a class="text-on-surface-variant hover:text-hyper-blue transition-colors opacity-80 hover:opacity-100" href="/contact/">Contact</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/about/">About Us</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/projects/">Case Studies</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/blog/">Insights</a></li>
+          <li><a class="text-on-surface-variant hover:text-brand-indigo transition-colors opacity-80 hover:opacity-100" href="/contact/">Book an Audit</a></li>
         </ul>
       </div>
     </div>

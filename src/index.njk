@@ -1,101 +1,317 @@
 ---
 layout: base.njk
-title: CaulHaus - Precision Marketing & Automation
-description: We help businesses fix their marketing tech and automate their sales processes so they can grow faster without the manual work.
+title: CaulHaus - Outcome-Based RevOps & Automation
+description: We architect end-to-end revenue operations, fix broken attribution, and automate sales pipelines to drive pipeline velocity.
 ---
 
 <!-- Hero Section -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center pt-20 pb-section-gap-sm reveal">
-  <h1 class="font-display-lg text-display-lg text-primary max-w-4xl mx-auto mb-6">Better Marketing.<br>Built on Better Systems.</h1>
-  <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">We help businesses fix their marketing tech and automate their sales processes so they can grow faster without the manual work.</p>
-  <div class="flex justify-center items-center space-x-4">
-    <a class="bg-primary text-on-primary px-8 py-3 rounded-full font-body-md text-body-md font-medium hover:opacity-90 transition-opacity" href="/services/">
-      Explore Services
-    </a>
-    <a class="border border-primary text-primary px-8 py-3 rounded-full font-body-md text-body-md font-medium hover:bg-surface-container-low transition-colors" href="/contact/">
-      Get Started
-    </a>
-  </div>
-  <div class="mt-20 relative w-full h-96 md:h-[600px] rounded-xl overflow-hidden border border-glass-stroke bg-surface-gray flex items-center justify-center apple-gradient">
-    <img class="w-full h-full object-cover opacity-80 mix-blend-multiply" alt="High-end minimalist abstract 3D composition with floating glass spheres and neon blue lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAszrGS5KehUALu66vIUodkRmC0ZxnhUcKGJp5uu2tBMF5jqPMVKo3QqbnDXgk9ww_WGJQi2aYvxa1YQLqm4DzGorRxXVIQrvIRxzQBgp_J1n4cCmZbCdnevtqElyPXI50hid30W9Qr6A6dow9Was3JtHlChxjmtPhtRIX9bko6o2KxEc33PXTaduydqITfn8O3D9jAJgNDYfE0Xuy14H-JPD9L7g0EaEQ41asexiQd1WsD_BNwHsW2">
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-24 pb-section-gap-sm reveal">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    
+    <!-- Hero Text -->
+    <div class="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-indigo/30 bg-brand-indigo/5 text-brand-indigo text-xs font-semibold uppercase tracking-wider">
+        Operational Engineering
+      </div>
+      <h1 class="font-display-lg text-display-sm md:text-display-lg text-primary tracking-tight leading-tight">
+        Fix Your Broken MarTech Stack.<br>
+        <span class="text-brand-indigo">Automate Your Sales Pipeline.</span>
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+        We architect end-to-end revenue operations, fix broken attribution, and eliminate repetitive tasks—so your sales team only speaks with qualified buyers.
+      </p>
+      <div class="pt-4 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <a class="bg-brand-indigo text-white font-body-md text-body-md font-semibold px-8 py-4 rounded-full hover:bg-brand-indigo/90 transition-colors text-center shadow-md shadow-brand-indigo/15" href="/contact/">
+          Book a Systems Audit
+        </a>
+        <a class="border border-outline-variant hover:bg-surface-gray text-on-surface font-body-md text-body-md font-medium px-8 py-4 rounded-full transition-colors text-center" href="#systems-map">
+          View Interactive Systems Map
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Visual: Lead Flow Node Animation -->
+    <div class="lg:col-span-6 w-full glass-panel rounded-3xl p-8 min-h-[400px] flex flex-col justify-between relative overflow-hidden ambient-shadow border border-glass-stroke" id="systems-map">
+      <div class="absolute inset-0 z-0 opacity-10">
+        <div class="absolute top-1/4 left-1/4 w-40 h-40 bg-brand-indigo rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-40 h-40 bg-brand-emerald rounded-full blur-3xl"></div>
+      </div>
+      
+      <!-- Interactive Grid Canvas -->
+      <div class="relative z-10 w-full flex-grow flex flex-col justify-center py-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative w-full">
+          
+          <!-- Node 1: Ad Channels -->
+          <div class="flex flex-col items-center z-10 w-24">
+            <div class="w-14 h-14 rounded-full bg-white border border-glass-stroke shadow-md flex items-center justify-center text-primary group hover:border-brand-indigo transition-all duration-300">
+              <span class="material-symbols-outlined text-2xl text-brand-indigo">ads_click</span>
+            </div>
+            <span class="text-[10px] font-label-caps text-on-surface-variant mt-2 font-bold">Ad Channels</span>
+          </div>
+
+          <!-- Connector 1 -->
+          <div class="hidden md:block flex-grow h-[2px] bg-glass-stroke relative overflow-hidden mx-2">
+            <div class="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-transparent via-brand-indigo to-transparent animate-pulse" style="animation: flowLeftToRight 2s linear infinite;"></div>
+          </div>
+
+          <!-- Node 2: CRM -->
+          <div class="flex flex-col items-center z-10 w-24">
+            <div class="w-14 h-14 rounded-full bg-white border border-glass-stroke shadow-md flex items-center justify-center text-primary group hover:border-brand-indigo transition-all duration-300">
+              <span class="material-symbols-outlined text-2xl text-brand-indigo">database</span>
+            </div>
+            <span class="text-[10px] font-label-caps text-on-surface-variant mt-2 font-bold">RevOps CRM</span>
+          </div>
+
+          <!-- Connector 2 -->
+          <div class="hidden md:block flex-grow h-[2px] bg-glass-stroke relative overflow-hidden mx-2">
+            <div class="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-transparent via-brand-indigo to-transparent animate-pulse" style="animation: flowLeftToRight 2s linear infinite; animation-delay: 0.6s;"></div>
+          </div>
+
+          <!-- Node 3: Scoring -->
+          <div class="flex flex-col items-center z-10 w-24">
+            <div class="w-14 h-14 rounded-full bg-white border border-glass-stroke shadow-md flex items-center justify-center text-primary group hover:border-brand-indigo transition-all duration-300">
+              <span class="material-symbols-outlined text-2xl text-brand-indigo">filter_alt</span>
+            </div>
+            <span class="text-[10px] font-label-caps text-on-surface-variant mt-2 font-bold">AI Scoring</span>
+          </div>
+
+          <!-- Connector 3 -->
+          <div class="hidden md:block flex-grow h-[2px] bg-glass-stroke relative overflow-hidden mx-2">
+            <div class="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-transparent via-brand-emerald to-transparent animate-pulse" style="animation: flowLeftToRight 2s linear infinite; animation-delay: 1.2s;"></div>
+          </div>
+
+          <!-- Node 4: Slack & Booking -->
+          <div class="flex flex-col items-center z-10 w-24">
+            <div class="w-14 h-14 rounded-full bg-primary border border-glass-stroke shadow-md flex items-center justify-center text-white group hover:scale-105 transition-all duration-300">
+              <span class="material-symbols-outlined text-2xl text-brand-emerald">check_circle</span>
+            </div>
+            <span class="text-[10px] font-label-caps text-brand-emerald mt-2 font-bold">Booked Meeting</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="border-t border-glass-stroke pt-6 mt-6 flex justify-between items-center text-xs">
+        <span class="font-mono text-on-surface-variant/70">Visualizing: Dynamic Lead Flow Attribution</span>
+        <span class="text-brand-emerald font-semibold uppercase tracking-wider flex items-center gap-1.5 font-label-caps text-[10px]">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-pulse"></span>
+          Live Loop
+        </span>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- Core Competencies Bento Grid -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-sm reveal" id="services">
-  <div class="text-center mb-16">
-    <h2 class="font-headline-lg text-headline-lg md:text-headline-lg text-primary mb-4">Core Systems</h2>
-    <p class="font-body-md text-body-md text-on-surface-variant">The architecture of scalable revenue operations.</p>
-  </div>
-  
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-    <!-- Marketing Ops Card -->
-    <div class="bg-white border border-glass-stroke rounded-2xl p-8 md:p-12 bento-hover transition-all duration-300 flex flex-col justify-between min-h-[400px] relative overflow-hidden group">
-      <div class="z-10">
-        <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6">
-          <span class="material-symbols-outlined text-hyper-blue" style="font-variation-settings: 'FILL' 1;">campaign</span>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-primary mb-3">Marketing Setup</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-6">We set up your marketing tools correctly so your data is accurate and your campaigns actually work.</p>
-        <a class="inline-flex items-center text-primary font-label-caps text-label-caps uppercase hover:text-hyper-blue transition-colors" href="/marketing/">
-          View capabilities <span class="material-symbols-outlined ml-2 text-[16px]">arrow_forward</span>
-        </a>
+<!-- CSS animation for Flowing Lines -->
+<style>
+  @keyframes flowLeftToRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(300%); }
+  }
+</style>
+
+<!-- Trust / Social Proof Bar Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-8 border-y border-glass-stroke bg-surface-gray/50 reveal">
+  <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+    <div class="max-w-md text-center lg:text-left">
+      <p class="font-body-md text-body-md font-semibold text-primary">Engineered systems for high-growth SaaS, B2B services, and tech scale-ups.</p>
+    </div>
+    <div class="grid grid-cols-3 gap-8 md:gap-12 w-full lg:w-auto shrink-0 justify-items-center">
+      <div class="text-center">
+        <p class="font-display-sm text-[28px] font-extrabold text-brand-indigo">$2.4M+</p>
+        <p class="font-label-caps text-[10px] text-on-surface-variant font-bold tracking-wider mt-1">Pipeline Velocity</p>
       </div>
-      <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-surface-gray rounded-full opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out"></div>
+      <div class="text-center">
+        <p class="font-display-sm text-[28px] font-extrabold text-brand-indigo">85%</p>
+        <p class="font-label-caps text-[10px] text-on-surface-variant font-bold tracking-wider mt-1">Manual Data Cut</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display-sm text-[28px] font-extrabold text-brand-indigo">99.9%</p>
+        <p class="font-label-caps text-[10px] text-on-surface-variant font-bold tracking-wider mt-1">CRM Data Accuracy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Systems Services Section (Tabbed Layout) -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-lg reveal">
+  <div class="text-center mb-16">
+    <span class="font-label-caps text-[10px] text-brand-indigo uppercase tracking-wider font-bold block mb-4">Architecture Offerings</span>
+    <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Core Revenue Operating Systems</h2>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start" id="services-tabs-container">
+    
+    <!-- Tab Controls -->
+    <div class="lg:col-span-4 flex flex-col gap-3">
+      <button onclick="switchTab('marketing-sys')" id="btn-marketing-sys" class="tab-control-btn text-left p-6 rounded-2xl border transition-all duration-300 bg-white border-brand-indigo text-primary shadow-sm cursor-pointer animate-none">
+        <div class="font-label-caps text-[10px] text-brand-indigo font-bold tracking-wider mb-2">SYSTEM 01</div>
+        <h3 class="font-headline-md text-headline-md font-bold mb-2">Revenue Marketing Systems</h3>
+        <p class="text-xs text-on-surface-variant/80 font-light">Clean Attribution &amp; Scalable MarTech Engine.</p>
+      </button>
+
+      <button onclick="switchTab('sales-sys')" id="btn-sales-sys" class="tab-control-btn text-left p-6 rounded-2xl border border-glass-stroke transition-all duration-300 bg-transparent text-on-surface-variant hover:bg-surface-gray cursor-pointer animate-none">
+        <div class="font-label-caps text-[10px] text-on-surface-variant/60 font-bold tracking-wider mb-2">SYSTEM 02</div>
+        <h3 class="font-headline-md text-headline-md font-bold mb-2">Sales &amp; RevOps Automation</h3>
+        <p class="text-xs text-on-surface-variant/80 font-light">Zero-Touch Pipeline &amp; CRM Orchestration.</p>
+      </button>
+    </div>
+
+    <!-- Tab Panels Content -->
+    <div class="lg:col-span-8 glass-panel rounded-3xl p-8 md:p-12 border border-glass-stroke min-h-[350px]">
+      
+      <!-- Panel 1: Marketing Systems -->
+      <div id="panel-marketing-sys" class="tab-panel space-y-8">
+        <div>
+          <h3 class="font-headline-lg text-headline-lg text-primary font-bold mb-4">Data Confidence &amp; Transparent Pipeline</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6 font-light">
+            Stop guessing which channels actually drive enterprise pipeline. We fix GA4 tracking, server-side data layers, and CRM tracking pipelines to give your finance and marketing teams 100% attribution data confidence.
+          </p>
+        </div>
+        <div>
+          <div class="font-label-caps text-[10px] text-on-surface-variant/60 font-bold tracking-widest uppercase mb-4">Core Deliverables &amp; Solutions</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-surface-gray px-4 py-2 rounded-full font-code-sm text-code-sm text-primary border border-glass-stroke">GA4 / Segment Setup</span>
+            <span class="bg-surface-gray px-4 py-2 rounded-full font-code-sm text-code-sm text-primary border border-glass-stroke">Attribution Modeling</span>
+            <span class="bg-surface-gray px-4 py-2 rounded-full font-code-sm text-code-sm text-primary border border-glass-stroke">Ad Tech Integration</span>
+            <span class="bg-surface-gray px-4 py-2 rounded-full font-code-sm text-code-sm text-primary border border-glass-stroke">Custom Lead Scoring</span>
+          </div>
+        </div>
+        <div class="pt-4">
+          <a href="/marketing/" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-brand-indigo hover:opacity-85 uppercase font-bold tracking-wider">
+            Explore Marketing Systems <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Panel 2: Sales Automation -->
+      <div id="panel-sales-sys" class="tab-panel hidden space-y-8">
+        <div>
+          <h3 class="font-headline-lg text-headline-lg text-primary font-bold mb-4">Eliminate Administrative CRM Drag</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6 font-light">
+            Eliminate manual lead routing delays, duplicate CRM customer entries, and missed customer follow-ups. We build custom, fault-tolerant automations connecting sales tools and databases.
+          </p>
+        </div>
+        <div>
+          <div class="font-label-caps text-[10px] text-on-surface-variant/60 font-bold tracking-widest uppercase mb-4">Core Deliverables &amp; Solutions</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-surface-gray px-4 py-2 rounded-full font-code-sm text-code-sm text-primary border border-glass-stroke">HubSpot / Salesforce Sync</span>
+            <span class="bg-surface-gray px-4 py-2 rounded-full font-code-sm text-code-sm text-primary border border-glass-stroke">Round-Robin Lead Routing</span>
+            <span class="bg-surface-gray px-4 py-2 rounded-full font-code-sm text-code-sm text-primary border border-glass-stroke">Clay Enrichment Pipelines</span>
+            <span class="bg-surface-gray px-4 py-2 rounded-full font-code-sm text-code-sm text-primary border border-glass-stroke">Slack/Teams Realtime Alerts</span>
+          </div>
+        </div>
+        <div class="pt-4">
+          <a href="/automation/" class="inline-flex items-center gap-2 font-label-caps text-label-caps text-brand-indigo hover:opacity-85 uppercase font-bold tracking-wider">
+            Explore Sales Automation <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function switchTab(tabId) {
+    // Hide all panels
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+    // Show active panel
+    document.getElementById('panel-' + tabId).classList.remove('hidden');
+
+    // Reset all buttons style
+    document.querySelectorAll('.tab-control-btn').forEach(btn => {
+      btn.className = "tab-control-btn text-left p-6 rounded-2xl border border-glass-stroke transition-all duration-300 bg-transparent text-on-surface-variant hover:bg-surface-gray cursor-pointer";
+      btn.querySelector('.font-label-caps').className = "font-label-caps text-[10px] text-on-surface-variant/60 font-bold tracking-wider mb-2";
+    });
+
+    // Style active button
+    const activeBtn = document.getElementById('btn-' + tabId);
+    activeBtn.className = "tab-control-btn text-left p-6 rounded-2xl border transition-all duration-300 bg-white border-brand-indigo text-primary shadow-sm cursor-pointer";
+    activeBtn.querySelector('.font-label-caps').className = "font-label-caps text-[10px] text-brand-indigo font-bold tracking-wider mb-2";
+  }
+</script>
+
+<!-- Full-Stack Capabilities 3-Step Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-lg border-t border-glass-stroke reveal">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-4 lg:sticky lg:top-32">
+      <span class="font-label-caps text-[10px] text-brand-indigo uppercase tracking-wider font-bold block mb-4">Operations Blueprint</span>
+      <h2 class="font-headline-lg text-headline-lg font-bold text-primary">How We Architect Your Stack</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mt-4 leading-relaxed font-light">
+        Building custom software ecosystems requires tactical engineering. Here is our structured process from diagnosis to long-term monitoring.
+      </p>
     </div>
     
-    <!-- Process Automation Card -->
-    <div class="bg-white border border-glass-stroke rounded-2xl p-8 md:p-12 bento-hover transition-all duration-300 flex flex-col justify-between min-h-[400px] relative overflow-hidden group">
-      <div class="z-10">
-        <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6">
-          <span class="material-symbols-outlined text-hyper-blue" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+    <div class="lg:col-span-8 space-y-12">
+      
+      <!-- Step 1 -->
+      <div class="flex gap-6 pb-12 border-b border-glass-stroke">
+        <div class="w-12 h-12 rounded-full bg-brand-indigo/10 text-brand-indigo flex items-center justify-center shrink-0 font-display-sm text-lg font-extrabold">01</div>
+        <div>
+          <h4 class="font-headline-md text-headline-md font-bold text-primary mb-2">Audit &amp; Blueprint</h4>
+          <p class="font-body-lg text-body-md text-on-surface-variant leading-relaxed font-light">
+            We map your current software stack, run tests to isolate CRM tracking data leaks, diagnose attribution drop-off, and design a custom operational architecture roadmap.
+          </p>
         </div>
-        <h3 class="font-headline-md text-headline-md text-primary mb-3">Sales Automation</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-6">We automate your sales tasks so your team can spend more time closing deals and less time on data entry.</p>
-        <a class="inline-flex items-center text-primary font-label-caps text-label-caps uppercase hover:text-hyper-blue transition-colors" href="/automation/">
-          Explore solutions <span class="material-symbols-outlined ml-2 text-[16px]">arrow_forward</span>
-        </a>
       </div>
-      <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-surface-gray rounded-full opacity-50 group-hover:scale-110 transition-transform duration-700 ease-in-out"></div>
+
+      <!-- Step 2 -->
+      <div class="flex gap-6 pb-12 border-b border-glass-stroke">
+        <div class="w-12 h-12 rounded-full bg-brand-indigo/10 text-brand-indigo flex items-center justify-center shrink-0 font-display-sm text-lg font-extrabold">02</div>
+        <div>
+          <h4 class="font-headline-md text-headline-md font-bold text-primary mb-2">Build &amp; Integrate</h4>
+          <p class="font-body-lg text-body-md text-on-surface-variant leading-relaxed font-light">
+            We write the code, configure custom APIs and iPaaS webhooks (Make/n8n/Zapier), and build custom attribution reporting dashboards with zero team operational downtime.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex gap-6">
+        <div class="w-12 h-12 rounded-full bg-brand-indigo/10 text-brand-indigo flex items-center justify-center shrink-0 font-display-sm text-lg font-extrabold">03</div>
+        <div>
+          <h4 class="font-headline-md text-headline-md font-bold text-primary mb-2">Manage &amp; Optimize</h4>
+          <p class="font-body-lg text-body-md text-on-surface-variant leading-relaxed font-light">
+            We stay on as your engineering partner, offering SLA-backed support, webhook error monitors, API updates, and continuous integration upgrades as your company grows.
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- Detailed Services List -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-sm border-t border-glass-stroke mt-10 reveal">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-    <div class="md:col-span-1">
-      <h2 class="font-headline-md text-headline-md text-primary sticky top-32">Full-Stack Capabilities</h2>
-    </div>
-    <div class="md:col-span-2 space-y-12">
-      <div class="flex flex-col md:flex-row md:items-start gap-6 pb-12 border-b border-glass-stroke">
-        <div class="w-10 h-10 rounded-full bg-surface-gray flex items-center justify-center shrink-0">
-          <span class="material-symbols-outlined text-primary">architecture</span>
+<!-- Featured Case Study Card -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pb-section-gap-lg reveal">
+  <div class="bg-primary text-white rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-xl shadow-brand-indigo/10 border border-white/5">
+    <div class="absolute inset-0 bg-radial-gradient from-brand-indigo/15 via-transparent to-transparent pointer-events-none"></div>
+    
+    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-8 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-emerald text-[10px] font-bold uppercase tracking-wider font-label-caps">
+          ⚡ CASE STUDY SPOTLIGHT
         </div>
-        <div>
-          <h4 class="font-body-lg text-body-lg font-semibold text-primary mb-2">Finding the Right Tools</h4>
-          <p class="font-body-md text-body-md text-on-surface-variant">Helping you pick and connect the software that runs your business.</p>
-        </div>
-      </div>
-      
-      <div class="flex flex-col md:flex-row md:items-start gap-6 pb-12 border-b border-glass-stroke">
-        <div class="w-10 h-10 rounded-full bg-surface-gray flex items-center justify-center shrink-0">
-          <span class="material-symbols-outlined text-primary">insights</span>
-        </div>
-        <div>
-          <h4 class="font-body-lg text-body-lg font-semibold text-primary mb-2">Clear Reporting</h4>
-          <p class="font-body-md text-body-md text-on-surface-variant">Making sense of your data so you know exactly where your revenue is coming from.</p>
+        <h3 class="font-display-sm text-[28px] md:text-[36px] font-bold leading-tight max-w-2xl">
+          How CaulHaus cut lead response time from 4 hours to 45 seconds for a B2B SaaS platform.
+        </h3>
+        <div class="flex flex-wrap gap-8 pt-4">
+          <div>
+            <p class="text-[28px] font-extrabold text-brand-emerald leading-none">34%</p>
+            <p class="text-xs text-tertiary-fixed-dim mt-2 font-light">Increase in Demo Conversions</p>
+          </div>
+          <div>
+            <p class="text-[28px] font-extrabold text-brand-emerald leading-none">20 hrs/wk</p>
+            <p class="text-xs text-tertiary-fixed-dim mt-2 font-light">Saved per Account Executive</p>
+          </div>
         </div>
       </div>
-      
-      <div class="flex flex-col md:flex-row md:items-start gap-6 pb-12 border-b border-glass-stroke">
-        <div class="w-10 h-10 rounded-full bg-surface-gray flex items-center justify-center shrink-0">
-          <span class="material-symbols-outlined text-primary">support_agent</span>
-        </div>
-        <div>
-          <h4 class="font-body-lg text-body-lg font-semibold text-primary mb-2">Ongoing Support</h4>
-          <p class="font-body-md text-body-md text-on-surface-variant">We stay on as part of your team to keep your systems running smoothly.</p>
-        </div>
+      <div class="lg:col-span-4 flex justify-start lg:justify-end">
+        <a class="bg-white text-primary font-body-md text-body-md font-semibold px-8 py-4 rounded-full hover:bg-white/90 transition-colors shadow-lg" href="/projects/">
+          Read Case Study →
+        </a>
       </div>
     </div>
   </div>
