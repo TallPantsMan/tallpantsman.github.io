@@ -153,13 +153,13 @@ void main() {
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-1">
         <!-- Services Hover Dropdown -->
-        <div class="relative group">
-          <button class="flex items-center gap-1 font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2 focus:outline-none cursor-default">
+        <div class="relative" id="services-dropdown">
+          <button id="services-btn" class="flex items-center gap-1 font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors rounded-full px-4 py-2 focus:outline-none cursor-pointer">
             Services
-            <span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:rotate-180">keyboard_arrow_down</span>
+            <span id="services-arrow" class="material-symbols-outlined text-[16px] transition-transform duration-200">keyboard_arrow_down</span>
           </button>
-          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 hidden group-hover:block z-50">
-            <div class="rounded-2xl bg-white border border-glass-stroke shadow-lg p-2 animate-fade-in">
+          <div id="services-menu" class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 z-50 transition-all duration-200 opacity-0 pointer-events-none translate-y-1">
+            <div class="rounded-2xl bg-white border border-glass-stroke shadow-lg p-2">
               <a href="/marketing/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Marketing Systems</a>
               <a href="/automation/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Sales Automation</a>
               <a href="/services/" class="block px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-brand-indigo/10 hover:text-brand-indigo transition-colors ">Full-Stack RevOps</a>
@@ -335,6 +335,53 @@ void main() {
               header.classList.remove('rounded-full');
               header.classList.add('rounded-3xl');
             }
+          }
+        });
+      }
+
+      // Services Dropdown JS Controller with 200ms Grace Period & Tap Support
+      const sDropdown = document.getElementById('services-dropdown');
+      const sDropdownBtn = document.getElementById('services-btn');
+      const sDropdownMenu = document.getElementById('services-menu');
+      const sDropdownArrow = document.getElementById('services-arrow');
+
+      if (sDropdown && sDropdownBtn && sDropdownMenu) {
+        let closeTimeout = null;
+
+        function openMenu() {
+          if (closeTimeout) clearTimeout(closeTimeout);
+          sDropdownMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1');
+          sDropdownMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          if (sDropdownArrow) sDropdownArrow.classList.add('rotate-180');
+        }
+
+        function closeMenu() {
+          if (closeTimeout) clearTimeout(closeTimeout);
+          closeTimeout = setTimeout(() => {
+            sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
+            if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
+          }, 200);
+        }
+
+        sDropdown.addEventListener('mouseenter', openMenu);
+        sDropdown.addEventListener('mouseleave', closeMenu);
+
+        sDropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = sDropdownMenu.classList.contains('opacity-100');
+          if (isOpen) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!sDropdown.contains(e.target)) {
+            sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
+            if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
           }
         });
       }
