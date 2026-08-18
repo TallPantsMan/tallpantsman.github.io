@@ -7,11 +7,10 @@ A lightning-fast, static B2B automation consulting website built with **Eleventy
 ## Features
 
 1. **Static & Optimized**: Pre-renders HTML pages and compiles Tailwind CSS v4, loading in milliseconds.
-2. **6 Core Pages**: Home, Services, Projects, About Us, Contact Us, and Blog.
-3. **Headless Contact Form**: Integrates Web3Forms for form handling with client-side AJAX interception for an inline success screen.
-4. **Markdown Blog**: Blog posts read automatically from Markdown files inside `/src/blog/` using YAML front matter.
-5. **Interactive Savings Calculator**: Located on the Services page, calculating cost of manual friction and automation ROI live in JS.
-6. **Projects Filter**: Zero-dependency category filters on the Projects page.
+2. **7 Core Pages**: Home, Marketing Systems, Process Automation, How We Engage, Results, About Us, and Contact Us.
+3. **Headless Contact Form**: Integrates Web3Forms for form handling with client-side submission and email fallback.
+4. **Scope & Timeline Estimator**: Located on the Services page for engagement estimation and planning.
+5. **Interactive UI Components**: Zero-dependency tabs, process flow diagrams, and multi-step contact wizard.
 
 ---
 
@@ -62,22 +61,3 @@ The form is currently wired to submit to **Web3Forms** (`https://api.web3forms.c
    ```
    Replace `YOUR_ACCESS_KEY_HERE` with your access key. Web3Forms will forward submissions directly to your email without any backend code!
 
-### 2. Adding Blog Posts
-To publish a new blog post, simply create a `.md` file inside the `src/blog/` directory.
-
-Use this front matter template:
-```markdown
----
-title: "Your Post Title"
-date: YYYY-MM-DD
-description: "A short, 1-2 sentence description for search results and previews."
-layout: post.njk
-tags: ["blog", "business-automation-strategies"]
-author: "Your Name"
-readTime: "4 min"
----
-
-## Your First Heading
-Your post content here in Markdown...
-```
-Eleventy will automatically parse the file, compile it to HTML using the layout template, and append it to the `/blog/` index list.
