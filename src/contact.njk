@@ -118,6 +118,10 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
               </select>
             </div>
           </div>
+          <div>
+            <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Additional Details <span class="text-slate-gray/50 font-normal lowercase">(optional)</span></label>
+            <textarea name="message" rows="3" placeholder="Tell us more about your project, current setup, or specific goals..." class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-brand-indigo focus:ring-2 focus:ring-brand-indigo/20 focus:outline-none transition-all resize-none"></textarea>
+          </div>
         </div>
       </div>
 
@@ -274,7 +278,7 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
       }
     } catch (err) {
       console.error(err);
-      const mailtoLink = `mailto:alex@caulhaus.com?subject=Quote Request&body=Goal: ${object.objective}%0D%0ATools: ${object.crm}%0D%0AName: ${object.name}%0D%0AWebsite: ${object.website}%0D%0ATeam Size: ${object.leads}`;
+      const mailtoLink = `mailto:alex@caulhaus.com?subject=Quote Request&body=Goal: ${object.objective}%0D%0ATools: ${object.crm}%0D%0AName: ${object.name}%0D%0AWebsite: ${object.website}%0D%0ATeam Size: ${object.leads}%0D%0AMessage: ${encodeURIComponent(object.message || '')}`;
       alert('There was a connection issue. We are opening your email client to submit details directly!');
       window.location.href = mailtoLink;
       submitBtn.disabled = false;
