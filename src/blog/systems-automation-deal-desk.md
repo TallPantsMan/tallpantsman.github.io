@@ -1,4 +1,8 @@
-# Systems Automation: Streamlining Deal Desk Approvals with CRM Webhooks and Google Apps Script
+---
+title: "Systems Automation: Streamlining Deal Desk Approvals with CRM Webhooks and Google Apps Script"
+date: 2026-08-31
+tags: ["post"]
+---
 
 Scaling a B2B revenue engine means pushing more deals through the pipeline faster. Yet, the moment a rep needs approval on a non-standard discount or custom legal term, momentum crashes into a wall. The Deal Desk process—often a bottleneck of manual back-and-forths—can kill sales velocity. 
 
