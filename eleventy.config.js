@@ -6,7 +6,7 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/robots.txt");
   
   // Pass through CNAME file for GitHub Pages custom domain
-  // eleventyConfig.addPassthroughCopy("src/CNAME");
+  eleventyConfig.addPassthroughCopy("src/CNAME");
 
   // Custom filter for readable dates
   eleventyConfig.addFilter("readableDate", (dateObj) => {
