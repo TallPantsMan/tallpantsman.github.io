@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Shift to Answer Engine Optimization (AEO) in 2026"
 date: 2026-08-31
 author: CaulHaus
