@@ -1,4 +1,8 @@
-# The "Dark" Buyer Journey: Why RevOps Needs Environment-Based Marketing
+---
+title: "The 'Dark' Buyer Journey: Why RevOps Needs Environment-Based Marketing"
+date: 2026-08-31
+tags: ["post"]
+---
 
 Your buyers are ghosting you.
 
