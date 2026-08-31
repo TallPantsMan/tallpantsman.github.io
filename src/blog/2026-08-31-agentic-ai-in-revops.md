@@ -1,5 +1,7 @@
-# Agentic AI in RevOps: Moving from 'Insight' to Autonomous Action
-
+---
+title: "Agentic AI in RevOps: Moving from 'Insight' to Autonomous Action"
+date: 2026-08-31
+---
 We've all seen the dashboards. The colorful charts that tell us exactly what went wrong last quarter, wrapped in a shiny "AI-powered insight" bow. But let's be honest: identifying a revenue leak doesn't plug it. Knowing your sales cycle is stalling doesn't magically close deals.
 
 The conversation around AI in Revenue Operations is rapidly shifting past passive copilots. We don't just need systems to surface data points anymore. We need agentic AI—software that executes multi-step workflows without constant supervision. 
