@@ -38,6 +38,9 @@
         "logo": "https://caulhaus.com/assets/images/about_hero.png",
         "description": "Marketing strategy and execution, plus the operational systems and automation that make it run — built by a strategist who also builds the software.",
         "foundingDate": "2026",
+        "founder": {
+          "@id": "https://caulhaus.com/#founder"
+        },
         "knowsAbout": [
           "Marketing Strategy & Execution",
           "Process & Operations Automation",
@@ -46,6 +49,17 @@
           "Resource & Capacity Planning",
           "CRM & Sales Tool Integration"
         ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://caulhaus.com/#webpage",
+        "url": "https://caulhaus.com/",
+        "name": "CaulHaus – Marketing Strategy &amp; Operations Automation",
+        "description": "Marketing strategy and execution, plus the operational systems and automation that make it run — built by a strategist who also builds the software.",
+        "isPartOf": {
+          "@id": "https://caulhaus.com/#organization"
+        },
+        "inLanguage": "en-US"
       },
       {
         "@type": "ProfessionalService",
@@ -93,11 +107,24 @@
         "@type": "Person",
         "@id": "https://caulhaus.com/#founder",
         "name": "Alex Herbstman",
+        "givenName": "Alex",
+        "familyName": "Herbstman",
         "jobTitle": "Lead Strategist & Founder",
         "worksFor": {
           "@id": "https://caulhaus.com/#organization"
         },
-        "description": "Marketing strategist with 10+ years in marketing strategy & execution and 3 years building enterprise-scale operational automation systems."
+        "image": "https://caulhaus.com/assets/images/about_hero.png",
+        "description": "Marketing strategist with 10+ years in marketing strategy & execution and 3 years building enterprise-scale operational automation systems.",
+        "knowsAbout": [
+          "Marketing Operations",
+          "Brand Positioning",
+          "Google Apps Script Automation",
+          "Revenue Operations (RevOps)",
+          "Workflow Engineering"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/alexherbstman"
+        ]
       },
       {
         "@type": "FAQPage",
@@ -134,9 +161,20 @@
               "@type": "Answer",
               "text": "Unlike standard marketing agencies that only hand over strategy decks without execution bandwidth, or generic software developers without marketing experience, CaulHaus designs both the marketing strategy and builds the custom software/automation layer that runs it."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a systems audit or build take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Systems & Strategy Audit takes 2 weeks. Full strategy and operational system builds typically take 4 to 6 weeks from kick-off to rollout depending on team size and tool integration scope."
+            }
           }
         ]
       }
+    ]
+  }
+  </script>
     ]
   }
   </script>
@@ -351,7 +389,7 @@ void main() {
       <span class="text-electric-blue">Operations That Don't Break.</span>
     </h1>
     <p class="font-body-lg text-body-lg text-slate-gray max-w-2xl font-light leading-relaxed">
-      We build marketing strategy and campaigns — and the operational systems behind them: resource planning, process automation, and workflow tools that hold up as you grow. Most consultants hand you a plan. We build what runs it.
+      We build marketing strategy and campaigns — and the operational systems behind them: custom Google Apps Script automation, CRM integration, resource planning, and workflow tools built to scale. Most consultants hand you a plan. We build the software that runs it.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 pt-4">
       <a class="bg-electric-blue text-white px-8 py-3.5 rounded-xl flex items-center justify-center font-body-md text-body-md font-semibold hover:bg-electric-blue/90 transition-all active:scale-95 shadow-md shadow-electric-blue/20" href="/contact/">
@@ -365,7 +403,26 @@ void main() {
   
   <!-- Interactive Hero Pipeline Component -->
   <div class="lg:col-span-5 mt-12 lg:mt-0 relative" id="systems-map">
-    <div id="hero-pipeline-root" class="w-full"></div>
+    <div id="hero-pipeline-root" class="w-full">
+      <!-- Static Fallback for Non-JS / LLM Scrapers -->
+      <noscript class="block border border-outline-variant/40 rounded-2xl p-6 bg-white/90 shadow-sm space-y-4">
+        <div class="font-mono-label text-xs uppercase text-electric-blue font-bold tracking-wider">System Pipeline Architecture</div>
+        <div class="space-y-3 text-xs text-slate-gray">
+          <div class="p-3 bg-surface-gray rounded-lg border border-outline-variant/30">
+            <strong class="text-deep-charcoal block">1. Strategy &amp; Positioning</strong>
+            Campaign strategy, audience targeting, and positioning.
+          </div>
+          <div class="p-3 bg-surface-gray rounded-lg border border-outline-variant/30">
+            <strong class="text-deep-charcoal block">2. Automation Engine</strong>
+            Google Apps Script, CRM syncing, and workflow automation.
+          </div>
+          <div class="p-3 bg-surface-gray rounded-lg border border-outline-variant/30">
+            <strong class="text-deep-charcoal block">3. Measurement &amp; Sync</strong>
+            Bi-directional CRM sync, attribution tracking, and dashboarding.
+          </div>
+        </div>
+      </noscript>
+    </div>
   </div>
 </section>
 
@@ -676,6 +733,17 @@ void main() {
     </details>
 
     <!-- FAQ Item 3 -->
+    <details class="group bg-white rounded-2xl border border-outline-variant/40 p-6 transition-all duration-300 shadow-xs focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden">
+      <summary class="flex justify-between items-center font-headline-md text-body-lg md:text-headline-md text-deep-charcoal font-bold cursor-pointer select-none">
+        <span>What software and tools does CaulHaus automate or integrate?</span>
+        <span class="material-symbols-outlined text-electric-blue transition-transform duration-300 group-open:rotate-180">keyboard_arrow_down</span>
+      </summary>
+      <div class="mt-4 text-slate-gray font-light leading-relaxed text-sm border-t border-outline-variant/20 pt-4">
+        CaulHaus builds custom automated workflows primarily in Google Workspace (Google Apps Script), CRM systems (HubSpot, Salesforce), multi-channel attribution engines (GA4, Looker Studio), and integration tools like Make or Zapier.
+      </div>
+    </details>
+
+    <!-- FAQ Item 4 -->
     <details class="group bg-white rounded-2xl border border-outline-variant/40 p-6 transition-all duration-300 shadow-xs focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden">
       <summary class="flex justify-between items-center font-headline-md text-body-lg md:text-headline-md text-deep-charcoal font-bold cursor-pointer select-none">
         <span>How long does a systems audit or build take?</span>

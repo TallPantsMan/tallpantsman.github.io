@@ -38,6 +38,9 @@
         "logo": "https://caulhaus.com/assets/images/about_hero.png",
         "description": "Marketing strategy and execution, plus the operational systems and automation that make it run — built by a strategist who also builds the software.",
         "foundingDate": "2026",
+        "founder": {
+          "@id": "https://caulhaus.com/#founder"
+        },
         "knowsAbout": [
           "Marketing Strategy & Execution",
           "Process & Operations Automation",
@@ -46,6 +49,17 @@
           "Resource & Capacity Planning",
           "CRM & Sales Tool Integration"
         ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://caulhaus.com/#webpage",
+        "url": "https://caulhaus.com/about/",
+        "name": "Marketing Strategy, Built by Someone Who Also Writes the Code | CaulHaus",
+        "description": "CaulHaus is a marketing strategist and systems builder — not a big agency, not a freelance generalist. Here&#39;s how we work.",
+        "isPartOf": {
+          "@id": "https://caulhaus.com/#organization"
+        },
+        "inLanguage": "en-US"
       },
       {
         "@type": "ProfessionalService",
@@ -93,11 +107,24 @@
         "@type": "Person",
         "@id": "https://caulhaus.com/#founder",
         "name": "Alex Herbstman",
+        "givenName": "Alex",
+        "familyName": "Herbstman",
         "jobTitle": "Lead Strategist & Founder",
         "worksFor": {
           "@id": "https://caulhaus.com/#organization"
         },
-        "description": "Marketing strategist with 10+ years in marketing strategy & execution and 3 years building enterprise-scale operational automation systems."
+        "image": "https://caulhaus.com/assets/images/about_hero.png",
+        "description": "Marketing strategist with 10+ years in marketing strategy & execution and 3 years building enterprise-scale operational automation systems.",
+        "knowsAbout": [
+          "Marketing Operations",
+          "Brand Positioning",
+          "Google Apps Script Automation",
+          "Revenue Operations (RevOps)",
+          "Workflow Engineering"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/alexherbstman"
+        ]
       },
       {
         "@type": "FAQPage",
@@ -134,9 +161,20 @@
               "@type": "Answer",
               "text": "Unlike standard marketing agencies that only hand over strategy decks without execution bandwidth, or generic software developers without marketing experience, CaulHaus designs both the marketing strategy and builds the custom software/automation layer that runs it."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a systems audit or build take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Systems & Strategy Audit takes 2 weeks. Full strategy and operational system builds typically take 4 to 6 weeks from kick-off to rollout depending on team size and tool integration scope."
+            }
           }
         ]
       }
+    ]
+  }
+  </script>
     ]
   }
   </script>
@@ -456,32 +494,86 @@ void main() {
 <section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter pb-section-gap-lg reveal border-t border-outline-variant/20 pt-16">
   <div class="text-center mb-16 space-y-2">
     <span class="font-mono-label text-[10px] text-electric-blue uppercase tracking-wider font-bold block mb-2">Supported Systems</span>
-    <h2 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Software We Work In</h2>
+    <h2 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Software &amp; Stack We Work In</h2>
   </div>
 
   <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
     <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs flex flex-col items-center justify-center">
       <span class="material-symbols-outlined text-electric-blue text-3xl mb-3">campaign</span>
-      <h4 class="font-mono-label text-xs font-bold text-deep-charcoal tracking-wider">Marketing Platforms</h4>
-      <p class="text-[10px] text-slate-gray mt-1 font-light">Campaign and reporting tools, and the automated email sequences that run inside them</p>
+      <h3 class="font-mono-label text-xs font-bold text-deep-charcoal tracking-wider">Marketing Platforms</h3>
+      <p class="text-[11px] text-slate-gray mt-2 font-light leading-snug">ActiveCampaign, Klaviyo, HubSpot, GA4, and automated email workflows</p>
     </div>
     
     <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs flex flex-col items-center justify-center">
       <span class="material-symbols-outlined text-electric-blue text-3xl mb-3">grid_view</span>
-      <h4 class="font-mono-label text-xs font-bold text-deep-charcoal tracking-wider">Google Workspace</h4>
-      <p class="text-[10px] text-slate-gray mt-1 font-light">Custom planning tools, dashboards, and workflow automation, built with Apps Script</p>
+      <h3 class="font-mono-label text-xs font-bold text-deep-charcoal tracking-wider">Google Workspace</h3>
+      <p class="text-[11px] text-slate-gray mt-2 font-light leading-snug">Google Sheets, Google Drive API, Google Slides, and custom tools built with Apps Script</p>
     </div>
 
     <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs flex flex-col items-center justify-center">
       <span class="material-symbols-outlined text-electric-blue text-3xl mb-3">database</span>
-      <h4 class="font-mono-label text-xs font-bold text-deep-charcoal tracking-wider">CRM &amp; Sales Tools</h4>
-      <p class="text-[10px] text-slate-gray mt-1 font-light">HubSpot, Salesforce, and similar platform setup and automation</p>
+      <h3 class="font-mono-label text-xs font-bold text-deep-charcoal tracking-wider">CRM &amp; Sales Tools</h3>
+      <p class="text-[11px] text-slate-gray mt-2 font-light leading-snug">HubSpot CRM, Salesforce, Pipedrive, and custom lead attribution integrations</p>
     </div>
 
     <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs flex flex-col items-center justify-center">
       <span class="material-symbols-outlined text-electric-blue text-3xl mb-3">terminal</span>
-      <h4 class="font-mono-label text-xs font-bold text-deep-charcoal tracking-wider">Custom Code</h4>
-      <p class="text-[10px] text-slate-gray mt-1 font-light">Purpose-built tools when off-the-shelf software doesn't fit</p>
+      <h3 class="font-mono-label text-xs font-bold text-deep-charcoal tracking-wider">Custom Code &amp; iPaaS</h3>
+      <p class="text-[11px] text-slate-gray mt-2 font-light leading-snug">Python, JavaScript/Node, Webhooks, Make, Zapier, and REST APIs</p>
+    </div>
+  </div>
+</section>
+
+<!-- Visible FAQ Section (Matching JSON-LD FAQPage Schema) -->
+<section class="bg-surface-gray/60 py-section-gap-lg border-t border-outline-variant/40 reveal">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter max-w-4xl">
+    <div class="text-center mb-12 space-y-2">
+      <span class="font-mono-label text-[10px] text-electric-blue uppercase tracking-wider font-bold block mb-2">Direct Answers</span>
+      <h2 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">How We Work: FAQ</h2>
+    </div>
+
+    <div class="space-y-6">
+      <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
+        <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">Who is CaulHaus?</h3>
+        <p class="text-sm text-slate-gray leading-relaxed font-light">
+          CaulHaus (Caul Haus Group, Inc.) is a marketing strategy and operations automation consultancy led by a marketing strategist who also builds software. CaulHaus designs marketing campaigns, positioning strategy, and custom operational software inside Google Workspace and enterprise stacks.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
+        <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">What does a marketing and operations consultant at CaulHaus do?</h3>
+        <p class="text-sm text-slate-gray leading-relaxed font-light">
+          A marketing and operations consultant at CaulHaus designs positioning and campaign strategies, then builds the custom automation tools, tracking systems, and resource planning workflows needed to execute them without manual overhead.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
+        <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">Who should hire a marketing ops consultant?</h3>
+        <p class="text-sm text-slate-gray leading-relaxed font-light">
+          Growing businesses and enterprise teams scaling beyond 5 to 50+ people whose teams are drowning in manual spreadsheets, status updates, or disconnected marketing tools should hire a marketing ops consultant to automate repetitive workflows and establish clear campaign tracking.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
+        <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">What does CaulHaus do differently?</h3>
+        <p class="text-sm text-slate-gray leading-relaxed font-light">
+          Unlike standard marketing agencies that only hand over strategy decks without execution bandwidth, or generic software developers without marketing experience, CaulHaus designs both the marketing strategy and builds the custom software/automation layer that runs it.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Conversion Banner -->
+    <div class="mt-16 bg-deep-charcoal text-white p-8 md:p-12 rounded-3xl text-center space-y-6 tech-shadow">
+      <h3 class="font-headline-md text-headline-md font-bold">Ready to work with a strategist who builds software?</h3>
+      <p class="text-xs md:text-sm text-slate-300 font-light max-w-xl mx-auto">
+        Request a 2-week Systems Audit to pinpoint bottlenecks and receive a clear automation roadmap.
+      </p>
+      <div>
+        <a href="/contact/" class="inline-flex items-center gap-2 bg-electric-blue text-white px-8 py-3.5 rounded-xl font-body-md text-xs font-semibold hover:bg-electric-blue/90 transition-all shadow-md active:scale-95">
+          <span>Request a Systems Audit</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>

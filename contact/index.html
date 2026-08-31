@@ -38,6 +38,9 @@
         "logo": "https://caulhaus.com/assets/images/about_hero.png",
         "description": "Marketing strategy and execution, plus the operational systems and automation that make it run — built by a strategist who also builds the software.",
         "foundingDate": "2026",
+        "founder": {
+          "@id": "https://caulhaus.com/#founder"
+        },
         "knowsAbout": [
           "Marketing Strategy & Execution",
           "Process & Operations Automation",
@@ -46,6 +49,17 @@
           "Resource & Capacity Planning",
           "CRM & Sales Tool Integration"
         ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://caulhaus.com/#webpage",
+        "url": "https://caulhaus.com/contact/",
+        "name": "Request a Systems Audit | CaulHaus",
+        "description": "Tell us what&#39;s broken, slow, or manual — in your marketing, your ops, or both. We&#39;ll tell you what&#39;s fixable.",
+        "isPartOf": {
+          "@id": "https://caulhaus.com/#organization"
+        },
+        "inLanguage": "en-US"
       },
       {
         "@type": "ProfessionalService",
@@ -93,11 +107,24 @@
         "@type": "Person",
         "@id": "https://caulhaus.com/#founder",
         "name": "Alex Herbstman",
+        "givenName": "Alex",
+        "familyName": "Herbstman",
         "jobTitle": "Lead Strategist & Founder",
         "worksFor": {
           "@id": "https://caulhaus.com/#organization"
         },
-        "description": "Marketing strategist with 10+ years in marketing strategy & execution and 3 years building enterprise-scale operational automation systems."
+        "image": "https://caulhaus.com/assets/images/about_hero.png",
+        "description": "Marketing strategist with 10+ years in marketing strategy & execution and 3 years building enterprise-scale operational automation systems.",
+        "knowsAbout": [
+          "Marketing Operations",
+          "Brand Positioning",
+          "Google Apps Script Automation",
+          "Revenue Operations (RevOps)",
+          "Workflow Engineering"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/alexherbstman"
+        ]
       },
       {
         "@type": "FAQPage",
@@ -134,9 +161,20 @@
               "@type": "Answer",
               "text": "Unlike standard marketing agencies that only hand over strategy decks without execution bandwidth, or generic software developers without marketing experience, CaulHaus designs both the marketing strategy and builds the custom software/automation layer that runs it."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a systems audit or build take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Systems & Strategy Audit takes 2 weeks. Full strategy and operational system builds typically take 4 to 6 weeks from kick-off to rollout depending on team size and tool integration scope."
+            }
           }
         ]
       }
+    ]
+  }
+  </script>
     ]
   }
   </script>
@@ -339,87 +377,126 @@ void main() {
 
   <!-- Main Content Area -->
   <main class="flex-grow">
-    
+    <!-- Page-Specific JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://caulhaus.com/contact/#webpage",
+      "url": "https://caulhaus.com/contact/",
+      "name": "Request a Systems Audit | CaulHaus",
+      "description": "Request a marketing and operations systems audit with CaulHaus. We audit your workflows, strategy, and automation stack.",
+      "mainEntity": {
+        "@type": "ContactPoint",
+        "contactType": "Sales & Systems Audits",
+        "email": "alex@caulhaus.com",
+        "availableLanguage": ["English"],
+        "areaServed": "Global"
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Header Section -->
-<section class="max-w-[700px] mx-auto px-margin-mobile pt-24 pb-12 text-center reveal">
-  <div class="inline-block border border-outline-variant/30 rounded-full px-4 py-1.5 bg-surface-container-lowest mb-4">
-    <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold">Systems Audit</span>
+<section class="pt-24 pb-12 px-margin-mobile text-center max-w-[800px] mx-auto reveal">
+  <div class="space-y-4">
+    <div class="inline-block border border-outline-variant/30 rounded-full px-4 py-1.5 bg-surface-container-lowest shadow-2xs">
+      <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold">Systems Audit</span>
+    </div>
+    <h1 class="font-display-lg text-display-lg text-deep-charcoal">
+      Request Your Systems Audit.
+    </h1>
+    <p class="font-body-lg text-body-lg text-slate-gray max-w-xl mx-auto font-light leading-relaxed">
+      Tell us what’s broken, slow, or manual in your marketing or operations. Receive a customized 24-hour review and clear automation roadmap — built directly by a strategist who writes code.
+    </p>
   </div>
-  <h1 class="font-display-lg text-display-lg text-deep-charcoal mb-4">
-    Request Your <span class="text-electric-blue">Systems Audit.</span>
-  </h1>
-  <p class="font-body-lg text-body-lg text-slate-gray font-light max-w-xl mx-auto leading-relaxed">
-    Answer a few questions about your marketing and operations and we'll get back to you by email to talk through next steps.
-  </p>
 </section>
 
-<!-- Multi-Step Form Wrapper -->
-<section class="max-w-[640px] mx-auto px-margin-mobile pb-32 reveal">
-  <div class="bg-white p-8 md:p-12 rounded-3xl border border-outline-variant/40 shadow-xl relative min-h-[440px] flex flex-col justify-between">
+<!-- Qualification Wizard Section -->
+<section class="pb-16 px-margin-mobile max-w-[640px] mx-auto relative reveal">
+  <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 md:p-10 border border-outline-variant/50 shadow-xl relative overflow-hidden">
     
-    <!-- Step Progress Indicator Bar -->
+    <!-- Header info & progress bar -->
     <div class="mb-8">
-      <div class="flex justify-between items-center mb-2">
-        <span id="step-indicator-text" class="font-mono-label text-[10px] text-electric-blue font-bold tracking-widest uppercase">STEP 1 OF 3</span>
-        <span id="step-percentage" class="font-mono-label text-[10px] text-slate-gray font-bold">33%</span>
+      <div class="flex justify-between items-center text-xs font-mono-label mb-2">
+        <span class="text-electric-blue font-bold tracking-wider" id="step-indicator-text">STEP 1 OF 3</span>
+        <span class="text-slate-gray font-semibold" id="step-percentage">33%</span>
       </div>
-      <div class="w-full h-1.5 bg-surface-gray rounded-full overflow-hidden border border-outline-variant/20">
-        <div id="step-progress-bar" class="h-full bg-electric-blue rounded-full transition-all duration-400 ease-out" style="width: 33.33%;"></div>
+      <div class="w-full bg-surface-gray h-2 rounded-full overflow-hidden border border-outline-variant/20">
+        <div class="bg-electric-blue h-full transition-all duration-300 rounded-full" id="step-progress-bar" style="width: 33%;"></div>
       </div>
     </div>
 
-    <!-- Form Tag -->
-    <form id="contact-wizard-form" class="space-y-6 flex-grow flex flex-col justify-between">
+    <!-- Form Wizard -->
+    <form id="audit-form" action="https://api.web3forms.com/submit" method="POST">
       
-      <!-- Hidden Web3Forms Setup -->
+      <!-- Web3Forms Access Key -->
       <input type="hidden" name="access_key" value="ccefd948-13ab-4d13-bc57-993d0edb7eb8">
-      <input type="hidden" name="subject" value="New Systems Audit Request">
-      <input type="hidden" name="from_name" value="CaulHaus Systems Audit Request">
+      <input type="hidden" name="subject" value="New Systems Audit Request - CaulHaus">
+      <input type="hidden" name="from_name" value="CaulHaus Website Audit Form">
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-      <!-- Step 1: Goal -->
-      <div id="wizard-step-1" class="wizard-step space-y-6 animate-fade-in">
+      <!-- Step 1: Core Goal -->
+      <div id="wizard-step-1" class="wizard-step space-y-4 animate-fade-in">
         <div>
-          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">What's your primary goal?</h3>
-          <p class="text-xs text-slate-gray font-light">Select the main challenge you want to solve first.</p>
+          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">What is your primary goal?</h3>
+          <p class="text-xs text-slate-gray font-light">Select the main area you want to fix or scale.</p>
         </div>
-        <div class="flex flex-col gap-3">
-          <label class="wizard-option-card flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Build or Execute a Marketing Strategy" checked class="accent-electric-blue w-4 h-4">
-            <span class="text-xs text-deep-charcoal font-semibold">Build or Execute a Marketing Strategy</span>
+        <div class="space-y-2.5 pt-2">
+          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border-2 border-electric-blue bg-electric-blue/5 cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
+            <input type="radio" name="objective" value="Marketing Campaign Strategy & Attribution" checked class="accent-electric-blue w-4 h-4 mr-3">
+            <div>
+              <span class="text-xs font-bold text-deep-charcoal block">Marketing Strategy &amp; Attribution</span>
+              <span class="text-[11px] text-slate-gray font-light">Positioning, campaign execution, and revenue attribution</span>
+            </div>
           </label>
-          <label class="wizard-option-card flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Automate a Manual Process" class="accent-electric-blue w-4 h-4">
-            <span class="text-xs text-deep-charcoal font-semibold">Automate a Manual Process</span>
+          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
+            <input type="radio" name="objective" value="Resource & Capacity Planning (Google Apps Script)" class="accent-electric-blue w-4 h-4 mr-3">
+            <div>
+              <span class="text-xs font-bold text-deep-charcoal block">Resource &amp; Capacity Planning</span>
+              <span class="text-[11px] text-slate-gray font-light">Custom Google Workspace tools for team scheduling</span>
+            </div>
           </label>
-          <label class="wizard-option-card flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Both / Not Sure Yet" class="accent-electric-blue w-4 h-4">
-            <span class="text-xs text-deep-charcoal font-semibold">Both / Not Sure Yet</span>
+          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
+            <input type="radio" name="objective" value="Process & Operations Automation" class="accent-electric-blue w-4 h-4 mr-3">
+            <div>
+              <span class="text-xs font-bold text-deep-charcoal block">Process Automation &amp; Integrations</span>
+              <span class="text-[11px] text-slate-gray font-light">Automating manual spreadsheet tasks and CRM syncs</span>
+            </div>
           </label>
         </div>
       </div>
 
-      <!-- Step 2: Tools -->
-      <div id="wizard-step-2" class="wizard-step hidden space-y-6 animate-fade-in">
+      <!-- Step 2: Current Tech Stack -->
+      <div id="wizard-step-2" class="wizard-step hidden space-y-4 animate-fade-in">
         <div>
-          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">What tools do you currently use?</h3>
-          <p class="text-xs text-slate-gray font-light">Helps us understand your current tech ecosystem.</p>
+          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">What software do you rely on?</h3>
+          <p class="text-xs text-slate-gray font-light">Select all systems currently in your stack.</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <label class="wizard-option-card flex items-center gap-3 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="crm" value="Google Workspace" checked class="accent-electric-blue w-4 h-4">
-            <span class="text-xs text-deep-charcoal font-semibold">Google Workspace</span>
+        <div class="space-y-2.5 pt-2">
+          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
+            <input type="radio" name="crm" value="Google Workspace / Google Sheets Heavy" checked class="accent-electric-blue w-4 h-4 mr-3">
+            <div>
+              <span class="text-xs font-bold text-deep-charcoal block">Google Workspace / Google Sheets</span>
+              <span class="text-[11px] text-slate-gray font-light">Workflows primarily managed in spreadsheets &amp; Drive</span>
+            </div>
           </label>
-          <label class="wizard-option-card flex items-center gap-3 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="crm" value="HubSpot / Salesforce / Other CRM" class="accent-electric-blue w-4 h-4">
-            <span class="text-xs text-deep-charcoal font-semibold">HubSpot / Salesforce / Other CRM</span>
+          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
+            <input type="radio" name="crm" value="HubSpot / Salesforce / Enterprise CRM" class="accent-electric-blue w-4 h-4 mr-3">
+            <div>
+              <span class="text-xs font-bold text-deep-charcoal block">HubSpot / Salesforce / Enterprise CRM</span>
+              <span class="text-[11px] text-slate-gray font-light">Standard marketing automation and CRM setup</span>
+            </div>
           </label>
-          <label class="wizard-option-card flex items-center gap-3 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="crm" value="Marketing Automation Platform" class="accent-electric-blue w-4 h-4">
-            <span class="text-xs text-deep-charcoal font-semibold">Marketing Automation Platform</span>
-          </label>
-          <label class="wizard-option-card flex items-center gap-3 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="crm" value="Other / None Yet" class="accent-electric-blue w-4 h-4">
-            <span class="text-xs text-deep-charcoal font-semibold">Other / None Yet</span>
+          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
+            <input type="radio" name="crm" value="Custom / Fragmented Stack" class="accent-electric-blue w-4 h-4 mr-3">
+            <div>
+              <span class="text-xs font-bold text-deep-charcoal block">Custom / Multiple Disconnected Tools</span>
+              <span class="text-[11px] text-slate-gray font-light">A mix of third-party SaaS apps and custom tools</span>
+            </div>
           </label>
         </div>
       </div>
@@ -441,8 +518,8 @@ void main() {
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Company Website</label>
-              <input type="text" name="website" required placeholder="company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
+              <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Company Website <span class="text-slate-gray/50 font-normal lowercase">(optional)</span></label>
+              <input type="text" name="website" placeholder="company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
             </div>
             <div>
               <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Team Size</label>
@@ -475,6 +552,10 @@ void main() {
         </button>
       </div>
 
+      <div class="mt-4 text-center">
+        <p class="text-[11px] text-slate-gray font-light">Prefer email? Drop us a note directly at <a href="mailto:alex@caulhaus.com" class="text-electric-blue font-bold hover:underline">alex@caulhaus.com</a></p>
+      </div>
+
     </form>
 
     <!-- Success Feedback Overlay -->
@@ -484,8 +565,68 @@ void main() {
       </div>
       <h3 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Thank you!</h3>
       <p class="font-body-md text-body-md text-slate-gray max-w-sm font-light leading-relaxed">
-        We've received your details and will get back to you shortly.
+        We've received your details and will get back to you within 24 business hours.
       </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Systems Audit Details & Direct Contact Section -->
+<section class="max-w-[1000px] mx-auto px-margin-mobile pb-24 reveal">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    
+    <!-- What You Get Card -->
+    <div class="bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-outline-variant/40 shadow-sm space-y-4">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="material-symbols-outlined text-electric-blue text-2xl">analytics</span>
+        <h2 class="font-headline-md text-headline-sm font-bold text-deep-charcoal">What's Included in Your Audit</h2>
+      </div>
+      <p class="text-xs text-slate-gray font-light leading-relaxed">
+        Our Systems Audit is a targeted review of your current marketing channels, operational workflows, and tech stack — designed to spot bottlenecks and automation opportunities.
+      </p>
+      <ul class="space-y-3 text-xs text-deep-charcoal font-medium pt-2 list-none p-0">
+        <li class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5">check_circle</span>
+          <span><strong>Architecture Consultation:</strong> 1-on-1 review with Lead Strategist Alex Herbstman.</span>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5">check_circle</span>
+          <span><strong>Tech &amp; Workflow Teardown:</strong> Detailed assessment of your Google Workspace, CRM, and marketing automation setup.</span>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5">check_circle</span>
+          <span><strong>Actionable Automation Roadmap:</strong> Clear priority list of manual tasks to eliminate and attribution bottlenecks to fix.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Direct Contact & SLA Card -->
+    <div class="bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-outline-variant/40 shadow-sm space-y-4 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-electric-blue text-2xl">mail</span>
+          <h2 class="font-headline-md text-headline-sm font-bold text-deep-charcoal">Direct Contact &amp; SLA</h2>
+        </div>
+        <p class="text-xs text-slate-gray font-light leading-relaxed mb-4">
+          Prefer to skip the form or have a custom inquiry? Reach out directly via email.
+        </p>
+        <div class="space-y-3 pt-2 text-xs">
+          <div class="p-3 bg-surface-gray rounded-xl border border-outline-variant/20">
+            <span class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-0.5">Direct Email</span>
+            <a href="mailto:alex@caulhaus.com" class="text-electric-blue font-bold hover:underline">alex@caulhaus.com</a>
+          </div>
+          <div class="p-3 bg-surface-gray rounded-xl border border-outline-variant/20">
+            <span class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-0.5">Response Time SLA</span>
+            <span class="text-deep-charcoal font-semibold">We respond within 24 business hours (Mon–Fri).</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-4 border-t border-outline-variant/20">
+        <p class="text-[11px] text-slate-gray font-light italic">
+          No pushy sales calls. Every audit is handled directly by a strategist who writes software.
+        </p>
+      </div>
     </div>
 
   </div>

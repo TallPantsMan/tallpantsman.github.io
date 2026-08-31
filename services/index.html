@@ -38,6 +38,9 @@
         "logo": "https://caulhaus.com/assets/images/about_hero.png",
         "description": "Marketing strategy and execution, plus the operational systems and automation that make it run — built by a strategist who also builds the software.",
         "foundingDate": "2026",
+        "founder": {
+          "@id": "https://caulhaus.com/#founder"
+        },
         "knowsAbout": [
           "Marketing Strategy & Execution",
           "Process & Operations Automation",
@@ -46,6 +49,17 @@
           "Resource & Capacity Planning",
           "CRM & Sales Tool Integration"
         ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://caulhaus.com/#webpage",
+        "url": "https://caulhaus.com/services/",
+        "name": "How We Engage | CaulHaus",
+        "description": "Choose the path that fits where you are — a strategy engagement, a system build, or both. Clear deliverables, real systems, ongoing support.",
+        "isPartOf": {
+          "@id": "https://caulhaus.com/#organization"
+        },
+        "inLanguage": "en-US"
       },
       {
         "@type": "ProfessionalService",
@@ -93,11 +107,24 @@
         "@type": "Person",
         "@id": "https://caulhaus.com/#founder",
         "name": "Alex Herbstman",
+        "givenName": "Alex",
+        "familyName": "Herbstman",
         "jobTitle": "Lead Strategist & Founder",
         "worksFor": {
           "@id": "https://caulhaus.com/#organization"
         },
-        "description": "Marketing strategist with 10+ years in marketing strategy & execution and 3 years building enterprise-scale operational automation systems."
+        "image": "https://caulhaus.com/assets/images/about_hero.png",
+        "description": "Marketing strategist with 10+ years in marketing strategy & execution and 3 years building enterprise-scale operational automation systems.",
+        "knowsAbout": [
+          "Marketing Operations",
+          "Brand Positioning",
+          "Google Apps Script Automation",
+          "Revenue Operations (RevOps)",
+          "Workflow Engineering"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/alexherbstman"
+        ]
       },
       {
         "@type": "FAQPage",
@@ -134,9 +161,20 @@
               "@type": "Answer",
               "text": "Unlike standard marketing agencies that only hand over strategy decks without execution bandwidth, or generic software developers without marketing experience, CaulHaus designs both the marketing strategy and builds the custom software/automation layer that runs it."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a systems audit or build take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Systems & Strategy Audit takes 2 weeks. Full strategy and operational system builds typically take 4 to 6 weeks from kick-off to rollout depending on team size and tool integration scope."
+            }
           }
         ]
       }
+    ]
+  }
+  </script>
     ]
   }
   </script>
@@ -580,6 +618,56 @@ void main() {
       </div>
     </div>
 
+    <!-- Static Scoping Reference Guide for Search & Crawlers -->
+    <div class="mt-6 text-center text-xs text-slate-gray font-light space-y-1 border-t border-outline-variant/20 pt-4">
+      <p class="font-semibold text-deep-charcoal">Scoping Quick Reference Guide:</p>
+      <p><strong>Audit (2 Weeks):</strong> Best for teams &lt;10 or focused single-domain strategy reviews.</p>
+      <p><strong>Build (4–6 Weeks):</strong> Designed for 10–50 person teams implementing multi-channel strategies or custom workflow automation.</p>
+      <p><strong>Support (Monthly):</strong> Tailored for 50+ person teams or enterprise stacks requiring continuous optimization.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Engagement FAQ Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-lg border-t border-outline-variant/20 reveal">
+  <div class="max-w-3xl mx-auto space-y-8">
+    <div class="text-center space-y-2">
+      <span class="font-mono-label text-[10px] text-electric-blue uppercase tracking-wider font-bold block">Frequently Asked Questions</span>
+      <h2 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Engagement FAQ</h2>
+    </div>
+
+    <div class="space-y-4">
+      <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 transition-all [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex justify-between items-center font-bold text-deep-charcoal cursor-pointer text-sm md:text-base">
+          <span>How long does a typical CaulHaus engagement take?</span>
+          <span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180 text-electric-blue">expand_more</span>
+        </summary>
+        <p class="mt-4 text-xs md:text-sm text-slate-gray font-light leading-relaxed border-t border-outline-variant/20 pt-4">
+          Engagement timelines vary by scope: a <strong>Systems &amp; Strategy Audit</strong> takes exactly 2 weeks; a full <strong>Strategy &amp; System Build</strong> takes 4 to 6 weeks from kick-off to rollout; and <strong>Ongoing Support</strong> runs on monthly sprint cycles.
+        </p>
+      </details>
+
+      <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 transition-all [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex justify-between items-center font-bold text-deep-charcoal cursor-pointer text-sm md:text-base">
+          <span>What deliverables do I receive from a Systems &amp; Strategy Audit?</span>
+          <span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180 text-electric-blue">expand_more</span>
+        </summary>
+        <p class="mt-4 text-xs md:text-sm text-slate-gray font-light leading-relaxed border-t border-outline-variant/20 pt-4">
+          You receive a complete diagnostic report detailing marketing positioning, operational process bottlenecks, time-loss metrics, and a prioritized technical roadmap with immediate quick-wins and long-term automation recommendations.
+        </p>
+      </details>
+
+      <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 transition-all [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex justify-between items-center font-bold text-deep-charcoal cursor-pointer text-sm md:text-base">
+          <span>Who builds the automation systems at CaulHaus?</span>
+          <span class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180 text-electric-blue">expand_more</span>
+        </summary>
+        <p class="mt-4 text-xs md:text-sm text-slate-gray font-light leading-relaxed border-t border-outline-variant/20 pt-4">
+          All strategy and code are delivered directly by Alex Herbstman, a marketing strategist with 10+ years in campaign execution and 3 years building custom enterprise software in Google Workspace (Apps Script) and cloud APIs. There is zero translation loss between strategist and developer.
+        </p>
+      </details>
+    </div>
   </div>
 </section>
 

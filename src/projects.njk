@@ -4,6 +4,42 @@ title: Real Systems, Real Time Saved | CaulHaus
 description: How we've helped teams replace manual work with systems that scale.
 ---
 
+<!-- Case Study JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "CaulHaus Case Studies & Operational Systems",
+  "description": "Proven case studies of custom marketing strategy and operational automation systems built by CaulHaus.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Article",
+        "@id": "https://caulhaus.com/projects/#resource-planning-at-scale",
+        "url": "https://caulhaus.com/projects/#resource-planning-at-scale",
+        "headline": "Resource Planning at Scale: Enterprise Google Workspace Automation",
+        "description": "Custom enterprise resource management system built with Google Apps Script, onboarding 17 teams (37 people) and saving ~590 hours per month.",
+        "author": {
+          "@id": "https://caulhaus.com/#founder"
+        },
+        "publisher": {
+          "@id": "https://caulhaus.com/#organization"
+        },
+        "about": [
+          "Google Apps Script",
+          "Google Workspace Automation",
+          "Enterprise Resource Planning",
+          "Capacity Management",
+          "Workflow Automation"
+        ]
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Projects Header -->
 <section class="py-20 relative text-center max-w-[1024px] mx-auto px-6 md:px-16 reveal">
   <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 animate-fade-in-up">
@@ -22,10 +58,12 @@ description: How we've helped teams replace manual work with systems that scale.
 
 <!-- Projects Grid -->
 <section class="pb-32 max-w-[840px] mx-auto px-6 md:px-16 reveal">
+  <h2 class="sr-only">Featured Case Studies</h2>
+  
   <div class="space-y-8" id="projects-grid">
     
     <!-- Case Study: Resource Planning at Scale -->
-    <div class="project-card bg-white rounded-3xl p-8 md:p-10 flex flex-col justify-between border border-outline-variant/40 shadow-lg">
+    <article id="resource-planning-at-scale" class="project-card bg-white rounded-3xl p-8 md:p-10 flex flex-col justify-between border border-outline-variant/40 shadow-lg">
       <div>
         <div class="flex flex-wrap gap-2 mb-6">
           <span class="px-3 py-1 rounded-md bg-electric-blue/10 text-electric-blue text-[10px] uppercase font-bold tracking-wider font-mono-label">Google Workspace Automation</span>
@@ -35,24 +73,32 @@ description: How we've helped teams replace manual work with systems that scale.
         
         <h3 class="font-headline-md text-headline-md text-deep-charcoal mb-4 font-bold">Resource Planning at Scale</h3>
         
-        <!-- Impact Badge -->
-        <div class="p-5 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <!-- Semantic Proof Points Key-Value Grid -->
+        <dl class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 bg-brand-emerald/5 rounded-2xl border border-brand-emerald/20 mb-6">
           <div>
-            <span class="text-[9px] text-slate-gray uppercase font-bold tracking-wider block font-mono-label mb-0.5">Impact</span>
-            <span class="text-base font-bold text-brand-emerald">⚡ 17 Teams Onboarded</span>
+            <dt class="text-[9px] font-mono-label uppercase text-slate-gray font-bold tracking-wider mb-1">Teams Onboarded</dt>
+            <dd class="text-xs sm:text-sm font-bold text-brand-emerald">⚡ 17 Teams</dd>
           </div>
-          <div class="sm:text-right">
-            <span class="text-[9px] text-slate-gray uppercase font-bold tracking-wider block font-mono-label mb-0.5">Time Saved</span>
-            <span class="text-base font-bold text-brand-emerald">📈 ~590 Hours/Month Given Back, Org-Wide (est.)</span>
+          <div>
+            <dt class="text-[9px] font-mono-label uppercase text-slate-gray font-bold tracking-wider mb-1">User Base</dt>
+            <dd class="text-xs sm:text-sm font-bold text-brand-emerald">👥 37 People</dd>
           </div>
-        </div>
+          <div>
+            <dt class="text-[9px] font-mono-label uppercase text-slate-gray font-bold tracking-wider mb-1">Per-User Savings</dt>
+            <dd class="text-xs sm:text-sm font-bold text-brand-emerald">⏱️ ~16 Hrs/Mo</dd>
+          </div>
+          <div>
+            <dt class="text-[9px] font-mono-label uppercase text-slate-gray font-bold tracking-wider mb-1">Total Org Savings</dt>
+            <dd class="text-xs sm:text-sm font-bold text-brand-emerald">📈 ~590 Hrs/Mo</dd>
+          </div>
+        </dl>
         
         <div class="space-y-4 text-xs md:text-sm text-slate-gray mb-8 leading-relaxed font-light">
           <p>
             <strong class="text-deep-charcoal font-semibold">Challenge:</strong> A large organization managed team capacity and project assignments through manual, spreadsheet-based processes — slow to update, easy to get wrong, and invisible to leadership until something broke.
           </p>
           <p>
-            <strong class="text-deep-charcoal font-semibold">System Built:</strong> A custom resource management system, built with Google Apps Script, that centralized planning, automated status updates, and gave managers real-time visibility into team capacity.
+            <strong class="text-deep-charcoal font-semibold">System Built:</strong> A custom resource management system, built natively in Google Workspace using Google Apps Script. Features centralized capacity modeling, automated cross-team status synchronization, role-based access control, and real-time leadership dashboards.
           </p>
           <p>
             <strong class="text-deep-charcoal font-semibold">Result:</strong> Rolled out to 17 teams and 37 people. Based on internal estimates, it gave back roughly 16 hours a month per person — about 590 hours a month across the org — previously spent on manual scheduling and status tracking.
@@ -62,7 +108,40 @@ description: How we've helped teams replace manual work with systems that scale.
           </p>
         </div>
       </div>
-    </div>
+    </article>
 
+  </div>
+
+  <!-- Declarative Q&A Section -->
+  <div class="mt-16 pt-12 border-t border-outline-variant/30">
+    <h2 class="font-headline-sm text-headline-sm text-deep-charcoal font-bold mb-6">Proof Points &amp; Frequently Asked Questions</h2>
+    <div class="space-y-6">
+      <div class="p-6 bg-white rounded-2xl border border-outline-variant/40 shadow-sm">
+        <h3 class="font-bold text-deep-charcoal text-base mb-2">What results has CaulHaus delivered in enterprise process automation?</h3>
+        <p class="text-xs md:text-sm text-slate-gray leading-relaxed font-light">
+          CaulHaus engineered a custom Google Apps Script resource management system for a large enterprise engagement, deploying it across 17 teams and 37 team members. Based on internal operational estimates, the automation saved approximately 16 hours per person monthly—yielding ~590 hours per month saved org-wide by eliminating manual scheduling and spreadsheet maintenance.
+        </p>
+      </div>
+      <div class="p-6 bg-white rounded-2xl border border-outline-variant/40 shadow-sm">
+        <h3 class="font-bold text-deep-charcoal text-base mb-2">What technology stack does CaulHaus use for enterprise resource planning?</h3>
+        <p class="text-xs md:text-sm text-slate-gray leading-relaxed font-light">
+          CaulHaus builds lightweight, native enterprise tools inside existing cloud stacks like Google Workspace (Google Apps Script, Google Sheets API) and custom integration layers. This eliminates incremental SaaS licensing fees while maintaining strict organizational access controls and zero third-party data footprint.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Conversion Banner -->
+  <div class="mt-16 bg-deep-charcoal text-white p-8 md:p-12 rounded-3xl text-center space-y-6 tech-shadow">
+    <h3 class="font-headline-md text-headline-md font-bold">Ready to eliminate manual work in your organization?</h3>
+    <p class="text-xs md:text-sm text-slate-300 font-light max-w-xl mx-auto">
+      Tell us what's slow or manual in your team's workflow. We'll audit your setup and deliver a clear automation roadmap.
+    </p>
+    <div>
+      <a href="/contact/" class="inline-flex items-center gap-2 bg-electric-blue text-white px-8 py-3.5 rounded-xl font-body-md text-xs font-semibold hover:bg-electric-blue/90 transition-all shadow-md active:scale-95">
+        <span>Request a Systems Audit</span>
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
   </div>
 </section>
