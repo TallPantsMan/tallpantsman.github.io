@@ -5,21 +5,21 @@ description: Manual, repetitive work is a tax on your team's time. We map how wo
 ---
 
 <!-- Hero Section -->
-<section class="pt-32 pb-section-gap-lg text-center md:text-left flex flex-col md:flex-row items-center gap-12 max-w-container-max mx-auto px-margin-mobile md:px-gutter reveal">
+<section class="pt-24 pb-section-gap-lg text-center md:text-left flex flex-col md:flex-row items-center gap-12 max-w-container-max mx-auto px-margin-mobile md:px-gutter reveal">
   <div class="md:w-1/2 flex flex-col items-center md:items-start space-y-6">
     <div class="inline-block border border-outline-variant/30 rounded-full px-4 py-1.5 bg-surface-container-lowest">
       <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold">Process Automation</span>
     </div>
     <h1 class="font-display-lg text-display-lg text-deep-charcoal">
-      Put Your Repetitive Work<br>
+      Put the Repetitive Work<br>
       <span class="text-electric-blue">On Autopilot.</span>
     </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl font-light">
+    <p class="font-body-lg text-body-lg text-slate-gray max-w-xl font-light leading-relaxed">
       Manual scheduling, status tracking, and copy-paste work compound as you grow. We build systems — often custom tools inside Google Workspace — that give that time back to your team.
     </p>
     <div class="pt-4 flex gap-4">
-      <a class="bg-brand-indigo text-white font-body-md text-body-md font-semibold px-8 py-4 rounded-full hover:bg-brand-indigo/90 transition-colors flex items-center gap-2 shadow-md shadow-brand-indigo/15" href="/contact/">
-        Request a Quote
+      <a class="bg-electric-blue text-white font-body-md text-body-md font-semibold px-8 py-3.5 rounded-xl hover:bg-electric-blue/90 transition-colors flex items-center gap-2 shadow-md shadow-electric-blue/20" href="/contact/">
+        Request a Systems Audit
         <span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
       </a>
     </div>
@@ -33,7 +33,7 @@ description: Manual, repetitive work is a tax on your team's time. We map how wo
         
         <!-- Tab Toggles -->
         <div class="inline-flex rounded-full bg-surface-gray border border-outline-variant/40 p-1">
-          <button type="button" onclick="toggleWorkflow('before')" id="tab-before" class="px-4 py-1.5 rounded-full text-[10px] font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-sm cursor-pointer focus:outline-none">
+          <button type="button" onclick="toggleWorkflow('before')" id="tab-before" class="px-4 py-1.5 rounded-full text-[10px] font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-xs cursor-pointer focus:outline-none">
             Old Way (Manual)
           </button>
           <button type="button" onclick="toggleWorkflow('after')" id="tab-after" class="px-4 py-1.5 rounded-full text-[10px] font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer focus:outline-none">
@@ -137,7 +137,7 @@ description: Manual, repetitive work is a tax on your team's time. We map how wo
       flowAfter.classList.add('hidden');
       flowAfter.classList.remove('animate-fade-in');
       
-      tabBefore.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-sm cursor-pointer focus:outline-none";
+      tabBefore.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-xs cursor-pointer focus:outline-none";
       tabAfter.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer focus:outline-none";
     } else {
       flowBefore.classList.add('hidden');
@@ -146,49 +146,49 @@ description: Manual, repetitive work is a tax on your team's time. We map how wo
       flowAfter.classList.add('animate-fade-in');
       
       tabBefore.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer focus:outline-none";
-      tabAfter.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-sm cursor-pointer focus:outline-none";
+      tabAfter.className = "px-4 py-1.5 rounded-full text-[10px] font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-xs cursor-pointer focus:outline-none";
     }
   }
 </script>
 
 <!-- Key Automation Solutions -->
-<section class="py-section-gap-lg max-w-container-max mx-auto px-margin-mobile md:px-gutter border-t border-glass-stroke reveal">
-  <div class="text-center mb-16">
-    <span class="font-label-caps text-[10px] text-brand-indigo uppercase tracking-wider font-bold block mb-4">How We Help</span>
-    <h2 class="font-headline-lg text-headline-lg font-bold text-primary">Process Automation Systems</h2>
+<section class="py-section-gap-lg max-w-container-max mx-auto px-margin-mobile md:px-gutter border-t border-outline-variant/20 reveal">
+  <div class="text-center mb-16 space-y-4">
+    <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold block">How We Help</span>
+    <h2 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Process Automation Systems</h2>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     
     <!-- Solution 1 -->
-    <div class="glass-panel p-8 rounded-3xl border border-glass-stroke hover:-translate-y-1 transition-transform duration-300">
-      <div class="w-10 h-10 rounded-full bg-brand-indigo/10 text-brand-indigo flex items-center justify-center mb-6">
+    <div class="bg-white p-8 rounded-3xl border border-outline-variant/40 shadow-xs hover:-translate-y-1 transition-all duration-300">
+      <div class="w-10 h-10 rounded-xl bg-electric-blue/10 text-electric-blue flex items-center justify-center mb-6">
         <span class="material-symbols-outlined">table_chart</span>
       </div>
-      <h3 class="font-headline-md text-headline-md font-bold text-primary mb-4">Resource &amp; Capacity Planning</h3>
-      <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+      <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-4">Resource &amp; Capacity Planning</h3>
+      <p class="font-body-md text-body-md text-slate-gray font-light leading-relaxed">
         Custom-built planning tools inside Google Workspace (using Apps Script) that replace manual, spreadsheet-driven resourcing — this is the system behind our 17-team case study.
       </p>
     </div>
 
     <!-- Solution 2 -->
-    <div class="glass-panel p-8 rounded-3xl border border-glass-stroke hover:-translate-y-1 transition-transform duration-300">
-      <div class="w-10 h-10 rounded-full bg-brand-indigo/10 text-brand-indigo flex items-center justify-center mb-6">
+    <div class="bg-white p-8 rounded-3xl border border-outline-variant/40 shadow-xs hover:-translate-y-1 transition-all duration-300">
+      <div class="w-10 h-10 rounded-xl bg-electric-blue/10 text-electric-blue flex items-center justify-center mb-6">
         <span class="material-symbols-outlined">sync</span>
       </div>
-      <h3 class="font-headline-md text-headline-md font-bold text-primary mb-4">Workflow &amp; Process Automation</h3>
-      <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+      <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-4">Workflow &amp; Process Automation</h3>
+      <p class="font-body-md text-body-md text-slate-gray font-light leading-relaxed">
         Automate the repetitive steps in any recurring process — status updates, approvals, notifications — so your team stops doing it by hand.
       </p>
     </div>
 
     <!-- Solution 3 -->
-    <div class="glass-panel p-8 rounded-3xl border border-glass-stroke hover:-translate-y-1 transition-transform duration-300">
-      <div class="w-10 h-10 rounded-full bg-brand-indigo/10 text-brand-indigo flex items-center justify-center mb-6">
+    <div class="bg-white p-8 rounded-3xl border border-outline-variant/40 shadow-xs hover:-translate-y-1 transition-all duration-300">
+      <div class="w-10 h-10 rounded-xl bg-electric-blue/10 text-electric-blue flex items-center justify-center mb-6">
         <span class="material-symbols-outlined">hub</span>
       </div>
-      <h3 class="font-headline-md text-headline-md font-bold text-primary mb-4">Tool-to-Tool Integrations</h3>
-      <p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+      <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-4">Tool-to-Tool Integrations</h3>
+      <p class="font-body-md text-body-md text-slate-gray font-light leading-relaxed">
         Connect the software you already use so information moves once, correctly, instead of being re-entered across systems.
       </p>
     </div>
