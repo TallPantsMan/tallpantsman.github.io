@@ -1,4 +1,4 @@
-name: Deploy Eleventy to GitHub Pages
+name: Deploy Eleventy to Root
 
 on:
   push:
@@ -27,9 +27,11 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          publish_branch: gh-pages
+      - name: Commit build to root
+        run: |
+          cp -r _site/* .
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Automated build to root" || exit 0
+          git push
