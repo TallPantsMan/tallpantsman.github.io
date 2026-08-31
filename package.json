@@ -7,8 +7,7 @@
     "start": "concurrently \"npm run start:eleventy\" \"npm run start:css\"",
     "start:eleventy": "eleventy --serve --port 8080",
     "start:css": "tailwindcss -i ./src/assets/styles/index.css -o ./_site/assets/styles/tailwind.css --watch",
-    "build": "npm run build:js && npm run build:eleventy && npm run build:css",
-    "build:js": "esbuild src/components/entry.tsx --bundle --minify --target=es2020 --outfile=src/assets/js/hero-pipeline.js",
+    "build": "npm run build:eleventy && npm run build:css",
     "build:eleventy": "eleventy",
     "build:css": "tailwindcss -i ./src/assets/styles/index.css -o ./_site/assets/styles/tailwind.css --minify"
   },
