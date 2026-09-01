@@ -66,8 +66,7 @@ async def main():
     logger.info("Initializing Multi-Agent Cloud Pipeline...")
 
     # --- Agent Configs ---
-    # The user specifically requested Gemini 3.1 Pro! We must specify the model to override the SDK default (flash).
-    target_model = "gemini-3.1-pro"
+    target_model = "gemini-3.7-flash"
     
     researcher_config = LocalAgentConfig(model=target_model, system_instructions="You are the Topic Researcher. Your role is strictly to research and outline.", capabilities=CapabilitiesConfig())
     generator_config = LocalAgentConfig(model=target_model, system_instructions="You are the Content Generator. Your role is strictly to draft markdown content from outlines.", capabilities=CapabilitiesConfig())
