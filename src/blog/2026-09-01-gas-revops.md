@@ -1,7 +1,7 @@
 ---
 title: "No-Code and Low-Code in RevOps: Automating Google Workspace and CRM Workflows using Google Apps Script"
 date: 2026-09-01
-tags: ["post"]
+categories: AUTOMATION
 ---
 
 In modern Go-To-Market strategies, seconds matter. The "speed-to-lead" metric is arguably one of the most critical KPIs for any revenue organization. Research consistently shows that reaching out to a prospect within the first five minutes of their inquiry dramatically increases the likelihood of conversion. 
@@ -18,7 +18,7 @@ You don't always need expensive, rigid enterprise middleware. RevOps teams can u
 
 ### Automating Lead Alerts & Handoffs
 
-One of the core use cases for GAS in RevOps is automating lead alerts and rep handoffs. When a prospect fills out a Google Form, GAS can use `UrlFetchApp` to trigger an instant webhook. This fires an immediate notification to Slack or Teams and simultaneously pushes the data to your CRM—like Salesforce or HubSpot—via REST APIs.
+One of the core use cases for GAS in RevOps is automating lead alerts and rep handoffs. When a prospect fills out a Google Form, GAS can use `UrlFetchApp` to trigger an instant webhook. This fires an immediate notification to Slack or Teams and simultaneously pushes the data to your CRM-like Salesforce or HubSpot-via REST APIs.
 
 Using installable triggers like `onFormSubmit`, these scripts run in the background. No human intervention required. You can assign leads to specific sales reps based on intelligent routing logic and automatically move them through pipeline stages. The "speed-to-lead" dilemma? Solved.
 
@@ -26,7 +26,7 @@ Using installable triggers like `onFormSubmit`, these scripts run in the backgro
 
 Data integrity drives RevOps. Bad data leads to bad reporting, and bad reporting leads to flawed strategic decisions. 
 
-GAS acts as a filter for your CRM data. You can build scripts to prevent duplicate entries. You can standardize phone numbers and email formatting before the data ever hits the CRM. You can even alert managers instantly when pipeline fields are missing. By enforcing these rules at the entry point—like a Google Sheet used by SDRs—you keep your master pipeline strictly aligned with your CRM.
+GAS acts as a filter for your CRM data. You can build scripts to prevent duplicate entries. You can standardize phone numbers and email formatting before the data ever hits the CRM. You can even alert managers instantly when pipeline fields are missing. By enforcing these rules at the entry point-like a Google Sheet used by SDRs-you keep your master pipeline strictly aligned with your CRM.
 
 ### Scaling Your RevOps Architecture
 
