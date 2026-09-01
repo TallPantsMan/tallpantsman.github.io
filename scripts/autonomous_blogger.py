@@ -6,6 +6,7 @@ import subprocess
 import time
 import json
 import urllib.request
+import re
 from google.antigravity import Agent, LocalAgentConfig, CapabilitiesConfig
 
 # Configure robust logging
@@ -94,10 +95,11 @@ async def main():
         
         # 5. Publisher
         logger.info("Step 5: Publisher is writing to disk...")
+        cwd = os.getcwd()
         async with Agent(publisher_config) as publisher:
             publish_prompt = (
-                "Write this content into a new file in the `src/blog/` directory. "
-                "The filename should be short, kebab-case, and end in `.md`. Do not perform any git operations.\n"
+                f"Write this content into a new file in the {cwd}/src/blog/ directory. "
+                "The filename should be short, kebab-case, and end in `.md`. You MUST use an absolute path for your write_to_file tool. Do not perform any git operations.\n"
                 f"Content:\n{final_content}"
             )
             await run_with_retry(publisher, publish_prompt)
@@ -107,13 +109,14 @@ async def main():
         run_git_command('git config --global user.name "github-actions[bot]"')
         run_git_command('git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"')
         run_git_command('git add src/blog/*.md')
-        run_git_command('git commit -m "docs: publish autonomous blog post"')
+        run_git_command('git commit -m "docs: publish autonomous blog post" || echo "No changes to commit"')
         run_git_command('git push')
         
         # We need to extract the filename that was pushed to verify the URL
         async with Agent(verifier_config) as url_extractor:
-            url_slug = await run_with_retry(url_extractor, f"Based on this draft, what is the expected URL slug (e.g., 'combating-crm-data-decay')? Output only the slug.\n\n{final_content}")
-            live_url = f"https://caulhaus.com/blog/{url_slug.strip()}/"
+            url_slug_raw = await run_with_retry(url_extractor, f"Based on this draft, what is the expected URL slug (e.g., 'combating-crm-data-decay')? Output NOTHING BUT THE SLUG. No markdown, no quotes.\n\n{final_content}")
+            url_slug = re.sub(r'[^a-zA-Z0-9-]', '', url_slug_raw.strip())
+            live_url = f"https://caulhaus.com/blog/{url_slug}/"
             
         logger.info(f"Waiting 90 seconds for GitHub Pages to build {live_url}...")
         await asyncio.sleep(90)
