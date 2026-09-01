@@ -8,6 +8,7 @@ import json
 import urllib.request
 import re
 import traceback
+import glob
 from google.antigravity import Agent, LocalAgentConfig, CapabilitiesConfig
 
 # Configure robust logging
@@ -18,14 +19,19 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-async def run_with_retry(agent, prompt, max_retries=3):
+async def run_with_retry(agent, prompt, max_retries=3, timeout=120):
     for attempt in range(max_retries):
         try:
-            response = await agent.chat(prompt)
+            # Enforce a strict timeout so agents don't get stuck in tool loops
+            response = await asyncio.wait_for(agent.chat(prompt), timeout=timeout)
             full_text = ""
             async for token in response:
                 full_text += token
             return full_text
+        except asyncio.TimeoutError:
+            logger.warning(f"Attempt {attempt + 1} timed out after {timeout} seconds.")
+            if attempt == max_retries - 1:
+                raise Exception("Agent timed out repeatedly.")
         except Exception as e:
             logger.warning(f"Attempt {attempt + 1} failed: {e}")
             if attempt == max_retries - 1:
@@ -65,8 +71,8 @@ async def main():
     seo_config = LocalAgentConfig(system_instructions="You are the SEO Optimizer. Your role is strictly to optimize drafts for SEO and GEO.", capabilities=CapabilitiesConfig())
     tone_config = LocalAgentConfig(system_instructions="You are the Tone Editor. Your role is strictly to scrub AI-isms.", capabilities=CapabilitiesConfig())
     publisher_config = LocalAgentConfig(system_instructions="You are the Publisher. Write files to disk.", capabilities=CapabilitiesConfig())
-    verifier_config = LocalAgentConfig(system_instructions="You are the Deployment Verifier. Ensure the URL is live (returns 200).", capabilities=CapabilitiesConfig())
-    qa_config = LocalAgentConfig(system_instructions="You are the Visual QA Auditor. Inspect the HTML structure for proper Tailwind typography classes.", capabilities=CapabilitiesConfig())
+    verifier_config = LocalAgentConfig(system_instructions="You are the Deployment Verifier. Ensure the URL is live (returns 200). DO NOT retry infinitely. Make exactly 1 tool call to verify.", capabilities=CapabilitiesConfig())
+    qa_config = LocalAgentConfig(system_instructions="You are the Visual QA Auditor. Inspect the HTML structure for proper Tailwind typography classes. DO NOT retry infinitely.", capabilities=CapabilitiesConfig())
 
     try:
         # 1. Research
@@ -116,11 +122,11 @@ async def main():
         run_git_command('git commit -m "docs: publish autonomous blog post" || echo "No changes to commit"')
         run_git_command('git push origin HEAD:main')
         
-        # We need to extract the filename that was pushed to verify the URL
-        async with Agent(verifier_config) as url_extractor:
-            url_slug_raw = await run_with_retry(url_extractor, f"Based on this draft, what is the expected URL slug (e.g., 'combating-crm-data-decay')? Output NOTHING BUT THE SLUG. No markdown, no quotes.\n\n{final_content}")
-            url_slug = re.sub(r'[^a-zA-Z0-9-]', '', url_slug_raw.strip())
-            live_url = f"https://caulhaus.com/blog/{url_slug}/"
+        # Robustly extract the filename that was just created/modified
+        list_of_files = glob.glob('src/blog/*.md')
+        latest_file = max(list_of_files, key=os.path.getmtime)
+        url_slug = os.path.basename(latest_file).replace('.md', '')
+        live_url = f"https://caulhaus.com/blog/{url_slug}/"
             
         logger.info(f"Waiting 90 seconds for GitHub Pages to build {live_url}...")
         await asyncio.sleep(90)
@@ -128,14 +134,14 @@ async def main():
         # 7. Deployment Verifier
         logger.info("Step 7: Deployment Verifier is checking the live URL...")
         async with Agent(verifier_config) as verifier:
-            verify_prompt = f"Using your web tools, send an HTTP GET request to {live_url}. Verify it returns a 200 OK and is not a 404 page. Retry up to 3 times with delays if needed."
-            await run_with_retry(verifier, verify_prompt, max_retries=5)
+            verify_prompt = f"Using your web tools, send an HTTP GET request to {live_url}. Verify it returns a 200 OK and is not a 404 page. If it is 404, just say 'Failed' and stop. Do not loop."
+            await run_with_retry(verifier, verify_prompt, max_retries=1)
             
         # 8. Visual QA Auditor
         logger.info("Step 8: Visual QA Auditor is checking the HTML layout...")
         async with Agent(qa_config) as qa:
-            qa_prompt = f"Using your web tools, read the HTML source of {live_url}. Verify that the `<article>` tag contains the `prose` classes for typography. Ensure there are no layout errors."
-            await run_with_retry(qa, qa_prompt)
+            qa_prompt = f"Using your web tools, read the HTML source of {live_url}. Verify that the `<article>` tag contains the `prose` classes for typography. Do not loop."
+            await run_with_retry(qa, qa_prompt, max_retries=1)
             
         # 9. Notification
         logger.info("Step 9: Sending Discord notification...")
@@ -164,7 +170,7 @@ async def main():
                     capabilities=CapabilitiesConfig()
                 )
                 async with Agent(analyzer_config) as analyzer:
-                    response = await analyzer.chat(f"The automated blog pipeline crashed with this traceback:\n{tb}\n\nWrite a short Discord message explaining what went wrong and how to fix it.")
+                    response = await asyncio.wait_for(analyzer.chat(f"The automated blog pipeline crashed with this traceback:\n{tb}\n\nWrite a short Discord message explaining what went wrong and how to fix it."), timeout=60)
                     analysis = ""
                     async for token in response:
                         analysis += token
