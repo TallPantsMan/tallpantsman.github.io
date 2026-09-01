@@ -2,7 +2,7 @@
 title: "The Shift to Answer Engine Optimization (AEO) in 2026"
 date: 2026-08-31
 author: CaulHaus
-categories: marketing
+categories: MARKETING
 ---
 
 Search behavior has fundamentally shifted. The days of ranking number one on Google for a guaranteed flood of organic traffic are over. AI Overviews and generated responses now give users the answers they want without requiring a single click. 
