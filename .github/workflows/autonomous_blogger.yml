@@ -30,4 +30,10 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: python scripts/autonomous_blogger.py
+        run: |
+          python scripts/autonomous_blogger.py > debug_log.txt 2>&1 || true
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add debug_log.txt
+          git commit -m "chore: upload debug logs" || echo "no changes"
+          git push origin HEAD:main
