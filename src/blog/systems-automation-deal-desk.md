@@ -1,10 +1,10 @@
 ---
 title: "Systems Automation: Streamlining Deal Desk Approvals with CRM Webhooks and Google Apps Script"
 date: 2026-08-31
-tags: ["post"]
+categories: AUTOMATION
 ---
 
-Scaling a B2B revenue engine means pushing more deals through the pipeline faster. Yet, the moment a rep needs approval on a non-standard discount or custom legal term, momentum crashes into a wall. The Deal Desk process—often a bottleneck of manual back-and-forths—can kill sales velocity. 
+Scaling a B2B revenue engine means pushing more deals through the pipeline faster. Yet, the moment a rep needs approval on a non-standard discount or custom legal term, momentum crashes into a wall. The Deal Desk process-often a bottleneck of manual back-and-forths-can kill sales velocity. 
 
 Native CRM notifications often miss the mark here. They flood inboxes, lack the nuance for custom routing, and make it surprisingly difficult to loop in cross-functional approvers like finance or legal without burning cash on extra CRM seats. You don't need another expensive point solution. You can build a highly effective systems automation using Google Apps Script (GAS) and native CRM webhooks to handle complex approvals seamlessly.
 
@@ -25,7 +25,7 @@ Setting this up requires some technical lifting, but the payoff in velocity is m
 You'll first configure a Google Apps Script to act as your listener. By utilizing the `doPost(e)` function, the script can accept incoming HTTP POST requests containing your deal data. Check out the [Google Apps Script Web Apps Guide](https://developers.google.com/apps-script/guides/web) to understand the foundational mechanics of publishing a script as a web app.
 
 ### Step 2: Configuring the CRM Webhook
-Next, jump into your CRM. Configure a webhook to fire upon your chosen deal stage change. You need to ensure the payload includes the right properties—discount percentage, deal amount, owner, and specific product lines. If you're operating within HubSpot, their [HubSpot Webhooks API documentation](https://developers.hubspot.com/docs/api/webhooks) outlines exactly how to structure and authenticate these outbound calls.
+Next, jump into your CRM. Configure a webhook to fire upon your chosen deal stage change. You need to ensure the payload includes the right properties-discount percentage, deal amount, owner, and specific product lines. If you're operating within HubSpot, their [HubSpot Webhooks API documentation](https://developers.hubspot.com/docs/api/webhooks) outlines exactly how to structure and authenticate these outbound calls.
 
 ### Step 3: Building the Business Logic
 This is where the automation gets smart. You write the routing rules directly into the script. 
