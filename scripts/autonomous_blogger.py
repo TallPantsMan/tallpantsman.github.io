@@ -155,8 +155,25 @@ async def main():
         # Send error to discord
         webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
         if webhook_url:
-            message = f"❌ **Pipeline Failed!**\nError: `{e}`\nTraceback:\n```python\n{tb}\n```"
-            send_discord_notification(webhook_url, message)
+            friendly_message = f"❌ **Pipeline Failed!**\nSomething went wrong during the autonomous run.\n\n**Raw Error:** `{e}`"
+            
+            try:
+                # Spawn a diagnostic agent to translate the traceback into plain English!
+                analyzer_config = LocalAgentConfig(
+                    system_instructions="You are an expert Python DevOps engineer. Explain this error in simple, plain English and provide 2-3 actionable steps the user can take to fix it. Keep it brief and formatted for Discord.",
+                    capabilities=CapabilitiesConfig()
+                )
+                async with Agent(analyzer_config) as analyzer:
+                    response = await analyzer.chat(f"The automated blog pipeline crashed with this traceback:\n{tb}\n\nWrite a short Discord message explaining what went wrong and how to fix it.")
+                    analysis = ""
+                    async for token in response:
+                        analysis += token
+                    if analysis.strip():
+                        friendly_message = f"❌ **Pipeline Failed!**\n\n**Diagnosis:**\n{analysis.strip()}"
+            except Exception:
+                pass # If the diagnostic agent fails (e.g. API limit reached), fallback to the basic message
+                
+            send_discord_notification(webhook_url, friendly_message)
         sys.exit(1)
 
 if __name__ == "__main__":
