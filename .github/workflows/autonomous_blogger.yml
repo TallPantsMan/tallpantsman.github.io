@@ -1,6 +1,3 @@
-name: Autonomous Blogger Pipeline
-
-# Disabled: We are now running this pipeline locally in Antigravity.
-# This prevents race conditions with the Eleventy deployment action.
-on:
-  workflow_dispatch:
+# DEPRECATED
+# This GitHub Action has been removed.
+# The autonomous blogger pipeline now runs entirely locally inside the user's Antigravity client.
