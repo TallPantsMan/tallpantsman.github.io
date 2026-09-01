@@ -37,7 +37,7 @@ async def run_with_retry(agent, prompt, max_retries=3, timeout=120):
             if attempt == max_retries - 1:
                 logger.error("Max retries reached. Failing workflow.")
                 raise
-            await asyncio.sleep(5)
+            await asyncio.sleep(10)
 
 def run_git_command(command):
     try:
@@ -66,19 +66,24 @@ async def main():
     logger.info("Initializing Multi-Agent Cloud Pipeline...")
 
     # --- Agent Configs ---
-    researcher_config = LocalAgentConfig(system_instructions="You are the Topic Researcher. Your role is strictly to research and outline.", capabilities=CapabilitiesConfig())
-    generator_config = LocalAgentConfig(system_instructions="You are the Content Generator. Your role is strictly to draft markdown content from outlines.", capabilities=CapabilitiesConfig())
-    seo_config = LocalAgentConfig(system_instructions="You are the SEO Optimizer. Your role is strictly to optimize drafts for SEO and GEO.", capabilities=CapabilitiesConfig())
-    tone_config = LocalAgentConfig(system_instructions="You are the Tone Editor. Your role is strictly to scrub AI-isms.", capabilities=CapabilitiesConfig())
-    publisher_config = LocalAgentConfig(system_instructions="You are the Publisher. Write files to disk.", capabilities=CapabilitiesConfig())
-    verifier_config = LocalAgentConfig(system_instructions="You are the Deployment Verifier. Ensure the URL is live (returns 200). DO NOT retry infinitely. Make exactly 1 tool call to verify.", capabilities=CapabilitiesConfig())
-    qa_config = LocalAgentConfig(system_instructions="You are the Visual QA Auditor. Inspect the HTML structure for proper Tailwind typography classes. DO NOT retry infinitely.", capabilities=CapabilitiesConfig())
+    # The user specifically requested Gemini 3.1 Pro! We must specify the model to override the SDK default (flash).
+    target_model = "gemini-3.1-pro"
+    
+    researcher_config = LocalAgentConfig(model=target_model, system_instructions="You are the Topic Researcher. Your role is strictly to research and outline.", capabilities=CapabilitiesConfig())
+    generator_config = LocalAgentConfig(model=target_model, system_instructions="You are the Content Generator. Your role is strictly to draft markdown content from outlines.", capabilities=CapabilitiesConfig())
+    seo_config = LocalAgentConfig(model=target_model, system_instructions="You are the SEO Optimizer. Your role is strictly to optimize drafts for SEO and GEO.", capabilities=CapabilitiesConfig())
+    tone_config = LocalAgentConfig(model=target_model, system_instructions="You are the Tone Editor. Your role is strictly to scrub AI-isms.", capabilities=CapabilitiesConfig())
+    publisher_config = LocalAgentConfig(model=target_model, system_instructions="You are the Publisher. Write files to disk.", capabilities=CapabilitiesConfig())
+    verifier_config = LocalAgentConfig(model=target_model, system_instructions="You are the Deployment Verifier. Ensure the URL is live (returns 200). DO NOT retry infinitely. Make exactly 1 tool call to verify.", capabilities=CapabilitiesConfig())
+    qa_config = LocalAgentConfig(model=target_model, system_instructions="You are the Visual QA Auditor. Inspect the HTML structure for proper Tailwind typography classes. DO NOT retry infinitely.", capabilities=CapabilitiesConfig())
 
     try:
         # 1. Research
         logger.info("Step 1: Topic Researcher is generating topic & outline...")
         async with Agent(researcher_config) as researcher:
             topic_outline = await run_with_retry(researcher, "Pick a marketing trend or a systems automation trend. Write a detailed outline.")
+        
+        await asyncio.sleep(10) # Prevent rate limits
         
         # 2. Draft
         logger.info("Step 2: Content Generator is drafting content...")
@@ -92,16 +97,22 @@ async def main():
                 f"\nOutline:\n{topic_outline}"
             )
             draft = await run_with_retry(generator, draft_prompt)
+            
+        await asyncio.sleep(10) # Prevent rate limits
         
         # 3. SEO
         logger.info("Step 3: SEO Optimizer is optimizing...")
         async with Agent(seo_config) as seo_optimizer:
             seo_draft = await run_with_retry(seo_optimizer, f"Optimize this draft for SEO/GEO:\n\n{draft}")
+            
+        await asyncio.sleep(10) # Prevent rate limits
         
         # 4. Tone
         logger.info("Step 4: Tone Editor is reviewing...")
         async with Agent(tone_config) as tone_editor:
             final_content = await run_with_retry(tone_editor, f"Scrub AI-isms and fix tone:\n\n{seo_draft}")
+            
+        await asyncio.sleep(10) # Prevent rate limits
         
         # 5. Publisher
         logger.info("Step 5: Publisher is writing to disk...")
@@ -137,6 +148,8 @@ async def main():
             verify_prompt = f"Using your web tools, send an HTTP GET request to {live_url}. Verify it returns a 200 OK and is not a 404 page. If it is 404, just say 'Failed' and stop. Do not loop."
             await run_with_retry(verifier, verify_prompt, max_retries=1)
             
+        await asyncio.sleep(10) # Prevent rate limits
+            
         # 8. Visual QA Auditor
         logger.info("Step 8: Visual QA Auditor is checking the HTML layout...")
         async with Agent(qa_config) as qa:
@@ -166,6 +179,7 @@ async def main():
             try:
                 # Spawn a diagnostic agent to translate the traceback into plain English!
                 analyzer_config = LocalAgentConfig(
+                    model=target_model,
                     system_instructions="You are an expert Python DevOps engineer. Explain this error in simple, plain English and provide 2-3 actionable steps the user can take to fix it. Keep it brief and formatted for Discord.",
                     capabilities=CapabilitiesConfig()
                 )
