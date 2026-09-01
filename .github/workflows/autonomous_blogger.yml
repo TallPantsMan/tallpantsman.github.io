@@ -1,6 +1,9 @@
 name: Autonomous Blogger Pipeline
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 14 * * 2' # Runs at 14:00 UTC every Tuesday
   workflow_dispatch: # Allows manual trigger for testing via GitHub UI
