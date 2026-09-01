@@ -1,14 +1,14 @@
 ---
 title: Combating CRM Data Decay with Autonomous Enrichment Workflows in 2026
 date: 2026-09-01
-tags: ["post"]
+categories: REVOPS
 ---
 
 # Combating CRM Data Decay with Autonomous Enrichment Workflows in 2026
 
 B2B contact data rots fast. We're seeing an average decay rate of 22.5% a year. If you're in tech, it's closer to 40%. Over 70% of business contacts change roles or responsibilities within a single year. 
 
-That churn costs you money. Nearly 44% of businesses report losing more than 10% of their annual revenue—roughly $12.9M to $15M for typical mid-to-large orgs—directly to CRM data issues. The old way of doing an annual manual scrub simply doesn't cut it anymore.
+That churn costs you money. Nearly 44% of businesses report losing more than 10% of their annual revenue-roughly $12.9M to $15M for typical mid-to-large orgs-directly to CRM data issues. The old way of doing an annual manual scrub simply doesn't cut it anymore.
 
 ## The "Dirty AI" Risk
 
