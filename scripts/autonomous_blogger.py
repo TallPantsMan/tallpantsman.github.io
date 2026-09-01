@@ -7,6 +7,7 @@ import time
 import json
 import urllib.request
 import re
+import traceback
 from google.antigravity import Agent, LocalAgentConfig, CapabilitiesConfig
 
 # Configure robust logging
@@ -110,7 +111,7 @@ async def main():
         run_git_command('git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"')
         run_git_command('git add src/blog/*.md')
         run_git_command('git commit -m "docs: publish autonomous blog post" || echo "No changes to commit"')
-        run_git_command('git push')
+        run_git_command('git push origin HEAD:main')
         
         # We need to extract the filename that was pushed to verify the URL
         async with Agent(verifier_config) as url_extractor:
@@ -146,6 +147,13 @@ async def main():
         logger.info("Multi-Agent Pipeline execution completed successfully!")
     except Exception as e:
         logger.error(f"Pipeline failed: {e}")
+        tb = traceback.format_exc()
+        
+        # Send error to discord
+        webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
+        if webhook_url:
+            message = f"❌ **Pipeline Failed!**\nError: `{e}`\nTraceback:\n```python\n{tb}\n```"
+            send_discord_notification(webhook_url, message)
         sys.exit(1)
 
 if __name__ == "__main__":
