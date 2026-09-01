@@ -4,6 +4,8 @@ import sys
 import logging
 import subprocess
 import time
+import json
+import urllib.request
 from google.antigravity import Agent, LocalAgentConfig, CapabilitiesConfig
 
 # Configure robust logging
@@ -32,6 +34,18 @@ def run_git_command(command):
     except subprocess.CalledProcessError as e:
         logger.error(f"Git command failed: {e.stderr.decode()}")
         raise
+
+def send_discord_notification(webhook_url, message):
+    data = {"content": message}
+    req = urllib.request.Request(
+        webhook_url,
+        data=json.dumps(data).encode('utf-8'),
+        headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0'}
+    )
+    try:
+        urllib.request.urlopen(req)
+    except Exception as e:
+        logger.error(f"Failed to send Discord notification: {e}")
 
 async def main():
     if not os.environ.get("GEMINI_API_KEY"):
@@ -88,7 +102,7 @@ async def main():
             )
             await run_with_retry(publisher, publish_prompt)
             
-        # 6. Git Push (Moved into the Python script to block until deployment)
+        # 6. Git Push
         logger.info("Step 6: Committing and Pushing to GitHub...")
         run_git_command('git config --global user.name "github-actions[bot]"')
         run_git_command('git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"')
@@ -97,7 +111,6 @@ async def main():
         run_git_command('git push')
         
         # We need to extract the filename that was pushed to verify the URL
-        # For simplicity, let's ask an agent what the URL should be based on the title
         async with Agent(verifier_config) as url_extractor:
             url_slug = await run_with_retry(url_extractor, f"Based on this draft, what is the expected URL slug (e.g., 'combating-crm-data-decay')? Output only the slug.\n\n{final_content}")
             live_url = f"https://caulhaus.com/blog/{url_slug.strip()}/"
@@ -118,9 +131,14 @@ async def main():
             await run_with_retry(qa, qa_prompt)
             
         # 9. Notification
-        logger.info("Step 9: Sending phone notification...")
-        # TODO: Implement SMS/Webhook logic here based on user preference
-        logger.info(f"Notification Sent: Post is live at {live_url}")
+        logger.info("Step 9: Sending Discord notification...")
+        webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
+        if webhook_url:
+            message = f"🚀 **New Blog Post is Live!**\nThe autonomous pipeline has successfully published and verified a new post.\nRead it here: {live_url}"
+            send_discord_notification(webhook_url, message)
+            logger.info("Discord notification sent!")
+        else:
+            logger.warning("DISCORD_WEBHOOK_URL environment variable is missing. Skipping notification.")
 
         logger.info("Multi-Agent Pipeline execution completed successfully!")
     except Exception as e:
