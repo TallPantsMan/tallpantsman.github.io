@@ -1,6 +1,20 @@
 ---
 layout: base.njk
 ---
-<article class="prose lg:prose-xl mx-auto px-6 py-12">
-  {{ content | safe }}
-</article>
+<div class="max-w-container-max-width mx-auto px-grid-margin py-12 md:py-24 reveal active">
+  <div class="max-w-3xl mx-auto">
+    <a href="/blog/" class="inline-flex items-center text-electric-blue font-mono-label text-mono-label uppercase tracking-wider font-bold mb-10 hover:opacity-80 transition-opacity relative z-10">
+      <span class="material-symbols-outlined mr-2 text-[16px]">arrow_back</span>
+      Back to Blog
+    </a>
+    
+    <header class="mb-12 border-b border-outline-variant/30 pb-10">
+      <time class="font-mono-label text-mono-label text-slate-gray uppercase tracking-wider mb-4 block">{{ date | readableDate }}</time>
+      <h1 class="font-display-sm text-display-sm md:text-[56px] md:leading-[1.1] font-bold text-deep-charcoal mb-6 tracking-tight">{{ title }}</h1>
+    </header>
+    
+    <article class="prose prose-slate prose-lg max-w-none prose-headings:font-heading prose-headings:font-bold prose-headings:text-deep-charcoal prose-p:font-sans prose-p:font-light prose-p:text-slate-800 prose-a:text-electric-blue prose-a:no-underline hover:prose-a:underline">
+      {{ content | safe }}
+    </article>
+  </div>
+</div>
