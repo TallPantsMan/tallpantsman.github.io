@@ -22,7 +22,10 @@ async def run_with_retry(agent, prompt, max_retries=3):
     for attempt in range(max_retries):
         try:
             response = await agent.chat(prompt)
-            return response.text
+            full_text = ""
+            async for token in response:
+                full_text += token
+            return full_text
         except Exception as e:
             logger.warning(f"Attempt {attempt + 1} failed: {e}")
             if attempt == max_retries - 1:
