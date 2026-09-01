@@ -2,17 +2,27 @@
 layout: base.njk
 title: Blog
 ---
-<div class="max-w-4xl mx-auto py-12 px-4">
-  <h1 class="text-4xl font-bold mb-8">Blog</h1>
-  <div class="space-y-6">
-    {% for post in collections.blog %}
-      <article class="p-6 border border-slate-200 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-        <h2 class="text-2xl font-semibold mb-2">
-          <a href="{{ post.url }}" class="text-blue-600 hover:underline">{{ post.data.title }}</a>
-        </h2>
-        <time class="text-slate-500 text-sm mb-4 block">{{ post.date | readableDate }}</time>
-        <div class="prose max-w-none">
-          {{ post.content | safe }}
+<div class="max-w-container-max-width mx-auto px-grid-margin py-section-padding reveal active">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <h1 class="font-display-sm text-display-sm font-bold text-deep-charcoal mb-4">Latest Insights</h1>
+    <p class="font-body-lg text-body-lg text-slate-gray">
+      Thoughts on marketing strategy, automation, and the intersection of human creativity and systems engineering.
+    </p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for post in collections.blog | reverse %}
+      <article class="glass-card rounded-2xl p-8 flex flex-col h-full relative overflow-hidden group">
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary-fixed/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="relative z-10 flex flex-col h-full">
+          <time class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider mb-4 block">{{ post.date | readableDate }}</time>
+          <h2 class="font-headline-md text-headline-md font-semibold text-deep-charcoal mb-4 group-hover:text-electric-blue transition-colors">
+            <a href="{{ post.url }}" class="before:absolute before:inset-0">{{ post.data.title }}</a>
+          </h2>
+          <div class="mt-auto pt-6 flex items-center text-electric-blue font-mono-label text-mono-label uppercase tracking-wider font-bold">
+            Read Article
+            <span class="material-symbols-outlined ml-2 text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </div>
         </div>
       </article>
     {% endfor %}
