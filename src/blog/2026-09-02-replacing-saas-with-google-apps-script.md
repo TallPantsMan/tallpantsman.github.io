@@ -4,6 +4,10 @@ date: 2026-09-02
 categories: AUTOMATION
 ---
 
+# How Custom Google Apps Script Replaced a $30/User/Mo SaaS Stack: The 590-Hour Enterprise Breakdown
+
+*By Alex Herbstman &bull; Published September 2, 2026 &bull; Reading time: 6 min*
+
 <div class="my-8 p-6 bg-slate-50 dark:bg-slate-800/90 border-2 border-electric-blue/40 rounded-2xl shadow-sm">
   <div class="flex items-center gap-2 mb-2 font-mono-label text-xs uppercase tracking-wider font-bold text-electric-blue">
     <span class="material-symbols-outlined text-base">info</span>
