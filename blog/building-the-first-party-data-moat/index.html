@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building The First-Party Data Moat</title>
+  <meta name="description" content="CaulHaus specializes in building automated systems to enhance team efficiency and reduce manual operational overhead.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://caulhaus.com/blog/building-the-first-party-data-moat/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://caulhaus.com/blog/building-the-first-party-data-moat/">
+  <meta property="og:title" content="Building The First-Party Data Moat">
+  <meta property="og:description" content="CaulHaus specializes in building automated systems to enhance team efficiency and reduce manual operational overhead.">
+  <meta property="og:image" content="https://caulhaus.com/assets/images/about_hero.png">
+  <meta property="og:site_name" content="CaulHaus">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://caulhaus.com/blog/building-the-first-party-data-moat/">
+  <meta name="twitter:title" content="Building The First-Party Data Moat">
+  <meta name="twitter:description" content="CaulHaus specializes in building automated systems to enhance team efficiency and reduce manual operational overhead.">
+  <meta name="twitter:image" content="https://caulhaus.com/assets/images/about_hero.png">
+
+  <!-- JSON-LD Schemas for AI & Search Discovery (AEO/GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://caulhaus.com/#organization",
+        "name": "CaulHaus",
+        "legalName": "Caul Haus Group, Inc.",
+        "url": "https://caulhaus.com",
+        "logo": "https://caulhaus.com/assets/images/about_hero.png",
+        "description": "Marketing strategy and execution, plus the operational systems and automation that make it run — built by a strategist who also builds the software.",
+        "foundingDate": "2026",
+        "founder": {
+          "@id": "https://caulhaus.com/#founder"
+        },
+        "knowsAbout": [
+          "Marketing Strategy & Execution",
+          "Process & Operations Automation",
+          "Google Workspace & Apps Script Automation",
+          "Attribution & Reporting Setup",
+          "Resource & Capacity Planning",
+          "CRM & Sales Tool Integration"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://caulhaus.com/#webpage",
+        "url": "https://caulhaus.com/blog/building-the-first-party-data-moat/",
+        "name": "Building The First-Party Data Moat",
+        "description": "CaulHaus specializes in building automated systems to enhance team efficiency and reduce manual operational overhead.",
+        "isPartOf": {
+          "@id": "https://caulhaus.com/#organization"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://caulhaus.com/#service",
+        "name": "CaulHaus Marketing & Operations Consultancy",
+        "url": "https://caulhaus.com",
+        "priceRange": "$$",
+        "provider": {
+          "@id": "https://caulhaus.com/#organization"
+        },
+        "description": "Marketing strategy, campaign execution, resource planning, and workflow automation built by a strategist who writes code.",
+        "areaServed": "Global",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "CaulHaus Core Offerings",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Marketing Strategy & Execution",
+                "description": "Positioning, messaging, multi-channel campaign strategy, attribution setup, and marketing automation."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Process & Operations Automation",
+                "description": "Custom resource & capacity planning tools built in Google Workspace (Apps Script), workflow automation, and tool-to-tool integrations."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Systems & Strategy Audit",
+                "description": "Two-week deep dive into marketing strategy and operational systems to eliminate bottlenecks and optimize workflows."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://caulhaus.com/#founder",
+        "name": "Alex Herbstman",
+        "givenName": "Alex",
+        "familyName": "Herbstman",
+        "jobTitle": "Lead Strategist & Founder",
+        "worksFor": {
+          "@id": "https://caulhaus.com/#organization"
+        },
+        "image": "https://caulhaus.com/assets/images/about_hero.png",
+        "description": "Marketing strategist with 10+ years in marketing strategy & execution and 3 years building enterprise-scale operational automation systems.",
+        "knowsAbout": [
+          "Marketing Operations",
+          "Brand Positioning",
+          "Google Apps Script Automation",
+          "Revenue Operations (RevOps)",
+          "Workflow Engineering"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/alexherbstman"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://caulhaus.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who is CaulHaus?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CaulHaus (Caul Haus Group, Inc.) is a marketing strategy and operations automation consultancy led by a marketing strategist who also builds software. CaulHaus designs marketing campaigns, positioning strategy, and custom operational software inside Google Workspace and enterprise stacks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does a marketing and operations consultant at CaulHaus do?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A marketing and operations consultant at CaulHaus designs positioning and campaign strategies, then builds the custom automation tools, tracking systems, and resource planning workflows needed to execute them without manual overhead."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who should hire a marketing ops consultant?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Growing businesses and enterprise teams scaling beyond 5 to 50+ people whose teams are drowning in manual spreadsheets, status updates, or disconnected marketing tools should hire a marketing ops consultant to automate repetitive workflows and establish clear campaign tracking."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does CaulHaus do differently?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unlike standard marketing agencies that only hand over strategy decks without execution bandwidth, or generic software developers without marketing experience, CaulHaus designs both the marketing strategy and builds the custom software/automation layer that runs it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a systems audit or build take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Systems & Strategy Audit takes 2 weeks. Full strategy and operational system builds typically take 4 to 6 weeks from kick-off to rollout depending on team size and tool integration scope."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/tailwind.css">
+  <style>
+    /* Mobile nav transition */
+    #mobile-menu {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-transparent text-on-background font-body-md antialiased min-h-screen flex flex-col selection:bg-electric-blue selection:text-white relative z-0">
+
+  <!-- STITCH_SHADER_START:ANIMATION_21 class="fixed inset-0 w-full h-full -z-10" -->
+  <div class="fixed inset-0 w-full h-full -z-10" style="display:block; pointer-events: none;">
+    <canvas id="shader-canvas-ANIMATION_21" style="display:block;width:100%;height:100%"></canvas>
+    <script>
+      (function() {
+        try {
+          const canvas = document.getElementById('shader-canvas-ANIMATION_21');
+          if (!canvas) return;
+          function syncSize() {
+            const w = canvas.clientWidth  || 1280;
+            const h = canvas.clientHeight || 720;
+            if (canvas.width !== w || canvas.height !== h) {
+              canvas.width  = w;
+              canvas.height = h;
+            }
+          }
+          if (typeof ResizeObserver !== 'undefined') {
+            new ResizeObserver(syncSize).observe(canvas);
+          }
+          syncSize();
+          const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+          if (!gl) return;
+          const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+          const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 m = u_mouse / u_resolution;
+    
+    float t = u_time * 0.15;
+    
+    // Base colors from Kinetic Enterprise palette (Light Mode)
+    vec3 color1 = vec3(0.97, 0.98, 1.0);  // Surface
+    vec3 color2 = vec3(0.92, 0.95, 1.0);  // Soft Blue
+    vec3 color3 = vec3(0.98, 1.0, 0.98);  // Soft Mint
+    
+    // Interactive influence
+    float dist = distance(uv, m);
+    float active = smoothstep(0.5, 0.0, dist) * 0.2;
+    
+    // Flowing noise patterns
+    float n1 = sin(uv.x * 4.0 + t + active) * cos(uv.y * 3.0 - t);
+    float n2 = cos(uv.y * 5.0 + t * 0.7) * sin(uv.x * 2.5 - t * 1.2);
+    
+    vec3 color = mix(color1, color2, clamp(n1 * 0.5 + 0.5, 0.0, 1.0));
+    color = mix(color, color3, clamp(n2 * 0.3, 0.0, 1.0));
+    
+    // Subtle glow near mouse
+    color += vec3(0.2, 0.4, 1.0) * active * 0.1;
+    
+    gl_FragColor = vec4(color, 1.0);
+}`;
+          function cs(type, src) {
+            const s = gl.createShader(type);
+            gl.shaderSource(s, src);
+            gl.compileShader(s);
+            if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+              console.warn("Shader compilation error:", gl.getShaderInfoLog(s));
+              return null;
+            }
+            return s;
+          }
+          const vsShader = cs(gl.VERTEX_SHADER, vs);
+          const fsShader = cs(gl.FRAGMENT_SHADER, fs);
+          if (!vsShader || !fsShader) return;
+
+          const prog = gl.createProgram();
+          gl.attachShader(prog, vsShader);
+          gl.attachShader(prog, fsShader);
+          gl.linkProgram(prog);
+          if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+            console.warn("Shader program link error:", gl.getProgramInfoLog(prog));
+            return;
+          }
+          gl.useProgram(prog);
+          const buf = gl.createBuffer();
+          gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+          const pos = gl.getAttribLocation(prog, 'a_position');
+          gl.enableVertexAttribArray(pos);
+          gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+          const uTime = gl.getUniformLocation(prog, 'u_time');
+          const uRes = gl.getUniformLocation(prog, 'u_resolution');
+          const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+          let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+          window.addEventListener('mousemove', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            if (rect.width && rect.height) {
+              const nx = (event.clientX - rect.left) / rect.width;
+              const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+              mouse.x = nx * canvas.width;
+              mouse.y = ny * canvas.height;
+            }
+          });
+
+          function render(t) {
+            if (typeof ResizeObserver === 'undefined') syncSize();
+            gl.viewport(0, 0, canvas.width, canvas.height);
+            if (uTime) gl.uniform1f(uTime, t * 0.001);
+            if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+            if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(render);
+          }
+          render(0);
+        } catch (e) {
+          console.warn("WebGL initialization failed:", e);
+        }
+      })();
+    </script>
+  </div>
+  <!-- STITCH_SHADER_END:ANIMATION_21 -->
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="bg-white/90 dark:bg-deep-charcoal/95 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/20 dark:border-slate-800">
+    <nav class="flex justify-between items-center h-20 px-grid-margin max-w-container-max-width mx-auto" aria-label="Main Navigation">
+      <!-- Logo -->
+      <a class="font-headline-md text-headline-md font-bold text-deep-charcoal dark:text-white hover:opacity-90 transition-opacity" href="/">
+        CaulHaus
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex space-x-8 items-center">
+        <!-- Solutions Dropdown -->
+        <div class="relative" id="services-dropdown">
+          <button id="services-btn" class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium flex items-center gap-1 focus:outline-none cursor-pointer">
+            Solutions
+            <span id="services-arrow" class="material-symbols-outlined text-[16px] transition-transform duration-200 text-slate-800 dark:text-slate-100">keyboard_arrow_down</span>
+          </button>
+          <div id="services-menu" class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 z-50 transition-all duration-200 opacity-0 pointer-events-none translate-y-1">
+            <div class="rounded-xl bg-white dark:bg-slate-900 border border-outline-variant/20 dark:border-slate-800 shadow-xl p-2">
+              <a href="/marketing/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors ">Marketing Systems</a>
+              <a href="/automation/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors ">Process Automation</a>
+              <a href="/services/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors ">How We Engage</a>
+            </div>
+          </div>
+        </div>
+
+        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium " href="/about/">How We Work</a>
+        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium " href="/projects/">Results</a>
+        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium " href="/blog/">Blog</a>
+      </div>
+
+      <!-- CTA -->
+      <div class="hidden md:block">
+        <a class="bg-electric-blue text-white px-6 py-2.5 rounded font-body-md text-body-md font-semibold hover:opacity-90 transition-opacity active:scale-95 shadow-sm" href="/contact/">Contact Us</a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer" aria-label="Toggle Menu">
+        <span id="menu-icon" class="material-symbols-outlined">menu</span>
+      </button>
+    </nav>
+
+    <!-- Mobile Navigation Panel -->
+    <div id="mobile-menu" class="hidden md:hidden px-grid-margin pb-6 pt-2 border-t border-outline-variant/10 dark:border-slate-800 bg-white/95 dark:bg-deep-charcoal/95 w-full">
+      <div class="flex flex-col gap-4 font-body-md text-body-md">
+        <span class="font-mono-label text-[10px] text-slate-400 uppercase tracking-widest mt-2 font-bold">Solutions</span>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/marketing/">Marketing Systems</a>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/automation/">Process Automation</a>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/services/">How We Engage</a>
+        
+        <span class="font-mono-label text-[10px] text-slate-400 uppercase tracking-widest mt-2 font-bold">Company</span>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/about/">How We Work</a>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/projects/">Results</a>
+        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/blog/">Blog</a>
+        
+        <a class="bg-electric-blue text-white px-6 py-3 rounded text-center mt-4 shadow-sm font-semibold" href="/contact/">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow">
+    <main class="w-full pt-32 pb-24">
+  <article class="prose lg:prose-xl mx-auto px-6 py-12">
+    <h1>Building The First-Party Data Moat</h1>
+<p>The global digital economy has entered a structural realignment. For over a decade, B2B go-to-market strategies operated on a model of outsourced intelligence—relying on third-party cookies and ad-network tracking to map buyer behavior. That era is structurally over. Driven by tightening privacy regulations and unilateral policy changes from major tech platforms, the infrastructure of &quot;rented audiences&quot; has collapsed.</p>
+<p>In this new paradigm, competitive leverage belongs exclusively to those who construct sovereign data architectures. First-party data is the primary structural moat of the modern enterprise. Success in 2026 is defined by a firm's capacity to internalize intelligence, capture high-intent telemetry across owned channels, and operationalize that data as a systemic advantage.</p>
+<h2>The Transition From Rent to Sovereignty</h2>
+<p>The transition toward first-party data represents a fundamental reallocation of corporate capital. Historically, businesses traded long-term audience equity for short-term reach, renting access to buyers via third-party platforms. Today, that dependency represents an unacceptable systemic risk.</p>
+<p>To mitigate this vulnerability, enterprises must construct a new value exchange. The traditional gating of static PDFs is insufficient for modern capital extraction. Leading organizations are deploying interactive frameworks, micro-applications, and proprietary benchmarking tools. These assets offer immediate, tangible utility to the buyer. In exchange, buyers willingly provide high-intent data. This transaction establishes a permission-based ecosystem where transparent data practices become a brand differentiator, building structural trust that accelerates the buying cycle.</p>
+<h2>Precision Leverage in Buyer Targeting</h2>
+<p>As the macro environment forces a retreat from broad-scale digital surveillance, the mechanics of Account-Based Marketing (ABM) are undergoing a necessary evolution. Broad account-level targeting is yielding to contact-level precision.</p>
+<p>The underlying driver here is the imperative for efficiency. High-performing go-to-market teams are redirecting their focus to granular, first-party indicators to identify the specific individuals—whether the Head of IT or the Chief Financial Officer—wielding actual purchasing power within the buying committee. By synthesizing clean, internally sovereign first-party data with external predictive intent markers, organizations can anticipate structural needs and deploy targeted outreach before the buyer initiates formal vendor selection. This creates asymmetric information advantages for the seller.</p>
+<h2>RevOps as the Governance Regime</h2>
+<p>Governance is the critical bottleneck in this new data ecosystem. While artificial intelligence adoption is near universal, its commercial output is entirely dependent on the quality of its inputs. Fragmented, siloed data generates friction; structured, unified data generates pipeline velocity.</p>
+<p>Revenue Operations (RevOps) must emerge as the central governing authority over an organization's data architecture. RevOps is tasked with enforcing data hygiene as a strict regulatory regime within the enterprise—automating deduplication, standardizing routing protocols, and ensuring seamless interoperability between marketing and sales infrastructures. Clean first-party data is the essential baseline fuel for any algorithmic go-to-market strategy. Without rigorous RevOps stewardship, the first-party data moat becomes a liability rather than a strategic asset.</p>
+<h2>Strategic Realignment</h2>
+<p>The metrics of success must adapt to reflect this new structural reality. Enterprise focus is pivoting away from raw lead volume and toward systemic metrics like pipeline contribution, velocity, and deal size expansion. The organizations that thrive will be those that view data as the foundational asset of their revenue engine.</p>
+<p>Firms must urgently audit their first-party data maturity and governance frameworks. For those navigating this transition, engaging Caulhaus Consulting Group for a comprehensive RevOps and Data Alignment assessment provides the strategic clarity required to build and defend your operational moat.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>Sovereign Data is Leverage:</strong> Renting audiences through third-party platforms is now a systemic risk; owning a first-party data ecosystem is a structural necessity.</li>
+<li><strong>Value Exchange Redefined:</strong> Static content must be replaced by interactive tools and proprietary benchmarks to secure high-intent buyer telemetry.</li>
+<li><strong>Contact-Level Precision:</strong> Modern ABM relies on granular first-party indicators to target actual decision-makers rather than broad accounts.</li>
+<li><strong>RevOps is the Governing Authority:</strong> Without strict data hygiene and operational protocols enforced by RevOps, raw data creates friction instead of pipeline velocity.</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>Why is first-party data considered a &quot;moat&quot;?</strong>
+First-party data is a moat because it is unique to your organization, completely sovereign, and cannot be replicated by competitors buying third-party lists. It provides an exclusive, permission-based view of buyer behavior.</p>
+<p><strong>How does RevOps contribute to first-party data strategy?</strong>
+RevOps acts as the regulatory authority for data hygiene. By standardizing routing, deduplicating records, and bridging marketing and sales infrastructures, RevOps ensures the data is clean enough to fuel algorithmic go-to-market strategies.</p>
+<p><strong>What replaces the traditional gated PDF in a cookieless world?</strong>
+Modern enterprises deploy interactive frameworks, micro-applications, and proprietary benchmarking tools. These deliver immediate utility, creating a fair value exchange that encourages buyers to willingly provide their data.</p>
+
+  </article>
+</main>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-deep-charcoal border-t border-slate-800/60 w-full mt-section-padding text-white">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-grid-margin py-16 max-w-container-max-width mx-auto">
+      <div class="col-span-1 md:col-span-2 space-y-4">
+        <a href="/" class="inline-block font-headline-sm text-headline-md font-black text-white hover:text-primary-fixed-dim transition-colors">
+          CAULHAUS
+        </a>
+        <p class="font-mono-label text-mono-label text-slate-400 max-w-xs normal-case">
+          © 2026 Caul Haus Group, Inc. All rights reserved.
+        </p>
+      </div>
+      <div class="space-y-4">
+        <h4 class="font-mono-label text-mono-label text-slate-400 uppercase tracking-wider mb-4 font-semibold">Services</h4>
+        <ul class="space-y-3">
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing Systems</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/automation/">Process Automation</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/services/">How We Engage</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h4 class="font-mono-label text-mono-label text-slate-400 uppercase tracking-wider mb-4 font-semibold">Company</h4>
+        <ul class="space-y-3">
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/about/">How We Work</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/projects/">Results</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/blog/">Blog</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/contact/">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu toggle & Scroll Reveal script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      if (mobileMenuBtn && mobileMenu && menuIcon) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.toggle('hidden');
+          menuIcon.textContent = isHidden ? 'menu' : 'close';
+        });
+      }
+
+      // Services Dropdown JS Controller with 200ms Grace Period & Tap Support
+      const sDropdown = document.getElementById('services-dropdown');
+      const sDropdownBtn = document.getElementById('services-btn');
+      const sDropdownMenu = document.getElementById('services-menu');
+      const sDropdownArrow = document.getElementById('services-arrow');
+
+      if (sDropdown && sDropdownBtn && sDropdownMenu) {
+        let closeTimeout = null;
+
+        function openMenu() {
+          if (closeTimeout) clearTimeout(closeTimeout);
+          sDropdownMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1');
+          sDropdownMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          if (sDropdownArrow) sDropdownArrow.classList.add('rotate-180');
+        }
+
+        function closeMenu() {
+          if (closeTimeout) clearTimeout(closeTimeout);
+          closeTimeout = setTimeout(() => {
+            sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
+            if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
+          }, 200);
+        }
+
+        sDropdown.addEventListener('mouseenter', openMenu);
+        sDropdown.addEventListener('mouseleave', closeMenu);
+
+        sDropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = sDropdownMenu.classList.contains('opacity-100');
+          if (isOpen) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!sDropdown.contains(e.target)) {
+            sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
+            if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
+          }
+        });
+      }
+
+      // Scroll-Reveal Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
