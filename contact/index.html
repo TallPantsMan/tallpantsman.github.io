@@ -432,8 +432,17 @@ void main() {
       </div>
     </div>
 
+    <!-- Dynamic Calculator Context Banner (if referred from Hero Calculator) -->
+    <div id="calc-context-banner" class="hidden mb-6 p-4 bg-electric-blue/10 border-2 border-electric-blue/30 rounded-2xl flex items-center gap-3 text-xs">
+      <span class="material-symbols-outlined text-electric-blue text-xl">calculate</span>
+      <div>
+        <div class="font-bold text-deep-charcoal dark:text-white" id="calc-banner-title">Capacity &amp; Waste Audit Configured</div>
+        <div class="text-slate-600 dark:text-slate-300 font-medium" id="calc-banner-subtitle">Pre-filled with your interactive calculation.</div>
+      </div>
+    </div>
+
     <!-- Form Wizard -->
-    <form id="audit-form" action="https://api.web3forms.com/submit" method="POST">
+    <form id="contact-wizard-form" action="https://api.web3forms.com/submit" method="POST">
       
       <!-- Web3Forms Access Key -->
       <input type="hidden" name="access_key" value="ccefd948-13ab-4d13-bc57-993d0edb7eb8">
@@ -717,170 +726,126 @@ void main() {
     input.addEventListener('change', () => updateRadioClasses('crm'));
   });
 
-  const form = document.getElementById('contact-wizard-form');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  const form = document.getElementById('contact-wizard-form') || document.getElementById('audit-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    const name = document.querySelector('input[name="name"]');
-    const email = document.querySelector('input[name="email"]');
-    const website = document.querySelector('input[name="website"]');
-    if (!name.value || !email.value || !website.value) {
-      alert('Please fill out all contact fields before submitting.');
-      return;
-    }
-    if (!email.checkValidity()) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
-
-    const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: json
-      });
-      const result = await response.json();
-      if (result.success) {
-        document.getElementById('success-overlay').classList.remove('hidden');
-      } else {
-        throw new Error('Web3Forms returned failure');
+      const name = document.querySelector('input[name="name"]');
+      const email = document.querySelector('input[name="email"]');
+      if (!name || !name.value || !email || !email.value) {
+        alert('Please enter your name and email address.');
+        return;
       }
-    } catch (err) {
-      console.error(err);
-      const mailtoLink = `mailto:alex@caulhaus.com?subject=Systems Audit Request&body=Goal: ${object.objective}%0D%0ATools: ${object.crm}%0D%0AName: ${object.name}%0D%0AWebsite: ${object.website}%0D%0ATeam Size: ${object.leads}%0D%0AMessage: ${encodeURIComponent(object.message || '')}`;
-      alert('There was a connection issue. We are opening your email client to submit details directly!');
-      window.location.href = mailtoLink;
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Details';
-    }
-  });
+      if (!email.checkValidity()) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      // 1. Dual-post to Google Apps Script Webhook (Master Sheet + Phone Alert)
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const calcTeam = urlParams.get('team');
+        const calcHours = urlParams.get('hours');
+        const calcCost = urlParams.get('cost') || urlParams.get('waste');
+
+        let calcContext = "";
+        if (calcTeam || calcCost) {
+          calcContext = " | Calculator Waste: " + (calcTeam ? calcTeam + " FTEs" : "") + (calcCost ? " ($" + parseInt(calcCost).toLocaleString() + "/yr)" : "");
+        }
+
+        const domainGuess = object.website 
+          ? object.website.replace(/^https?:\/\//, '').replace(/\/.*$/, '') 
+          : (object.email && object.email.includes('@') ? object.email.split('@')[1] : 'unknown');
+
+        const sheetPayload = {
+          apiKey: 'caulhaus_sec_2026_x89',
+          action: 'inbound_lead',
+          name: object.name || 'Website Inbound Lead',
+          email: object.email || '',
+          company: object.website ? domainGuess : 'Inbound Audit Lead',
+          domain: domainGuess,
+          source: 'Website Systems Audit (/contact/)',
+          frictionSummary: 'Goal: ' + (object.objective || 'N/A') + ' | Stack: ' + (object.crm || 'N/A') + ' | Team: ' + (object.leads || 'N/A') + calcContext,
+          message: 'Systems Audit Intake:\nGoal: ' + (object.objective || '') + '\nStack: ' + (object.crm || '') + '\nTeam Size: ' + (object.leads || '') + (calcContext ? '\n' + calcContext : '') + (object.message ? '\nDetails: ' + object.message : '')
+        };
+
+        fetch('https://script.google.com/macros/s/AKfycbwF-blXk8RZ8EHU_Oli9ilCp_PaRutCrxlAOpvGj_0PCfO-9IRPBsWM8HMVMFNEyEE/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(sheetPayload)
+        }).catch(function(e) { console.warn('Sheet webhook push error', e); });
+      } catch (e) {
+        console.warn('Dual-post error', e);
+      }
+
+      // 2. Post to Web3Forms
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        });
+        const result = await response.json();
+        if (result.success) {
+          document.getElementById('success-overlay').classList.remove('hidden');
+        } else {
+          throw new Error('Web3Forms returned failure');
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById('success-overlay').classList.remove('hidden');
+      }
+    });
+  }
 
   document.addEventListener('DOMContentLoaded', () => {
     updateRadioClasses('objective');
     updateRadioClasses('crm');
     showStep(1);
+
+    // Check for calculator parameters from Homepage Hero
+    const urlParams = new URLSearchParams(window.location.search);
+    const team = urlParams.get('team');
+    const hours = urlParams.get('hours');
+    const cost = urlParams.get('cost') || urlParams.get('waste');
+
+    if (team || cost) {
+      const banner = document.getElementById('calc-context-banner');
+      const bannerSubtitle = document.getElementById('calc-banner-subtitle');
+      if (banner && bannerSubtitle) {
+        banner.classList.remove('hidden');
+        bannerSubtitle.textContent = 'Configured for ' + (team ? team + ' FTEs' : '') + (hours ? ' (' + hours + ' hrs/wk in sheets)' : '') + (cost ? ' with ~$' + parseInt(cost).toLocaleString() + '/yr estimated waste.' : '.');
+      }
+
+      // Pre-select team size dropdown
+      const teamSelect = document.querySelector('select[name="leads"]');
+      if (teamSelect && team) {
+        const tNum = parseInt(team);
+        if (tNum <= 10) teamSelect.value = '<10';
+        else if (tNum <= 50) teamSelect.value = '10-50';
+        else if (tNum <= 200) teamSelect.value = '50-200';
+        else teamSelect.value = '200+';
+      }
+
+      // Pre-populate message textarea with calculation context if empty
+      const messageArea = document.querySelector('textarea[name="message"]');
+      if (messageArea && !messageArea.value) {
+        messageArea.value = 'Calculator figures: Team of ' + (team || 20) + ' losing ~' + (hours || 4) + ' hrs/wk in spreadsheets (~$' + (cost ? parseInt(cost).toLocaleString() : '249,120') + '/yr payroll waste). Looking to reclaim this capacity.';
+      }
+    }
   });
 </script>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-deep-charcoal border-t border-slate-800/60 w-full mt-section-padding text-white">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-grid-margin py-16 max-w-container-max-width mx-auto">
-      <div class="col-span-1 md:col-span-2 space-y-4">
-        <a href="/" class="inline-block font-headline-sm text-headline-md font-black text-white hover:text-primary-fixed-dim transition-colors">
-          CAULHAUS
-        </a>
-        <p class="font-mono-label text-mono-label text-slate-400 max-w-xs normal-case">
-          © 2026 Caul Haus Group, Inc. All rights reserved.
-        </p>
-      </div>
-      <div class="space-y-4">
-        <h4 class="font-mono-label text-mono-label text-slate-400 uppercase tracking-wider mb-4 font-semibold">Services</h4>
-        <ul class="space-y-3">
-          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing Systems</a></li>
-          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/automation/">Process Automation</a></li>
-          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/services/">How We Engage</a></li>
-        </ul>
-      </div>
-      <div class="space-y-4">
-        <h4 class="font-mono-label text-mono-label text-slate-400 uppercase tracking-wider mb-4 font-semibold">Company</h4>
-        <ul class="space-y-3">
-          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/about/">How We Work</a></li>
-          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/projects/">Results</a></li>
-          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/blog/">Blog</a></li>
-          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors text-primary-fixed-dim font-bold opacity-100" href="/contact/">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Mobile Menu toggle & Scroll Reveal script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const menuIcon = document.getElementById('menu-icon');
-
-      if (mobileMenuBtn && mobileMenu && menuIcon) {
-        mobileMenuBtn.addEventListener('click', () => {
-          const isHidden = mobileMenu.classList.toggle('hidden');
-          menuIcon.textContent = isHidden ? 'menu' : 'close';
-        });
-      }
-
-      // Services Dropdown JS Controller with 200ms Grace Period & Tap Support
-      const sDropdown = document.getElementById('services-dropdown');
-      const sDropdownBtn = document.getElementById('services-btn');
-      const sDropdownMenu = document.getElementById('services-menu');
-      const sDropdownArrow = document.getElementById('services-arrow');
-
-      if (sDropdown && sDropdownBtn && sDropdownMenu) {
-        let closeTimeout = null;
-
-        function openMenu() {
-          if (closeTimeout) clearTimeout(closeTimeout);
-          sDropdownMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1');
-          sDropdownMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-          if (sDropdownArrow) sDropdownArrow.classList.add('rotate-180');
-        }
-
-        function closeMenu() {
-          if (closeTimeout) clearTimeout(closeTimeout);
-          closeTimeout = setTimeout(() => {
-            sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
-            if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
-          }, 200);
-        }
-
-        sDropdown.addEventListener('mouseenter', openMenu);
-        sDropdown.addEventListener('mouseleave', closeMenu);
-
-        sDropdownBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const isOpen = sDropdownMenu.classList.contains('opacity-100');
-          if (isOpen) {
-            closeMenu();
-          } else {
-            openMenu();
-          }
-        });
-
-        document.addEventListener('click', (e) => {
-          if (!sDropdown.contains(e.target)) {
-            sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
-            if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
-          }
-        });
-      }
-
-      // Scroll-Reveal Intersection Observer
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      }, {
-        threshold: 0.1
-      });
-
-      document.querySelectorAll('.reveal').forEach((el) => {
-        observer.observe(el);
-      });
-    });
-  </script>
 </body>
 </html>
