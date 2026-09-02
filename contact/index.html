@@ -805,6 +805,7 @@ void main() {
         }
       } catch (err) {
         console.error(err);
+        // If web3forms failed but sheet received it, show overlay anyway or fallback to mailto
         document.getElementById('success-overlay').classList.remove('hidden');
       }
     });
@@ -847,5 +848,116 @@ void main() {
     }
   });
 </script>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-deep-charcoal border-t border-slate-800/60 w-full mt-section-padding text-white">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-grid-margin py-16 max-w-container-max-width mx-auto">
+      <div class="col-span-1 md:col-span-2 space-y-4">
+        <a href="/" class="inline-block font-headline-sm text-headline-md font-black text-white hover:text-primary-fixed-dim transition-colors">
+          CAULHAUS
+        </a>
+        <p class="font-mono-label text-mono-label text-slate-400 max-w-xs normal-case">
+          © 2026 Caul Haus Group, Inc. All rights reserved.
+        </p>
+      </div>
+      <div class="space-y-4">
+        <h4 class="font-mono-label text-mono-label text-slate-400 uppercase tracking-wider mb-4 font-semibold">Services</h4>
+        <ul class="space-y-3">
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/marketing/">Marketing Systems</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/automation/">Process Automation</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/services/">How We Engage</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h4 class="font-mono-label text-mono-label text-slate-400 uppercase tracking-wider mb-4 font-semibold">Company</h4>
+        <ul class="space-y-3">
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/about/">How We Work</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/projects/">Results</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/blog/">Blog</a></li>
+          <li><a class="font-mono-label text-mono-label text-slate-200 hover:text-primary-fixed-dim transition-colors text-primary-fixed-dim font-bold opacity-100" href="/contact/">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu toggle & Scroll Reveal script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      if (mobileMenuBtn && mobileMenu && menuIcon) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.toggle('hidden');
+          menuIcon.textContent = isHidden ? 'menu' : 'close';
+        });
+      }
+
+      // Services Dropdown JS Controller with 200ms Grace Period & Tap Support
+      const sDropdown = document.getElementById('services-dropdown');
+      const sDropdownBtn = document.getElementById('services-btn');
+      const sDropdownMenu = document.getElementById('services-menu');
+      const sDropdownArrow = document.getElementById('services-arrow');
+
+      if (sDropdown && sDropdownBtn && sDropdownMenu) {
+        let closeTimeout = null;
+
+        function openMenu() {
+          if (closeTimeout) clearTimeout(closeTimeout);
+          sDropdownMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1');
+          sDropdownMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          if (sDropdownArrow) sDropdownArrow.classList.add('rotate-180');
+        }
+
+        function closeMenu() {
+          if (closeTimeout) clearTimeout(closeTimeout);
+          closeTimeout = setTimeout(() => {
+            sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
+            if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
+          }, 200);
+        }
+
+        sDropdown.addEventListener('mouseenter', openMenu);
+        sDropdown.addEventListener('mouseleave', closeMenu);
+
+        sDropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = sDropdownMenu.classList.contains('opacity-100');
+          if (isOpen) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!sDropdown.contains(e.target)) {
+            sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
+            if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
+          }
+        });
+      }
+
+      // Scroll-Reveal Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>
