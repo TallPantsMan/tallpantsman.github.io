@@ -217,7 +217,7 @@ description: Marketing strategy and execution, plus the operational systems and 
       }).then(function() {
         form.classList.add('hidden');
         feedback.classList.remove('hidden');
-        feedback.textContent = '&#x2705; Calculation saved! Check your email shortly.';
+        feedback.innerHTML = '<span class="text-brand-emerald font-bold">&check;</span> Calculation saved! Check your email shortly.';
       }).catch(function() {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Summary';
