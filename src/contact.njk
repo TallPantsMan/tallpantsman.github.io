@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Request a Systems Audit | CaulHaus
-description: Tell us what's broken, slow, or manual — in your marketing, your ops, or both. We'll tell you what's fixable.
+description: Tell us what's broken, slow, or manual in your operations or cross-tool workflows. We'll tell you what is fixable.
 ---<!-- Page-Specific JSON-LD Schema -->
 <script type="application/ld+json">
 {
@@ -12,7 +12,7 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
       "@id": "https://caulhaus.com/contact/#webpage",
       "url": "https://caulhaus.com/contact/",
       "name": "Request a Systems Audit | CaulHaus",
-      "description": "Request a marketing and operations systems audit with CaulHaus. We audit your workflows, strategy, and automation stack.",
+      "description": "Request an operations architecture and systems audit with CaulHaus. We audit your workflows, handoffs, and automation stack.",
       "mainEntity": {
         "@type": "ContactPoint",
         "contactType": "Sales & Systems Audits",
@@ -35,7 +35,7 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
       Request Your Systems Audit.
     </h1>
     <p class="font-body-lg text-body-lg text-slate-gray max-w-xl mx-auto font-light leading-relaxed">
-      Tell us what’s broken, slow, or manual in your marketing or operations. Receive a customized 24-hour review and clear automation roadmap — architected directly by our founder, with the backing of an agency network.
+      Tell us what's broken, slow, or manual in your operations or cross-tool workflows. Receive a customized 24-hour review and clear automation roadmap — architected directly by our founder, with the backing of a specialist network.
     </p>
   </div>
 </section>
@@ -55,17 +55,8 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
       </div>
     </div>
 
-    <!-- Dynamic Calculator Context Banner (if referred from Hero Calculator) -->
-    <div id="calc-context-banner" class="hidden mb-6 p-4 bg-electric-blue/10 border-2 border-electric-blue/30 rounded-2xl flex items-center gap-3 text-xs">
-      <span class="material-symbols-outlined text-electric-blue text-xl">calculate</span>
-      <div>
-        <div class="font-bold text-slate-900 dark:text-white font-black text-sm" id="calc-banner-title">Capacity &amp; Waste Audit Configured</div>
-        <div class="text-slate-700 dark:text-slate-200 font-semibold text-xs" id="calc-banner-subtitle">Pre-filled with your interactive calculation.</div>
-      </div>
-    </div>
-
     <!-- Form Wizard -->
-    <form id="contact-wizard-form" action="https://api.web3forms.com/submit" method="POST">
+    <form id="audit-form" action="https://api.web3forms.com/submit" method="POST">
       
       <!-- Web3Forms Access Key -->
       <input type="hidden" name="access_key" value="ccefd948-13ab-4d13-bc57-993d0edb7eb8">
@@ -77,28 +68,42 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
       <div id="wizard-step-1" class="wizard-step space-y-4 animate-fade-in">
         <div>
           <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">What is your primary goal?</h3>
-          <p class="text-xs text-slate-gray font-light">Select the main area you want to fix or scale.</p>
+          <p class="text-xs text-slate-gray font-light">Select the main operational area you want to fix or scale.</p>
         </div>
         <div class="space-y-2.5 pt-2">
           <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border-2 border-electric-blue bg-electric-blue/5 cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Marketing Campaign Strategy & Attribution" checked class="accent-electric-blue w-4 h-4 mr-3">
+            <input type="radio" name="objective" value="UX &amp; Product Operations" checked class="accent-electric-blue w-4 h-4 mr-3">
             <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Marketing Strategy &amp; Attribution</span>
-              <span class="text-[11px] text-slate-gray font-light">Positioning, campaign execution, and revenue attribution</span>
+              <span class="text-xs font-bold text-deep-charcoal block">UX &amp; Product Operations</span>
+              <span class="text-[11px] text-slate-gray font-light">Design handoffs, research repositories, team syncs</span>
             </div>
           </label>
           <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Resource & Capacity Planning (Google Apps Script)" class="accent-electric-blue w-4 h-4 mr-3">
+            <input type="radio" name="objective" value="Vendor &amp; Partner Management" class="accent-electric-blue w-4 h-4 mr-3">
             <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Resource &amp; Capacity Planning</span>
-              <span class="text-[11px] text-slate-gray font-light">Custom Google Workspace tools for team scheduling</span>
+              <span class="text-xs font-bold text-deep-charcoal block">Vendor &amp; Partner Management</span>
+              <span class="text-[11px] text-slate-gray font-light">Contracts, onboarding, invoice/billing workflows</span>
             </div>
           </label>
           <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Process & Operations Automation" class="accent-electric-blue w-4 h-4 mr-3">
+            <input type="radio" name="objective" value="Marketing Operations" class="accent-electric-blue w-4 h-4 mr-3">
             <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Process Automation &amp; Integrations</span>
-              <span class="text-[11px] text-slate-gray font-light">Automating manual spreadsheet tasks and CRM syncs</span>
+              <span class="text-xs font-bold text-deep-charcoal block">Marketing Operations</span>
+              <span class="text-[11px] text-slate-gray font-light">Campaign tracking infrastructure, attribution hygiene, lead routing</span>
+            </div>
+          </label>
+          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
+            <input type="radio" name="objective" value="Capacity Planning &amp; General Automation" class="accent-electric-blue w-4 h-4 mr-3">
+            <div>
+              <span class="text-xs font-bold text-deep-charcoal block">Capacity Planning &amp; General Automation</span>
+              <span class="text-[11px] text-slate-gray font-light">Spreadsheet elimination, Google Workspace, custom scripts</span>
+            </div>
+          </label>
+          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
+            <input type="radio" name="objective" value="Commercial &amp; Revenue Operations" class="accent-electric-blue w-4 h-4 mr-3">
+            <div>
+              <span class="text-xs font-bold text-deep-charcoal block">Commercial &amp; Revenue Operations</span>
+              <span class="text-[11px] text-slate-gray font-light">Deal desk, CRM handoffs, pipeline tracking</span>
             </div>
           </label>
         </div>
@@ -217,20 +222,20 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
         <h2 class="font-headline-md text-headline-sm font-bold text-deep-charcoal">What's Included in Your Audit</h2>
       </div>
       <p class="text-xs text-slate-gray font-light leading-relaxed">
-        Our Systems Audit is a targeted review of your current marketing channels, operational workflows, and tech stack — designed to spot bottlenecks and automation opportunities.
+        Our Systems Audit is a targeted evaluation of your operational workflows, spreadsheet dependencies, and integration architecture—designed to locate bottlenecks and automation opportunities across your teams.
       </p>
       <ul class="space-y-3 text-xs text-deep-charcoal font-medium pt-2 list-none p-0">
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5">check_circle</span>
-          <span><strong>Architecture Consultation:</strong> 1-on-1 review with Lead Strategist Alex Herbstman.</span>
+          <span><strong>Architecture Consultation:</strong> 1-on-1 review with Operations Architect Alex Herbstman.</span>
         </li>
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5">check_circle</span>
-          <span><strong>Tech &amp; Workflow Teardown:</strong> Detailed assessment of your Google Workspace, CRM, and marketing automation setup.</span>
+          <span><strong>Workflow &amp; System Teardown:</strong> Detailed assessment of your Google Workspace, CRM, and cross-tool handoffs.</span>
         </li>
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5">check_circle</span>
-          <span><strong>Actionable Automation Roadmap:</strong> Clear priority list of manual tasks to eliminate and attribution bottlenecks to fix.</span>
+          <span><strong>Actionable Automation Roadmap:</strong> Prioritized technical roadmap to eliminate manual spreadsheet maintenance and resolve workflow bottlenecks.</span>
         </li>
       </ul>
     </div>
@@ -258,7 +263,7 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
       </div>
       <div class="pt-4 border-t border-outline-variant/20">
         <p class="text-[11px] text-slate-gray font-light italic">
-          No pushy sales calls. Every audit is handled directly by a strategist who writes software.
+          We never conduct high-pressure sales calls. Every audit is conducted directly by an operations architect who writes code.
         </p>
       </div>
     </div>
@@ -349,15 +354,16 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
     input.addEventListener('change', () => updateRadioClasses('crm'));
   });
 
-  const form = document.getElementById('contact-wizard-form') || document.getElementById('audit-form');
+  const form = document.getElementById('audit-form') || document.getElementById('contact-wizard-form');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = document.querySelector('input[name="name"]');
       const email = document.querySelector('input[name="email"]');
-      if (!name || !name.value || !email || !email.value) {
-        alert('Please enter your name and email address.');
+      const website = document.querySelector('input[name="website"]');
+      if (!name.value || !email.value || !website.value) {
+        alert('Please fill out all contact fields before submitting.');
         return;
       }
       if (!email.checkValidity()) {
@@ -365,109 +371,42 @@ description: Tell us what's broken, slow, or manual — in your marketing, your 
         return;
       }
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
 
-      const formData = new FormData(form);
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-      // 1. Dual-post to Google Apps Script Webhook (Master Sheet + Phone Alert)
-      try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const calcTeam = urlParams.get('team');
-        const calcHours = urlParams.get('hours');
-        const calcCost = urlParams.get('cost') || urlParams.get('waste');
-
-        let calcContext = "";
-        if (calcTeam || calcCost) {
-          calcContext = " | Calculator Waste: " + (calcTeam ? calcTeam + " FTEs" : "") + (calcCost ? " ($" + parseInt(calcCost).toLocaleString() + "/yr)" : "");
-        }
-
-        const domainGuess = object.website 
-          ? object.website.replace(/^https?:\/\//, '').replace(/\/.*$/, '') 
-          : (object.email && object.email.includes('@') ? object.email.split('@')[1] : 'unknown');
-
-        const sheetPayload = {
-          apiKey: 'caulhaus_sec_2026_x89',
-          action: 'inbound_lead',
-          name: object.name || 'Website Inbound Lead',
-          email: object.email || '',
-          company: object.website ? domainGuess : 'Inbound Audit Lead',
-          domain: domainGuess,
-          source: 'Website Systems Audit (/contact/)',
-          frictionSummary: 'Goal: ' + (object.objective || 'N/A') + ' | Stack: ' + (object.crm || 'N/A') + ' | Team: ' + (object.leads || 'N/A') + calcContext,
-          message: 'Systems Audit Intake:\nGoal: ' + (object.objective || '') + '\nStack: ' + (object.crm || '') + '\nTeam Size: ' + (object.leads || '') + (calcContext ? '\n' + calcContext : '') + (object.message ? '\nDetails: ' + object.message : '')
-        };
-
-        fetch('https://script.google.com/macros/s/AKfycbwF-blXk8RZ8EHU_Oli9ilCp_PaRutCrxlAOpvGj_0PCfO-9IRPBsWM8HMVMFNEyEE/exec', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(sheetPayload)
-        }).catch(function(e) { console.warn('Sheet webhook push error', e); });
-      } catch (e) {
-        console.warn('Dual-post error', e);
-      }
-
-      // 2. Post to Web3Forms
-      try {
-        const response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: json
-        });
-        const result = await response.json();
-        if (result.success) {
-          document.getElementById('success-overlay').classList.remove('hidden');
-        } else {
-          throw new Error('Web3Forms returned failure');
-        }
-      } catch (err) {
-        console.error(err);
-        // If web3forms failed but sheet received it, show overlay anyway or fallback to mailto
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      });
+      const result = await response.json();
+      if (result.success) {
         document.getElementById('success-overlay').classList.remove('hidden');
+      } else {
+        throw new Error('Web3Forms returned failure');
       }
-    });
+    } catch (err) {
+      console.error(err);
+      const mailtoLink = `mailto:alex@caulhaus.com?subject=Systems Audit Request&body=Goal: ${object.objective}%0D%0ATools: ${object.crm}%0D%0AName: ${object.name}%0D%0AWebsite: ${object.website}%0D%0ATeam Size: ${object.leads}%0D%0AMessage: ${encodeURIComponent(object.message || '')}`;
+      alert('There was a connection issue. We are opening your email client to submit details directly!');
+      window.location.href = mailtoLink;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Details';
+    }
+  });
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     updateRadioClasses('objective');
     updateRadioClasses('crm');
     showStep(1);
-
-    // Check for calculator parameters from Homepage Hero
-    const urlParams = new URLSearchParams(window.location.search);
-    const team = urlParams.get('team');
-    const hours = urlParams.get('hours');
-    const cost = urlParams.get('cost') || urlParams.get('waste');
-
-    if (team || cost) {
-      const banner = document.getElementById('calc-context-banner');
-      const bannerSubtitle = document.getElementById('calc-banner-subtitle');
-      if (banner && bannerSubtitle) {
-        banner.classList.remove('hidden');
-        bannerSubtitle.textContent = 'Configured for ' + (team ? team + ' FTEs' : '') + (hours ? ' (' + hours + ' hrs/wk in sheets)' : '') + (cost ? ' with ~$' + parseInt(cost).toLocaleString() + '/yr estimated waste.' : '.');
-      }
-
-      // Pre-select team size dropdown
-      const teamSelect = document.querySelector('select[name="leads"]');
-      if (teamSelect && team) {
-        const tNum = parseInt(team);
-        if (tNum <= 10) teamSelect.value = '<10';
-        else if (tNum <= 50) teamSelect.value = '10-50';
-        else if (tNum <= 200) teamSelect.value = '50-200';
-        else teamSelect.value = '200+';
-      }
-
-      // Pre-populate message textarea with calculation context if empty
-      const messageArea = document.querySelector('textarea[name="message"]');
-      if (messageArea && !messageArea.value) {
-        messageArea.value = 'Calculator figures: Team of ' + (team || 20) + ' losing ~' + (hours || 4) + ' hrs/wk in spreadsheets (~$' + (cost ? parseInt(cost).toLocaleString() : '249,120') + '/yr payroll waste). Looking to reclaim this capacity.';
-      }
-    }
   });
 </script>
