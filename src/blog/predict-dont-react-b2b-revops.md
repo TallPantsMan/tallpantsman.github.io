@@ -148,7 +148,7 @@ function auditPipelineHealth() {
 
 Our revenue systems audits consistently reveal three hidden data points that predict 85% of slipped deals:
 
-1. **The Single-Threaded Trap:** If a deal exceeding $50,000 only has one email contact logged in the CRM, the deal is 74% more likely to stall. When that single contact goes on vacation or changes jobs, the opportunity dies instantly.
+1. **The Single-Threaded Trap:** If a deal exceeding $50,000 only has one email contact logged in the CRM, the deal is 74% more likely to stall. When that single contact goes on vacation or changes jobs, the opportunity stalls indefinitely.
 2. **Response Latency Inversion:** In the early stages of a deal, prospects respond in an average of 4 hours. If their response latency suddenly stretches to 72+ hours during the contracting stage, procurement or budget freezes have occurred.
 3. **Ghosting on Final Terms:** When more than 10 days elapse without inbound communication following an order form delivery, close rates drop below 12%.
 
