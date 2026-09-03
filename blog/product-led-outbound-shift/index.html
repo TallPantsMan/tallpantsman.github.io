@@ -379,8 +379,8 @@ void main() {
 
   <!-- Main Content Area -->
   <main class="flex-grow">
-    <main class="w-full pt-32 pb-24">
-  <article class="prose lg:prose-xl mx-auto px-6 py-12">
+    <main class="w-full pt-40 pb-24">
+  <article class="prose lg:prose-xl mx-auto px-6 py-8 font-body-md text-slate-800 dark:text-slate-200">
     <h1>The Product-Led Outbound Shift: Merging PLG Telemetry with Targeted Sales</h1>
 <p><em>By Alex Herbstman • Published September 2, 2026 • Reading time: 7 min</em></p>
 <div class="my-8 p-6 bg-slate-50 dark:bg-slate-800/90 border-2 border-electric-blue/40 rounded-2xl shadow-sm">
@@ -607,6 +607,124 @@ function evaluateProductUsageEvent(e) {
 
   </article>
 </main>
+
+<style>
+  /* =========================================================
+     CaulHaus High-Contrast Editorial & Article Typography System
+     ========================================================= */
+
+  /* Ensure article H1 has plenty of breathing room below fixed navbar */
+  article h1:first-of-type {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.25 !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+  }
+  .dark article h1:first-of-type {
+    color: #ffffff !important;
+  }
+
+  /* AEO Direct Answer Box: High-Contrast Midnight Executive Card */
+  article .bg-slate-50,
+  article [class*="border-electric-blue"] {
+    background-color: #0b0f19 !important;
+    border: 2px solid #38bdf8 !important;
+    color: #f8fafc !important;
+    border-radius: 1rem !important;
+    padding: 1.5rem !important;
+    margin: 2.25rem 0 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.2) !important;
+  }
+  article .bg-slate-50 p,
+  article [class*="border-electric-blue"] p {
+    color: #e2e8f0 !important;
+    line-height: 1.65 !important;
+    font-size: 0.925rem !important;
+  }
+  article .bg-slate-50 strong,
+  article [class*="border-electric-blue"] strong {
+    color: #ffffff !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+  }
+  article .bg-slate-50 [class*="text-electric-blue"],
+  article [class*="border-electric-blue"] [class*="text-electric-blue"] {
+    color: #38bdf8 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em !important;
+  }
+  article .bg-slate-50 .material-symbols-outlined,
+  article [class*="border-electric-blue"] .material-symbols-outlined {
+    color: #38bdf8 !important;
+  }
+
+  /* ASCII Architecture & Code Blocks: Monospace High-Contrast Precision */
+  article pre {
+    background-color: #070a12 !important;
+    border: 1.5px solid #1e293b !important;
+    border-radius: 0.75rem !important;
+    color: #f1f5f9 !important;
+    padding: 1.25rem !important;
+    line-height: 1.35 !important;
+    font-size: 0.85rem !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+    overflow-x: auto !important;
+  }
+  article pre code {
+    color: #f1f5f9 !important;
+    background: transparent !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  /* Data Tables: Polished Executive Matrices */
+  article table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: 0.75rem !important;
+    overflow: hidden !important;
+    margin: 2.25rem 0 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  }
+  article th {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    font-size: 0.875rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.875rem 1rem !important;
+    border-bottom: 2px solid #cbd5e1 !important;
+    border-right: 1px solid #e2e8f0 !important;
+    text-align: left !important;
+  }
+  article th:last-child {
+    border-right: none !important;
+  }
+  article td {
+    padding: 0.875rem 1rem !important;
+    color: #1e293b !important;
+    font-size: 0.925rem !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    border-right: 1px solid #e2e8f0 !important;
+    background-color: #ffffff !important;
+  }
+  article td:last-child {
+    border-right: none !important;
+  }
+  article tr:last-child td {
+    border-bottom: none !important;
+  }
+  article tr:nth-child(even) td {
+    background-color: #f8fafc !important;
+  }
+</style>
+
   </main>
 
   <!-- Footer -->
