@@ -35,7 +35,7 @@ Here is the technical architectural breakdown of how we deployed native Google A
 
 When an operations team needs to automate a routine workflow—such as routing inbound website leads to Salesforce, logging deal desk inquiries, or tracking resource allocation—the default playbook is buying middleware:
 
-1. **The Polling Tax:** Standard low-tier middleware checks for updates on 5-to-15-minute polling schedules, destroying real-time "speed-to-lead."
+1. **The Polling Tax:** Standard low-tier middleware checks for updates on 5-to-15-minute polling schedules, compromising real-time "speed-to-lead."
 2. **The Per-Task Meter:** As transaction volumes scale, tiered pricing turns high-volume automation into a variable expense penalty.
 3. **The Data Silo:** Point solutions store intermediate state in proprietary clouds, making data audits and compliance verification needlessly complex.
 
