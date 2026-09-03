@@ -25,7 +25,7 @@ Every business leader agrees that community is valuable.
 
 Yet most B2B companies treat community like a traditional marketing funnel: they create a Slack workspace, invite prospects, and immediately instruct their sales team to direct-message members with meeting requests.
 
-The outcome is immediate failure: the community dies within sixty days, members leave, and the brand’s reputation is damaged.
+The outcome is immediate failure: community engagement stalls within sixty days, members leave, and the brand’s reputation is damaged.
 
 Authentic **Community-Led Growth (CLG)** does not mean building an audience to sell to. It means **earning trust inside the rooms where practitioners solve difficult problems**.
 
@@ -151,7 +151,7 @@ function handleCommunityInquiry(e) {
 
 ### The Law of Reciprocity: Give Away Your Best Ideas for Free
 
-The fatal flaw of legacy consulting firms is hoarding knowledge behind expensive discovery engagements. They sell advice by creating artificial information asymmetry.
+The core limitation of legacy consulting firms is hoarding knowledge behind expensive discovery engagements. They sell advice by creating artificial information asymmetry.
 
 In modern software and RevOps, **knowledge is free; execution is scarce**.
 
