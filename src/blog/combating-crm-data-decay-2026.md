@@ -148,7 +148,7 @@ This approach is obsolete. By the time the batch cleanup finishes, new data deca
 By embedding **hygiene at the edge**:
 1. **Zero Lead Drift:** Inquiries are validated the exact millisecond they hit your web forms or webhook endpoints.
 2. **Automated Stack Tagging:** The script identifies whether the prospect’s company runs on Google Workspace or Microsoft 365 based on their MX records, equipping your sales reps with instant tech-stack context.
-3. **Protected Sender Reputation:** Sales reps never email a dead inbox because unverified records are automatically quarantined before reaching outbound sequencing tools.
+3. **Protected Sender Reputation:** Sales reps never email an inactive or invalid inbox because unverified records are automatically quarantined before reaching outbound sequencing tools.
 
 ---
 
