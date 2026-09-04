@@ -1,35 +1,35 @@
 # CaulHaus
 
-> CaulHaus provides operations architecture and workflow automation to eliminate spreadsheet bottlenecks and connect cross-tool handoffs.
+> CaulHaus connects your everyday tools and builds custom automations to eliminate manual busywork and messy spreadsheets.
 
 ## Overview
-CaulHaus is led by an operations architect and engineer with over a decade of cross-functional systems experience, including three years building operational automation systems within an extended network inside one of the largest technology enterprises in the world.
+CaulHaus is led by Alex Herbstman, a systems developer and founder with over a decade of hands-on experience connecting tools and automating workflows, including three years building enterprise automation systems within an extended network inside one of the largest technology companies in the world.
 
-Most operational workflows fail during handoffs between disconnected software platforms and teams. CaulHaus engineers complete operational architecture: we diagnose bottlenecks, streamline processes, and develop automated scripts and integrations that allow teams to operate reliably without adding software subscription overhead.
+Most teams lose hundreds of hours copying data between spreadsheets, chasing status updates, and doing repetitive tasks by hand because their software does not talk to each other. CaulHaus diagnoses your bottlenecks and writes working automations directly inside the tools you already use—no extra software subscriptions required.
 
-## The Five Operational Pillars
-CaulHaus structures all operational architecture across five core domains:
+## The Five Everyday Areas We Connect
+CaulHaus organizes workflows and automations across five everyday areas:
 
-1. UX & Product Operations: We streamline design-to-development handoffs, centralize research repositories, and synchronize cross-functional project tracking across Jira, Linear, and Figma.
-2. Vendor & Partner Management: We automate contract renewal alerting, contractor onboarding pipelines, and multi-currency invoice reconciliation workflows.
-3. Marketing Operations: We deploy attribution plumbing, server-side tracking infrastructure, event taxonomies, and automated CRM lead routing pipelines.
-4. Internal Capacity & General Automation: We eliminate brittle spreadsheets, automate capacity planning calculations, and deploy custom Google Workspace and Google Apps Script solutions.
-5. Commercial & Revenue Operations: We engineer deal desk validation logic, CRM-to-billing synchronizations, and sales-to-finance handoff workflows.
+1. Product & Design Hand-Offs: We automate moving user feedback, design assets, and feature requests to developers without manual chasing.
+2. Vendors & Partners: We set up automated contract renewal reminders and streamline partner onboarding without endless email threads.
+3. Marketing Plumbing & Leads: We build instant lead routing to deliver form submissions to sales reps in seconds, and track which marketing efforts actually generate revenue.
+4. Everyday Team Busywork: We eliminate manual copy-pasting in Google Sheets, generate weekly reports automatically, and track team workloads.
+5. Sales, Invoicing & Billing: We ensure signed deals automatically generate invoices and sync cleanly to customer CRM records.
 
-## How We Engage (/services/)
-1. Operations & Workflow Audit: A comprehensive diagnosis of operational bottlenecks, technical debt, and spreadsheet fragility with a prioritized architecture roadmap.
-2. Workflow Automation Build: End-to-end design and deployment of custom automations, webhook bridges, and system handoffs across existing tools.
-3. Ongoing Operations Retainer: Continuous systems engineering, proactive workflow monitoring, and integration maintenance as operational scale expands.
+## How We Work (/services/)
+1. The 2-Week Workflow Audit: A focused two-week diagnostic to map your time-wasters, eliminate spreadsheet bottlenecks, and deliver your first working automation prototype.
+2. Full Automation Build: End-to-end design and deployment of custom background automations and tool connections directly inside your software.
+3. On-Call Support & Maintenance: Monthly on-call help to maintain existing workflows, adapt to tool updates, and build new automations as your business grows.
 
-## Track Record & Operational Impact
-- We engineered and deployed an enterprise resource planning and capacity system that onboarded 17 teams and 37 people on a single Google Apps Script architecture, recovering approximately 590 hours per month in saved manual status tracking.
-- We eliminate recurring SaaS costs by building directly on top of your existing Google Workspace, CRM, and internal tool APIs.
+## Track Record & Impact
+- We built and rolled out a Google Workspace capacity planner across 17 teams and 37 people, recovering roughly 590 hours a month in saved manual status chasing.
+- We build directly on top of your existing tools (Google Workspace, CRM, project trackers) without adding software fees.
 
 ## Official Site Pages
 - Homepage: https://caulhaus.com/
-- Operations Architecture & Services: https://caulhaus.com/services/
-- Process Automation: https://caulhaus.com/automation/
-- Marketing Operations: https://caulhaus.com/marketing/
+- Everyday Automations & Engagements: https://caulhaus.com/services/
+- How It Works: https://caulhaus.com/automation/
+- Marketing Plumbing: https://caulhaus.com/marketing/
 - Results & Case Studies: https://caulhaus.com/projects/
 - About Us: https://caulhaus.com/about/
 - Contact Us: https://caulhaus.com/contact/
