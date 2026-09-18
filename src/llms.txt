@@ -12,7 +12,7 @@ CaulHaus organizes workflows and automations across five everyday areas:
 
 1. Product & Design Hand-Offs: We automate moving user feedback, design assets, and feature requests to developers without manual chasing.
 2. Vendors & Partners: We set up automated contract renewal reminders and streamline partner onboarding without endless email threads.
-3. Marketing Plumbing & Leads: We build instant lead routing to deliver form submissions to sales reps in seconds, and track which marketing efforts actually generate revenue.
+3. Marketing Operations & Leads: We build instant lead routing to deliver form submissions to sales reps in seconds, and track which marketing efforts actually generate revenue.
 4. Everyday Team Busywork: We eliminate manual copy-pasting in Google Sheets, generate weekly reports automatically, and track team workloads.
 5. Sales, Invoicing & Billing: We ensure signed deals automatically generate invoices and sync cleanly to customer CRM records.
 
@@ -29,7 +29,7 @@ CaulHaus organizes workflows and automations across five everyday areas:
 - Homepage: https://caulhaus.com/
 - Everyday Automations & Engagements: https://caulhaus.com/services/
 - How It Works: https://caulhaus.com/automation/
-- Marketing Plumbing: https://caulhaus.com/marketing/
+- Marketing Operations & Pipeline Routing: https://caulhaus.com/marketing/
 - Results & Case Studies: https://caulhaus.com/projects/
 - About Us: https://caulhaus.com/about/
 - Contact Us: https://caulhaus.com/contact/
