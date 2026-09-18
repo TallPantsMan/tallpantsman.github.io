@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Tell Us What's Slowing Your Team Down | CaulHaus
-description: Tell us what feels manual, slow, or broken in your everyday work. You'll get a clear, plain-English breakdown within 24 hours showing how to automate it.
+title: Request a Workflow Audit | CaulHaus
+description: Tell us what feels manual, slow, or broken in your everyday work. You'll get a clear, plain-English breakdown within 24 business hours showing how to automate it.
 ---<!-- Page-Specific JSON-LD Schema -->
 <script type="application/ld+json">
 {
@@ -11,8 +11,8 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
       "@type": "ContactPage",
       "@id": "https://caulhaus.com/contact/#webpage",
       "url": "https://caulhaus.com/contact/",
-      "name": "Tell Us What's Slowing Your Team Down | CaulHaus",
-      "description": "Tell us what feels manual, slow, or broken in your everyday work. Receive a customized 24-hour review and clear automation roadmap directly from our founder.",
+      "name": "Request a Workflow Audit | CaulHaus",
+      "description": "Tell us where your team runs into bottlenecks or manual work. Receive a practical automation breakdown directly from our founder within 24 business hours.",
       "mainEntity": {
         "@type": "ContactPoint",
         "contactType": "Workflow Audits",
@@ -35,7 +35,7 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
       Tell Us What's Slowing Your Team Down.
     </h1>
     <p class="font-body-lg text-body-lg text-slate-gray max-w-xl mx-auto font-light leading-relaxed">
-      Tell us what feels manual, slow, or broken in your everyday work. You'll get a clear, plain-English breakdown within 24 hours showing how to automate it—reviewed directly by our founder.
+      Share where your team runs into bottlenecks, repetitive copy-pasting, or disconnected tools. You'll receive a direct, plain-English breakdown within 24 business hours showing how to fix it.
     </p>
   </div>
 </section>
@@ -222,20 +222,20 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
         <h2 class="font-headline-md text-headline-sm font-bold text-deep-charcoal">What's Included in Your Audit</h2>
       </div>
       <p class="text-xs text-slate-gray font-light leading-relaxed">
-        Our Workflow Audit is a targeted review of where your team is wasting time on repetitive tasks, messy spreadsheets, or tool disconnects—with a practical automation fix plan.
+        Our Workflow Audit investigates where your team is losing time to repetitive manual tasks, fragile spreadsheets, or disconnected software.
       </p>
       <ul class="space-y-3 text-xs text-deep-charcoal font-medium pt-2 list-none p-0">
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5">check_circle</span>
-          <span><strong>Founder Consultation:</strong> 1-on-1 review directly with founder Alex Herbstman.</span>
+          <span><strong>Direct Review:</strong> 1-on-1 walkthrough directly with Alex Herbstman.</span>
         </li>
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5">check_circle</span>
-          <span><strong>Workflow &amp; Tool Teardown:</strong> Clear breakdown of your spreadsheets, apps, and team handoffs.</span>
+          <span><strong>Workflow Mapping:</strong> A step-by-step breakdown of your spreadsheets, apps, and team handoffs.</span>
         </li>
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5">check_circle</span>
-          <span><strong>Actionable Fix Roadmap:</strong> Prioritized plan to eliminate manual busywork and connect your tools.</span>
+          <span><strong>Implementation Plan:</strong> A prioritized list of specific automations and fixes to eliminate the manual steps.</span>
         </li>
       </ul>
     </div>
@@ -248,7 +248,7 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
           <h2 class="font-headline-md text-headline-sm font-bold text-deep-charcoal">Direct Contact &amp; SLA</h2>
         </div>
         <p class="text-xs text-slate-gray font-light leading-relaxed mb-4">
-          Prefer to skip the form or have a custom inquiry? Reach out directly via email.
+          Prefer to skip the form? Reach out directly via email.
         </p>
         <div class="space-y-3 pt-2 text-xs">
           <div class="p-3 bg-surface-gray rounded-xl border border-outline-variant/20">
@@ -263,7 +263,7 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
       </div>
       <div class="pt-4 border-t border-outline-variant/20">
         <p class="text-[11px] text-slate-gray font-light italic">
-          We never conduct high-pressure sales calls. Every audit is conducted directly by an operations architect who writes code.
+          No sales pitches or SDR handoffs. Every audit is handled directly by Alex Herbstman.
         </p>
       </div>
     </div>
@@ -361,9 +361,8 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
 
       const name = document.querySelector('input[name="name"]');
       const email = document.querySelector('input[name="email"]');
-      const website = document.querySelector('input[name="website"]');
-      if (!name.value || !email.value || !website.value) {
-        alert('Please fill out all contact fields before submitting.');
+      if (!name.value || !email.value) {
+        alert('Please provide your name and work email before submitting.');
         return;
       }
       if (!email.checkValidity()) {
