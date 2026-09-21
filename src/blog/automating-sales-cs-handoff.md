@@ -14,10 +14,11 @@ The problem isn't that AEs hate writing notes. The problem is relying on manual 
 
 ## Where Handoffs Break Down
 
-Most handoffs fail because of two structural issues:
+Most handoffs fail because of two structural problems.
 
-1. **No gating on deal closure:** If an AE can mark an opportunity as "Closed-Won" without providing required onboarding fields, they will. In the rush to get contracts signed before end-of-quarter, documentation is always the first thing sacrificed.
-2. **Context trapped in unstructured places:** Important details live in email threads, Slack DMs, call recordings, and redlined contracts. Expecting a CSM to dig through 15 different links before every onboarding call is unrealistic.
+First, deals often close without required onboarding data. If an AE can mark an opportunity as "Closed-Won" without entering required onboarding details, documentation is the first thing sacrificed in the rush to hit end-of-quarter quotas.
+
+Second, critical context stays trapped in unstructured places. Notes and decisions end up scattered across email threads, Slack DMs, call recordings, and redlined contracts, leaving the CSM to dig through a dozen tabs just to prepare for an introductory call.
 
 Manual handoffs drag onboarding out into weeks instead of days. Accounts eventually reach renewal with unmet expectations that were never written down.
 
@@ -26,7 +27,7 @@ Manual handoffs drag onboarding out into weeks instead of days. Accounts eventua
 A dependable handoff system connects your CRM directly to project tracking and team channels without requiring manual data re-entry.
 
 ### 1. Enforce required fields at Closed-Won
-Configure CRM validation rules (in Salesforce, HubSpot, or whichever system holds deal records) so that a deal cannot transition to Closed-Won without key operational data:
+Configure CRM validation rules (in Salesforce, HubSpot, or whichever system holds deal records) so that a deal cannot transition to Closed-Won without required onboarding details:
 - Primary onboarding champion and technical point of contact (with verified emails and titles).
 - Core pain point and the metric the buyer will use to judge success.
 - Any non-standard contract terms, custom SLAs, or timeline commitments made during pre-sales.
@@ -46,11 +47,11 @@ If your sales team uses conversation intelligence tools (Gong, Chorus, or HubSpo
 
 ## What to Watch After Launch
 
-Once you've built the automated flow, keep an eye on a few practical indicators:
+Once the automated flow is running, monitor three practical indicators:
 
-- **Days from Closed-Won to Kickoff Call:** This is the most honest indicator of onboarding momentum. If it takes more than 4 business days to get the kickoff scheduled, investigate where the notification or assignment lagged.
-- **Field Completeness:** Check whether reps are routinely bypassing required fields with dummy text. If they are, your form is probably asking for information they don't actually have.
-- **Client feedback during onboarding:** If clients still comment that "we already explained this to your sales team," audit which pre-sales notes are actually reaching the CSM's onboarding checklist.
+- Days from Closed-Won to the kickoff call. This is the clearest measure of onboarding speed. If scheduling takes more than four business days, look for delays in notification delivery or account assignment.
+- Frequency of dummy data in required fields. If reps enter placeholder text just to advance deals, the form is asking for information they do not have yet.
+- Customer remarks during introductory meetings. If customers mention that they already answered these questions during sales calls, verify which pre-sales notes actually reach the CSM checklist.
 
 ## Getting Started
 

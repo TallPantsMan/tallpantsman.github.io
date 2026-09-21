@@ -5,16 +5,16 @@
 ## Overview
 CaulHaus is an operations and automation studio led by founder Alex Herbstman, a systems developer with over a decade of hands-on experience connecting tools and automating workflows, including three years building enterprise automation systems within an extended network inside one of the largest technology companies in the world. Alex leads every engagement directly, architecting and building core automations, backed by a trusted bench of senior specialists whenever a project calls for specialized platform expertise or extra bandwidth.
 
-Most teams lose hundreds of hours copying data between spreadsheets, chasing status updates, and doing repetitive tasks by hand because their software does not talk to each other. CaulHaus diagnoses your bottlenecks and writes working automations directly inside the tools you already use—no extra software subscriptions required.
+Most teams lose hundreds of hours copying data between spreadsheets, chasing status updates, and doing repetitive tasks by hand because their software does not talk to each other. CaulHaus diagnoses your bottlenecks and writes working automations directly inside the tools you already use, with no extra software subscriptions required.
 
 ## The Five Everyday Areas We Connect
 CaulHaus organizes workflows and automations across five everyday areas:
 
 1. Product & Design Hand-Offs: We automate moving user feedback, design assets, and feature requests to developers without manual chasing.
-2. Vendors & Partners: We set up automated contract renewal reminders and streamline partner onboarding without endless email threads.
+2. Vendors & Partners: We set up automated contract renewal reminders and automate partner onboarding without endless email threads.
 3. Marketing Operations & Leads: We build instant lead routing to deliver form submissions to sales reps in seconds, and track which marketing efforts actually generate revenue.
 4. Everyday Team Busywork: We eliminate manual copy-pasting in Google Sheets, generate weekly reports automatically, and track team workloads.
-5. Sales, Invoicing & Billing: We ensure signed deals automatically generate invoices and sync cleanly to customer CRM records.
+5. Sales, Invoicing & Billing: Signed deals automatically generate invoices and sync cleanly to customer CRM records.
 
 ## How We Work (/services/)
 1. The 2-Week Workflow Audit: A focused two-week diagnostic to map your time-wasters, eliminate spreadsheet bottlenecks, and deliver your first working automation prototype.
