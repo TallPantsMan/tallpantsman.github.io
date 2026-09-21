@@ -221,6 +221,274 @@ description: Automate repetitive data entry, handoffs, and reporting directly in
   </div>
 </section>
 
+<!-- Interactive Stack Configurator Section -->
+<section class="py-section-gap-lg max-w-container-max mx-auto px-margin-mobile md:px-gutter border-t border-outline-variant/20 reveal" id="stack-configurator">
+  <div class="text-center mb-12 space-y-3">
+    <div class="inline-block border border-outline-variant/30 rounded-full px-4 py-1.5 bg-surface-container-lowest shadow-2xs">
+      <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold">Interactive Stack Configurator</span>
+    </div>
+    <h2 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Design Your Stack &amp; Automations</h2>
+    <p class="font-body-lg text-body-lg text-slate-gray max-w-2xl mx-auto font-light leading-relaxed">
+      Select the tools your team relies on daily. We'll show you the exact automated connections we build between them and the estimated monthly hours saved.
+    </p>
+  </div>
+
+  <div class="bg-white rounded-3xl border border-outline-variant/40 p-6 md:p-10 shadow-lg space-y-8">
+    
+    <!-- Step 1: Tool Picker -->
+    <div>
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+        <span class="font-mono-label text-xs uppercase tracking-wider font-bold text-deep-charcoal">1. Select Your Team's Tools:</span>
+        <button type="button" onclick="resetStackTools()" class="text-xs font-mono-label text-electric-blue hover:underline cursor-pointer">Reset Selection</button>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="tool-buttons-grid">
+        <!-- Buttons populated by script -->
+      </div>
+    </div>
+
+    <!-- Step 2: Live Automations Output -->
+    <div class="border-t border-outline-variant/30 pt-8">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <div>
+          <span class="font-mono-label text-xs uppercase tracking-wider font-bold text-deep-charcoal block mb-1">2. Automations We Can Deploy:</span>
+          <p class="text-xs text-slate-gray font-light" id="stack-summary-text">Matching workflows for your selected stack.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="bg-surface-gray px-4 py-2 rounded-xl border border-outline-variant/40 text-center">
+            <span class="font-mono-label text-[10px] uppercase tracking-wider text-slate-gray block font-semibold">Active Tools</span>
+            <span id="selected-tools-count" class="font-mono-metric font-bold text-deep-charcoal text-sm">3 selected</span>
+          </div>
+          <div class="bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-xl text-center">
+            <span class="font-mono-label text-[10px] uppercase tracking-wider text-emerald-700 block font-bold">Est. Capacity Gain</span>
+            <span id="stack-hours-saved" class="font-mono-metric font-bold text-emerald-600 text-sm">~42 hrs/mo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recipes Grid -->
+      <div id="recipes-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Dynamic recipe cards rendered here -->
+      </div>
+
+      <!-- Empty state when < 2 tools selected -->
+      <div id="empty-stack-message" class="hidden p-8 text-center bg-surface-gray rounded-2xl border border-outline-variant/30">
+        <span class="material-symbols-outlined text-3xl text-slate-400 mb-2">hub</span>
+        <h4 class="font-bold text-sm text-deep-charcoal mb-1">Select at least two tools</h4>
+        <p class="text-xs text-slate-gray font-light">Toggle on the software your team uses to see automated workflows linking them together.</p>
+      </div>
+    </div>
+
+    <!-- Bottom Action CTA -->
+    <div class="border-t border-outline-variant/30 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-gray font-light text-center sm:text-left">
+        Have custom internal databases, webhooks, or software not shown here?
+      </div>
+      <a id="stack-contact-cta" href="/contact/?stack=sheets,slack,hubspot" class="w-full sm:w-auto bg-electric-blue text-white font-body-md text-xs font-semibold px-6 py-3 rounded-xl hover:bg-electric-blue/90 transition-colors flex items-center justify-center gap-2 shadow-sm">
+        <span>Inquire About This Stack</span>
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Stack Configurator Script -->
+<script>
+(function() {
+  const tools = [
+    { id: 'sheets', name: 'Google Sheets & Docs', icon: 'table_chart', default: true },
+    { id: 'slack', name: 'Slack / Teams', icon: 'forum', default: true },
+    { id: 'hubspot', name: 'HubSpot CRM', icon: 'group', default: true },
+    { id: 'salesforce', name: 'Salesforce', icon: 'cloud', default: false },
+    { id: 'airtable', name: 'Airtable', icon: 'grid_view', default: false },
+    { id: 'jira', name: 'Jira / Linear', icon: 'check_circle', default: false },
+    { id: 'stripe', name: 'Stripe / Billing', icon: 'payments', default: false },
+    { id: 'webhooks', name: 'Custom APIs / Webhooks', icon: 'webhook', default: false }
+  ];
+
+  const recipes = [
+    {
+      id: 'capacity-rollup',
+      requires: ['sheets', 'slack'],
+      title: 'Automated Capacity & Status Rollup',
+      desc: 'Aggregates weekly workloads from departmental sheets and pushes automated team allocation summaries and overload alerts into Slack channels.',
+      tags: ['Google Apps Script', 'Slack Bot API'],
+      hours: 12
+    },
+    {
+      id: 'lead-routing',
+      requires: ['hubspot', 'slack'],
+      title: 'Instant Inbound Lead Routing',
+      desc: 'When an inbound form is submitted, checks sales rep availability, assigns the deal, and posts instant notification with full lead context directly to rep Slack.',
+      tags: ['HubSpot Webhooks', 'Slack Alerts'],
+      hours: 14
+    },
+    {
+      id: 'crm-sheets-sync',
+      requires: ['sheets', 'hubspot'],
+      title: 'CRM Pipeline to Sheets Ledger Sync',
+      desc: 'Synchronizes deal stage changes, forecast amounts, and contract dates directly into Google Sheets in real-time, eliminating manual CSV exports.',
+      tags: ['Two-Way Sync', 'OAuth REST API'],
+      hours: 16
+    },
+    {
+      id: 'salesforce-sheets-sync',
+      requires: ['sheets', 'salesforce'],
+      title: 'Salesforce Pipeline Sync to Google Sheets',
+      desc: 'Extracts Salesforce opportunity changes and account records into Google Sheets dashboards for operational planning without extra seat licenses.',
+      tags: ['Salesforce REST API', 'Google Apps Script'],
+      hours: 18
+    },
+    {
+      id: 'salesforce-slack-routing',
+      requires: ['salesforce', 'slack'],
+      title: 'Salesforce Milestone Notifications',
+      desc: 'Alerts key account teams in Slack when enterprise opportunities change stage, renewal dates approach, or contracts close.',
+      tags: ['Outbound Messaging', 'Slack Webhooks'],
+      hours: 12
+    },
+    {
+      id: 'stripe-invoicing',
+      requires: ['stripe', 'sheets'],
+      title: 'Closed-Deal Invoicing & Revenue Ledger',
+      desc: 'Triggers Stripe invoice creation as soon as projects hit billing milestones in Google Sheets and logs transaction confirmation automatically.',
+      tags: ['Stripe API', 'Google Apps Script'],
+      hours: 10
+    },
+    {
+      id: 'jira-slack-handoff',
+      requires: ['jira', 'slack'],
+      title: 'Engineering Blocker & Ticket Handoff Alerts',
+      desc: 'Routes engineering and ticket status updates directly to account managers in Slack when project blockers are raised.',
+      tags: ['Jira Webhooks', 'Slack Integration'],
+      hours: 10
+    },
+    {
+      id: 'jira-sheets-sync',
+      requires: ['jira', 'sheets'],
+      title: 'Sprint Velocity & Client Deliverables Mirror',
+      desc: 'Aggregates issue completion status from Jira into client-facing Google Sheets project trackers without giving clients Jira workspace access.',
+      tags: ['Jira REST API', 'Sheets API'],
+      hours: 15
+    },
+    {
+      id: 'airtable-sheets-bridge',
+      requires: ['airtable', 'sheets'],
+      title: 'Airtable to Google Workspace Continuous Bridge',
+      desc: 'Mirrors relational Airtable bases into Google Sheets for company-wide reporting, avoiding per-seat Airtable enterprise upgrades.',
+      tags: ['Airtable API', 'Google Apps Script'],
+      hours: 12
+    },
+    {
+      id: 'webhook-custom-api',
+      requires: ['webhooks', 'sheets'],
+      title: 'Custom Inbound Webhook Listener & Normalizer',
+      desc: 'Receives event payloads from proprietary internal apps, sanitizes and formats the payload, and commits structured records to Google Sheets.',
+      tags: ['Apps Script Web App', 'JSON Normalizer'],
+      hours: 14
+    }
+  ];
+
+  let activeTools = new Set(tools.filter(t => t.default).map(t => t.id));
+
+  function renderButtons() {
+    const grid = document.getElementById('tool-buttons-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    tools.forEach(tool => {
+      const isSelected = activeTools.has(tool.id);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.onclick = () => toggleTool(tool.id);
+      btn.className = `p-3.5 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex items-center gap-3 ${
+        isSelected
+          ? 'border-2 border-electric-blue bg-electric-blue/5 shadow-xs'
+          : 'border-outline-variant/60 bg-white hover:border-outline-variant hover:bg-surface-gray/50'
+      }`;
+
+      btn.innerHTML = `
+        <span class="material-symbols-outlined text-lg ${isSelected ? 'text-electric-blue' : 'text-slate-400'}">${tool.icon}</span>
+        <div class="flex-grow min-w-0">
+          <span class="text-xs font-bold block truncate ${isSelected ? 'text-deep-charcoal' : 'text-slate-600'}">${tool.name}</span>
+        </div>
+        <span class="w-4 h-4 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold ${
+          isSelected ? 'bg-electric-blue text-white' : 'border border-outline-variant text-transparent'
+        }">&check;</span>
+      `;
+      grid.appendChild(btn);
+    });
+  }
+
+  function renderRecipes() {
+    const container = document.getElementById('recipes-container');
+    const emptyMsg = document.getElementById('empty-stack-message');
+    const countEl = document.getElementById('selected-tools-count');
+    const hoursEl = document.getElementById('stack-hours-saved');
+    const ctaBtn = document.getElementById('stack-contact-cta');
+    const summaryText = document.getElementById('stack-summary-text');
+
+    if (!container || !emptyMsg) return;
+
+    countEl.textContent = `${activeTools.size} selected`;
+
+    const matching = recipes.filter(r => r.requires.every(req => activeTools.has(req)));
+
+    if (matching.length === 0) {
+      container.innerHTML = '';
+      emptyMsg.classList.remove('hidden');
+      hoursEl.textContent = '0 hrs/mo';
+      summaryText.textContent = 'Select complementary tools above to see automation recipes.';
+    } else {
+      emptyMsg.classList.add('hidden');
+      const totalHours = matching.reduce((sum, r) => sum + r.hours, 0);
+      hoursEl.textContent = `~${totalHours} hrs/mo`;
+      summaryText.textContent = `Found ${matching.length} custom automations for your current stack:`;
+
+      container.innerHTML = matching.map(r => `
+        <div class="p-5 bg-surface-gray rounded-2xl border border-outline-variant/40 flex flex-col justify-between hover:border-electric-blue/30 transition-colors">
+          <div>
+            <div class="flex justify-between items-start gap-2 mb-2">
+              <h4 class="font-headline-md text-sm font-bold text-deep-charcoal">${r.title}</h4>
+              <span class="font-mono-metric font-bold text-xs text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded shrink-0">~${r.hours} hrs/mo</span>
+            </div>
+            <p class="text-xs text-slate-gray font-light leading-relaxed mb-4">${r.desc}</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-outline-variant/20">
+            ${r.tags.map(t => `<span class="px-2 py-0.5 rounded bg-white border border-outline-variant/30 text-slate-600 font-mono-label text-[10px] font-medium">${t}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    if (ctaBtn) {
+      const toolNames = Array.from(activeTools).join(',');
+      ctaBtn.href = `/contact/?stack=${encodeURIComponent(toolNames)}`;
+    }
+  }
+
+  window.toggleTool = function(toolId) {
+    if (activeTools.has(toolId)) {
+      activeTools.delete(toolId);
+    } else {
+      activeTools.add(toolId);
+    }
+    renderButtons();
+    renderRecipes();
+  };
+
+  window.resetStackTools = function() {
+    activeTools = new Set(['sheets', 'slack', 'hubspot']);
+    renderButtons();
+    renderRecipes();
+  };
+
+  renderButtons();
+  renderRecipes();
+})();
+</script>
+
 <!-- Why Google Workspace & Apps Script Advantage -->
 <section class="py-section-gap-lg max-w-container-max mx-auto px-margin-mobile md:px-gutter border-t border-outline-variant/20 reveal">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
