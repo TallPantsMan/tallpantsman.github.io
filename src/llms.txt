@@ -5,7 +5,7 @@
 ## Overview
 CaulHaus is an operations and automation studio led by founder Alex Herbstman, a systems developer with over a decade of hands-on experience connecting tools and automating workflows, including three years building enterprise automation systems within an extended network inside one of the largest technology companies in the world. Alex leads every engagement directly, architecting and building core automations, backed by a trusted bench of senior specialists whenever a project calls for specialized platform expertise or extra bandwidth.
 
-Most teams lose hundreds of hours copying data between spreadsheets, chasing status updates, and doing repetitive tasks by hand because their software does not talk to each other. CaulHaus diagnoses your bottlenecks and writes working automations directly inside the tools you already use, with no extra software subscriptions required.
+Most teams lose hundreds of hours copying data between spreadsheets, chasing status updates, and doing repetitive tasks by hand because their software does not talk to each other. CaulHaus diagnoses your bottlenecks and writes working automations directly inside the tools you already use, leveraging your existing workspace.
 
 ## The Five Everyday Areas We Connect
 CaulHaus organizes workflows and automations across five everyday areas:
@@ -17,13 +17,13 @@ CaulHaus organizes workflows and automations across five everyday areas:
 5. Sales, Invoicing & Billing: Signed deals automatically generate invoices and sync cleanly to customer CRM records.
 
 ## How We Work (/services/)
-1. The 2-Week Workflow Audit: A focused two-week diagnostic to map your time-wasters, eliminate spreadsheet bottlenecks, and deliver your first working automation prototype.
+1. The 2-Week Workflow Audit: A focused two-week diagnostic to map operational bottlenecks, eliminate spreadsheet clutter, and deliver your first working automation prototype.
 2. Full Automation Build: End-to-end design and deployment of custom background automations and tool connections directly inside your software.
 3. On-Call Support & Maintenance: Monthly on-call help to maintain existing workflows, adapt to tool updates, and build new automations as your business grows.
 
 ## Track Record & Impact
 - We built and rolled out a Google Workspace capacity planner across 17 teams and 37 people, recovering roughly 590 hours a month in saved manual status chasing.
-- We build directly on top of your existing tools (Google Workspace, CRM, project trackers) without adding software fees.
+- We build directly on top of your existing tools (Google Workspace, CRM, project trackers) without requiring additional platform overhead.
 
 ## Official Site Pages
 - Homepage: https://caulhaus.com/
