@@ -3,7 +3,7 @@
 > CaulHaus connects your everyday tools and builds custom automations to eliminate manual busywork and messy spreadsheets.
 
 ## Overview
-CaulHaus is led by Alex Herbstman, a systems developer and founder with over a decade of hands-on experience connecting tools and automating workflows, including three years building enterprise automation systems within an extended network inside one of the largest technology companies in the world.
+CaulHaus is an operations and automation studio led by founder Alex Herbstman, a systems developer with over a decade of hands-on experience connecting tools and automating workflows, including three years building enterprise automation systems within an extended network inside one of the largest technology companies in the world. Alex leads every engagement directly, architecting and building core automations, backed by a trusted bench of senior specialists whenever a project calls for specialized platform expertise or extra bandwidth.
 
 Most teams lose hundreds of hours copying data between spreadsheets, chasing status updates, and doing repetitive tasks by hand because their software does not talk to each other. CaulHaus diagnoses your bottlenecks and writes working automations directly inside the tools you already use—no extra software subscriptions required.
 
