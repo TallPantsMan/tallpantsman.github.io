@@ -20,7 +20,7 @@ First, deals often close without required onboarding data. If an AE can mark an 
 
 Second, critical context stays trapped in unstructured places. Notes and decisions end up scattered across email threads, Slack DMs, call recordings, and redlined contracts, leaving the CSM to dig through a dozen tabs just to prepare for an introductory call.
 
-Manual handoffs drag onboarding out into weeks instead of days. Accounts eventually reach renewal with unmet expectations that were never written down.
+When handoffs rely on manual messages, onboarding momentum often stalls, creating friction before the kickoff call even takes place.
 
 ## Building the Automated Flow
 
@@ -40,7 +40,7 @@ Changing a deal stage to Closed-Won should automatically trigger the mechanical 
 - Assign the account to an available CSM based on territory, account tier, or current workload.
 - Generate an onboarding channel in Slack or Teams with the account details pinned to the header.
 
-Tools like Zapier, Make, or a lightweight cloud function can handle this handoff in seconds. Instead of the AE writing an essay in a shared channel, the system posts a cleanly formatted summary with direct links to the contract and call recordings.
+Tools like Zapier, Make, or a lightweight cloud function can handle this handoff in seconds. Rather than relying on manual status posts in a shared channel, the system generates a standardized summary with direct links to the contract and call recordings.
 
 ### 3. Surface call recordings and summary notes automatically
 If your sales team uses conversation intelligence tools (Gong, Chorus, or HubSpot Call Intelligence), pipe the call transcript summaries directly into the handoff ticket. CSMs can review a five-bullet summary of the negotiation and listen to specific snippets rather than having to re-ask questions.
