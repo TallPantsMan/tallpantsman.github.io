@@ -160,7 +160,7 @@
             "name": "What deliverables does CaulHaus provide?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "CaulHaus combines operations design with hands-on software development, shipping working code, custom scripts, and direct tool integrations deployed in your software rather than high-level advisory presentations."
+              "text": "CaulHaus combines operations design with hands-on technical implementation, deploying working code, custom scripts, and direct tool integrations inside your software environment."
             }
           },
           {
@@ -453,7 +453,7 @@ void main() {
         sDropdown.addEventListener('mouseleave', closeMenu);
 
         sDropdownBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
+          e.preventDefault();
           const isOpen = sDropdownMenu.classList.contains('opacity-100');
           if (isOpen) {
             closeMenu();
@@ -462,6 +462,7 @@ void main() {
           }
         });
 
+        // Close on tap outside
         document.addEventListener('click', (e) => {
           if (!sDropdown.contains(e.target)) {
             sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
@@ -471,20 +472,22 @@ void main() {
         });
       }
 
-      // Scroll-Reveal Intersection Observer
-      const observer = new IntersectionObserver((entries) => {
+      // Scroll Reveal Animations
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
+            observer.unobserve(entry.target);
           }
         });
       }, {
-        threshold: 0.1
+        root: null,
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
       });
 
-      document.querySelectorAll('.reveal').forEach((el) => {
-        observer.observe(el);
-      });
+      revealElements.forEach(el => revealObserver.observe(el));
     });
   </script>
 </body>
