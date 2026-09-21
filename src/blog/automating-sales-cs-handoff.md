@@ -19,7 +19,7 @@ Most handoffs fail because of two structural issues:
 1. **No gating on deal closure:** If an AE can mark an opportunity as "Closed-Won" without providing required onboarding fields, they will. In the rush to get contracts signed before end-of-quarter, documentation is always the first thing sacrificed.
 2. **Context trapped in unstructured places:** Important details live in email threads, Slack DMs, call recordings, and redlined contracts. Expecting a CSM to dig through 15 different links before every onboarding call is unrealistic.
 
-When handoffs are manual, onboarding drags out. Time-to-first-value stretches from days into weeks, and accounts show up at renewal time with unfulfilled expectations that nobody documented.
+Manual handoffs drag onboarding out into weeks instead of days. Accounts eventually reach renewal with unmet expectations that were never written down.
 
 ## Building the Automated Flow
 
@@ -34,7 +34,7 @@ Configure CRM validation rules (in Salesforce, HubSpot, or whichever system hold
 Keep these fields brief and structured. A multi-paragraph open text box will either get filled with "N/A" or a pasted link to a 45-minute recording. Use dropdowns or single-line fields where possible.
 
 ### 2. Trigger automated provisioning and assignment
-When the deal stage changes to Closed-Won, an automated webhook or script should handle the mechanics:
+Changing a deal stage to Closed-Won should automatically trigger the mechanical setup:
 - Create the onboarding project or client folder in your project tracker (Asana, ClickUp, Notion, or Linear).
 - Assign the account to an available CSM based on territory, account tier, or current workload.
 - Generate an onboarding channel in Slack or Teams with the account details pinned to the header.
