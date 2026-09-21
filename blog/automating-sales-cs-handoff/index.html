@@ -389,7 +389,7 @@ void main() {
 <li><strong>No gating on deal closure:</strong> If an AE can mark an opportunity as &quot;Closed-Won&quot; without providing required onboarding fields, they will. In the rush to get contracts signed before end-of-quarter, documentation is always the first thing sacrificed.</li>
 <li><strong>Context trapped in unstructured places:</strong> Important details live in email threads, Slack DMs, call recordings, and redlined contracts. Expecting a CSM to dig through 15 different links before every onboarding call is unrealistic.</li>
 </ol>
-<p>When handoffs are manual, onboarding drags out. Time-to-first-value stretches from days into weeks, and accounts show up at renewal time with unfulfilled expectations that nobody documented.</p>
+<p>Manual handoffs drag onboarding out into weeks instead of days. Accounts eventually reach renewal with unmet expectations that were never written down.</p>
 <h2>Building the Automated Flow</h2>
 <p>A dependable handoff system connects your CRM directly to project tracking and team channels without requiring manual data re-entry.</p>
 <h3>1. Enforce required fields at Closed-Won</h3>
@@ -401,7 +401,7 @@ void main() {
 </ul>
 <p>Keep these fields brief and structured. A multi-paragraph open text box will either get filled with &quot;N/A&quot; or a pasted link to a 45-minute recording. Use dropdowns or single-line fields where possible.</p>
 <h3>2. Trigger automated provisioning and assignment</h3>
-<p>When the deal stage changes to Closed-Won, an automated webhook or script should handle the mechanics:</p>
+<p>Changing a deal stage to Closed-Won should automatically trigger the mechanical setup:</p>
 <ul>
 <li>Create the onboarding project or client folder in your project tracker (Asana, ClickUp, Notion, or Linear).</li>
 <li>Assign the account to an available CSM based on territory, account tier, or current workload.</li>
