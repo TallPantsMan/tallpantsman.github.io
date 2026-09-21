@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Request a Workflow Audit | CaulHaus
-description: Tell us what feels manual, slow, or broken in your everyday work. You'll get a clear, plain-English breakdown within 24 business hours showing how to automate it.
+title: Contact Us | CaulHaus
+description: Get in touch with CaulHaus to discuss your workflows, explore custom automations, or ask technical questions.
 ---<!-- Page-Specific JSON-LD Schema -->
 <script type="application/ld+json">
 {
@@ -11,11 +11,11 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
       "@type": "ContactPage",
       "@id": "https://caulhaus.com/contact/#webpage",
       "url": "https://caulhaus.com/contact/",
-      "name": "Request a Workflow Audit | CaulHaus",
-      "description": "Tell us where your team runs into bottlenecks or manual work. Receive a practical automation breakdown directly from our founder within 24 business hours.",
+      "name": "Contact Us | CaulHaus",
+      "description": "Get in touch with CaulHaus to discuss your workflows, explore custom automations, or ask technical questions.",
       "mainEntity": {
         "@type": "ContactPoint",
-        "contactType": "Workflow Audits",
+        "contactType": "General Inquiries",
         "email": "alex@caulhaus.com",
         "availableLanguage": ["English"],
         "areaServed": "Global"
@@ -29,170 +29,72 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
 <section class="pt-24 pb-12 px-margin-mobile text-center max-w-[800px] mx-auto reveal">
   <div class="space-y-4">
     <div class="inline-block border border-outline-variant/30 rounded-full px-4 py-1.5 bg-surface-container-lowest shadow-2xs">
-      <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold">Workflow Audit</span>
+      <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold">Contact</span>
     </div>
     <h1 class="font-display-lg text-display-lg text-deep-charcoal">
-      Tell Us What's Slowing Your Team Down.
+      Get in Touch with CaulHaus.
     </h1>
     <p class="font-body-lg text-body-lg text-slate-gray max-w-xl mx-auto font-light leading-relaxed">
-      Share where your team runs into bottlenecks, repetitive copy-pasting, or disconnected tools. You'll receive a direct, plain-English breakdown within 24 business hours showing how to fix it.
+      Whether you want to discuss an operational bottleneck, ask about automation capabilities, or check our current build availability, send us a note below.
     </p>
   </div>
 </section>
 
-<!-- Qualification Wizard Section -->
+<!-- Clean Single-Screen Contact Form Section -->
 <section class="pb-16 px-margin-mobile max-w-[640px] mx-auto relative reveal">
   <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 md:p-10 border border-outline-variant/50 shadow-xl relative overflow-hidden">
     
-    <!-- Header info & progress bar -->
-    <div class="mb-8">
-      <div class="flex justify-between items-center text-xs font-mono-label mb-2">
-        <span class="text-electric-blue font-bold tracking-wider" id="step-indicator-text">STEP 1 OF 3</span>
-        <span class="text-slate-gray font-semibold" id="step-percentage">33%</span>
-      </div>
-      <div class="w-full bg-surface-gray h-2 rounded-full overflow-hidden border border-outline-variant/20">
-        <div class="bg-electric-blue h-full transition-all duration-300 rounded-full" id="step-progress-bar" style="width: 33%;"></div>
-      </div>
-    </div>
-
-    <!-- Form Wizard -->
-    <form id="audit-form" action="https://api.web3forms.com/submit" method="POST">
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
       
       <!-- Web3Forms Access Key -->
       <input type="hidden" name="access_key" value="ccefd948-13ab-4d13-bc57-993d0edb7eb8">
-      <input type="hidden" name="subject" value="New Workflow Audit Request - CaulHaus">
-      <input type="hidden" name="from_name" value="CaulHaus Website Audit Form">
+      <input type="hidden" name="subject" value="New Inquiry - CaulHaus">
+      <input type="hidden" name="from_name" value="CaulHaus Website Contact Form">
       <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-      <!-- Step 1: Core Goal -->
-      <div id="wizard-step-1" class="wizard-step space-y-4 animate-fade-in">
+      <div class="space-y-4">
         <div>
-          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">Where is your team losing the most time?</h3>
-          <p class="text-xs text-slate-gray font-light">Select the main area where work feels manual, slow, or messy.</p>
+          <label for="contact-name" class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Your Name</label>
+          <input type="text" id="contact-name" name="name" required placeholder="Jane Doe" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
         </div>
-        <div class="space-y-2.5 pt-2">
-          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border-2 border-electric-blue bg-electric-blue/5 cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Product &amp; Design" checked class="accent-electric-blue w-4 h-4 mr-3">
-            <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Product &amp; Design</span>
-              <span class="text-[11px] text-slate-gray font-light">Design handoffs, organizing customer feedback, task updates</span>
-            </div>
-          </label>
-          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Vendors &amp; Partners" class="accent-electric-blue w-4 h-4 mr-3">
-            <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Vendors &amp; Partners</span>
-              <span class="text-[11px] text-slate-gray font-light">Tracking contracts, renewal reminders, partner onboarding</span>
-            </div>
-          </label>
-          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Marketing &amp; Leads" class="accent-electric-blue w-4 h-4 mr-3">
-            <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Marketing &amp; Leads</span>
-              <span class="text-[11px] text-slate-gray font-light">Routing leads to reps, tracking where customers came from</span>
-            </div>
-          </label>
-          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Everyday Busywork &amp; Spreadsheets" class="accent-electric-blue w-4 h-4 mr-3">
-            <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Everyday Busywork &amp; Spreadsheets</span>
-              <span class="text-[11px] text-slate-gray font-light">Manual copy-pasting, messy Google Sheets, routine reports</span>
-            </div>
-          </label>
-          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="objective" value="Sales, Invoicing &amp; Billing" class="accent-electric-blue w-4 h-4 mr-3">
-            <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Sales, Invoicing &amp; Billing</span>
-              <span class="text-[11px] text-slate-gray font-light">Connecting CRM to invoices, contract approvals, handoffs to finance</span>
-            </div>
-          </label>
-        </div>
-      </div>
 
-      <!-- Step 2: Current Tech Stack -->
-      <div id="wizard-step-2" class="wizard-step hidden space-y-4 animate-fade-in">
         <div>
-          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">What software do you rely on?</h3>
-          <p class="text-xs text-slate-gray font-light">Select all systems currently in your stack.</p>
+          <label for="contact-email" class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Work Email</label>
+          <input type="email" id="contact-email" name="email" required placeholder="you@company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
         </div>
-        <div class="space-y-2.5 pt-2">
-          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="crm" value="Google Workspace / Google Sheets Heavy" checked class="accent-electric-blue w-4 h-4 mr-3">
-            <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Google Workspace / Google Sheets</span>
-              <span class="text-[11px] text-slate-gray font-light">Workflows primarily managed in spreadsheets &amp; Drive</span>
-            </div>
-          </label>
-          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="crm" value="HubSpot / Salesforce / Enterprise CRM" class="accent-electric-blue w-4 h-4 mr-3">
-            <div>
-              <span class="text-xs font-bold text-deep-charcoal block">HubSpot / Salesforce / Enterprise CRM</span>
-              <span class="text-[11px] text-slate-gray font-light">Standard marketing automation and CRM setup</span>
-            </div>
-          </label>
-          <label class="wizard-radio-card flex items-center p-3.5 rounded-2xl border border-outline-variant/50 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30">
-            <input type="radio" name="crm" value="Custom / Fragmented Stack" class="accent-electric-blue w-4 h-4 mr-3">
-            <div>
-              <span class="text-xs font-bold text-deep-charcoal block">Custom / Multiple Disconnected Tools</span>
-              <span class="text-[11px] text-slate-gray font-light">A mix of third-party SaaS apps and custom tools</span>
-            </div>
-          </label>
-        </div>
-      </div>
 
-      <!-- Step 3: Team Details -->
-      <div id="wizard-step-3" class="wizard-step hidden space-y-4 animate-fade-in">
-        <div>
-          <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">Tell us about your team</h3>
-          <p class="text-xs text-slate-gray font-light">Where should we send your audit results?</p>
-        </div>
-        <div class="space-y-3 pt-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Your Name</label>
-            <input type="text" name="name" required placeholder="Jane Doe" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
+            <label for="contact-website" class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Company Website <span class="text-slate-gray/50 font-normal lowercase">(optional)</span></label>
+            <input type="text" id="contact-website" name="website" placeholder="company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
           </div>
           <div>
-            <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Work Email</label>
-            <input type="email" name="email" required placeholder="you@company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Company Website <span class="text-slate-gray/50 font-normal lowercase">(optional)</span></label>
-              <input type="text" name="website" placeholder="company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
-            </div>
-            <div>
-              <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Team Size</label>
-              <select name="leads" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none bg-white transition-all">
-                <option value="<10">&lt;10</option>
-                <option value="10-50">10-50</option>
-                <option value="50-200">50-200</option>
-                <option value="200+">200+</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <label class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Additional Details <span class="text-slate-gray/50 font-normal lowercase">(optional)</span></label>
-            <textarea name="message" rows="3" placeholder="Tell us more about your project, current setup, or specific goals..." class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all resize-none"></textarea>
+            <label for="contact-area" class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Primary Area of Interest</label>
+            <select id="contact-area" name="area_of_interest" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none bg-white transition-all">
+              <option value="Workflow Automation & Tools">Workflow Automation &amp; Tools</option>
+              <option value="Google Apps Script / Sheets">Google Apps Script / Sheets</option>
+              <option value="Marketing Ops & Lead Routing">Marketing Ops &amp; Lead Routing</option>
+              <option value="Systems Review / Architecture">Systems Review / Architecture</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
           </div>
         </div>
-      </div>
 
-      <!-- Navigation buttons -->
-      <div class="flex justify-between items-center pt-6 border-t border-outline-variant/20 mt-6">
-        <button type="button" id="prev-btn" class="hidden px-5 py-2.5 rounded-full border border-outline-variant/60 hover:bg-surface-gray text-xs font-semibold text-deep-charcoal cursor-pointer transition-all select-none focus:outline-none focus:ring-2 focus:ring-electric-blue/30">
-          Back
-        </button>
-        <div class="flex-grow"></div>
-        <button type="button" id="next-btn" class="px-6 py-2.5 rounded-full bg-electric-blue text-white text-xs font-semibold cursor-pointer hover:bg-electric-blue/90 transition-all select-none shadow-md active:scale-95 focus:outline-none focus:ring-2 focus:ring-electric-blue/30">
-          Continue
-        </button>
-        <button type="submit" id="submit-btn" class="hidden px-6 py-2.5 rounded-full bg-brand-emerald text-white text-xs font-bold cursor-pointer hover:bg-brand-emerald/90 transition-all select-none shadow-md shadow-brand-emerald/20 active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-emerald/30">
-          Submit Details
-        </button>
-      </div>
+        <div>
+          <label for="contact-message" class="font-mono-label text-[10px] text-slate-gray font-bold uppercase tracking-wider block mb-1">Project Overview or Questions</label>
+          <textarea id="contact-message" name="message" rows="4" required placeholder="Tell us about your team's tools, workflows, or what you're looking to build..." class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-xs text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all resize-none"></textarea>
+        </div>
 
-      <div class="mt-4 text-center">
-        <p class="text-[11px] text-slate-gray font-light">Prefer email? Drop us a note directly at <a href="mailto:alex@caulhaus.com" class="text-electric-blue font-bold hover:underline">alex@caulhaus.com</a></p>
+        <div class="pt-2">
+          <button type="submit" id="contact-submit-btn" class="w-full bg-electric-blue text-white font-body-md text-xs font-semibold py-3.5 rounded-xl transition-all shadow-md active:scale-95 hover:bg-electric-blue/90 cursor-pointer focus:outline-none focus:ring-2 focus:ring-electric-blue/30">
+            Send Message
+          </button>
+        </div>
+
+        <div class="pt-2 text-center">
+          <p class="text-[11px] text-slate-gray font-light">Prefer direct email? Reach founder Alex Herbstman at <a href="mailto:alex@caulhaus.com" class="text-electric-blue font-semibold hover:underline">alex@caulhaus.com</a></p>
+        </div>
+
       </div>
 
     </form>
@@ -202,44 +104,44 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
       <div class="w-16 h-16 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center animate-pulse">
         <span class="material-symbols-outlined text-4xl font-bold">check_circle</span>
       </div>
-      <h3 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Thank you!</h3>
+      <h3 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Message Sent!</h3>
       <p class="font-body-md text-body-md text-slate-gray max-w-sm font-light leading-relaxed">
-        We've received your details and will get back to you within 24 business hours.
+        Thank you for reaching out. We've received your note and will get back to you within 24 business hours.
       </p>
     </div>
 
   </div>
 </section>
 
-<!-- Systems Audit Details & Direct Contact Section -->
+<!-- Engagements & Direct Contact Section -->
 <section class="max-w-[1000px] mx-auto px-margin-mobile pb-24 reveal">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     
-    <!-- What You Get Card -->
+    <!-- How We Work With Teams Card -->
     <div class="bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-outline-variant/40 shadow-sm space-y-4">
       <div class="flex items-center gap-3 mb-2">
-        <span class="material-symbols-outlined text-electric-blue text-2xl">analytics</span>
-        <h2 class="font-headline-md text-headline-sm font-bold text-deep-charcoal">What's Included in Your Audit</h2>
+        <span class="material-symbols-outlined text-electric-blue text-2xl">handshake</span>
+        <h2 class="font-headline-md text-headline-sm font-bold text-deep-charcoal">How We Work With Teams</h2>
       </div>
       <p class="text-xs text-slate-gray font-light leading-relaxed">
-        Our Workflow Audit investigates where your team is losing time to repetitive manual tasks, fragile spreadsheets, or disconnected software.
+        We approach every project with an engineering mindset—no aggressive sales funnels or opaque retainers.
       </p>
       <ul class="space-y-3 text-xs text-deep-charcoal font-medium pt-2 list-none p-0">
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5 shrink-0">check_circle</span>
-          <span>A 1-on-1 workflow walkthrough directly with founder Alex Herbstman</span>
+          <span>Direct conversation with founder Alex Herbstman to assess your setup</span>
         </li>
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5 shrink-0">check_circle</span>
-          <span>A step-by-step audit mapping your spreadsheets, apps, and team handoffs</span>
+          <span>Candid technical feedback—if your problem can be solved with a simpler built-in tool, we will let you know</span>
         </li>
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5 shrink-0">check_circle</span>
-          <span>A prioritized automation plan outlining specific scripts and fixes to eliminate manual steps</span>
+          <span>Clear scope, milestones, and architectural specifications upfront</span>
         </li>
         <li class="flex items-start gap-2.5">
           <span class="material-symbols-outlined text-brand-emerald text-base mt-0.5 shrink-0">check_circle</span>
-          <span>A working automation prototype deployed directly in your tools</span>
+          <span>Thorough testing on production edge cases with full documentation handed over</span>
         </li>
       </ul>
     </div>
@@ -252,7 +154,7 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
           <h2 class="font-headline-md text-headline-sm font-bold text-deep-charcoal">Direct Contact &amp; SLA</h2>
         </div>
         <p class="text-xs text-slate-gray font-light leading-relaxed mb-4">
-          Prefer to skip the form? Reach out directly via email.
+          Prefer to reach out directly? Send an email anytime.
         </p>
         <div class="space-y-3 pt-2 text-xs">
           <div class="p-3 bg-surface-gray rounded-xl border border-outline-variant/20">
@@ -267,7 +169,7 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
       </div>
       <div class="pt-4 border-t border-outline-variant/20">
         <p class="text-[11px] text-slate-gray font-light italic">
-          Every audit conversation is led directly by founder Alex Herbstman.
+          Every conversation is led directly by founder Alex Herbstman.
         </p>
       </div>
     </div>
@@ -275,98 +177,21 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
   </div>
 </section>
 
-<!-- Multi-Step Wizard Script -->
+<!-- Direct Form Submission Script -->
 <script>
-  let currentStep = 1;
-  const totalSteps = 3;
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('contact-submit-btn');
 
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  const submitBtn = document.getElementById('submit-btn');
-  const stepIndicatorText = document.getElementById('step-indicator-text');
-  const stepPercentage = document.getElementById('step-percentage');
-  const stepProgressBar = document.getElementById('step-progress-bar');
-
-  function updateProgressBar(stepNum) {
-    const pct = Math.round((stepNum / totalSteps) * 100);
-    if (stepIndicatorText) stepIndicatorText.textContent = `STEP ${stepNum} OF ${totalSteps}`;
-    if (stepPercentage) stepPercentage.textContent = `${pct}%`;
-    if (stepProgressBar) stepProgressBar.style.width = `${pct}%`;
-  }
-
-  function showStep(stepNum) {
-    document.querySelectorAll('.wizard-step').forEach(step => {
-      step.classList.add('hidden');
-      step.classList.remove('animate-fade-in');
-    });
-
-    const activeStepEl = document.getElementById('wizard-step-' + stepNum);
-    if (activeStepEl) {
-      activeStepEl.classList.remove('hidden');
-      activeStepEl.classList.add('animate-fade-in');
-    }
-
-    updateProgressBar(stepNum);
-
-    if (stepNum === 1) {
-      prevBtn.classList.add('hidden');
-    } else {
-      prevBtn.classList.remove('hidden');
-    }
-
-    if (stepNum === totalSteps) {
-      nextBtn.classList.add('hidden');
-      submitBtn.classList.remove('hidden');
-    } else {
-      nextBtn.classList.remove('hidden');
-      submitBtn.classList.add('hidden');
-    }
-  }
-
-  nextBtn.addEventListener('click', () => {
-    if (currentStep < totalSteps) {
-      currentStep++;
-      showStep(currentStep);
-    }
-  });
-
-  prevBtn.addEventListener('click', () => {
-    if (currentStep > 1) {
-      currentStep--;
-      showStep(currentStep);
-    }
-  });
-
-  function updateRadioClasses(name) {
-    document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
-      const label = input.closest('label');
-      if (label) {
-        if (input.checked) {
-          label.className = "wizard-option-card flex items-center gap-4 p-4 rounded-xl border-2 border-electric-blue bg-electric-blue/5 cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30";
-        } else {
-          label.className = "wizard-option-card flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 hover:bg-surface-gray cursor-pointer transition-all focus-within:ring-2 focus-within:ring-electric-blue/30";
-        }
-      }
-    });
-  }
-
-  document.querySelectorAll('input[name="objective"]').forEach(input => {
-    input.addEventListener('change', () => updateRadioClasses('objective'));
-  });
-
-  document.querySelectorAll('input[name="crm"]').forEach(input => {
-    input.addEventListener('change', () => updateRadioClasses('crm'));
-  });
-
-  const form = document.getElementById('audit-form') || document.getElementById('contact-wizard-form');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = document.querySelector('input[name="name"]');
-      const email = document.querySelector('input[name="email"]');
-      if (!name.value || !email.value) {
-        alert('Please provide your name and work email before submitting.');
+      const name = document.getElementById('contact-name');
+      const email = document.getElementById('contact-email');
+      const message = document.getElementById('contact-message');
+
+      if (!name.value || !email.value || !message.value) {
+        alert('Please provide your name, email, and message before sending.');
         return;
       }
       if (!email.checkValidity()) {
@@ -374,42 +199,36 @@ description: Tell us what feels manual, slow, or broken in your everyday work. Y
         return;
       }
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
 
-    const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
 
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: json
-      });
-      const result = await response.json();
-      if (result.success) {
-        document.getElementById('success-overlay').classList.remove('hidden');
-      } else {
-        throw new Error('Web3Forms returned failure');
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        });
+        const result = await response.json();
+        if (result.success) {
+          document.getElementById('success-overlay').classList.remove('hidden');
+        } else {
+          throw new Error('Web3Forms returned failure');
+        }
+      } catch (err) {
+        console.error(err);
+        const mailtoLink = `mailto:alex@caulhaus.com?subject=CaulHaus Inquiry - ${encodeURIComponent(object.name)}&body=Name: ${encodeURIComponent(object.name)}%0D%0AEmail: ${encodeURIComponent(object.email)}%0D%0AWebsite: ${encodeURIComponent(object.website || 'N/A')}%0D%0AArea: ${encodeURIComponent(object.area_of_interest)}%0D%0AMessage:%0D%0A${encodeURIComponent(object.message)}`;
+        alert('There was a connection issue. Opening your email client to send directly!');
+        window.location.href = mailtoLink;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
       }
-    } catch (err) {
-      console.error(err);
-      const mailtoLink = `mailto:alex@caulhaus.com?subject=Systems Audit Request&body=Goal: ${object.objective}%0D%0ATools: ${object.crm}%0D%0AName: ${object.name}%0D%0AWebsite: ${object.website}%0D%0ATeam Size: ${object.leads}%0D%0AMessage: ${encodeURIComponent(object.message || '')}`;
-      alert('There was a connection issue. We are opening your email client to submit details directly!');
-      window.location.href = mailtoLink;
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Details';
-    }
-  });
+    });
   }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    updateRadioClasses('objective');
-    updateRadioClasses('crm');
-    showStep(1);
-  });
 </script>
