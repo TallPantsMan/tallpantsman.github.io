@@ -554,6 +554,33 @@ void main() {
 
 <!-- Direct Form Submission Script -->
 <script>
+  // Pre-fill from URL parameters (e.g. calculator or stack configurator)
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const messageField = document.getElementById('contact-message');
+    const areaField = document.getElementById('contact-area');
+
+    if (params.has('team') && params.has('hours') && params.has('cost')) {
+      const team = params.get('team');
+      const hours = params.get('hours');
+      const cost = Number(params.get('cost')).toLocaleString();
+      if (messageField && !messageField.value) {
+        messageField.value = `I calculated our team capacity: ${team} FTEs spending ~${hours} hrs/wk in spreadsheets (estimated annual time cost: $${cost}). We'd like to discuss automating these workflows.`;
+      }
+      if (areaField) {
+        areaField.value = 'Workflow Automation & Tools';
+      }
+    } else if (params.has('stack')) {
+      const stack = params.get('stack').split(',').join(', ');
+      if (messageField && !messageField.value) {
+        messageField.value = `We are exploring automations for our stack: ${stack}. We would like to discuss connecting these tools.`;
+      }
+      if (areaField) {
+        areaField.value = 'Workflow Automation & Tools';
+      }
+    }
+  })();
+
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('contact-submit-btn');
 
