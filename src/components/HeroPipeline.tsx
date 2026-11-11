@@ -59,30 +59,30 @@ export default function HeroPipeline() {
           {/* Header Bar */}
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
-              <span className="font-sans text-[11px] uppercase tracking-wider text-indigo-600 font-bold bg-indigo-50 px-2.5 py-0.5 rounded border border-indigo-100 flex items-center gap-1.5">
-                <Layers className="w-3 h-3 text-indigo-600" />
+              <span className="font-sans text-xs uppercase tracking-wider text-indigo-600 font-bold bg-indigo-50 px-2.5 py-1 rounded border border-indigo-100 flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-indigo-600" />
                 CRM &amp; DEAL HANDOFF LAYER
               </span>
             </div>
             
-            <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full text-[11px] font-sans font-semibold border border-emerald-200">
+            <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-sans font-semibold border border-emerald-200">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               Listening for Closed-Won
             </div>
           </div>
 
           {/* Connected Stack Tags */}
-          <div className="flex flex-wrap gap-1.5 mb-4">
-            <div className="inline-flex items-center gap-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-2xs">
-              <Briefcase className="w-3 h-3 text-indigo-500" />
+          <div className="flex flex-wrap gap-2 mb-4">
+            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-3 py-1 rounded-md shadow-2xs">
+              <Briefcase className="w-3.5 h-3.5 text-indigo-500" />
               HubSpot / Salesforce
             </div>
-            <div className="inline-flex items-center gap-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-2xs">
-              <FileSpreadsheet className="w-3 h-3 text-indigo-500" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-3 py-1 rounded-md shadow-2xs">
+              <FileSpreadsheet className="w-3.5 h-3.5 text-indigo-500" />
               Google Workspace
             </div>
-            <div className="inline-flex items-center gap-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-2xs">
-              <MessageSquare className="w-3 h-3 text-indigo-500" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-3 py-1 rounded-md shadow-2xs">
+              <MessageSquare className="w-3.5 h-3.5 text-indigo-500" />
               Slack &amp; PM Boards
             </div>
           </div>
@@ -90,18 +90,18 @@ export default function HeroPipeline() {
           {/* Metrics Grid & Action Trigger */}
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center pt-1 border-t border-slate-200/60">
             {/* Dashboard Mini Card */}
-            <div className="sm:col-span-7 grid grid-cols-3 gap-2 bg-white p-2.5 rounded-lg border border-slate-200/80 shadow-2xs">
+            <div className="sm:col-span-7 grid grid-cols-3 gap-2 bg-white p-3 rounded-lg border border-slate-200/80 shadow-2xs">
               <div className="text-center sm:text-left border-r border-slate-100 pr-1">
-                <span className="text-[10px] font-sans uppercase text-slate-400 block font-semibold">Teams Live</span>
-                <span className="text-xs font-bold text-emerald-600">17 Teams</span>
+                <span className="text-xs font-sans uppercase text-slate-500 block font-semibold">Teams Live</span>
+                <span className="text-sm font-bold text-emerald-600">17 Teams</span>
               </div>
               <div className="text-center sm:text-left border-r border-slate-100 px-1">
-                <span className="text-[10px] font-sans uppercase text-slate-400 block font-semibold">Per-User Gain</span>
-                <span className="text-xs font-bold text-slate-900">~16 hrs/mo</span>
+                <span className="text-xs font-sans uppercase text-slate-500 block font-semibold">Per-User Gain</span>
+                <span className="text-sm font-bold text-slate-900">~16 hrs/mo</span>
               </div>
               <div className="text-center sm:text-left pl-1">
-                <span className="text-[10px] font-sans uppercase text-slate-400 block font-semibold">Org Saved</span>
-                <span className="text-xs font-bold text-indigo-600">~590 hrs/mo</span>
+                <span className="text-xs font-sans uppercase text-slate-500 block font-semibold">Org Saved</span>
+                <span className="text-sm font-bold text-indigo-600">~590 hrs/mo</span>
               </div>
             </div>
 
@@ -110,7 +110,7 @@ export default function HeroPipeline() {
               <button
                 onClick={handleSimulate}
                 disabled={isSimulating}
-                className={`w-full py-2 px-3 rounded-lg font-semibold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 cursor-pointer ${
+                className={`w-full py-2.5 px-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 cursor-pointer ${
                   isSimulating 
                     ? 'bg-indigo-100 text-indigo-700 cursor-not-allowed border border-indigo-200' 
                     : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-200'
@@ -118,12 +118,12 @@ export default function HeroPipeline() {
               >
                 {isSimulating ? (
                   <>
-                    <RefreshCw className="w-3.5 h-3.5 animate-spin text-indigo-600" />
+                    <RefreshCw className="w-4 h-4 animate-spin text-indigo-600" />
                     <span>Provisioning...</span>
                   </>
                 ) : (
                   <>
-                    <Zap className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
+                    <Zap className="w-4 h-4 text-amber-300 fill-amber-300" />
                     <span>Simulate Closed-Won Deal</span>
                   </>
                 )}
@@ -159,8 +159,8 @@ export default function HeroPipeline() {
           </div>
 
           {/* Trigger Tag Label */}
-          <div className="my-1 bg-white border border-indigo-200 text-indigo-700 px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold tracking-wider uppercase shadow-2xs flex items-center gap-1">
-            <Sparkles className="w-2.5 h-2.5 text-indigo-500" />
+          <div className="my-1 bg-white border border-indigo-200 text-indigo-700 px-3 py-1 rounded-full text-xs font-sans font-bold tracking-wider uppercase shadow-2xs flex items-center gap-1.5">
+            <Sparkles className="w-3 h-3 text-indigo-500" />
             Apps Script &amp; Webhook Trigger
           </div>
 
@@ -172,14 +172,14 @@ export default function HeroPipeline() {
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className="font-sans text-[11px] uppercase tracking-wider text-slate-700 font-bold bg-slate-200/80 px-2.5 py-0.5 rounded flex items-center gap-1.5">
-                <Cpu className="w-3 h-3 text-slate-700" />
+              <span className="font-sans text-xs uppercase tracking-wider text-slate-700 font-bold bg-slate-200/80 px-2.5 py-1 rounded flex items-center gap-1.5">
+                <Cpu className="w-3.5 h-3.5 text-slate-700" />
                 DELIVERY &amp; CAPACITY ENGINE
               </span>
             </div>
 
-            <div className="flex items-center gap-1 bg-slate-200/60 text-slate-700 px-2.5 py-0.5 rounded text-[11px] font-sans font-semibold">
-              <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+            <div className="flex items-center gap-1.5 bg-slate-200/60 text-slate-700 px-3 py-1 rounded text-xs font-sans font-semibold">
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
               Synced to Workspace
             </div>
           </div>
@@ -198,7 +198,7 @@ export default function HeroPipeline() {
                   borderColor: activeStep >= 1 ? '#4F46E5' : '#E2E8F0',
                   boxShadow: activeStep === 1 ? '0 0 0 2px rgba(79, 70, 229, 0.2)' : '0 1px 2px rgba(0,0,0,0.03)'
                 }}
-                className="bg-white border rounded-xl p-3 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
+                className="bg-white border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
               >
                 <div>
                   <div className="flex justify-between items-start mb-2">
@@ -206,7 +206,7 @@ export default function HeroPipeline() {
                       <Workflow className="w-4 h-4" />
                     </div>
                     
-                    <span className={`text-[10px] font-sans font-bold px-2 py-0.5 rounded uppercase ${
+                    <span className={`text-xs font-sans font-bold px-2 py-0.5 rounded uppercase ${
                       activeStep === 1 ? 'bg-indigo-600 text-white animate-pulse' :
                       activeStep > 1 ? 'bg-emerald-100 text-emerald-700' :
                       'bg-slate-100 text-slate-500'
@@ -215,8 +215,8 @@ export default function HeroPipeline() {
                     </span>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">1. Capacity &amp; Staffing</h4>
-                  <p className="text-[11px] text-slate-500 leading-tight">Live Google Sheets utilization &amp; role matching</p>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1">1. Capacity &amp; Staffing</h4>
+                  <p className="text-xs text-slate-500 leading-snug">Live Google Sheets utilization &amp; role matching</p>
                 </div>
               </motion.div>
 
@@ -250,7 +250,7 @@ export default function HeroPipeline() {
                   borderColor: activeStep >= 2 ? '#4F46E5' : '#E2E8F0',
                   boxShadow: activeStep === 2 ? '0 0 0 2px rgba(79, 70, 229, 0.2)' : '0 1px 2px rgba(0,0,0,0.03)'
                 }}
-                className="bg-white border rounded-xl p-3 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
+                className="bg-white border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
               >
                 <div>
                   <div className="flex justify-between items-start mb-2">
@@ -258,7 +258,7 @@ export default function HeroPipeline() {
                       <Cpu className="w-4 h-4" />
                     </div>
                     
-                    <span className={`text-[10px] font-sans font-bold px-2 py-0.5 rounded uppercase ${
+                    <span className={`text-xs font-sans font-bold px-2 py-0.5 rounded uppercase ${
                       activeStep === 2 ? 'bg-indigo-600 text-white animate-pulse' :
                       activeStep > 2 ? 'bg-emerald-100 text-emerald-700' :
                       'bg-slate-100 text-slate-500'
@@ -267,8 +267,8 @@ export default function HeroPipeline() {
                     </span>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">2. Project Spin-Up</h4>
-                  <p className="text-[11px] text-slate-500 leading-tight">Auto-creates Drive folders, PM boards &amp; Slack alerts</p>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1">2. Project Spin-Up</h4>
+                  <p className="text-xs text-slate-500 leading-snug">Auto-creates Drive folders, PM boards &amp; Slack alerts</p>
                 </div>
               </motion.div>
 
@@ -302,7 +302,7 @@ export default function HeroPipeline() {
                   borderColor: activeStep === 3 ? '#10B981' : activeStep > 3 ? '#10B981' : '#E2E8F0',
                   boxShadow: activeStep === 3 ? '0 0 0 2px rgba(16, 185, 129, 0.2)' : '0 1px 2px rgba(0,0,0,0.03)'
                 }}
-                className="bg-white border rounded-xl p-3 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
+                className="bg-white border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
               >
                 <div>
                   <div className="flex justify-between items-start mb-2">
@@ -310,15 +310,15 @@ export default function HeroPipeline() {
                       <LineChart className="w-4 h-4" />
                     </div>
                     
-                    <span className={`text-[10px] font-sans font-bold px-2 py-0.5 rounded uppercase ${
+                    <span className={`text-xs font-sans font-bold px-2 py-0.5 rounded uppercase ${
                       activeStep === 3 ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-500'
                     }`}>
                       {activeStep === 3 ? 'Rolled Up' : 'Ready'}
                     </span>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">3. Weekly Status Rollups</h4>
-                  <p className="text-[11px] text-slate-500 leading-tight">Automated Monday digests &amp; billing triggers</p>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1">3. Weekly Status Rollups</h4>
+                  <p className="text-xs text-slate-500 leading-snug">Automated Monday digests &amp; billing triggers</p>
                 </div>
               </motion.div>
 
@@ -346,7 +346,7 @@ export default function HeroPipeline() {
 
         {/* Module Footer Label */}
         <div className="pt-2 border-t border-slate-200/60 text-center">
-          <span className="text-[11px] font-sans uppercase tracking-wider text-slate-400 font-semibold">
+          <span className="text-xs font-sans uppercase tracking-wider text-slate-400 font-semibold">
             Interactive Simulator: Closed-Won Deal to Live Delivery Capacity
           </span>
         </div>

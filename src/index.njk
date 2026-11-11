@@ -97,22 +97,22 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
       <div class="p-5 bg-slate-100 dark:bg-slate-800/90 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-4">
         <div class="grid grid-cols-2 gap-3.5 text-center">
           <div class="p-3.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
-            <div class="font-mono-label text-[11px] uppercase tracking-wider text-slate-600 dark:text-slate-400 font-bold">Monthly Capacity Lost</div>
+            <div class="font-mono-label text-xs uppercase tracking-wider text-slate-600 dark:text-slate-400 font-bold">Monthly Capacity Lost</div>
             <div id="result-hours" class="font-mono-metric text-2xl font-black text-slate-900 dark:text-white mt-1">433 hrs/mo</div>
           </div>
           <div class="p-3.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
-            <div class="font-mono-label text-[11px] uppercase tracking-wider text-red-700 dark:text-red-400 font-bold">Annual Capacity Drain</div>
+            <div class="font-mono-label text-xs uppercase tracking-wider text-red-700 dark:text-red-400 font-bold">Annual Capacity Drain</div>
             <div id="result-cost" class="font-mono-metric text-2xl font-black text-red-600 dark:text-red-400 mt-1">$389,700/yr</div>
           </div>
         </div>
 
         <!-- Proof point tag -->
-        <div class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 pt-2 px-1 border-t border-slate-200 dark:border-slate-700">
+        <div class="flex items-center justify-between text-sm text-slate-700 dark:text-slate-300 pt-2 px-1 border-t border-slate-200 dark:border-slate-700">
           <span class="flex items-center gap-1.5 font-medium">
             <span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-base">verified</span>
             Flagship Capacity Rollout:
           </span>
-          <span class="font-mono-metric font-bold text-emerald-700 dark:text-emerald-400 text-xs">~590 hrs/mo saved across 17 teams</span>
+          <span class="font-mono-metric font-bold text-emerald-700 dark:text-emerald-400 text-sm">~590 hrs/mo saved across 17 teams</span>
         </div>
       </div>
 
@@ -125,12 +125,12 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
 
         <!-- Quick 1-click email capture -->
         <form id="calc-quick-form" class="flex gap-2">
-          <input type="email" id="calc-email" placeholder="Enter work email for 2-week audit overview" required class="flex-grow text-xs px-4 py-3 rounded-xl border-2 border-slate-300 dark:border-slate-700 focus:outline-none focus:border-electric-blue bg-white dark:bg-slate-950 text-slate-900 dark:text-white placeholder:text-slate-500 font-medium">
-          <button type="submit" id="calc-submit-btn" class="bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 font-mono-label text-xs font-bold px-4 py-3 rounded-xl transition-colors cursor-pointer shrink-0 shadow-sm">
+          <input type="email" id="calc-email" placeholder="Enter work email for 2-week audit overview" required class="flex-grow text-sm px-4 py-3 rounded-xl border-2 border-slate-300 dark:border-slate-700 focus:outline-none focus:border-electric-blue bg-white dark:bg-slate-950 text-slate-900 dark:text-white placeholder:text-slate-500 font-medium">
+          <button type="submit" id="calc-submit-btn" class="bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 font-mono-label text-sm font-bold px-4 py-3 rounded-xl transition-colors cursor-pointer shrink-0 shadow-sm">
             Send Summary
           </button>
         </form>
-        <div id="calc-feedback" class="hidden text-center text-xs font-bold text-emerald-600 dark:text-emerald-400 py-1"></div>
+        <div id="calc-feedback" class="hidden text-center text-sm font-bold text-emerald-600 dark:text-emerald-400 py-1"></div>
       </div>
 
     </div>
@@ -270,7 +270,7 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
         </div>
       </div>
     </div>
-    <p class="font-mono-label text-[11px] text-slate-gray/70 italic text-center md:text-right border-t border-surface-container-highest/40 pt-3">
+    <p class="font-mono-label text-xs text-slate-gray/80 italic text-center md:text-right border-t border-surface-container-highest/40 pt-3">
       * Hours-saved figure (~16 hrs/person/mo across 37 users) based on client internal estimates from our flagship enterprise resource planning deployment.
     </p>
   </div>
@@ -294,17 +294,17 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
       <!-- Tab 1 -->
       <button type="button" onclick="toggleSystemTab('operations-architecture')" id="tab-operations-architecture" class="tab-card w-full text-left bg-white border-2 border-electric-blue rounded-2xl p-6 cursor-pointer shadow-sm relative transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-electric-blue/30">
         <div class="indicator absolute left-0 top-0 bottom-0 w-1.5 bg-electric-blue rounded-l-2xl"></div>
-        <span class="tab-category font-mono-label text-mono-label text-electric-blue uppercase block mb-2 font-bold tracking-wider">Architecture 01</span>
-        <h3 class="tab-title font-headline-md text-body-lg font-bold text-deep-charcoal mb-1">The 4-Stage Delivery Lifecycle</h3>
-        <p class="font-body-md text-mono-label text-slate-gray font-light">Automating handoffs, staffing, weekly status rollups, and billing triggers.</p>
+        <span class="tab-category font-mono-label text-xs text-electric-blue uppercase block mb-2 font-bold tracking-wider">Architecture 01</span>
+        <h3 class="tab-title font-headline-md text-lg font-bold text-deep-charcoal mb-1.5">The 4-Stage Delivery Lifecycle</h3>
+        <p class="font-body-md text-sm text-slate-gray font-light leading-relaxed">Automating handoffs, staffing, weekly status rollups, and billing triggers.</p>
       </button>
       
       <!-- Tab 2 -->
       <button type="button" onclick="toggleSystemTab('sales-ops')" id="tab-sales-ops" class="tab-card w-full text-left bg-white border border-outline-variant/60 rounded-2xl p-6 cursor-pointer hover:border-electric-blue/40 hover:bg-surface-gray relative transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-electric-blue/30">
         <div class="indicator absolute left-0 top-0 bottom-0 w-1.5 bg-electric-blue rounded-l-2xl hidden"></div>
-        <span class="tab-category font-mono-label text-mono-label text-slate-gray uppercase block mb-2 font-bold tracking-wider">Architecture 02</span>
-        <h3 class="tab-title font-headline-md text-body-lg font-bold text-slate-gray mb-1">Why Build in Google Workspace?</h3>
-        <p class="font-body-md text-mono-label text-slate-gray font-light">Why custom Apps Script engines beat bloated $50/seat PSA software.</p>
+        <span class="tab-category font-mono-label text-xs text-slate-gray uppercase block mb-2 font-bold tracking-wider">Architecture 02</span>
+        <h3 class="tab-title font-headline-md text-lg font-bold text-slate-gray mb-1.5">Why Build in Google Workspace?</h3>
+        <p class="font-body-md text-sm text-slate-gray font-light leading-relaxed">Why custom Apps Script engines beat bloated $50/seat PSA software.</p>
       </button>
 
     </div>
@@ -319,34 +319,34 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
           Agency and consultancy margins leak in the handoffs: when sales closes a deal without alerting delivery, when staffing lives in broken spreadsheets, and when PMs spend every Friday afternoon chasing Slack updates.
         </p>
         <div class="space-y-4">
-          <span class="font-mono-label text-mono-label text-slate-gray uppercase block mb-2 font-bold tracking-wider">How Your Systems Connect End-to-End</span>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-            <div class="p-4 bg-surface-gray rounded-xl border border-outline-variant/40">
-              <span class="font-mono-label text-[10px] text-electric-blue font-bold uppercase block mb-1">Stage 01 · CRM to Delivery</span>
-              <h4 class="font-headline-md text-xs font-bold text-deep-charcoal mb-1">Closed-Won Project Provisioning</h4>
-              <p class="font-body-md text-[11px] text-slate-gray font-light leading-relaxed">The moment a deal closes in HubSpot, Salesforce, or Pipedrive, we auto-create Drive folders, spin up project boards, and post staffing requirements to Slack.</p>
+          <span class="font-mono-label text-xs text-slate-gray uppercase block mb-2 font-bold tracking-wider">How Your Systems Connect End-to-End</span>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-5 bg-surface-gray rounded-xl border border-outline-variant/40">
+              <span class="font-mono-label text-xs text-electric-blue font-bold uppercase block mb-1.5">Stage 01 · CRM to Delivery</span>
+              <h4 class="font-headline-md text-base font-bold text-deep-charcoal mb-1.5">Closed-Won Project Provisioning</h4>
+              <p class="font-body-md text-sm text-slate-gray font-light leading-relaxed">The moment a deal closes in HubSpot, Salesforce, or Pipedrive, we auto-create Drive folders, spin up project boards, and post staffing requirements to Slack.</p>
             </div>
-            <div class="p-4 bg-surface-gray rounded-xl border-2 border-electric-blue/30">
-              <span class="font-mono-label text-[10px] text-electric-blue font-bold uppercase block mb-1">Stage 02 · Flagship Engine</span>
-              <h4 class="font-headline-md text-xs font-bold text-deep-charcoal mb-1">Resource &amp; Capacity Planning</h4>
-              <p class="font-body-md text-[11px] text-slate-gray font-light leading-relaxed">A centralized Google Workspace + Apps Script capacity planner with role-based permissions, live utilization math, and 8-week bandwidth forecasting.</p>
+            <div class="p-5 bg-surface-gray rounded-xl border-2 border-electric-blue/30">
+              <span class="font-mono-label text-xs text-electric-blue font-bold uppercase block mb-1.5">Stage 02 · Flagship Engine</span>
+              <h4 class="font-headline-md text-base font-bold text-deep-charcoal mb-1.5">Resource &amp; Capacity Planning</h4>
+              <p class="font-body-md text-sm text-slate-gray font-light leading-relaxed">A centralized Google Workspace + Apps Script capacity planner with role-based permissions, live utilization math, and 8-week bandwidth forecasting.</p>
             </div>
-            <div class="p-4 bg-surface-gray rounded-xl border border-outline-variant/40">
-              <span class="font-mono-label text-[10px] text-electric-blue font-bold uppercase block mb-1">Stage 03 · Execution Visibility</span>
-              <h4 class="font-headline-md text-xs font-bold text-deep-charcoal mb-1">Automated Weekly Status Rollups</h4>
-              <p class="font-body-md text-[11px] text-slate-gray font-light leading-relaxed">Eliminate the Friday Slack chase. Pull sprint and deliverable progress from Asana, Jira, ClickUp, or Sheets into automated Monday leadership digests.</p>
+            <div class="p-5 bg-surface-gray rounded-xl border border-outline-variant/40">
+              <span class="font-mono-label text-xs text-electric-blue font-bold uppercase block mb-1.5">Stage 03 · Execution Visibility</span>
+              <h4 class="font-headline-md text-base font-bold text-deep-charcoal mb-1.5">Automated Weekly Status Rollups</h4>
+              <p class="font-body-md text-sm text-slate-gray font-light leading-relaxed">Eliminate the Friday Slack chase. Pull sprint and deliverable progress from Asana, Jira, ClickUp, or Sheets into automated Monday leadership digests.</p>
             </div>
-            <div class="p-4 bg-surface-gray rounded-xl border border-outline-variant/40">
-              <span class="font-mono-label text-[10px] text-electric-blue font-bold uppercase block mb-1">Stage 04 · Margin &amp; Billing</span>
-              <h4 class="font-headline-md text-xs font-bold text-deep-charcoal mb-1">Delivery-to-Finance Triggers</h4>
-              <p class="font-body-md text-[11px] text-slate-gray font-light leading-relaxed">When delivery milestones complete, automatically alert finance, generate draft invoices in Stripe or QuickBooks, and reconcile actuals against budget.</p>
+            <div class="p-5 bg-surface-gray rounded-xl border border-outline-variant/40">
+              <span class="font-mono-label text-xs text-electric-blue font-bold uppercase block mb-1.5">Stage 04 · Margin &amp; Billing</span>
+              <h4 class="font-headline-md text-base font-bold text-deep-charcoal mb-1.5">Delivery-to-Finance Triggers</h4>
+              <p class="font-body-md text-sm text-slate-gray font-light leading-relaxed">When delivery milestones complete, automatically alert finance, generate draft invoices in Stripe or QuickBooks, and reconcile actuals against budget.</p>
             </div>
           </div>
         </div>
         <div class="pt-2">
-          <a class="inline-flex items-center text-electric-blue font-mono-label text-mono-label uppercase tracking-wider font-bold group hover:underline" href="/automation/">
+          <a class="inline-flex items-center text-electric-blue font-mono-label text-sm uppercase tracking-wider font-bold group hover:underline" href="/automation/">
             Explore Capacity &amp; Delivery Systems 
-            <span class="material-symbols-outlined ml-2 text-sm transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <span class="material-symbols-outlined ml-2 text-base transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </a>
         </div>
       </div>
@@ -358,18 +358,18 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
           Most agencies try to fix spreadsheet chaos by purchasing a $40–$60/seat PSA tool. Six months later, the team is still using shadow Google Sheets because nobody wants to log into a rigid new platform. We engineer custom applications directly inside the Google Workspace, Slack, and CRM tools your team already uses every hour.
         </p>
         <div>
-          <span class="font-mono-label text-mono-label text-slate-gray uppercase block mb-4 font-bold tracking-wider">Core Technical Advantages</span>
+          <span class="font-mono-label text-xs text-slate-gray uppercase block mb-4 font-bold tracking-wider">Core Technical Advantages</span>
           <div class="flex flex-wrap gap-2.5">
-            <span class="font-mono-label text-[11px] text-deep-charcoal bg-surface-gray px-3.5 py-2 border border-outline-variant/40 rounded-xl font-medium">Zero Per-Seat Licensing Tax</span>
-            <span class="font-mono-label text-[11px] text-deep-charcoal bg-surface-gray px-3.5 py-2 border border-outline-variant/40 rounded-xl font-medium">Instant Team Adoption in Google Sheets &amp; Slack</span>
-            <span class="font-mono-label text-[11px] text-deep-charcoal bg-surface-gray px-3.5 py-2 border border-outline-variant/40 rounded-xl font-medium">Tailored to Your Exact Utilization &amp; Margin Rules</span>
-            <span class="font-mono-label text-[11px] text-deep-charcoal bg-surface-gray px-3.5 py-2 border border-outline-variant/40 rounded-xl font-medium">Runs Inside Your Native Google Cloud Security</span>
+            <span class="font-body-md text-sm text-deep-charcoal bg-surface-gray px-4 py-2 border border-outline-variant/40 rounded-xl font-medium">Zero Per-Seat Licensing Tax</span>
+            <span class="font-body-md text-sm text-deep-charcoal bg-surface-gray px-4 py-2 border border-outline-variant/40 rounded-xl font-medium">Instant Team Adoption in Google Sheets &amp; Slack</span>
+            <span class="font-body-md text-sm text-deep-charcoal bg-surface-gray px-4 py-2 border border-outline-variant/40 rounded-xl font-medium">Tailored to Your Exact Utilization &amp; Margin Rules</span>
+            <span class="font-body-md text-sm text-deep-charcoal bg-surface-gray px-4 py-2 border border-outline-variant/40 rounded-xl font-medium">Runs Inside Your Native Google Cloud Security</span>
           </div>
         </div>
         <div class="pt-2">
-          <a class="inline-flex items-center text-electric-blue font-mono-label text-mono-label uppercase tracking-wider font-bold group hover:underline" href="/projects/">
+          <a class="inline-flex items-center text-electric-blue font-mono-label text-sm uppercase tracking-wider font-bold group hover:underline" href="/projects/">
             Read the 17-Team Capacity Case Study 
-            <span class="material-symbols-outlined ml-2 text-sm transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <span class="material-symbols-outlined ml-2 text-base transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </a>
         </div>
       </div>
@@ -562,7 +562,7 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
         <span>Why build inside Google Workspace instead of buying PSA or resource software?</span>
         <span class="material-symbols-outlined text-electric-blue transition-transform duration-300 group-open:rotate-180">keyboard_arrow_down</span>
       </summary>
-      <div class="mt-4 text-slate-gray font-light leading-relaxed text-sm border-t border-outline-variant/20 pt-4">
+      <div class="mt-4 text-slate-gray font-light leading-relaxed text-base border-t border-outline-variant/20 pt-4">
         Off-the-shelf PSA tools cost $40–$60 per seat every month and force your team to change how they work—which is why most delivery teams quietly go back to shadow spreadsheets within 90 days. We build custom Apps Script engines directly inside Google Workspace, Slack, and your existing CRM/project boards so you get real-time capacity control with zero new licensing fees and instant adoption.
       </div>
     </details>
@@ -573,7 +573,7 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
         <span>What size agencies and consultancies do you work with?</span>
         <span class="material-symbols-outlined text-electric-blue transition-transform duration-300 group-open:rotate-180">keyboard_arrow_down</span>
       </summary>
-      <div class="mt-4 text-slate-gray font-light leading-relaxed text-sm border-t border-outline-variant/20 pt-4">
+      <div class="mt-4 text-slate-gray font-light leading-relaxed text-base border-t border-outline-variant/20 pt-4">
         Our sweet spot is 20–150 person agencies, consultancies, implementation partners, and multi-team organizations running on Google Workspace. At 20+ people, manual staffing sheets and Friday Slack status chases start costing hundreds of billable hours every month.
       </div>
     </details>
@@ -584,7 +584,7 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
         <span>How does the 2-Week Workflow &amp; Capacity Audit work?</span>
         <span class="material-symbols-outlined text-electric-blue transition-transform duration-300 group-open:rotate-180">keyboard_arrow_down</span>
       </summary>
-      <div class="mt-4 text-slate-gray font-light leading-relaxed text-sm border-t border-outline-variant/20 pt-4">
+      <div class="mt-4 text-slate-gray font-light leading-relaxed text-base border-t border-outline-variant/20 pt-4">
         Over 14 days, we audit your sales-to-delivery handoffs, staffing sheets, and reporting workflows, deliver a prioritized technical roadmap, and deploy your first working automation prototype directly in your stack. If you move forward with a Full System Build within 30 days, 100% of your Audit fee is credited toward the build.
       </div>
     </details>
@@ -595,7 +595,7 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
         <span>Who actually builds and supports our systems?</span>
         <span class="material-symbols-outlined text-electric-blue transition-transform duration-300 group-open:rotate-180">keyboard_arrow_down</span>
       </summary>
-      <div class="mt-4 text-slate-gray font-light leading-relaxed text-sm border-t border-outline-variant/20 pt-4">
+      <div class="mt-4 text-slate-gray font-light leading-relaxed text-base border-t border-outline-variant/20 pt-4">
         Founder Alex Herbstman leads every audit, designs the system architecture, and writes core automations directly. When a project requires specialized platform integrations or extra engineering bandwidth, Alex pulls directly from our vetted bench of senior specialists—so you never get handed off to junior account coordinators.
       </div>
     </details>
