@@ -1,35 +1,32 @@
 # CaulHaus
 
-> CaulHaus connects your everyday tools and builds custom automations to eliminate manual busywork and messy spreadsheets.
+> CaulHaus builds custom capacity planning, resource allocation, and sales-to-delivery automations directly inside Google Workspace and existing project tools for 20–150 person agencies, consultancies, and professional services firms.
 
 ## Overview
-CaulHaus is an operations and automation studio led by founder Alex Herbstman, a systems developer with over a decade of hands-on experience connecting tools and automating workflows, including three years building enterprise automation systems within an extended network inside one of the largest technology companies in the world. Alex leads every engagement directly, architecting and building core automations, backed by a trusted bench of senior specialists whenever a project calls for specialized platform expertise or extra bandwidth.
+CaulHaus is a delivery operations and workflow automation practice led by founder Alex Herbstman, a systems architect and developer with over a decade of experience connecting tools and automating operational workflows—including three years building enterprise resource and capacity automation systems via an extended network inside one of the largest technology organizations in the world. Alex leads every engagement directly, architecting and writing core automations, backed by a vetted bench of senior specialists when a build requires specialized platform expertise or extra bandwidth.
 
-Most teams lose hundreds of hours copying data between spreadsheets, chasing status updates, and doing repetitive tasks by hand because their software does not talk to each other. CaulHaus diagnoses your bottlenecks and writes working automations directly inside the tools you already use, leveraging your existing workspace.
+Growing agencies and consultancies lose hundreds of billable hours every month reconciling fragile staffing spreadsheets, chasing Friday status updates in Slack, and manually copying closed-won deal details from their CRM into project boards. Buying bloated PSA software ($50/seat/month) rarely fixes the problem because delivery teams refuse to update yet another tool. CaulHaus builds custom capacity engines and cross-tool automations natively inside Google Workspace, your CRM, and your existing project management stack—with zero new per-seat software fees.
 
-## The Five Everyday Areas We Connect
-CaulHaus organizes workflows and automations across five everyday areas:
-
-1. Product & Design Hand-Offs: We automate moving user feedback, design assets, and feature requests to developers without manual chasing.
-2. Vendors & Partners: We set up automated contract renewal reminders and automate partner onboarding without endless email threads.
-3. Marketing Operations & Leads: We build instant lead routing to deliver form submissions to sales reps in seconds, and track which marketing efforts actually generate revenue.
-4. Everyday Team Busywork: We eliminate manual copy-pasting in Google Sheets, generate weekly reports automatically, and track team workloads.
-5. Sales, Invoicing & Billing: Signed deals automatically generate invoices and sync cleanly to customer CRM records.
+## The 4-Stage Connected Delivery Lifecycle We Automate
+1. Sales-to-Delivery Handoffs (CRM -> Project Spin-Up): When a deal closes in HubSpot, Salesforce, or Pipedrive, we automatically provision Google Drive folders, project boards, billing milestones, and staffing requests in Slack.
+2. Resource & Capacity Planning (Flagship Engine): We replace brittle staffing workbooks with a custom Google Workspace + Apps Script capacity planner featuring automated roster sync, role-based access views, and live utilization dashboards.
+3. Automated Weekly Status & Workload Rollups: We eliminate the Friday afternoon Slack status chase by pulling task and workload progress from Asana, Jira, ClickUp, Linear, or Sheets into automated Monday leadership digests.
+4. Delivery-to-Finance & Utilization Reporting: Completed project milestones automatically trigger billing notifications or draft invoices in Stripe/QuickBooks and update leadership utilization reports.
 
 ## How We Work (/services/)
-1. The 2-Week Workflow Audit: A focused two-week diagnostic to map operational bottlenecks, eliminate spreadsheet clutter, and deliver your first working automation prototype.
-2. Full Automation Build: End-to-end design and deployment of custom background automations and tool connections directly inside your software.
-3. On-Call Support & Maintenance: Monthly on-call help to maintain existing workflows, adapt to tool updates, and build new automations as your business grows.
+1. The 2-Week Workflow & Capacity Audit: A focused two-week diagnostic to map sales-to-delivery handoffs, quantify utilization and spreadsheet time loss, deliver a prioritized technical roadmap, and deploy your first working automation prototype (100% of the audit fee is credited toward a Full System Build kicked off within 30 days).
+2. Full Capacity & System Build (4–6 Weeks): End-to-end engineering and rollout of your custom Google Workspace capacity planner and cross-tool automation pipelines on production data.
+3. Continuous Operations & Capacity Partner (Monthly Retainer): Ongoing partnership offered in two tiers—Core Systems & Capacity Continuity (monthly roster/rate calibration, API maintenance, and micro-automations) or Fractional Delivery Systems Partner (shipping one new automation sprint every month plus a monthly COO capacity and utilization review).
 
 ## Track Record & Impact
-- We built and rolled out a Google Workspace capacity planner across 17 teams and 37 people, recovering roughly 590 hours a month in saved manual status chasing.
-- We build directly on top of your existing tools (Google Workspace, CRM, project trackers) without requiring additional platform overhead.
+- Flagship Enterprise Case Study: Engineered and rolled out a custom Google Workspace capacity and resource planning system across 17 teams and 37 people (via our extended network), recovering roughly 16 hours per person monthly (~590 hours/month org-wide) previously spent on manual scheduling and spreadsheet maintenance.
+- Built natively inside existing stacks (Google Workspace, Google Apps Script, HubSpot, Salesforce, Pipedrive, Slack, Jira, Asana, ClickUp, Airtable, Stripe) with zero incremental per-user licensing fees.
 
 ## Official Site Pages
 - Homepage: https://caulhaus.com/
-- Everyday Automations & Engagements: https://caulhaus.com/services/
-- How It Works: https://caulhaus.com/automation/
-- Marketing Operations & Pipeline Routing: https://caulhaus.com/marketing/
-- Results & Case Studies: https://caulhaus.com/projects/
+- Capacity & Delivery Systems: https://caulhaus.com/automation/
+- Sales-to-Delivery & CRM Handoffs: https://caulhaus.com/marketing/
+- How We Work & Scope: https://caulhaus.com/services/
+- Case Study & Results: https://caulhaus.com/projects/
 - About Us: https://caulhaus.com/about/
 - Contact Us: https://caulhaus.com/contact/

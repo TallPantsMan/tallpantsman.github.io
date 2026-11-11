@@ -4,7 +4,6 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/llms.txt");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
-  eleventyConfig.addPassthroughCopy("src/favicon.jpg");
   
   // Pass through CNAME file for GitHub Pages custom domain
   eleventyConfig.addPassthroughCopy("src/CNAME");
@@ -26,3 +25,4 @@ export default function(eleventyConfig) {
     }
   };
 }
+
