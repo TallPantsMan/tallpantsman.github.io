@@ -14,8 +14,8 @@
   --font-body-lg: 'Inter', sans-serif;
   --font-body-md: 'Inter', sans-serif;
   --font-headline-md: 'Hanken Grotesk', sans-serif;
-  --font-mono-label: 'JetBrains Mono', monospace;
-  --font-mono-metric: 'JetBrains Mono', monospace;
+  --font-mono-label: 'Hanken Grotesk', 'Inter', sans-serif;
+  --font-mono-metric: 'Hanken Grotesk', 'Inter', sans-serif;
 
   /* Font Sizes */
   --text-headline-lg-mobile: 32px;
@@ -45,13 +45,14 @@
   --text-headline-md--font-weight: 600;
 
   --text-mono-label: 12px;
-  --text-mono-label--line-height: 1.0;
-  --text-mono-label--letter-spacing: 0.05em;
+  --text-mono-label--line-height: 1.2;
+  --text-mono-label--letter-spacing: 0.03em;
   --text-mono-label--font-weight: 600;
 
   --text-mono-metric: 24px;
-  --text-mono-metric--line-height: 1.0;
-  --text-mono-metric--font-weight: 600;
+  --text-mono-metric--line-height: 1.1;
+  --text-mono-metric--letter-spacing: -0.02em;
+  --text-mono-metric--font-weight: 700;
 
   /* Harmonized Color Palette */
   --color-primary: #4F46E5;
@@ -112,10 +113,10 @@
   --radius-DEFAULT: 0.25rem;
 
   /* Typography extensions */
-  --font-label-caps: 'JetBrains Mono', monospace;
+  --font-label-caps: 'Hanken Grotesk', 'Inter', sans-serif;
   --text-label-caps: 11px;
   --text-label-caps--line-height: 1.2;
-  --text-label-caps--letter-spacing: 0.05em;
+  --text-label-caps--letter-spacing: 0.03em;
   --text-label-caps--font-weight: 600;
 
   --font-display-sm: 'Hanken Grotesk', sans-serif;
@@ -136,6 +137,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+}
+
+.font-mono-metric {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Elegant Thin Profile Material Symbols */

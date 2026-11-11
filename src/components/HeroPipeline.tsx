@@ -8,16 +8,16 @@ import {
   RefreshCw, 
   Workflow, 
   LineChart,
-  Megaphone,
-  Search,
-  Mail,
+  Briefcase,
+  FileSpreadsheet,
+  MessageSquare,
   Sparkles,
   Info
 } from 'lucide-react';
 
 export default function HeroPipeline() {
   const [isSimulating, setIsSimulating] = useState(false);
-  const [activeStep, setActiveStep] = useState<number>(-1); // -1: default, 0: campaign pulse, 1: node1, 2: node2, 3: node3/complete
+  const [activeStep, setActiveStep] = useState<number>(-1);
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
 
   const handleSimulate = () => {
@@ -26,9 +26,9 @@ export default function HeroPipeline() {
     setActiveStep(0);
 
     // Timeline sequence
-    setTimeout(() => setActiveStep(1), 600);   // Node 1: Resource Planning
-    setTimeout(() => setActiveStep(2), 1600);  // Node 2: Process Automation
-    setTimeout(() => setActiveStep(3), 2600);  // Node 3: Measurement & Sync
+    setTimeout(() => setActiveStep(1), 600);   // Node 1: Capacity & Staffing
+    setTimeout(() => setActiveStep(2), 1600);  // Node 2: Project Provisioning
+    setTimeout(() => setActiveStep(3), 2600);  // Node 3: Status & Utilization
 
     // Reset sequence after 4.5s
     setTimeout(() => {
@@ -47,7 +47,7 @@ export default function HeroPipeline() {
           style={{ backgroundImage: 'radial-gradient(#0F172A 1px, transparent 1px)', backgroundSize: '16px 16px' }} 
         />
 
-        {/* ================= MODULE A: DEMAND ENGINE / CAMPAIGN LAYER ================= */}
+        {/* ================= MODULE A: CRM & CLOSED-WON TRIGGER LAYER ================= */}
         <motion.div 
           animate={{
             borderColor: activeStep === 0 ? '#4F46E5' : '#E2E8F0',
@@ -59,31 +59,31 @@ export default function HeroPipeline() {
           {/* Header Bar */}
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100 flex items-center gap-1.5">
+              <span className="font-sans text-[11px] uppercase tracking-wider text-indigo-600 font-bold bg-indigo-50 px-2.5 py-0.5 rounded border border-indigo-100 flex items-center gap-1.5">
                 <Layers className="w-3 h-3 text-indigo-600" />
-                CAMPAIGN LAYER
+                CRM &amp; DEAL HANDOFF LAYER
               </span>
             </div>
             
-            <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold border border-emerald-200">
+            <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full text-[11px] font-sans font-semibold border border-emerald-200">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Ingesting Live
+              Listening for Closed-Won
             </div>
           </div>
 
-          {/* Inbound Channels Tags */}
+          {/* Connected Stack Tags */}
           <div className="flex flex-wrap gap-1.5 mb-4">
-            <div className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-2xs">
-              <Megaphone className="w-3 h-3 text-indigo-500" />
-              Paid Ads
+            <div className="inline-flex items-center gap-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-2xs">
+              <Briefcase className="w-3 h-3 text-indigo-500" />
+              HubSpot / Salesforce
             </div>
-            <div className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-2xs">
-              <Search className="w-3 h-3 text-indigo-500" />
-              Content / SEO
+            <div className="inline-flex items-center gap-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-2xs">
+              <FileSpreadsheet className="w-3 h-3 text-indigo-500" />
+              Google Workspace
             </div>
-            <div className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-2xs">
-              <Mail className="w-3 h-3 text-indigo-500" />
-              Lifecycle
+            <div className="inline-flex items-center gap-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-2xs">
+              <MessageSquare className="w-3 h-3 text-indigo-500" />
+              Slack &amp; PM Boards
             </div>
           </div>
 
@@ -92,16 +92,16 @@ export default function HeroPipeline() {
             {/* Dashboard Mini Card */}
             <div className="sm:col-span-7 grid grid-cols-3 gap-2 bg-white p-2.5 rounded-lg border border-slate-200/80 shadow-2xs">
               <div className="text-center sm:text-left border-r border-slate-100 pr-1">
-                <span className="text-[9px] font-mono uppercase text-slate-400 block font-semibold">Conv. Rate</span>
-                <span className="text-xs font-bold text-emerald-600">+34%</span>
+                <span className="text-[10px] font-sans uppercase text-slate-400 block font-semibold">Teams Live</span>
+                <span className="text-xs font-bold text-emerald-600">17 Teams</span>
               </div>
               <div className="text-center sm:text-left border-r border-slate-100 px-1">
-                <span class="text-[9px] font-mono uppercase text-slate-400 block font-semibold">ROAS</span>
-                <span className="text-xs font-bold text-slate-900">4.2x</span>
+                <span className="text-[10px] font-sans uppercase text-slate-400 block font-semibold">Per-User Gain</span>
+                <span className="text-xs font-bold text-slate-900">~16 hrs/mo</span>
               </div>
               <div className="text-center sm:text-left pl-1">
-                <span className="text-[9px] font-mono uppercase text-slate-400 block font-semibold">Pipeline</span>
-                <span className="text-xs font-bold text-indigo-600">$185k</span>
+                <span className="text-[10px] font-sans uppercase text-slate-400 block font-semibold">Org Saved</span>
+                <span className="text-xs font-bold text-indigo-600">~590 hrs/mo</span>
               </div>
             </div>
 
@@ -110,7 +110,7 @@ export default function HeroPipeline() {
               <button
                 onClick={handleSimulate}
                 disabled={isSimulating}
-                className={`w-full py-2 px-3 rounded-lg font-medium text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 cursor-pointer ${
+                className={`w-full py-2 px-3 rounded-lg font-semibold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 cursor-pointer ${
                   isSimulating 
                     ? 'bg-indigo-100 text-indigo-700 cursor-not-allowed border border-indigo-200' 
                     : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-200'
@@ -119,12 +119,12 @@ export default function HeroPipeline() {
                 {isSimulating ? (
                   <>
                     <RefreshCw className="w-3.5 h-3.5 animate-spin text-indigo-600" />
-                    <span>Ingesting...</span>
+                    <span>Provisioning...</span>
                   </>
                 ) : (
                   <>
                     <Zap className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
-                    <span>Simulate Lead Ingestion</span>
+                    <span>Simulate Closed-Won Deal</span>
                   </>
                 )}
               </button>
@@ -136,7 +136,6 @@ export default function HeroPipeline() {
         <div className="relative py-1 flex flex-col items-center justify-center">
           {/* Vertical Connecting Line */}
           <div className="w-0.5 h-8 bg-slate-200 relative overflow-hidden rounded-full">
-            {/* Ambient Pulse Effect */}
             <motion.div
               animate={{
                 y: ['-100%', '300%']
@@ -149,7 +148,6 @@ export default function HeroPipeline() {
               className="w-full h-4 bg-gradient-to-b from-transparent via-indigo-500 to-transparent"
             />
 
-            {/* Trigger Particle Animation */}
             {isSimulating && (
               <motion.div
                 initial={{ top: '-20%', opacity: 1 }}
@@ -161,9 +159,9 @@ export default function HeroPipeline() {
           </div>
 
           {/* Trigger Tag Label */}
-          <div className="my-1 bg-white border border-indigo-200 text-indigo-700 px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold tracking-wider uppercase shadow-2xs flex items-center gap-1">
+          <div className="my-1 bg-white border border-indigo-200 text-indigo-700 px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold tracking-wider uppercase shadow-2xs flex items-center gap-1">
             <Sparkles className="w-2.5 h-2.5 text-indigo-500" />
-            Auto-Provisioning Trigger
+            Apps Script &amp; Webhook Trigger
           </div>
 
           <div className="w-0.5 h-2 bg-slate-200" />
@@ -174,22 +172,22 @@ export default function HeroPipeline() {
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-slate-700 font-bold bg-slate-200/80 px-2 py-0.5 rounded flex items-center gap-1.5">
+              <span className="font-sans text-[11px] uppercase tracking-wider text-slate-700 font-bold bg-slate-200/80 px-2.5 py-0.5 rounded flex items-center gap-1.5">
                 <Cpu className="w-3 h-3 text-slate-700" />
-                OPERATIONAL SYSTEMS
+                DELIVERY &amp; CAPACITY ENGINE
               </span>
             </div>
 
-            <div className="flex items-center gap-1 bg-slate-200/60 text-slate-700 px-2 py-0.5 rounded text-[10px] font-mono font-medium">
+            <div className="flex items-center gap-1 bg-slate-200/60 text-slate-700 px-2.5 py-0.5 rounded text-[11px] font-sans font-semibold">
               <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-              System Healthy
+              Synced to Workspace
             </div>
           </div>
 
           {/* 3-Node Graph Pipeline */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 relative">
             
-            {/* NODE 1: Resource Planning */}
+            {/* NODE 1: Capacity & Staffing */}
             <div 
               className="relative"
               onMouseEnter={() => setHoveredNode(1)}
@@ -208,17 +206,17 @@ export default function HeroPipeline() {
                       <Workflow className="w-4 h-4" />
                     </div>
                     
-                    <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded uppercase ${
+                    <span className={`text-[10px] font-sans font-bold px-2 py-0.5 rounded uppercase ${
                       activeStep === 1 ? 'bg-indigo-600 text-white animate-pulse' :
                       activeStep > 1 ? 'bg-emerald-100 text-emerald-700' :
                       'bg-slate-100 text-slate-500'
                     }`}>
-                      {activeStep === 1 ? 'Active' : activeStep > 1 ? 'Complete' : 'Idle'}
+                      {activeStep === 1 ? 'Allocating' : activeStep > 1 ? 'Allocated' : 'Ready'}
                     </span>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">1. Resource Planning</h4>
-                  <p className="text-[10px] text-slate-500 leading-tight">Capacity balancing &amp; auto-scoping</p>
+                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">1. Capacity &amp; Staffing</h4>
+                  <p className="text-[11px] text-slate-500 leading-tight">Live Google Sheets utilization &amp; role matching</p>
                 </div>
               </motion.div>
 
@@ -229,19 +227,19 @@ export default function HeroPipeline() {
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-[10px] rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
                   >
-                    <div className="font-mono font-bold text-indigo-300 mb-1 flex items-center gap-1">
+                    <div className="font-sans font-bold text-indigo-300 mb-1 flex items-center gap-1">
                       <Info className="w-3 h-3" /> Underlying Toolchain
                     </div>
-                    Automated via Webhooks &amp; Apps Script resource engine.
+                    Google Apps Script capacity model &amp; roster permissions.
                     <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* NODE 2: Process Automation */}
+            {/* NODE 2: Project Provisioning */}
             <div 
               className="relative"
               onMouseEnter={() => setHoveredNode(2)}
@@ -260,17 +258,17 @@ export default function HeroPipeline() {
                       <Cpu className="w-4 h-4" />
                     </div>
                     
-                    <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded uppercase ${
+                    <span className={`text-[10px] font-sans font-bold px-2 py-0.5 rounded uppercase ${
                       activeStep === 2 ? 'bg-indigo-600 text-white animate-pulse' :
                       activeStep > 2 ? 'bg-emerald-100 text-emerald-700' :
                       'bg-slate-100 text-slate-500'
                     }`}>
-                      {activeStep === 2 ? 'Active' : activeStep > 2 ? 'Complete' : 'Idle'}
+                      {activeStep === 2 ? 'Spinning Up' : activeStep > 2 ? 'Created' : 'Ready'}
                     </span>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">2. Process Automation</h4>
-                  <p className="text-[10px] text-slate-500 leading-tight">Task handoff &amp; workspace setup</p>
+                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">2. Project Spin-Up</h4>
+                  <p className="text-[11px] text-slate-500 leading-tight">Auto-creates Drive folders, PM boards &amp; Slack alerts</p>
                 </div>
               </motion.div>
 
@@ -281,19 +279,19 @@ export default function HeroPipeline() {
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-[10px] rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
                   >
-                    <div className="font-mono font-bold text-indigo-300 mb-1 flex items-center gap-1">
+                    <div className="font-sans font-bold text-indigo-300 mb-1 flex items-center gap-1">
                       <Info className="w-3 h-3" /> Underlying Toolchain
                     </div>
-                    Automated Slack notifications &amp; team task creation.
+                    Google Drive API, Asana/Jira/ClickUp webhooks &amp; Slack Bot.
                     <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* NODE 3: Measurement & Sync */}
+            {/* NODE 3: Weekly Status & Margin */}
             <div 
               className="relative"
               onMouseEnter={() => setHoveredNode(3)}
@@ -312,15 +310,15 @@ export default function HeroPipeline() {
                       <LineChart className="w-4 h-4" />
                     </div>
                     
-                    <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded uppercase ${
+                    <span className={`text-[10px] font-sans font-bold px-2 py-0.5 rounded uppercase ${
                       activeStep === 3 ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-500'
                     }`}>
-                      {activeStep === 3 ? 'Synced' : 'Idle'}
+                      {activeStep === 3 ? 'Rolled Up' : 'Ready'}
                     </span>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">3. Measurement &amp; Sync</h4>
-                  <p className="text-[10px] text-slate-500 leading-tight">Bi-directional CRM &amp; reporting</p>
+                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">3. Weekly Status Rollups</h4>
+                  <p className="text-[11px] text-slate-500 leading-tight">Automated Monday digests &amp; billing triggers</p>
                 </div>
               </motion.div>
 
@@ -331,12 +329,12 @@ export default function HeroPipeline() {
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-[10px] rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
                   >
-                    <div className="font-mono font-bold text-emerald-400 mb-1 flex items-center gap-1">
+                    <div className="font-sans font-bold text-emerald-400 mb-1 flex items-center gap-1">
                       <Info className="w-3 h-3" /> Underlying Toolchain
                     </div>
-                    Bi-directional sync with HubSpot, Salesforce &amp; GA4.
+                    Automated executive utilization rollups &amp; Stripe/QBO triggers.
                     <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
                   </motion.div>
                 )}
@@ -348,8 +346,8 @@ export default function HeroPipeline() {
 
         {/* Module Footer Label */}
         <div className="pt-2 border-t border-slate-200/60 text-center">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold">
-            Visualizing: How a System Replaces Manual Work
+          <span className="text-[11px] font-sans uppercase tracking-wider text-slate-400 font-semibold">
+            Interactive Simulator: Closed-Won Deal to Live Delivery Capacity
           </span>
         </div>
 
