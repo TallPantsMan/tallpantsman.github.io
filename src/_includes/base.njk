@@ -222,10 +222,10 @@ void main() {
     
     float t = u_time * 0.15;
     
-    // Base colors from Kinetic Enterprise palette (Light Mode)
-    vec3 color1 = vec3(0.97, 0.98, 1.0);  // Surface
-    vec3 color2 = vec3(0.92, 0.95, 1.0);  // Soft Blue
-    vec3 color3 = vec3(0.98, 1.0, 0.98);  // Soft Mint
+    // Base colors from Grounded Earthy Architectural palette (Warm Alabaster, Travertine & Clay)
+    vec3 color1 = vec3(0.969, 0.957, 0.933);  // Warm Alabaster (#F7F4EE)
+    vec3 color2 = vec3(0.925, 0.898, 0.855);  // Warm Travertine Sand (#ECE5DA)
+    vec3 color3 = vec3(0.945, 0.925, 0.890);  // Soft Limestone (#F1ECE3)
     
     // Interactive influence
     float dist = distance(uv, m);
@@ -236,10 +236,10 @@ void main() {
     float n2 = cos(uv.y * 5.0 + t * 0.7) * sin(uv.x * 2.5 - t * 1.2);
     
     vec3 color = mix(color1, color2, clamp(n1 * 0.5 + 0.5, 0.0, 1.0));
-    color = mix(color, color3, clamp(n2 * 0.3, 0.0, 1.0));
+    color = mix(color, color3, clamp(n2 * 0.35, 0.0, 1.0));
     
-    // Subtle glow near mouse
-    color += vec3(0.2, 0.4, 1.0) * active * 0.1;
+    // Subtle warm terracotta glow near mouse
+    color += vec3(0.72, 0.31, 0.16) * active * 0.06;
     
     gl_FragColor = vec4(color, 1.0);
 }`;
@@ -306,7 +306,7 @@ void main() {
   <!-- STITCH_SHADER_END:ANIMATION_21 -->
 
   <!-- Top Sticky Navigation Bar -->
-  <header class="bg-white/95 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/30 shadow-2xs">
+  <header class="bg-[#FAF8F4]/95 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/50 shadow-2xs">
     <nav class="flex justify-between items-center h-20 px-grid-margin max-w-container-max-width mx-auto" aria-label="Main Navigation">
       <!-- Logo -->
       <a class="font-headline-md text-headline-md font-bold text-deep-charcoal hover:opacity-90 transition-opacity" href="/">

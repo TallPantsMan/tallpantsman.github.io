@@ -56,43 +56,43 @@
   --text-mono-metric--letter-spacing: -0.02em;
   --text-mono-metric--font-weight: 700;
 
-  /* Harmonized Color Palette */
-  --color-primary: #4F46E5;
-  --color-primary-container: #4F46E5;
-  --color-brand-indigo: #4F46E5;
-  --color-electric-blue: #4F46E5;
-  --color-hyper-blue: #4F46E5;
-  --color-primary-fixed: #EEF2FF;
-  --color-primary-fixed-dim: #C7D2FE;
+  /* Grounded Earthy Architectural Color Palette */
+  --color-primary: #B44C27;
+  --color-primary-container: #9A3B1B;
+  --color-brand-indigo: #B44C27;
+  --color-electric-blue: #B44C27;
+  --color-hyper-blue: #9A3B1B;
+  --color-primary-fixed: #F5EBE4;
+  --color-primary-fixed-dim: #E5C5B3;
   
-  --color-deep-charcoal: #0F172A;
-  --color-on-background: #0F172A;
-  --color-on-surface: #0F172A;
-  --color-on-primary-fixed: #1E1B4B;
+  --color-deep-charcoal: #1C1917;
+  --color-on-background: #1C1917;
+  --color-on-surface: #1C1917;
+  --color-on-primary-fixed: #2A1810;
 
-  --color-slate-gray: #475569;
-  --color-on-surface-variant: #475569;
-  --color-secondary: #475569;
+  --color-slate-gray: #57534E;
+  --color-on-surface-variant: #57534E;
+  --color-secondary: #57534E;
 
-  --color-brand-emerald: #10B981;
-  --color-terminal-green: #10B981;
+  --color-brand-emerald: #2D6A4F;
+  --color-terminal-green: #84C5A2;
   
-  --color-background: #F8FAFC;
-  --color-surface: #F8FAFC;
-  --color-surface-bright: #F8FAFC;
-  --color-surface-gray: #F1F5F9;
-  --color-surface-container-lowest: #FFFFFF;
-  --color-surface-container-low: #F8FAFC;
-  --color-surface-container: #F1F5F9;
-  --color-surface-container-high: #E2E8F0;
-  --color-surface-container-highest: #CBD5E1;
-  --color-secondary-container: #EEF2FF;
+  --color-background: #F7F4EE;
+  --color-surface: #F7F4EE;
+  --color-surface-bright: #FFFEFA;
+  --color-surface-gray: #EFECE5;
+  --color-surface-container-lowest: #FFFEFA;
+  --color-surface-container-low: #F7F4EE;
+  --color-surface-container: #EFECE5;
+  --color-surface-container-high: #E4DFD5;
+  --color-surface-container-highest: #D5CEC2;
+  --color-secondary-container: #F2E7DF;
 
-  --color-outline: #94A3B8;
-  --color-outline-variant: #CBD5E1;
-  --color-glass-stroke: rgba(15, 23, 42, 0.08);
+  --color-outline: #8C8377;
+  --color-outline-variant: #D5CEC2;
+  --color-glass-stroke: rgba(28, 25, 23, 0.1);
 
-  --color-error: #EF4444;
+  --color-error: #B91C1C;
   --color-error-container: #FEE2E2;
   --color-on-error: #FFFFFF;
 
@@ -282,7 +282,7 @@ h1, h2, h3, h4, h5, h6 {
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
 
-/* Custom scrollbar for light mode */
+/* Custom scrollbar for warm earthy mode */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -290,11 +290,11 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-surface-container);
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #C7BEB0;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #9E9485;
 }
 
 /* Details summary list marker removal */
@@ -306,11 +306,37 @@ summary {
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(145deg, rgba(255, 254, 250, 0.92) 0%, rgba(244, 239, 230, 0.85) 100%);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(28, 25, 23, 0.12);
 }
 
-.ghost-border { border: 1px solid rgba(71, 85, 105, 0.2); }
-.tech-shadow { box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.08); }
+/* Earthy Tactile Gradients & Contrast Utilities */
+.bg-electric-blue {
+  background: linear-gradient(135deg, #B85028 0%, #8E3717 100%) !important;
+}
+.hover\:bg-electric-blue\/90:hover {
+  background: linear-gradient(135deg, #9E3F1C 0%, #782C10 100%) !important;
+}
+.bg-deep-charcoal {
+  background: linear-gradient(135deg, #1C1917 0%, #28221D 52%, #1B2B23 100%) !important;
+}
+.bg-surface-gray {
+  background: linear-gradient(180deg, #F2EDE4 0%, #EAE3D7 100%);
+}
+h1 .text-electric-blue,
+h2 .text-electric-blue {
+  background: linear-gradient(135deg, #B85028 0%, #7C2D12 65%, #2D6A4F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ghost-border {
+  border: 1.5px solid rgba(28, 25, 23, 0.22);
+  background: rgba(255, 254, 250, 0.75);
+}
+.tech-shadow {
+  box-shadow: 0px 16px 36px -6px rgba(28, 25, 23, 0.24), 0px 4px 12px -2px rgba(28, 25, 23, 0.14);
+}

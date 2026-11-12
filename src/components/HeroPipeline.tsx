@@ -39,69 +39,72 @@ export default function HeroPipeline() {
 
   return (
     <div className="w-full max-w-full font-sans select-none">
-      <div className="bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-md relative overflow-hidden flex flex-col gap-6">
+      <div 
+        className="border border-[#D5CEC2] rounded-2xl p-5 md:p-6 shadow-md relative overflow-hidden flex flex-col gap-6"
+        style={{ background: 'linear-gradient(160deg, #FFFEFA 0%, #F5F0E6 100%)' }}
+      >
         
         {/* Background Subtle Tech Pattern */}
         <div 
-          className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-          style={{ backgroundImage: 'radial-gradient(#0F172A 1px, transparent 1px)', backgroundSize: '16px 16px' }} 
+          className="absolute inset-0 opacity-[0.04] pointer-events-none" 
+          style={{ backgroundImage: 'radial-gradient(#1C1917 1px, transparent 1px)', backgroundSize: '16px 16px' }} 
         />
 
         {/* ================= MODULE A: CRM & CLOSED-WON TRIGGER LAYER ================= */}
         <motion.div 
           animate={{
-            borderColor: activeStep === 0 ? '#4F46E5' : '#E2E8F0',
-            boxShadow: activeStep === 0 ? '0 0 0 2px rgba(79, 70, 229, 0.2), 0 4px 6px -1px rgba(0,0,0,0.05)' : '0 1px 3px 0 rgba(0,0,0,0.05)'
+            borderColor: activeStep === 0 ? '#B44C27' : '#D5CEC2',
+            boxShadow: activeStep === 0 ? '0 0 0 2px rgba(180, 76, 39, 0.2), 0 4px 6px -1px rgba(28,25,23,0.05)' : '0 1px 3px 0 rgba(28,25,23,0.05)'
           }}
           transition={{ duration: 0.3 }}
-          className="bg-slate-50/70 border border-slate-200 rounded-xl p-4 md:p-5 relative transition-all"
+          className="bg-[#FAF7F2] border border-[#D5CEC2] rounded-xl p-4 md:p-5 relative transition-all"
         >
           {/* Header Bar */}
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
-              <span className="font-sans text-xs uppercase tracking-wider text-indigo-600 font-bold bg-indigo-50 px-2.5 py-1 rounded border border-indigo-100 flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-indigo-600" />
+              <span className="font-sans text-xs uppercase tracking-wider text-[#9A3B1B] font-bold bg-[#F2E7DF] px-2.5 py-1 rounded border border-[#E5C5B3] flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-[#B44C27]" />
                 CRM &amp; DEAL HANDOFF LAYER
               </span>
             </div>
             
-            <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-sans font-semibold border border-emerald-200">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="flex items-center gap-1.5 bg-[#E8F2EC] text-[#2D6A4F] px-3 py-1 rounded-full text-xs font-sans font-semibold border border-[#B7D7C6]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
               Listening for Closed-Won
             </div>
           </div>
 
           {/* Connected Stack Tags */}
           <div className="flex flex-wrap gap-2 mb-4">
-            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-3 py-1 rounded-md shadow-2xs">
-              <Briefcase className="w-3.5 h-3.5 text-indigo-500" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1C1917] bg-[#FFFEFA] border border-[#D5CEC2] px-3 py-1 rounded-md shadow-2xs">
+              <Briefcase className="w-3.5 h-3.5 text-[#B44C27]" />
               HubSpot / Salesforce
             </div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-3 py-1 rounded-md shadow-2xs">
-              <FileSpreadsheet className="w-3.5 h-3.5 text-indigo-500" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1C1917] bg-[#FFFEFA] border border-[#D5CEC2] px-3 py-1 rounded-md shadow-2xs">
+              <FileSpreadsheet className="w-3.5 h-3.5 text-[#B44C27]" />
               Google Workspace
             </div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 px-3 py-1 rounded-md shadow-2xs">
-              <MessageSquare className="w-3.5 h-3.5 text-indigo-500" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1C1917] bg-[#FFFEFA] border border-[#D5CEC2] px-3 py-1 rounded-md shadow-2xs">
+              <MessageSquare className="w-3.5 h-3.5 text-[#B44C27]" />
               Slack &amp; PM Boards
             </div>
           </div>
 
           {/* Metrics Grid & Action Trigger */}
-          <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center pt-1 border-t border-slate-200/60">
+          <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center pt-1 border-t border-[#D5CEC2]/60">
             {/* Dashboard Mini Card */}
-            <div className="sm:col-span-7 grid grid-cols-3 gap-2 bg-white p-3 rounded-lg border border-slate-200/80 shadow-2xs">
-              <div className="text-center sm:text-left border-r border-slate-100 pr-1">
-                <span className="text-xs font-sans uppercase text-slate-500 block font-semibold">Teams Live</span>
-                <span className="text-sm font-bold text-emerald-600">17 Teams</span>
+            <div className="sm:col-span-7 grid grid-cols-3 gap-2 bg-[#FFFEFA] p-3 rounded-lg border border-[#D5CEC2] shadow-2xs">
+              <div className="text-center sm:text-left border-r border-[#E4DFD5] pr-1">
+                <span className="text-xs font-sans uppercase text-[#57534E] block font-semibold">Teams Live</span>
+                <span className="text-sm font-bold text-[#2D6A4F]">17 Teams</span>
               </div>
-              <div className="text-center sm:text-left border-r border-slate-100 px-1">
-                <span className="text-xs font-sans uppercase text-slate-500 block font-semibold">Per-User Gain</span>
-                <span className="text-sm font-bold text-slate-900">~16 hrs/mo</span>
+              <div className="text-center sm:text-left border-r border-[#E4DFD5] px-1">
+                <span className="text-xs font-sans uppercase text-[#57534E] block font-semibold">Per-User Gain</span>
+                <span className="text-sm font-bold text-[#1C1917]">~16 hrs/mo</span>
               </div>
               <div className="text-center sm:text-left pl-1">
-                <span className="text-xs font-sans uppercase text-slate-500 block font-semibold">Org Saved</span>
-                <span className="text-sm font-bold text-indigo-600">~590 hrs/mo</span>
+                <span className="text-xs font-sans uppercase text-[#57534E] block font-semibold">Org Saved</span>
+                <span className="text-sm font-bold text-[#B44C27]">~590 hrs/mo</span>
               </div>
             </div>
 
@@ -110,20 +113,21 @@ export default function HeroPipeline() {
               <button
                 onClick={handleSimulate}
                 disabled={isSimulating}
+                style={!isSimulating ? { background: 'linear-gradient(135deg, #B85028 0%, #8E3717 100%)' } : undefined}
                 className={`w-full py-2.5 px-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 cursor-pointer ${
                   isSimulating 
-                    ? 'bg-indigo-100 text-indigo-700 cursor-not-allowed border border-indigo-200' 
-                    : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-200'
+                    ? 'bg-[#F2E7DF] text-[#9A3B1B] cursor-not-allowed border border-[#E5C5B3]' 
+                    : 'text-white hover:opacity-95'
                 }`}
               >
                 {isSimulating ? (
                   <>
-                    <RefreshCw className="w-4 h-4 animate-spin text-indigo-600" />
+                    <RefreshCw className="w-4 h-4 animate-spin text-[#B44C27]" />
                     <span>Provisioning...</span>
                   </>
                 ) : (
                   <>
-                    <Zap className="w-4 h-4 text-amber-300 fill-amber-300" />
+                    <Zap className="w-4 h-4 text-[#F5CBA7] fill-[#F5CBA7]" />
                     <span>Simulate Closed-Won Deal</span>
                   </>
                 )}
@@ -135,7 +139,7 @@ export default function HeroPipeline() {
         {/* ================= MODULE B: CONNECTIVE PIPELINE / BRIDGE ================= */}
         <div className="relative py-1 flex flex-col items-center justify-center">
           {/* Vertical Connecting Line */}
-          <div className="w-0.5 h-8 bg-slate-200 relative overflow-hidden rounded-full">
+          <div className="w-0.5 h-8 bg-[#D5CEC2] relative overflow-hidden rounded-full">
             <motion.div
               animate={{
                 y: ['-100%', '300%']
@@ -145,7 +149,7 @@ export default function HeroPipeline() {
                 repeat: Infinity,
                 ease: 'linear'
               }}
-              className="w-full h-4 bg-gradient-to-b from-transparent via-indigo-500 to-transparent"
+              className="w-full h-4 bg-gradient-to-b from-transparent via-[#B44C27] to-transparent"
             />
 
             {isSimulating && (
@@ -153,33 +157,33 @@ export default function HeroPipeline() {
                 initial={{ top: '-20%', opacity: 1 }}
                 animate={{ top: '120%', opacity: 1 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-indigo-600 shadow-[0_0_8px_#4F46E5]"
+                className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#B44C27] shadow-[0_0_8px_#B44C27]"
               />
             )}
           </div>
 
           {/* Trigger Tag Label */}
-          <div className="my-1 bg-white border border-indigo-200 text-indigo-700 px-3 py-1 rounded-full text-xs font-sans font-bold tracking-wider uppercase shadow-2xs flex items-center gap-1.5">
-            <Sparkles className="w-3 h-3 text-indigo-500" />
+          <div className="my-1 bg-[#FFFEFA] border border-[#E5C5B3] text-[#9A3B1B] px-3 py-1 rounded-full text-xs font-sans font-bold tracking-wider uppercase shadow-2xs flex items-center gap-1.5">
+            <Sparkles className="w-3 h-3 text-[#B44C27]" />
             Apps Script &amp; Webhook Trigger
           </div>
 
-          <div className="w-0.5 h-2 bg-slate-200" />
+          <div className="w-0.5 h-2 bg-[#D5CEC2]" />
         </div>
 
         {/* ================= MODULE C: OPERATIONAL ENGINE LAYER ================= */}
-        <div className="bg-slate-50/70 border border-slate-200 rounded-xl p-4 md:p-5">
+        <div className="bg-[#FAF7F2] border border-[#D5CEC2] rounded-xl p-4 md:p-5">
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className="font-sans text-xs uppercase tracking-wider text-slate-700 font-bold bg-slate-200/80 px-2.5 py-1 rounded flex items-center gap-1.5">
-                <Cpu className="w-3.5 h-3.5 text-slate-700" />
+              <span className="font-sans text-xs uppercase tracking-wider text-[#1C1917] font-bold bg-[#E4DFD5] px-2.5 py-1 rounded flex items-center gap-1.5">
+                <Cpu className="w-3.5 h-3.5 text-[#1C1917]" />
                 DELIVERY &amp; CAPACITY ENGINE
               </span>
             </div>
 
-            <div className="flex items-center gap-1.5 bg-slate-200/60 text-slate-700 px-3 py-1 rounded text-xs font-sans font-semibold">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+            <div className="flex items-center gap-1.5 bg-[#E8F2EC] text-[#2D6A4F] px-3 py-1 rounded text-xs font-sans font-semibold border border-[#B7D7C6]">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#2D6A4F]" />
               Synced to Workspace
             </div>
           </div>
@@ -195,28 +199,28 @@ export default function HeroPipeline() {
             >
               <motion.div
                 animate={{
-                  borderColor: activeStep >= 1 ? '#4F46E5' : '#E2E8F0',
-                  boxShadow: activeStep === 1 ? '0 0 0 2px rgba(79, 70, 229, 0.2)' : '0 1px 2px rgba(0,0,0,0.03)'
+                  borderColor: activeStep >= 1 ? '#B44C27' : '#D5CEC2',
+                  boxShadow: activeStep === 1 ? '0 0 0 2px rgba(180, 76, 39, 0.2)' : '0 1px 2px rgba(28,25,23,0.03)'
                 }}
-                className="bg-white border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
+                className="bg-[#FFFEFA] border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
               >
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <div className={`p-1.5 rounded-lg ${activeStep >= 1 ? 'bg-indigo-50 text-indigo-600' : 'bg-slate-100 text-slate-500'}`}>
+                    <div className={`p-1.5 rounded-lg ${activeStep >= 1 ? 'bg-[#F2E7DF] text-[#B44C27]' : 'bg-[#EFECE5] text-[#57534E]'}`}>
                       <Workflow className="w-4 h-4" />
                     </div>
                     
                     <span className={`text-xs font-sans font-bold px-2 py-0.5 rounded uppercase ${
-                      activeStep === 1 ? 'bg-indigo-600 text-white animate-pulse' :
-                      activeStep > 1 ? 'bg-emerald-100 text-emerald-700' :
-                      'bg-slate-100 text-slate-500'
+                      activeStep === 1 ? 'bg-[#B44C27] text-white animate-pulse' :
+                      activeStep > 1 ? 'bg-[#E8F2EC] text-[#2D6A4F]' :
+                      'bg-[#EFECE5] text-[#57534E]'
                     }`}>
                       {activeStep === 1 ? 'Allocating' : activeStep > 1 ? 'Allocated' : 'Ready'}
                     </span>
                   </div>
 
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">1. Capacity &amp; Staffing</h4>
-                  <p className="text-xs text-slate-500 leading-snug">Live Google Sheets utilization &amp; role matching</p>
+                  <h4 className="text-sm font-bold text-[#1C1917] mb-1">1. Capacity &amp; Staffing</h4>
+                  <p className="text-xs text-[#57534E] leading-snug">Live Google Sheets utilization &amp; role matching</p>
                 </div>
               </motion.div>
 
@@ -227,13 +231,13 @@ export default function HeroPipeline() {
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-[#1C1917] text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
                   >
-                    <div className="font-sans font-bold text-indigo-300 mb-1 flex items-center gap-1">
+                    <div className="font-sans font-bold text-[#F5CBA7] mb-1 flex items-center gap-1">
                       <Info className="w-3 h-3" /> Underlying Toolchain
                     </div>
                     Google Apps Script capacity model &amp; roster permissions.
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1C1917]" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -247,28 +251,28 @@ export default function HeroPipeline() {
             >
               <motion.div
                 animate={{
-                  borderColor: activeStep >= 2 ? '#4F46E5' : '#E2E8F0',
-                  boxShadow: activeStep === 2 ? '0 0 0 2px rgba(79, 70, 229, 0.2)' : '0 1px 2px rgba(0,0,0,0.03)'
+                  borderColor: activeStep >= 2 ? '#B44C27' : '#D5CEC2',
+                  boxShadow: activeStep === 2 ? '0 0 0 2px rgba(180, 76, 39, 0.2)' : '0 1px 2px rgba(28,25,23,0.03)'
                 }}
-                className="bg-white border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
+                className="bg-[#FFFEFA] border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
               >
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <div className={`p-1.5 rounded-lg ${activeStep >= 2 ? 'bg-indigo-50 text-indigo-600' : 'bg-slate-100 text-slate-500'}`}>
+                    <div className={`p-1.5 rounded-lg ${activeStep >= 2 ? 'bg-[#F2E7DF] text-[#B44C27]' : 'bg-[#EFECE5] text-[#57534E]'}`}>
                       <Cpu className="w-4 h-4" />
                     </div>
                     
                     <span className={`text-xs font-sans font-bold px-2 py-0.5 rounded uppercase ${
-                      activeStep === 2 ? 'bg-indigo-600 text-white animate-pulse' :
-                      activeStep > 2 ? 'bg-emerald-100 text-emerald-700' :
-                      'bg-slate-100 text-slate-500'
+                      activeStep === 2 ? 'bg-[#B44C27] text-white animate-pulse' :
+                      activeStep > 2 ? 'bg-[#E8F2EC] text-[#2D6A4F]' :
+                      'bg-[#EFECE5] text-[#57534E]'
                     }`}>
                       {activeStep === 2 ? 'Spinning Up' : activeStep > 2 ? 'Created' : 'Ready'}
                     </span>
                   </div>
 
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">2. Project Spin-Up</h4>
-                  <p className="text-xs text-slate-500 leading-snug">Auto-creates Drive folders, PM boards &amp; Slack alerts</p>
+                  <h4 className="text-sm font-bold text-[#1C1917] mb-1">2. Project Spin-Up</h4>
+                  <p className="text-xs text-[#57534E] leading-snug">Auto-creates Drive folders, PM boards &amp; Slack alerts</p>
                 </div>
               </motion.div>
 
@@ -279,13 +283,13 @@ export default function HeroPipeline() {
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-[#1C1917] text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
                   >
-                    <div className="font-sans font-bold text-indigo-300 mb-1 flex items-center gap-1">
+                    <div className="font-sans font-bold text-[#F5CBA7] mb-1 flex items-center gap-1">
                       <Info className="w-3 h-3" /> Underlying Toolchain
                     </div>
                     Google Drive API, Asana/Jira/ClickUp webhooks &amp; Slack Bot.
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1C1917]" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -299,26 +303,26 @@ export default function HeroPipeline() {
             >
               <motion.div
                 animate={{
-                  borderColor: activeStep === 3 ? '#10B981' : activeStep > 3 ? '#10B981' : '#E2E8F0',
-                  boxShadow: activeStep === 3 ? '0 0 0 2px rgba(16, 185, 129, 0.2)' : '0 1px 2px rgba(0,0,0,0.03)'
+                  borderColor: activeStep === 3 ? '#2D6A4F' : activeStep > 3 ? '#2D6A4F' : '#D5CEC2',
+                  boxShadow: activeStep === 3 ? '0 0 0 2px rgba(45, 106, 79, 0.2)' : '0 1px 2px rgba(28,25,23,0.03)'
                 }}
-                className="bg-white border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
+                className="bg-[#FFFEFA] border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
               >
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <div className={`p-1.5 rounded-lg ${activeStep === 3 ? 'bg-emerald-50 text-emerald-600' : 'bg-slate-100 text-slate-500'}`}>
+                    <div className={`p-1.5 rounded-lg ${activeStep === 3 ? 'bg-[#E8F2EC] text-[#2D6A4F]' : 'bg-[#EFECE5] text-[#57534E]'}`}>
                       <LineChart className="w-4 h-4" />
                     </div>
                     
                     <span className={`text-xs font-sans font-bold px-2 py-0.5 rounded uppercase ${
-                      activeStep === 3 ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-500'
+                      activeStep === 3 ? 'bg-[#2D6A4F] text-white' : 'bg-[#EFECE5] text-[#57534E]'
                     }`}>
                       {activeStep === 3 ? 'Rolled Up' : 'Ready'}
                     </span>
                   </div>
 
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">3. Weekly Status Rollups</h4>
-                  <p className="text-xs text-slate-500 leading-snug">Automated Monday digests &amp; billing triggers</p>
+                  <h4 className="text-sm font-bold text-[#1C1917] mb-1">3. Weekly Status Rollups</h4>
+                  <p className="text-xs text-[#57534E] leading-snug">Automated Monday digests &amp; billing triggers</p>
                 </div>
               </motion.div>
 
@@ -329,13 +333,13 @@ export default function HeroPipeline() {
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-[#1C1917] text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
                   >
-                    <div className="font-sans font-bold text-emerald-400 mb-1 flex items-center gap-1">
+                    <div className="font-sans font-bold text-[#84C5A2] mb-1 flex items-center gap-1">
                       <Info className="w-3 h-3" /> Underlying Toolchain
                     </div>
                     Automated executive utilization rollups &amp; Stripe/QBO triggers.
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1C1917]" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -345,8 +349,8 @@ export default function HeroPipeline() {
         </div>
 
         {/* Module Footer Label */}
-        <div className="pt-2 border-t border-slate-200/60 text-center">
-          <span className="text-xs font-sans uppercase tracking-wider text-slate-400 font-semibold">
+        <div className="pt-2 border-t border-[#D5CEC2]/60 text-center">
+          <span className="text-xs font-sans uppercase tracking-wider text-[#57534E] font-semibold">
             Interactive Simulator: Closed-Won Deal to Live Delivery Capacity
           </span>
         </div>

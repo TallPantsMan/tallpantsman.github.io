@@ -259,9 +259,9 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
             <span class="font-mono-label text-xs uppercase tracking-wider text-slate-gray block font-semibold">Active Tools</span>
             <span id="selected-tools-count" class="font-mono-metric font-bold text-deep-charcoal text-base">3 selected</span>
           </div>
-          <div class="bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-xl text-center">
-            <span class="font-mono-label text-xs uppercase tracking-wider text-emerald-700 block font-bold">Est. Capacity Gain</span>
-            <span id="stack-hours-saved" class="font-mono-metric font-bold text-emerald-600 text-base">~42 hrs/mo</span>
+          <div class="bg-[#E8F2EC] border border-[#B7D7C6] px-4 py-2 rounded-xl text-center">
+            <span class="font-mono-label text-xs uppercase tracking-wider text-[#2D6A4F] block font-bold">Est. Capacity Gain</span>
+            <span id="stack-hours-saved" class="font-mono-metric font-bold text-[#2D6A4F] text-base">~42 hrs/mo</span>
           </div>
         </div>
       </div>
@@ -451,12 +451,12 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
           <div>
             <div class="flex justify-between items-start gap-2 mb-2">
               <h4 class="font-headline-md text-base font-bold text-deep-charcoal">${r.title}</h4>
-              <span class="font-mono-metric font-bold text-xs text-emerald-600 bg-emerald-500/10 px-2.5 py-1 rounded shrink-0">~${r.hours} hrs/mo</span>
+              <span class="font-mono-metric font-bold text-xs text-[#2D6A4F] bg-[#E8F2EC] border border-[#B7D7C6] px-2.5 py-1 rounded shrink-0">~${r.hours} hrs/mo</span>
             </div>
             <p class="text-sm text-slate-gray font-light leading-relaxed mb-4">${r.desc}</p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-3 border-t border-outline-variant/20">
-            ${r.tags.map(t => `<span class="px-2.5 py-1 rounded bg-white border border-outline-variant/30 text-slate-600 font-mono-label text-xs font-medium">${t}</span>`).join('')}
+            ${r.tags.map(t => `<span class="px-2.5 py-1 rounded bg-[#FFFEFA] border border-outline-variant/50 text-deep-charcoal font-mono-label text-xs font-medium">${t}</span>`).join('')}
           </div>
         </div>
       `).join('');
