@@ -197,6 +197,11 @@
 </head>
 <body class="bg-transparent text-on-background font-body-md antialiased min-h-screen flex flex-col selection:bg-electric-blue selection:text-white relative z-0">
 
+  <!-- Accessible Skip to Main Content Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2.5 focus:bg-electric-blue focus:text-white focus:rounded-xl focus:shadow-xl focus:font-body-md focus:text-sm focus:font-semibold focus:outline-none">
+    Skip to main content
+  </a>
+
   <!-- STITCH_SHADER_START:ANIMATION_21 class="fixed inset-0 w-full h-full -z-10" -->
   <div class="fixed inset-0 w-full h-full -z-10" style="display:block; pointer-events: none;">
     <canvas id="shader-canvas-ANIMATION_21" style="display:block;width:100%;height:100%"></canvas>
@@ -352,6 +357,7 @@ void main() {
 
         <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium " href="/services/">How We Work</a>
         <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium " href="/projects/">Results</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium text-electric-blue font-semibold" href="/blog/">Articles</a>
         <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium " href="/about/">About Us</a>
       </div>
 
@@ -376,6 +382,7 @@ void main() {
         <span class="font-mono-label text-xs text-electric-blue uppercase tracking-widest mt-2 font-bold">Engagement &amp; Proof</span>
         <a class="pl-3 py-1 text-deep-charcoal" href="/services/">How We Work &amp; Scope</a>
         <a class="pl-3 py-1 text-deep-charcoal" href="/projects/">Case Study &amp; Results</a>
+        <a class="pl-3 py-1 text-electric-blue font-semibold" href="/blog/">Articles &amp; Guides</a>
         <a class="pl-3 py-1 text-deep-charcoal" href="/about/">About Us</a>
         
         <a class="bg-electric-blue text-white px-6 py-3.5 rounded-xl text-center mt-3 shadow-sm font-semibold text-sm" href="/contact/?area=Audit">
@@ -386,11 +393,53 @@ void main() {
   </header>
 
   <!-- Main Content Area -->
-  <main class="flex-grow">
-    <main class="w-full pt-32 pb-24">
-  <article class="prose lg:prose-xl mx-auto px-6 py-12 prose-slate prose-headings:font-heading prose-a:text-primary">
-    <h1>The Anti-Bloated-PSA Guide: Why 20–150 Person Agencies Abandon $50/Seat Software for Custom Google Workspace Systems</h1>
-<blockquote>
+  <main id="main-content" class="flex-grow" tabindex="-1">
+    <main class="w-full pt-28 pb-20">
+  <div class="max-w-4xl mx-auto px-margin-mobile md:px-gutter">
+    
+    <!-- Breadcrumb -->
+    <div class="mb-8">
+      <a href="/blog/" class="inline-flex items-center gap-1.5 text-xs font-mono-label font-bold text-electric-blue hover:text-electric-blue/80 transition-colors uppercase tracking-wider">
+        <span class="material-symbols-outlined text-[16px]">arrow_back</span> Back to Articles
+      </a>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-10 space-y-4">
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="bg-electric-blue/10 text-electric-blue text-xs font-mono-label px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+          DELIVERY-OPERATIONS
+        </span>
+        <span class="text-xs text-slate-400 font-mono-label">•</span>
+        <time class="text-xs text-slate-400 font-mono-label" datetime="Wed Nov 11 2026 19:00:00 GMT-0500 (Eastern Standard Time)">
+          November 12, 2026
+        </time>
+      </div>
+
+      <h1 class="font-display-md text-display-md text-deep-charcoal leading-tight">
+        The Anti-Bloated-PSA Guide: Why 20–150 Person Agencies Abandon $50/Seat Software for Custom Google Workspace Systems
+      </h1>
+
+      <!-- Author snippet -->
+      <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100">
+        <img src="/assets/images/about_hero.png" alt="Alex Herbstman" class="w-10 h-10 rounded-full object-cover border border-slate-200">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-body-md text-sm font-bold text-deep-charcoal">Alex Herbstman</span>
+            <span class="text-xs text-slate-400">·</span>
+            <a href="https://www.linkedin.com/in/alexherbstman" target="_blank" rel="noopener noreferrer" class="text-xs text-electric-blue hover:underline inline-flex items-center gap-0.5">
+              LinkedIn <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+            </a>
+          </div>
+          <span class="text-xs text-slate-gray font-light">Founder &amp; Systems Architect, CaulHaus</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Article Body -->
+    <div class="glass-panel p-6 sm:p-10 md:p-12 rounded-3xl border border-outline-variant/40 bg-white/95 shadow-sm">
+      <article class="prose lg:prose-lg max-w-none prose-slate prose-headings:font-heading prose-headings:text-deep-charcoal prose-headings:font-bold prose-a:text-electric-blue prose-a:font-semibold hover:prose-a:underline prose-strong:text-deep-charcoal prose-img:rounded-2xl">
+        <blockquote>
 <p><strong>TL;DR:</strong> Heavyweight Professional Services Automation (PSA) tools cost $40–$60 per seat each month and frequently turn into abandoned shelfware because delivery teams refuse to update another disconnected platform. By building custom capacity planning and status automation directly inside Google Workspace, Slack, and your existing project tools, 20–150 person agencies gain real-time utilization visibility with zero new software licensing fees.</p>
 </blockquote>
 <p>Every digital agency, technical consultancy, and creative studio reaching 25 to 50 employees hits the exact same operational ceiling.</p>
@@ -571,42 +620,128 @@ function calculateAgencyCapacity() {
 <p>If your agency or consultancy is losing billable hours to manual spreadsheet updates and status chasing, you do not need another expensive software subscription.</p>
 <p><a href="/services/">Explore CaulHaus Services</a> to learn how our <strong>2-Week Workflow &amp; Capacity Audit</strong> maps your delivery bottlenecks and deploys your first working prototype, or <a href="/contact/">get in touch with our team directly</a> to discuss your operational stack.</p>
 
-  </article>
+      </article>
+
+      <!-- Author Bio Footer Box -->
+      <div class="mt-14 pt-8 border-t border-slate-200/70 flex flex-col sm:flex-row items-start sm:items-center gap-5 bg-slate-50/70 p-6 rounded-2xl border border-slate-200/50">
+        <img src="/assets/images/about_hero.png" alt="Alex Herbstman" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm shrink-0">
+        <div class="space-y-1">
+          <h4 class="font-headline-sm text-sm font-bold text-deep-charcoal">Written by Alex Herbstman</h4>
+          <p class="text-xs text-slate-gray font-light leading-relaxed">
+            Systems architect and founder of CaulHaus. Alex engineers custom Google Workspace capacity engines, CRM closed-won pipelines, and delivery automations for 20–150 person agencies and consultancies.
+          </p>
+        </div>
+      </div>
+
+      <!-- Article Bottom CTA -->
+      <div class="mt-10 p-8 rounded-2xl bg-gradient-to-r from-deep-charcoal to-slate-900 text-white shadow-md text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div class="space-y-2">
+          <span class="font-mono-label text-[11px] text-primary-fixed-dim uppercase tracking-wider font-bold block">OPERATIONAL BLUEPRINT</span>
+          <h4 class="font-headline-sm text-base md:text-lg font-bold text-white">
+            Need to replace fragile spreadsheets in your agency?
+          </h4>
+          <p class="text-xs text-slate-300 font-light max-w-md">
+            Our 2-Week Workflow &amp; Capacity Audit diagnoses your delivery bottlenecks and deploys your first working automation prototype.
+          </p>
+        </div>
+        <a href="/contact/?area=Audit" class="shrink-0 bg-electric-blue text-white px-6 py-3 rounded-xl font-body-md text-xs font-semibold hover:bg-electric-blue/90 transition-all shadow-md active:scale-95">
+          Request an Audit
+        </a>
+      </div>
+    </div>
+
+  </div>
 </main>
+
+<!-- Mermaid.js Client-Side Diagram Renderer -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#eff6ff',
+      primaryTextColor: '#0f172a',
+      primaryBorderColor: '#2563eb',
+      lineColor: '#2563eb',
+      secondaryColor: '#f8fafc',
+      tertiaryColor: '#ffffff',
+      fontSize: '14px',
+      fontFamily: 'Inter, system-ui, sans-serif'
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Find all markdown pre > code blocks with language-mermaid
+    const codeBlocks = document.querySelectorAll('pre code.language-mermaid');
+    if (codeBlocks.length === 0) return;
+
+    for (const code of codeBlocks) {
+      const pre = code.parentElement;
+      const diagramContent = code.textContent;
+      
+      const container = document.createElement('div');
+      container.className = 'mermaid my-8 flex justify-center bg-slate-50/80 p-6 rounded-2xl border border-slate-200/80 shadow-xs overflow-x-auto';
+      container.textContent = diagramContent;
+      
+      pre.replaceWith(container);
+    }
+
+    try {
+      await mermaid.run({ querySelector: '.mermaid' });
+    } catch (err) {
+      console.error('Mermaid render error:', err);
+    }
+  });
+</script>
+
+<!-- Table Styling & Polish Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap tables in responsive horizontal scroll wrappers with styled headers
+    const tables = document.querySelectorAll('article table');
+    tables.forEach(table => {
+      table.classList.add('w-full', 'text-left', 'border-collapse', 'my-6', 'text-sm');
+      
+      const wrapper = document.createElement('div');
+      wrapper.className = 'overflow-x-auto my-8 rounded-2xl border border-slate-200/80 bg-white shadow-xs p-1';
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+
+      // Style table header
+      const ths = table.querySelectorAll('th');
+      ths.forEach(th => {
+        th.classList.add('bg-slate-100/80', 'text-deep-charcoal', 'font-bold', 'px-4', 'py-3', 'border-b', 'border-slate-200', 'text-xs', 'uppercase', 'tracking-wider');
+      });
+
+      // Style table rows & cells
+      const trs = table.querySelectorAll('tbody tr');
+      trs.forEach((tr, idx) => {
+        if (idx % 2 === 1) tr.classList.add('bg-slate-50/50');
+        const tds = tr.querySelectorAll('td');
+        tds.forEach(td => {
+          td.classList.add('px-4', 'py-3.5', 'border-b', 'border-slate-100', 'text-slate-700');
+        });
+      });
+    });
+
+    // Style TL;DR and callout blockquotes
+    const blockquotes = document.querySelectorAll('article blockquote');
+    blockquotes.forEach(bq => {
+      bq.classList.add('bg-blue-50/60', 'border-l-4', 'border-electric-blue', 'p-5', 'rounded-r-xl', 'my-8', 'shadow-xs', 'not-italic', 'text-slate-800');
+    });
+  });
+</script>
 
   </main>
 
   
-  <!-- Global Pre-Footer Executive CTA Banner -->
-  <section class="px-grid-margin max-w-container-max-width mx-auto pt-8 pb-4 reveal">
-    <div class="bg-deep-charcoal text-white p-8 md:p-14 rounded-3xl text-center space-y-6 tech-shadow relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#475569 1px, transparent 1px); background-size: 20px 20px;"></div>
-      <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-        <span class="font-mono-label text-xs text-terminal-green uppercase tracking-widest font-bold block">2-Week Diagnostic + Live Prototype</span>
-        <h2 class="font-headline-lg text-headline-md md:text-headline-lg font-bold text-white leading-tight">
-          Ready to get your delivery team out of fragile spreadsheets?
-        </h2>
-        <p class="text-sm md:text-base text-slate-300 font-light leading-relaxed">
-          In 14 days, we map your sales-to-delivery handoffs, quantify where billable capacity leaks, and deploy your first working automation inside your stack—with 100% of the audit fee credited toward a Full System Build.
-        </p>
-        <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="/contact/?area=Audit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-electric-blue text-white px-8 py-4 rounded-xl font-body-md text-sm font-semibold hover:bg-electric-blue/90 transition-all shadow-md active:scale-95">
-            <span>Request a 2-Week Audit</span>
-            <span class="material-symbols-outlined text-base">arrow_forward</span>
-          </a>
-          <a href="/services/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 px-8 py-4 rounded-xl font-body-md text-sm font-semibold transition-all">
-            <span>Compare Engagement Paths</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
 
   <!-- Footer -->
   <footer class="bg-deep-charcoal border-t border-slate-800/60 w-full mt-section-padding text-white">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-grid-margin py-16 max-w-container-max-width mx-auto">
-      <div class="col-span-1 md:col-span-2 space-y-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 px-grid-margin py-16 max-w-container-max-width mx-auto">
+      <div class="col-span-1 sm:col-span-2 lg:col-span-2 space-y-4">
         <a href="/" class="inline-block font-headline-sm text-headline-md font-black text-white hover:text-primary-fixed-dim transition-colors">
           CAULHAUS
         </a>
@@ -614,9 +749,10 @@ function calculateAgencyCapacity() {
           Custom capacity planning, resource allocation, and sales-to-delivery automations inside Google Workspace &amp; existing tools.
         </p>
         <p class="font-body-md text-xs text-slate-400 max-w-xs normal-case">
-          © 2026 Caul Haus Group, Inc. All rights reserved.
+          &copy; 2026 Caul Haus Group, Inc. All rights reserved.
         </p>
       </div>
+
       <div class="space-y-4">
         <h4 class="font-mono-label text-xs text-slate-400 uppercase tracking-wider mb-4 font-semibold">Solutions</h4>
         <ul class="space-y-3">
@@ -625,14 +761,35 @@ function calculateAgencyCapacity() {
           <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/services/">How We Work &amp; Scope</a></li>
         </ul>
       </div>
+
       <div class="space-y-4">
         <h4 class="font-mono-label text-xs text-slate-400 uppercase tracking-wider mb-4 font-semibold">Company</h4>
         <ul class="space-y-3">
+          <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors text-primary-fixed-dim font-bold opacity-100" href="/blog/">Articles &amp; Guides</a></li>
           <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/projects/">Case Study &amp; Results</a></li>
           <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/about/">About Us</a></li>
           <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/contact/">Request an Audit</a></li>
         </ul>
       </div>
+
+      <div class="space-y-4">
+        <h4 class="font-mono-label text-xs text-slate-400 uppercase tracking-wider mb-4 font-semibold">Legal &amp; Trust</h4>
+        <ul class="space-y-3">
+          <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/privacy/">Privacy Policy</a></li>
+          <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/terms/">Terms of Service</a></li>
+          <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors opacity-80 hover:opacity-100" href="/accessibility/">Accessibility Statement</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Formal Legal & Third-Party Trademark Disclaimer Sub-Footer -->
+    <div class="border-t border-slate-800/80 px-grid-margin py-8 max-w-container-max-width mx-auto text-xs text-slate-400 leading-relaxed space-y-2.5">
+      <p>
+        <strong class="text-slate-300">Third-Party Trademark &amp; Non-Affiliation Disclaimers:</strong> Google Workspace, Google Sheets, Google Apps Script, Google Drive, Google Cloud, and Gmail are trademarks of Google LLC. Slack, HubSpot, Salesforce, Asana, Jira, Linear, ClickUp, Airtable, Monday.com, Stripe, and QuickBooks are registered trademarks of their respective owners. CaulHaus (Caul Haus Group, Inc.) is an independent delivery engineering studio and systems architecture practice. CaulHaus is not affiliated with, sponsored by, endorsed by, or certified by Google LLC, Alphabet Inc., Salesforce, HubSpot, or any other mentioned company.
+      </p>
+      <p>
+        <strong class="text-slate-300">Performance &amp; Metrics Notice:</strong> Any operational benchmarks, illustrative hours saved, or return-on-investment examples reflect historical estimates from specific engagements and are not a guarantee of identical performance. Actual results vary based on team adoption, tool stack, and scope.
+      </p>
     </div>
   </footer>
 

@@ -1,8 +1,162 @@
 ---
 layout: base.njk
 ---
-<main class="w-full pt-32 pb-24">
-  <article class="prose lg:prose-xl mx-auto px-6 py-12 prose-slate prose-headings:font-heading prose-a:text-primary">
-    {{ content | safe }}
-  </article>
+<main class="w-full pt-28 pb-20">
+  <div class="max-w-4xl mx-auto px-margin-mobile md:px-gutter">
+    
+    <!-- Breadcrumb -->
+    <div class="mb-8">
+      <a href="/blog/" class="inline-flex items-center gap-1.5 text-xs font-mono-label font-bold text-electric-blue hover:text-electric-blue/80 transition-colors uppercase tracking-wider">
+        <span class="material-symbols-outlined text-[16px]">arrow_back</span> Back to Articles
+      </a>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-10 space-y-4">
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="bg-electric-blue/10 text-electric-blue text-xs font-mono-label px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+          {{ categories or "OPERATIONS" }}
+        </span>
+        <span class="text-xs text-slate-400 font-mono-label">•</span>
+        <time class="text-xs text-slate-400 font-mono-label" datetime="{{ date }}">
+          {{ date | readableDate }}
+        </time>
+      </div>
+
+      <h1 class="font-display-md text-display-md text-deep-charcoal leading-tight">
+        {{ title }}
+      </h1>
+
+      <!-- Author snippet -->
+      <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100">
+        <img src="/assets/images/about_hero.png" alt="Alex Herbstman" class="w-10 h-10 rounded-full object-cover border border-slate-200">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-body-md text-sm font-bold text-deep-charcoal">Alex Herbstman</span>
+            <span class="text-xs text-slate-400">·</span>
+            <a href="https://www.linkedin.com/in/alexherbstman" target="_blank" rel="noopener noreferrer" class="text-xs text-electric-blue hover:underline inline-flex items-center gap-0.5">
+              LinkedIn <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+            </a>
+          </div>
+          <span class="text-xs text-slate-gray font-light">Founder &amp; Systems Architect, CaulHaus</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Article Body -->
+    <div class="glass-panel p-6 sm:p-10 md:p-12 rounded-3xl border border-outline-variant/40 bg-white/95 shadow-sm">
+      <article class="prose lg:prose-lg max-w-none prose-slate prose-headings:font-heading prose-headings:text-deep-charcoal prose-headings:font-bold prose-a:text-electric-blue prose-a:font-semibold hover:prose-a:underline prose-strong:text-deep-charcoal prose-img:rounded-2xl">
+        {{ content | safe }}
+      </article>
+
+      <!-- Author Bio Footer Box -->
+      <div class="mt-14 pt-8 border-t border-slate-200/70 flex flex-col sm:flex-row items-start sm:items-center gap-5 bg-slate-50/70 p-6 rounded-2xl border border-slate-200/50">
+        <img src="/assets/images/about_hero.png" alt="Alex Herbstman" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm shrink-0">
+        <div class="space-y-1">
+          <h4 class="font-headline-sm text-sm font-bold text-deep-charcoal">Written by Alex Herbstman</h4>
+          <p class="text-xs text-slate-gray font-light leading-relaxed">
+            Systems architect and founder of CaulHaus. Alex engineers custom Google Workspace capacity engines, CRM closed-won pipelines, and delivery automations for 20–150 person agencies and consultancies.
+          </p>
+        </div>
+      </div>
+
+      <!-- Article Bottom CTA -->
+      <div class="mt-10 p-8 rounded-2xl bg-gradient-to-r from-deep-charcoal to-slate-900 text-white shadow-md text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div class="space-y-2">
+          <span class="font-mono-label text-[11px] text-primary-fixed-dim uppercase tracking-wider font-bold block">OPERATIONAL BLUEPRINT</span>
+          <h4 class="font-headline-sm text-base md:text-lg font-bold text-white">
+            Need to replace fragile spreadsheets in your agency?
+          </h4>
+          <p class="text-xs text-slate-300 font-light max-w-md">
+            Our 2-Week Workflow &amp; Capacity Audit diagnoses your delivery bottlenecks and deploys your first working automation prototype.
+          </p>
+        </div>
+        <a href="/contact/?area=Audit" class="shrink-0 bg-electric-blue text-white px-6 py-3 rounded-xl font-body-md text-xs font-semibold hover:bg-electric-blue/90 transition-all shadow-md active:scale-95">
+          Request an Audit
+        </a>
+      </div>
+    </div>
+
+  </div>
 </main>
+
+<!-- Mermaid.js Client-Side Diagram Renderer -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#eff6ff',
+      primaryTextColor: '#0f172a',
+      primaryBorderColor: '#2563eb',
+      lineColor: '#2563eb',
+      secondaryColor: '#f8fafc',
+      tertiaryColor: '#ffffff',
+      fontSize: '14px',
+      fontFamily: 'Inter, system-ui, sans-serif'
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Find all markdown pre > code blocks with language-mermaid
+    const codeBlocks = document.querySelectorAll('pre code.language-mermaid');
+    if (codeBlocks.length === 0) return;
+
+    for (const code of codeBlocks) {
+      const pre = code.parentElement;
+      const diagramContent = code.textContent;
+      
+      const container = document.createElement('div');
+      container.className = 'mermaid my-8 flex justify-center bg-slate-50/80 p-6 rounded-2xl border border-slate-200/80 shadow-xs overflow-x-auto';
+      container.textContent = diagramContent;
+      
+      pre.replaceWith(container);
+    }
+
+    try {
+      await mermaid.run({ querySelector: '.mermaid' });
+    } catch (err) {
+      console.error('Mermaid render error:', err);
+    }
+  });
+</script>
+
+<!-- Table Styling & Polish Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap tables in responsive horizontal scroll wrappers with styled headers
+    const tables = document.querySelectorAll('article table');
+    tables.forEach(table => {
+      table.classList.add('w-full', 'text-left', 'border-collapse', 'my-6', 'text-sm');
+      
+      const wrapper = document.createElement('div');
+      wrapper.className = 'overflow-x-auto my-8 rounded-2xl border border-slate-200/80 bg-white shadow-xs p-1';
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+
+      // Style table header
+      const ths = table.querySelectorAll('th');
+      ths.forEach(th => {
+        th.classList.add('bg-slate-100/80', 'text-deep-charcoal', 'font-bold', 'px-4', 'py-3', 'border-b', 'border-slate-200', 'text-xs', 'uppercase', 'tracking-wider');
+      });
+
+      // Style table rows & cells
+      const trs = table.querySelectorAll('tbody tr');
+      trs.forEach((tr, idx) => {
+        if (idx % 2 === 1) tr.classList.add('bg-slate-50/50');
+        const tds = tr.querySelectorAll('td');
+        tds.forEach(td => {
+          td.classList.add('px-4', 'py-3.5', 'border-b', 'border-slate-100', 'text-slate-700');
+        });
+      });
+    });
+
+    // Style TL;DR and callout blockquotes
+    const blockquotes = document.querySelectorAll('article blockquote');
+    blockquotes.forEach(bq => {
+      bq.classList.add('bg-blue-50/60', 'border-l-4', 'border-electric-blue', 'p-5', 'rounded-r-xl', 'my-8', 'shadow-xs', 'not-italic', 'text-slate-800');
+    });
+  });
+</script>

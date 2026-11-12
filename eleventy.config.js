@@ -19,6 +19,13 @@ export default function(eleventyConfig) {
     });
   });
 
+  // Blog posts collection sorted by date descending
+  eleventyConfig.addCollection("posts", (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob("src/blog/*.md")
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+  });
+
   return {
     dir: {
       input: "src",

@@ -5,8 +5,6 @@ description: "Why growing agencies abandon heavyweight PSA software costing $50/
 categories: "DELIVERY-OPERATIONS"
 ---
 
-# The Anti-Bloated-PSA Guide: Why 20–150 Person Agencies Abandon $50/Seat Software for Custom Google Workspace Systems
-
 > **TL;DR:** Heavyweight Professional Services Automation (PSA) tools cost $40–$60 per seat each month and frequently turn into abandoned shelfware because delivery teams refuse to update another disconnected platform. By building custom capacity planning and status automation directly inside Google Workspace, Slack, and your existing project tools, 20–150 person agencies gain real-time utilization visibility with zero new software licensing fees.
 
 Every digital agency, technical consultancy, and creative studio reaching 25 to 50 employees hits the exact same operational ceiling. 

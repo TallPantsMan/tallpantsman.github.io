@@ -197,6 +197,11 @@
 </head>
 <body class="bg-transparent text-on-background font-body-md antialiased min-h-screen flex flex-col selection:bg-electric-blue selection:text-white relative z-0">
 
+  <!-- Accessible Skip to Main Content Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2.5 focus:bg-electric-blue focus:text-white focus:rounded-xl focus:shadow-xl focus:font-body-md focus:text-sm focus:font-semibold focus:outline-none">
+    Skip to main content
+  </a>
+
   <!-- STITCH_SHADER_START:ANIMATION_21 class="fixed inset-0 w-full h-full -z-10" -->
   <div class="fixed inset-0 w-full h-full -z-10" style="display:block; pointer-events: none;">
     <canvas id="shader-canvas-ANIMATION_21" style="display:block;width:100%;height:100%"></canvas>
@@ -352,6 +357,7 @@ void main() {
 
         <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium {% if page.url == '/services/' %}text-electric-blue font-semibold{% endif %}" href="/services/">How We Work</a>
         <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium {% if page.url == '/projects/' %}text-electric-blue font-semibold{% endif %}" href="/projects/">Results</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium {% if '/blog/' in page.url %}text-electric-blue font-semibold{% endif %}" href="/blog/">Articles</a>
         <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium {% if page.url == '/about/' %}text-electric-blue font-semibold{% endif %}" href="/about/">About Us</a>
       </div>
 
@@ -376,6 +382,7 @@ void main() {
         <span class="font-mono-label text-xs text-electric-blue uppercase tracking-widest mt-2 font-bold">Engagement &amp; Proof</span>
         <a class="pl-3 py-1 {% if page.url == '/services/' %}text-electric-blue font-semibold{% else %}text-deep-charcoal{% endif %}" href="/services/">How We Work &amp; Scope</a>
         <a class="pl-3 py-1 {% if page.url == '/projects/' %}text-electric-blue font-semibold{% else %}text-deep-charcoal{% endif %}" href="/projects/">Case Study &amp; Results</a>
+        <a class="pl-3 py-1 {% if '/blog/' in page.url %}text-electric-blue font-semibold{% else %}text-deep-charcoal{% endif %}" href="/blog/">Articles &amp; Guides</a>
         <a class="pl-3 py-1 {% if page.url == '/about/' %}text-electric-blue font-semibold{% else %}text-deep-charcoal{% endif %}" href="/about/">About Us</a>
         
         <a class="bg-electric-blue text-white px-6 py-3.5 rounded-xl text-center mt-3 shadow-sm font-semibold text-sm" href="/contact/?area=Audit">
@@ -386,11 +393,11 @@ void main() {
   </header>
 
   <!-- Main Content Area -->
-  <main class="flex-grow">
+  <main id="main-content" class="flex-grow" tabindex="-1">
     {{ content | safe }}
   </main>
 
-  {% if page.url != '/contact/' %}
+  {% if page.url != '/contact/' and page.url != '/privacy/' and page.url != '/terms/' and page.url != '/accessibility/' and not ('/blog/' in page.url and page.url != '/blog/') %}
   <!-- Global Pre-Footer Executive CTA Banner -->
   <section class="px-grid-margin max-w-container-max-width mx-auto pt-8 pb-4 reveal">
     <div class="bg-deep-charcoal text-white p-8 md:p-14 rounded-3xl text-center space-y-6 tech-shadow relative overflow-hidden">
@@ -419,8 +426,8 @@ void main() {
 
   <!-- Footer -->
   <footer class="bg-deep-charcoal border-t border-slate-800/60 w-full mt-section-padding text-white">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-grid-margin py-16 max-w-container-max-width mx-auto">
-      <div class="col-span-1 md:col-span-2 space-y-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 px-grid-margin py-16 max-w-container-max-width mx-auto">
+      <div class="col-span-1 sm:col-span-2 lg:col-span-2 space-y-4">
         <a href="/" class="inline-block font-headline-sm text-headline-md font-black text-white hover:text-primary-fixed-dim transition-colors">
           CAULHAUS
         </a>
@@ -428,9 +435,10 @@ void main() {
           Custom capacity planning, resource allocation, and sales-to-delivery automations inside Google Workspace &amp; existing tools.
         </p>
         <p class="font-body-md text-xs text-slate-400 max-w-xs normal-case">
-          © 2026 Caul Haus Group, Inc. All rights reserved.
+          &copy; 2026 Caul Haus Group, Inc. All rights reserved.
         </p>
       </div>
+
       <div class="space-y-4">
         <h4 class="font-mono-label text-xs text-slate-400 uppercase tracking-wider mb-4 font-semibold">Solutions</h4>
         <ul class="space-y-3">
@@ -439,14 +447,35 @@ void main() {
           <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors {% if page.url == '/services/' %}text-primary-fixed-dim font-bold opacity-100{% else %}opacity-80 hover:opacity-100{% endif %}" href="/services/">How We Work &amp; Scope</a></li>
         </ul>
       </div>
+
       <div class="space-y-4">
         <h4 class="font-mono-label text-xs text-slate-400 uppercase tracking-wider mb-4 font-semibold">Company</h4>
         <ul class="space-y-3">
+          <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors {% if '/blog/' in page.url %}text-primary-fixed-dim font-bold opacity-100{% else %}opacity-80 hover:opacity-100{% endif %}" href="/blog/">Articles &amp; Guides</a></li>
           <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors {% if page.url == '/projects/' %}text-primary-fixed-dim font-bold opacity-100{% else %}opacity-80 hover:opacity-100{% endif %}" href="/projects/">Case Study &amp; Results</a></li>
           <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors {% if page.url == '/about/' %}text-primary-fixed-dim font-bold opacity-100{% else %}opacity-80 hover:opacity-100{% endif %}" href="/about/">About Us</a></li>
           <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors {% if page.url == '/contact/' %}text-primary-fixed-dim font-bold opacity-100{% else %}opacity-80 hover:opacity-100{% endif %}" href="/contact/">Request an Audit</a></li>
         </ul>
       </div>
+
+      <div class="space-y-4">
+        <h4 class="font-mono-label text-xs text-slate-400 uppercase tracking-wider mb-4 font-semibold">Legal &amp; Trust</h4>
+        <ul class="space-y-3">
+          <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors {% if page.url == '/privacy/' %}text-primary-fixed-dim font-bold opacity-100{% else %}opacity-80 hover:opacity-100{% endif %}" href="/privacy/">Privacy Policy</a></li>
+          <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors {% if page.url == '/terms/' %}text-primary-fixed-dim font-bold opacity-100{% else %}opacity-80 hover:opacity-100{% endif %}" href="/terms/">Terms of Service</a></li>
+          <li><a class="font-body-md text-sm text-slate-200 hover:text-primary-fixed-dim transition-colors {% if page.url == '/accessibility/' %}text-primary-fixed-dim font-bold opacity-100{% else %}opacity-80 hover:opacity-100{% endif %}" href="/accessibility/">Accessibility Statement</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Formal Legal & Third-Party Trademark Disclaimer Sub-Footer -->
+    <div class="border-t border-slate-800/80 px-grid-margin py-8 max-w-container-max-width mx-auto text-xs text-slate-400 leading-relaxed space-y-2.5">
+      <p>
+        <strong class="text-slate-300">Third-Party Trademark &amp; Non-Affiliation Disclaimers:</strong> Google Workspace, Google Sheets, Google Apps Script, Google Drive, Google Cloud, and Gmail are trademarks of Google LLC. Slack, HubSpot, Salesforce, Asana, Jira, Linear, ClickUp, Airtable, Monday.com, Stripe, and QuickBooks are registered trademarks of their respective owners. CaulHaus (Caul Haus Group, Inc.) is an independent delivery engineering studio and systems architecture practice. CaulHaus is not affiliated with, sponsored by, endorsed by, or certified by Google LLC, Alphabet Inc., Salesforce, HubSpot, or any other mentioned company.
+      </p>
+      <p>
+        <strong class="text-slate-300">Performance &amp; Metrics Notice:</strong> Any operational benchmarks, illustrative hours saved, or return-on-investment examples reflect historical estimates from specific engagements and are not a guarantee of identical performance. Actual results vary based on team adoption, tool stack, and scope.
+      </p>
     </div>
   </footer>
 

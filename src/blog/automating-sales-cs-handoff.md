@@ -5,8 +5,6 @@ description: "How to automate the sales-to-delivery handoff across your CRM, pro
 categories: "REVOPS"
 ---
 
-# Automating the Sales to CS Handoff
-
 > **TL;DR:** When deals transition to Closed-Won, critical project context and client expectations often get lost in email threads and scattered notes. By establishing enforced validation rules in your CRM and connecting closed deals directly to automated folder provisioning, project board creation, and Slack kickoff channels, agencies ensure smooth onboarding without manual data re-entry.
 
 Closing a deal is usually celebrated with a Slack notification and a round of emojis. But twenty minutes later, a Customer Success Manager or Delivery Lead opens the account in the CRM and finds almost nothing: no notes on what the client actually bought, no timeline expectations, and no mention of the edge cases negotiated during procurement.
