@@ -84,3 +84,13 @@ Connects delivery completion directly to billing and revenue operations:
 - **Founder:** Alex Herbstman (`alex@caulhaus.com`)
 - **LinkedIn:** https://www.linkedin.com/in/alexherbstman
 - **GitHub:** https://github.com/TallPantsMan
+
+---
+
+## 6. Legal, Trust & Compliance
+
+- **Legal Entity:** Caul Haus Group, Inc.
+- **Privacy Policy:** https://caulhaus.com/privacy/ (Zero advertising trackers, strict data minimization, GDPR/CCPA/CPRA compliant).
+- **Terms of Service:** https://caulhaus.com/terms/ (Governing terms, intellectual property ownership, and client engagement boundaries).
+- **Accessibility Statement:** https://caulhaus.com/accessibility/ (Adherence to WCAG 2.1 Level AA and ADA Title III guidelines).
+- **Trademark Disclaimers:** Google Workspace, Google Apps Script, Slack, HubSpot, Salesforce, Asana, Jira, Linear, and ClickUp are trademarks of their respective owners. CaulHaus is an independent consultancy and is not affiliated with or endorsed by Google LLC or Alphabet Inc.
