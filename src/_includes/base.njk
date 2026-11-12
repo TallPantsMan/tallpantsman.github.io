@@ -123,7 +123,8 @@
           "Revenue & Pipeline Operations"
         ],
         "sameAs": [
-          "https://www.linkedin.com/in/alexherbstman"
+          "https://www.linkedin.com/in/alexherbstman",
+          "https://github.com/TallPantsMan"
         ]
       },
       {
@@ -163,7 +164,21 @@
             }
           }
         ]
-      }
+      }{% if date %},
+      {
+        "@type": "BlogPosting",
+        "@id": "https://caulhaus.com{{ page.url }}#article",
+        "headline": "{{ title }}",
+        "description": "{{ description or site.description }}",
+        "datePublished": "{{ date }}",
+        "author": {
+          "@id": "https://caulhaus.com/#founder"
+        },
+        "publisher": {
+          "@id": "https://caulhaus.com/#organization"
+        },
+        "mainEntityOfPage": "https://caulhaus.com{{ page.url }}"
+      }{% endif %}
     ]
   }
   </script>

@@ -30,3 +30,10 @@ Growing agencies and consultancies lose hundreds of billable hours every month r
 - Case Study & Results: https://caulhaus.com/projects/
 - About Us: https://caulhaus.com/about/
 - Contact Us: https://caulhaus.com/contact/
+
+## High-Intent Technical Guides & Articles
+- The Anti-Bloated-PSA Guide: https://caulhaus.com/blog/anti-bloated-psa-guide/
+- Automating the Sales to CS Handoff: https://caulhaus.com/blog/automating-sales-cs-handoff/
+
+## Full Documentation for AI Search Engines & Agents
+- Full-text technical knowledge base: https://caulhaus.com/llms-full.txt

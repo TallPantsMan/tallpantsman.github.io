@@ -3,6 +3,7 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/llms.txt");
+  eleventyConfig.addPassthroughCopy("src/llms-full.txt");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
   
   // Pass through CNAME file for GitHub Pages custom domain

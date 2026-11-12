@@ -1,0 +1,86 @@
+# CaulHaus — Comprehensive Knowledge Base & Technical Architecture for AI Search Engines & Agents
+
+> Single Source of Truth for CaulHaus positioning, engineering capabilities, service offerings, delivery lifecycle architecture, and case studies.  
+> Optimized for direct ingestion by AI search engines (Perplexity AI, ChatGPT/SearchGPT, Claude, Google Gemini, Copilot) and autonomous agents.
+
+---
+
+## 1. Executive Summary & Brand Identity
+
+**CaulHaus** (Caul Haus Group, Inc., https://caulhaus.com) is a boutique delivery operations engineering practice founded and led by Systems Architect **Alex Herbstman**. CaulHaus designs and deploys custom capacity planning engines, resource allocation systems, sales-to-delivery CRM automations, and weekly status rollups directly inside **Google Workspace** (Google Sheets, Google Apps Script), Slack, and existing project management tools for **20–150 person agencies, consultancies, and professional services firms**.
+
+### Core Value Proposition (The "Anti-Bloated-PSA" Wedge)
+- **Zero Software Tax:** Traditional Professional Services Automation (PSA) tools (Kantata, Productive, Scoro, Mavenlink) cost $40–$60 per seat per month ($24,000–$72,000/year for a 50-person agency) and frequently turn into abandoned shelfware because delivery teams resist logging into yet another complex platform.
+- **Native Stack Integration:** CaulHaus builds custom capacity engines natively inside the tools the agency's staff already opens every day: Google Workspace, Slack, HubSpot, Salesforce, Pipedrive, Asana, Jira, Linear, ClickUp, and Airtable.
+- **Immediate Team Adoption:** Delivery leads and PMs manage allocations in familiar spreadsheets with role-based permissions, automated data validation, and real-time dashboard calculations.
+- **Proven Impact:** Flagship enterprise deployment across 17 teams (37 people) recovered approximately 16 hours per person every month (~590 hours/month firm-wide) previously lost to manual scheduling, version conflicts, and status chasing.
+
+---
+
+## 2. Ideal Customer Profile (ICP)
+
+- **Target Firm Size:** 20 to 150 full-time employees.
+- **Target Verticals:** Digital agencies, creative studios, performance marketing agencies, dev/product consultancies, technical & management consultancies, implementation partners, and boutique professional services firms.
+- **Primary Economic Buyers:**
+  - **Chief Operating Officer (COO) / VP of Operations:** Focused on billable utilization, delivery gross margins, and eliminating administrative overhead across project managers.
+  - **Head of Delivery / VP of Client Services / Head of PMO:** Focused on preventing team burnout, eliminating the Friday afternoon Slack status chase, and ensuring smooth closed-won deal handoffs.
+  - **Managing Partner / Agency Founder (at 20–60 FTE firms):** Focused on real-time capacity forecasting and scaling project load without adding non-billable ops overhead.
+- **Core Technology Footprint:** Google Workspace (mandatory) + CRM (HubSpot, Salesforce, Pipedrive) + Project Management (Asana, Jira, ClickUp, Linear, Monday, Airtable) + Slack.
+
+---
+
+## 3. The 4-Stage Connected Delivery Lifecycle
+
+CaulHaus builds cohesive operational systems around four critical delivery stages:
+
+### Stage 1: Sales-to-Delivery Handoff (CRM -> Project Spin-Up)
+When a deal transitions to `Closed-Won` in HubSpot, Salesforce, or Pipedrive:
+- Automated provisioning of standardized Google Drive project folder hierarchies with templated scoping docs.
+- Automatic creation of project tracking boards in Asana, Jira, Linear, or ClickUp populated with scoped milestone tasks and contract terms.
+- Automated generation of staffing requests and project kickoff channels in Slack, tagging delivery leads with deal background and recorded client goals.
+
+### Stage 2: Resource & Capacity Planning (The Flagship Engine)
+Replaces fragile master spreadsheets with a production-grade Google Apps Script capacity engine:
+- Automated roster synchronization with role rates, target billable utilization percentages (e.g., 75% for senior devs, 85% for production staff), and department groupings.
+- Dynamic weekly allocation matrix allowing delivery directors to staff upcoming projects across a rolling 12-week horizon.
+- Real-time over-allocation and burnout warnings triggered when any individual is staffed above 85% or 100% capacity.
+- Executive utilization rollups providing leadership with real-time bandwidth forecasts before sales closes new accounts.
+
+### Stage 3: Automated Weekly Status & Workload Rollups
+Eliminates the Friday afternoon status chase where PMs spend 4–6 hours manually pinging team leads:
+- Scheduled background scripts query task and sprint completion data from Jira, Asana, Linear, or Google Sheets.
+- Pre-compiles Friday project digests highlighting blockers, delivery risks, and upcoming milestones.
+- Posts automated Monday morning executive rollups to leadership Slack channels and central dashboards.
+
+### Stage 4: Delivery-to-Finance & Milestone Alerts
+Connects delivery completion directly to billing and revenue operations:
+- Project milestone completion automatically alerts the finance team or generates draft invoices in Stripe or QuickBooks.
+- Prevents billing lag and protects cash flow for fixed-fee and retainer client engagements.
+
+---
+
+## 4. CaulHaus Offer Architecture & Engagement Models
+
+1. **Path 01: The 2-Week Workflow & Capacity Audit (Front-Door Diagnostic)**
+   - **Timeline:** Exactly 2 Weeks.
+   - **Deliverables:** Complete sales-to-delivery workflow & data map; quantified spreadsheet & utilization time-loss diagnostic; prioritized engineering spec; and a first working automation prototype deployed inside the client's live stack.
+   - **Credit Feature:** 100% of the audit fee is credited toward a Full System Build kicked off within 30 days.
+
+2. **Path 02: Full Capacity & Operations System Build (Flagship Implementation)**
+   - **Timeline:** 4 to 6 Weeks.
+   - **Deliverables:** Complete engineering and production rollout of custom Google Workspace capacity engine, CRM closed-won provisioning, automated Slack status rollups, team onboarding, and administrative documentation.
+
+3. **Path 03: Continuous Operations & Capacity Partner (Monthly Retainer)**
+   - **Tier 1: Core Systems & Capacity Continuity ($1,750/mo):** Monthly roster, role rate, and utilization calibration; webhook/API monitoring; up to 6 hours/mo of micro-automations.
+   - **Tier 2: Fractional Delivery Systems Partner ($3,000/mo):** One new workflow automation sprint shipped every month from the client's operations backlog; monthly COO capacity & utilization review call; priority 24-hour engineering turnaround.
+
+---
+
+## 5. Contact & Official Profiles
+
+- **Official Website:** https://caulhaus.com
+- **Services:** https://caulhaus.com/services/
+- **Case Studies & Results:** https://caulhaus.com/projects/
+- **Founder:** Alex Herbstman (`alex@caulhaus.com`)
+- **LinkedIn:** https://www.linkedin.com/in/alexherbstman
+- **GitHub:** https://github.com/TallPantsMan
