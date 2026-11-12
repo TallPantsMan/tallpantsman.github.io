@@ -1,360 +1,365 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Zap, 
-  Layers, 
+  Play, 
   CheckCircle2, 
-  Cpu, 
-  RefreshCw, 
-  Workflow, 
-  LineChart,
-  Briefcase,
-  FileSpreadsheet,
-  MessageSquare,
+  ArrowRight, 
+  Briefcase, 
+  FolderPlus, 
+  Table, 
+  BellRing,
+  Clock,
+  AlertTriangle,
   Sparkles,
-  Info
+  RotateCcw
 } from 'lucide-react';
 
+interface PipelineStep {
+  id: number;
+  badge: string;
+  title: string;
+  subtitle: string;
+  tools: string;
+  icon: React.ComponentType<{ className?: string }>;
+  manualPain: string;
+  automatedResult: string;
+  timeSaved: string;
+  liveActions: {
+    label: string;
+    detail: string;
+    status: string;
+  }[];
+}
+
+const PIPELINE_STEPS: PipelineStep[] = [
+  {
+    id: 0,
+    badge: 'STEP 01 · TRIGGER',
+    title: 'Deal Marked "Closed-Won" in CRM',
+    subtitle: 'Sales signs a new $15,000/mo client retainer in HubSpot or Salesforce.',
+    tools: 'HubSpot / Salesforce / Pipedrive → Apps Script Webhook',
+    icon: Briefcase,
+    manualPain: 'Account rep pings Slack, emails a PDF SOW, and waits 2–3 days for ops to manually set up the client.',
+    automatedResult: 'The instant the deal stage hits Closed-Won, a webhook captures the SOW hours, roles, and start date automatically.',
+    timeSaved: 'Saves ~2.5 hrs per new client kickoff',
+    liveActions: [
+      { label: 'Deal Captured', detail: 'Acme Corp — Q3 Retainer ($15,000/mo · 120 billable hrs/mo)', status: 'Verified' },
+      { label: 'Scope Extracted', detail: 'Strategist (30h), Senior Designer (50h), Full-Stack Dev (40h)', status: 'Parsed' },
+      { label: 'Kickoff Target', detail: 'Start date & billing schedule synced to master ledger', status: 'Synced' }
+    ]
+  },
+  {
+    id: 1,
+    badge: 'STEP 02 · PROVISIONING',
+    title: 'Workspaces & Project Boards Spin Up',
+    subtitle: 'Client folders, templates, and task boards are created in seconds.',
+    tools: 'Google Drive API + Asana / Jira / ClickUp + Slack API',
+    icon: FolderPlus,
+    manualPain: 'PMs spend an hour duplicating old Drive folders, renaming files, and building project boards by hand.',
+    automatedResult: 'Standardized Google Drive folders, SOW trackers, and templated project boards are generated and linked back to the CRM.',
+    timeSaved: 'Zero manual folder or board setup',
+    liveActions: [
+      { label: 'Google Drive', detail: 'Created /Clients/Acme Corp/ with 6 standardized deliverable folders', status: 'Created' },
+      { label: 'Project Board', detail: 'Generated Asana project from "Retainer Template" with 18 milestones', status: 'Provisioned' },
+      { label: 'Team Channel', detail: 'Created #client-acme-corp in Slack & posted SOW summary', status: 'Active' }
+    ]
+  },
+  {
+    id: 2,
+    badge: 'STEP 03 · CAPACITY ENGINE',
+    title: 'Live Staffing & Utilization Allocation',
+    subtitle: 'Our Google Workspace capacity planner matches available staff to the project.',
+    tools: 'Google Sheets + Custom Google Apps Script Capacity Engine',
+    icon: Table,
+    manualPain: 'Ops leads open 5 disconnected staffing spreadsheets to guess who has bandwidth next month.',
+    automatedResult: 'The capacity engine checks 8-week utilization across all 17 teams, assigns the best-fit staff, and flags any overload.',
+    timeSaved: 'Saves ~16 hrs/person/mo in scheduling',
+    liveActions: [
+      { label: 'Strategist (30h/mo)', detail: 'Assigned M. Vance (Utilization: 68% → 86% · Healthy)', status: 'Allocated' },
+      { label: 'Sr. Designer (50h/mo)', detail: 'Assigned K. Lin (Utilization: 62% → 93% · Optimal)', status: 'Allocated' },
+      { label: 'Capacity Forecast', detail: 'Updated 8-week department bandwidth rollup automatically', status: 'Calibrated' }
+    ]
+  },
+  {
+    id: 3,
+    badge: 'STEP 04 · ROLLUPS & BILLING',
+    title: 'Automated Monday Digest & Billing Triggers',
+    subtitle: 'No more Friday Slack chases—leadership gets automatic status & margin rollups.',
+    tools: 'Google Workspace + Slack Bot + Stripe / QuickBooks',
+    icon: BellRing,
+    manualPain: 'PMs spend every Friday afternoon chasing team updates and manually reconciling billable hours for finance.',
+    automatedResult: 'Every Monday at 8:00 AM, leadership receives an automated utilization & budget digest, and completed milestones trigger draft invoices.',
+    timeSaved: 'Eliminates the Friday afternoon status chase',
+    liveActions: [
+      { label: 'Monday 8:00 AM Digest', detail: 'Sent executive utilization & burn-rate summary to #leadership-ops', status: 'Delivered' },
+      { label: 'Budget vs. Actuals', detail: '94% on-budget across active retainers · 0 unstaffed roles', status: 'On Track' },
+      { label: 'Finance Trigger', detail: 'Drafted Milestone 1 invoice in QuickBooks / Stripe upon sign-off', status: 'Ready' }
+    ]
+  }
+];
+
 export default function HeroPipeline() {
-  const [isSimulating, setIsSimulating] = useState(false);
-  const [activeStep, setActiveStep] = useState<number>(-1);
-  const [hoveredNode, setHoveredNode] = useState<number | null>(null);
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [completedSteps, setCompletedSteps] = useState<number[]>([0]);
+  const timersRef = useRef<number[]>([]);
 
-  const handleSimulate = () => {
-    if (isSimulating) return;
-    setIsSimulating(true);
-    setActiveStep(0);
-
-    // Timeline sequence
-    setTimeout(() => setActiveStep(1), 600);   // Node 1: Capacity & Staffing
-    setTimeout(() => setActiveStep(2), 1600);  // Node 2: Project Provisioning
-    setTimeout(() => setActiveStep(3), 2600);  // Node 3: Status & Utilization
-
-    // Reset sequence after 4.5s
-    setTimeout(() => {
-      setIsSimulating(false);
-      setActiveStep(-1);
-    }, 4500);
+  const clearTimers = () => {
+    timersRef.current.forEach((t) => window.clearTimeout(t));
+    timersRef.current = [];
   };
 
+  useEffect(() => {
+    return () => clearTimers();
+  }, []);
+
+  const handleRunSimulation = () => {
+    clearTimers();
+    setIsPlaying(true);
+    setActiveStep(0);
+    setCompletedSteps([0]);
+
+    const t1 = window.setTimeout(() => {
+      setActiveStep(1);
+      setCompletedSteps([0, 1]);
+    }, 1800);
+
+    const t2 = window.setTimeout(() => {
+      setActiveStep(2);
+      setCompletedSteps([0, 1, 2]);
+    }, 3600);
+
+    const t3 = window.setTimeout(() => {
+      setActiveStep(3);
+      setCompletedSteps([0, 1, 2, 3]);
+      setIsPlaying(false);
+    }, 5400);
+
+    timersRef.current = [t1, t2, t3];
+  };
+
+  const handleSelectStep = (index: number) => {
+    clearTimers();
+    setIsPlaying(false);
+    setActiveStep(index);
+    const completed = Array.from({ length: index + 1 }, (_, i) => i);
+    setCompletedSteps(completed);
+  };
+
+  const current = PIPELINE_STEPS[activeStep];
+
   return (
-    <div className="w-full max-w-full font-sans select-none">
+    <div className="w-full font-sans select-none">
       <div 
-        className="border border-[#D5CEC2] rounded-2xl p-5 md:p-6 shadow-md relative overflow-hidden flex flex-col gap-6"
-        style={{ background: 'linear-gradient(160deg, #FFFEFA 0%, #F5F0E6 100%)' }}
+        className="rounded-3xl border-2 border-[#D5CEC2] p-6 md:p-10 shadow-xl relative overflow-hidden"
+        style={{ background: 'linear-gradient(160deg, #FFFEFA 0%, #F3EDE2 100%)' }}
       >
-        
-        {/* Background Subtle Tech Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.04] pointer-events-none" 
-          style={{ backgroundImage: 'radial-gradient(#1C1917 1px, transparent 1px)', backgroundSize: '16px 16px' }} 
-        />
-
-        {/* ================= MODULE A: CRM & CLOSED-WON TRIGGER LAYER ================= */}
-        <motion.div 
-          animate={{
-            borderColor: activeStep === 0 ? '#B44C27' : '#D5CEC2',
-            boxShadow: activeStep === 0 ? '0 0 0 2px rgba(180, 76, 39, 0.2), 0 4px 6px -1px rgba(28,25,23,0.05)' : '0 1px 3px 0 rgba(28,25,23,0.05)'
-          }}
-          transition={{ duration: 0.3 }}
-          className="bg-[#FAF7F2] border border-[#D5CEC2] rounded-xl p-4 md:p-5 relative transition-all"
-        >
-          {/* Header Bar */}
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <span className="font-sans text-xs uppercase tracking-wider text-[#9A3B1B] font-bold bg-[#F2E7DF] px-2.5 py-1 rounded border border-[#E5C5B3] flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-[#B44C27]" />
-                CRM &amp; DEAL HANDOFF LAYER
-              </span>
+        {/* Top Bar: Clear Context & Action Button */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#D5CEC2]">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2E7DF] border border-[#E5C5B3] text-[#9A3B1B] text-xs font-bold uppercase tracking-wider mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#B44C27]" />
+              Interactive System Walkthrough
             </div>
-            
-            <div className="flex items-center gap-1.5 bg-[#E8F2EC] text-[#2D6A4F] px-3 py-1 rounded-full text-xs font-sans font-semibold border border-[#B7D7C6]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F] animate-pulse" />
-              Listening for Closed-Won
-            </div>
+            <h3 className="text-xl md:text-2xl font-bold text-[#1C1917]">
+              Scenario: New $15k/mo Agency Retainer Closes in CRM
+            </h3>
           </div>
 
-          {/* Connected Stack Tags */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1C1917] bg-[#FFFEFA] border border-[#D5CEC2] px-3 py-1 rounded-md shadow-2xs">
-              <Briefcase className="w-3.5 h-3.5 text-[#B44C27]" />
-              HubSpot / Salesforce
-            </div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1C1917] bg-[#FFFEFA] border border-[#D5CEC2] px-3 py-1 rounded-md shadow-2xs">
-              <FileSpreadsheet className="w-3.5 h-3.5 text-[#B44C27]" />
-              Google Workspace
-            </div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1C1917] bg-[#FFFEFA] border border-[#D5CEC2] px-3 py-1 rounded-md shadow-2xs">
-              <MessageSquare className="w-3.5 h-3.5 text-[#B44C27]" />
-              Slack &amp; PM Boards
-            </div>
-          </div>
-
-          {/* Metrics Grid & Action Trigger */}
-          <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center pt-1 border-t border-[#D5CEC2]/60">
-            {/* Dashboard Mini Card */}
-            <div className="sm:col-span-7 grid grid-cols-3 gap-2 bg-[#FFFEFA] p-3 rounded-lg border border-[#D5CEC2] shadow-2xs">
-              <div className="text-center sm:text-left border-r border-[#E4DFD5] pr-1">
-                <span className="text-xs font-sans uppercase text-[#57534E] block font-semibold">Teams Live</span>
-                <span className="text-sm font-bold text-[#2D6A4F]">17 Teams</span>
-              </div>
-              <div className="text-center sm:text-left border-r border-[#E4DFD5] px-1">
-                <span className="text-xs font-sans uppercase text-[#57534E] block font-semibold">Per-User Gain</span>
-                <span className="text-sm font-bold text-[#1C1917]">~16 hrs/mo</span>
-              </div>
-              <div className="text-center sm:text-left pl-1">
-                <span className="text-xs font-sans uppercase text-[#57534E] block font-semibold">Org Saved</span>
-                <span className="text-sm font-bold text-[#B44C27]">~590 hrs/mo</span>
-              </div>
-            </div>
-
-            {/* Interactive CTA Trigger */}
-            <div className="sm:col-span-5 flex justify-end">
-              <button
-                onClick={handleSimulate}
-                disabled={isSimulating}
-                style={!isSimulating ? { background: 'linear-gradient(135deg, #B85028 0%, #8E3717 100%)' } : undefined}
-                className={`w-full py-2.5 px-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 cursor-pointer ${
-                  isSimulating 
-                    ? 'bg-[#F2E7DF] text-[#9A3B1B] cursor-not-allowed border border-[#E5C5B3]' 
-                    : 'text-white hover:opacity-95'
-                }`}
-              >
-                {isSimulating ? (
-                  <>
-                    <RefreshCw className="w-4 h-4 animate-spin text-[#B44C27]" />
-                    <span>Provisioning...</span>
-                  </>
-                ) : (
-                  <>
-                    <Zap className="w-4 h-4 text-[#F5CBA7] fill-[#F5CBA7]" />
-                    <span>Simulate Closed-Won Deal</span>
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* ================= MODULE B: CONNECTIVE PIPELINE / BRIDGE ================= */}
-        <div className="relative py-1 flex flex-col items-center justify-center">
-          {/* Vertical Connecting Line */}
-          <div className="w-0.5 h-8 bg-[#D5CEC2] relative overflow-hidden rounded-full">
-            <motion.div
-              animate={{
-                y: ['-100%', '300%']
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: 'linear'
-              }}
-              className="w-full h-4 bg-gradient-to-b from-transparent via-[#B44C27] to-transparent"
-            />
-
-            {isSimulating && (
-              <motion.div
-                initial={{ top: '-20%', opacity: 1 }}
-                animate={{ top: '120%', opacity: 1 }}
-                transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#B44C27] shadow-[0_0_8px_#B44C27]"
-              />
-            )}
-          </div>
-
-          {/* Trigger Tag Label */}
-          <div className="my-1 bg-[#FFFEFA] border border-[#E5C5B3] text-[#9A3B1B] px-3 py-1 rounded-full text-xs font-sans font-bold tracking-wider uppercase shadow-2xs flex items-center gap-1.5">
-            <Sparkles className="w-3 h-3 text-[#B44C27]" />
-            Apps Script &amp; Webhook Trigger
-          </div>
-
-          <div className="w-0.5 h-2 bg-[#D5CEC2]" />
-        </div>
-
-        {/* ================= MODULE C: OPERATIONAL ENGINE LAYER ================= */}
-        <div className="bg-[#FAF7F2] border border-[#D5CEC2] rounded-xl p-4 md:p-5">
-          {/* Header */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <span className="font-sans text-xs uppercase tracking-wider text-[#1C1917] font-bold bg-[#E4DFD5] px-2.5 py-1 rounded flex items-center gap-1.5">
-                <Cpu className="w-3.5 h-3.5 text-[#1C1917]" />
-                DELIVERY &amp; CAPACITY ENGINE
-              </span>
-            </div>
-
-            <div className="flex items-center gap-1.5 bg-[#E8F2EC] text-[#2D6A4F] px-3 py-1 rounded text-xs font-sans font-semibold border border-[#B7D7C6]">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#2D6A4F]" />
-              Synced to Workspace
-            </div>
-          </div>
-
-          {/* 3-Node Graph Pipeline */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 relative">
-            
-            {/* NODE 1: Capacity & Staffing */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setHoveredNode(1)}
-              onMouseLeave={() => setHoveredNode(null)}
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              type="button"
+              onClick={handleRunSimulation}
+              style={{ background: 'linear-gradient(135deg, #B85028 0%, #8E3717 100%)' }}
+              className="px-5 py-3 rounded-xl text-white font-semibold text-sm flex items-center gap-2 shadow-md hover:opacity-95 active:scale-95 transition-all cursor-pointer"
             >
-              <motion.div
-                animate={{
-                  borderColor: activeStep >= 1 ? '#B44C27' : '#D5CEC2',
-                  boxShadow: activeStep === 1 ? '0 0 0 2px rgba(180, 76, 39, 0.2)' : '0 1px 2px rgba(28,25,23,0.03)'
-                }}
-                className="bg-[#FFFEFA] border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
-              >
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div className={`p-1.5 rounded-lg ${activeStep >= 1 ? 'bg-[#F2E7DF] text-[#B44C27]' : 'bg-[#EFECE5] text-[#57534E]'}`}>
-                      <Workflow className="w-4 h-4" />
-                    </div>
-                    
-                    <span className={`text-xs font-sans font-bold px-2 py-0.5 rounded uppercase ${
-                      activeStep === 1 ? 'bg-[#B44C27] text-white animate-pulse' :
-                      activeStep > 1 ? 'bg-[#E8F2EC] text-[#2D6A4F]' :
-                      'bg-[#EFECE5] text-[#57534E]'
-                    }`}>
-                      {activeStep === 1 ? 'Allocating' : activeStep > 1 ? 'Allocated' : 'Ready'}
-                    </span>
-                  </div>
-
-                  <h4 className="text-sm font-bold text-[#1C1917] mb-1">1. Capacity &amp; Staffing</h4>
-                  <p className="text-xs text-[#57534E] leading-snug">Live Google Sheets utilization &amp; role matching</p>
-                </div>
-              </motion.div>
-
-              {/* Hover Tooltip */}
-              <AnimatePresence>
-                {hoveredNode === 1 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 5 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-[#1C1917] text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
-                  >
-                    <div className="font-sans font-bold text-[#F5CBA7] mb-1 flex items-center gap-1">
-                      <Info className="w-3 h-3" /> Underlying Toolchain
-                    </div>
-                    Google Apps Script capacity model &amp; roster permissions.
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1C1917]" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* NODE 2: Project Provisioning */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setHoveredNode(2)}
-              onMouseLeave={() => setHoveredNode(null)}
-            >
-              <motion.div
-                animate={{
-                  borderColor: activeStep >= 2 ? '#B44C27' : '#D5CEC2',
-                  boxShadow: activeStep === 2 ? '0 0 0 2px rgba(180, 76, 39, 0.2)' : '0 1px 2px rgba(28,25,23,0.03)'
-                }}
-                className="bg-[#FFFEFA] border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
-              >
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div className={`p-1.5 rounded-lg ${activeStep >= 2 ? 'bg-[#F2E7DF] text-[#B44C27]' : 'bg-[#EFECE5] text-[#57534E]'}`}>
-                      <Cpu className="w-4 h-4" />
-                    </div>
-                    
-                    <span className={`text-xs font-sans font-bold px-2 py-0.5 rounded uppercase ${
-                      activeStep === 2 ? 'bg-[#B44C27] text-white animate-pulse' :
-                      activeStep > 2 ? 'bg-[#E8F2EC] text-[#2D6A4F]' :
-                      'bg-[#EFECE5] text-[#57534E]'
-                    }`}>
-                      {activeStep === 2 ? 'Spinning Up' : activeStep > 2 ? 'Created' : 'Ready'}
-                    </span>
-                  </div>
-
-                  <h4 className="text-sm font-bold text-[#1C1917] mb-1">2. Project Spin-Up</h4>
-                  <p className="text-xs text-[#57534E] leading-snug">Auto-creates Drive folders, PM boards &amp; Slack alerts</p>
-                </div>
-              </motion.div>
-
-              {/* Hover Tooltip */}
-              <AnimatePresence>
-                {hoveredNode === 2 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 5 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-[#1C1917] text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
-                  >
-                    <div className="font-sans font-bold text-[#F5CBA7] mb-1 flex items-center gap-1">
-                      <Info className="w-3 h-3" /> Underlying Toolchain
-                    </div>
-                    Google Drive API, Asana/Jira/ClickUp webhooks &amp; Slack Bot.
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1C1917]" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* NODE 3: Weekly Status & Margin */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setHoveredNode(3)}
-              onMouseLeave={() => setHoveredNode(null)}
-            >
-              <motion.div
-                animate={{
-                  borderColor: activeStep === 3 ? '#2D6A4F' : activeStep > 3 ? '#2D6A4F' : '#D5CEC2',
-                  boxShadow: activeStep === 3 ? '0 0 0 2px rgba(45, 106, 79, 0.2)' : '0 1px 2px rgba(28,25,23,0.03)'
-                }}
-                className="bg-[#FFFEFA] border rounded-xl p-3.5 flex flex-col justify-between h-full transition-all cursor-pointer relative z-10"
-              >
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div className={`p-1.5 rounded-lg ${activeStep === 3 ? 'bg-[#E8F2EC] text-[#2D6A4F]' : 'bg-[#EFECE5] text-[#57534E]'}`}>
-                      <LineChart className="w-4 h-4" />
-                    </div>
-                    
-                    <span className={`text-xs font-sans font-bold px-2 py-0.5 rounded uppercase ${
-                      activeStep === 3 ? 'bg-[#2D6A4F] text-white' : 'bg-[#EFECE5] text-[#57534E]'
-                    }`}>
-                      {activeStep === 3 ? 'Rolled Up' : 'Ready'}
-                    </span>
-                  </div>
-
-                  <h4 className="text-sm font-bold text-[#1C1917] mb-1">3. Weekly Status Rollups</h4>
-                  <p className="text-xs text-[#57534E] leading-snug">Automated Monday digests &amp; billing triggers</p>
-                </div>
-              </motion.div>
-
-              {/* Hover Tooltip */}
-              <AnimatePresence>
-                {hoveredNode === 3 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 5 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-[#1C1917] text-white text-xs rounded-lg p-2.5 shadow-xl z-30 pointer-events-none"
-                  >
-                    <div className="font-sans font-bold text-[#84C5A2] mb-1 flex items-center gap-1">
-                      <Info className="w-3 h-3" /> Underlying Toolchain
-                    </div>
-                    Automated executive utilization rollups &amp; Stripe/QBO triggers.
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1C1917]" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
+              {isPlaying ? (
+                <>
+                  <RotateCcw className="w-4 h-4 animate-spin" />
+                  <span>Running Step {activeStep + 1} of 4...</span>
+                </>
+              ) : (
+                <>
+                  <Play className="w-4 h-4 fill-white" />
+                  <span>Auto-Play All 4 Steps</span>
+                </>
+              )}
+            </button>
           </div>
         </div>
 
-        {/* Module Footer Label */}
-        <div className="pt-2 border-t border-[#D5CEC2]/60 text-center">
-          <span className="text-xs font-sans uppercase tracking-wider text-[#57534E] font-semibold">
-            Interactive Simulator: Closed-Won Deal to Live Delivery Capacity
-          </span>
-        </div>
+        {/* Main 2-Column Layout: Left = 4 Clear Steps, Right = High-Contrast Live Inspector */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          
+          {/* Left Column: 4 Interactive Step Cards (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-3.5">
+            {PIPELINE_STEPS.map((step, idx) => {
+              const IconComponent = step.icon;
+              const isSelected = activeStep === idx;
+              const isDone = completedSteps.includes(idx);
 
+              return (
+                <button
+                  key={step.id}
+                  type="button"
+                  onClick={() => handleSelectStep(idx)}
+                  className={`w-full text-left p-4 md:p-5 rounded-2xl transition-all duration-200 cursor-pointer flex items-start gap-4 ${
+                    isSelected
+                      ? 'bg-[#FFFEFA] border-2 border-[#B44C27] shadow-md'
+                      : 'bg-[#FAF7F2]/90 border border-[#D5CEC2] hover:border-[#B44C27]/50 hover:bg-[#FFFEFA]'
+                  }`}
+                >
+                  <div
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
+                      isSelected
+                        ? 'bg-[#B44C27] text-white'
+                        : isDone
+                        ? 'bg-[#E8F2EC] text-[#2D6A4F]'
+                        : 'bg-[#EFECE5] text-[#57534E]'
+                    }`}
+                  >
+                    {isDone && !isSelected ? (
+                      <CheckCircle2 className="w-5 h-5" />
+                    ) : (
+                      <IconComponent className="w-5 h-5" />
+                    )}
+                  </div>
+
+                  <div className="flex-grow min-w-0">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span
+                        className={`text-xs font-bold uppercase tracking-wider ${
+                          isSelected ? 'text-[#B44C27]' : 'text-[#57534E]'
+                        }`}
+                      >
+                        {step.badge}
+                      </span>
+                      {isSelected && (
+                        <span className="text-xs font-bold text-[#B44C27] flex items-center gap-1">
+                          Viewing <ArrowRight className="w-3.5 h-3.5" />
+                        </span>
+                      )}
+                    </div>
+                    <h4 className="text-base font-bold text-[#1C1917] leading-snug mb-1">
+                      {step.title}
+                    </h4>
+                    <p className="text-sm text-[#57534E] leading-relaxed font-normal">
+                      {step.subtitle}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right Column: High-Contrast Step Detail & Live Output Panel (7 cols) */}
+          <div 
+            className="lg:col-span-7 rounded-2xl p-6 md:p-8 text-white flex flex-col justify-between border border-[#3A332C] shadow-lg"
+            style={{ background: 'linear-gradient(145deg, #1C1917 0%, #26201B 55%, #1A2821 100%)' }}
+          >
+            <div className="space-y-6">
+              {/* Panel Header */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/15">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#F5CBA7] block mb-1">
+                    {current.badge} · UNDER THE HOOD
+                  </span>
+                  <h4 className="text-xl md:text-2xl font-bold text-white">
+                    {current.title}
+                  </h4>
+                </div>
+                <span className="px-3 py-1.5 rounded-full bg-[#2D6A4F]/40 border border-[#84C5A2]/40 text-[#84C5A2] text-xs font-bold flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5" />
+                  {current.timeSaved}
+                </span>
+              </div>
+
+              {/* Before vs After Comparison Boxes (Super Easy to Read) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-red-950/35 border border-red-400/25">
+                  <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-red-300 mb-1.5">
+                    <AlertTriangle className="w-4 h-4 text-red-400 shrink-0" />
+                    Without CaulHaus (Manual)
+                  </div>
+                  <p className="text-sm text-stone-200 leading-relaxed">
+                    {current.manualPain}
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#2D6A4F]/25 border border-[#84C5A2]/30">
+                  <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#84C5A2] mb-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#84C5A2] shrink-0" />
+                    With CaulHaus (Automated)
+                  </div>
+                  <p className="text-sm text-stone-100 leading-relaxed">
+                    {current.automatedResult}
+                  </p>
+                </div>
+              </div>
+
+              {/* Automated Actions Executed in This Step */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#D5CEC2]">
+                    Automated Actions Executed in Step 0{activeStep + 1}:
+                  </span>
+                  <span className="text-xs text-[#F5CBA7] font-medium">
+                    {current.tools}
+                  </span>
+                </div>
+
+                <div className="space-y-2.5">
+                  {current.liveActions.map((item, i) => (
+                    <div
+                      key={i}
+                      className="p-3.5 rounded-xl bg-white/[0.06] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                    >
+                      <div className="flex items-start sm:items-center gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-[#84C5A2] shrink-0 mt-0.5 sm:mt-0" />
+                        <div>
+                          <span className="text-sm font-bold text-white mr-2">
+                            {item.label}:
+                          </span>
+                          <span className="text-sm text-stone-200">
+                            {item.detail}
+                          </span>
+                        </div>
+                      </div>
+                      <span className="self-start sm:self-center px-2.5 py-0.5 rounded bg-white/10 text-[#F5CBA7] text-xs font-bold uppercase tracking-wider shrink-0">
+                        {item.status}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Step Navigation Bar inside the Inspector */}
+            <div className="pt-6 mt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-xs text-[#D5CEC2]">
+                Proven across <strong className="text-white">17 teams (37 staff)</strong> · <strong className="text-[#84C5A2]">~590 hrs/mo saved</strong>
+              </div>
+
+              <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+                <button
+                  type="button"
+                  onClick={() => handleSelectStep(activeStep > 0 ? activeStep - 1 : 3)}
+                  className="px-3.5 py-2 rounded-lg bg-white/10 hover:bg-white/15 text-white text-xs font-semibold transition-colors cursor-pointer"
+                >
+                  ← Prev Step
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSelectStep(activeStep < 3 ? activeStep + 1 : 0)}
+                  className="px-4 py-2 rounded-lg bg-[#B44C27] hover:bg-[#9A3B1B] text-white text-xs font-semibold transition-colors flex items-center gap-1 cursor-pointer"
+                >
+                  <span>{activeStep < 3 ? `Next: Step 0${activeStep + 2}` : 'Restart Step 01'}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );
