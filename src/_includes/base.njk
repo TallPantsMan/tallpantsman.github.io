@@ -306,10 +306,10 @@ void main() {
   <!-- STITCH_SHADER_END:ANIMATION_21 -->
 
   <!-- Top Sticky Navigation Bar -->
-  <header class="bg-white/90 dark:bg-deep-charcoal/95 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/20 dark:border-slate-800">
+  <header class="bg-white/95 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/30 shadow-2xs">
     <nav class="flex justify-between items-center h-20 px-grid-margin max-w-container-max-width mx-auto" aria-label="Main Navigation">
       <!-- Logo -->
-      <a class="font-headline-md text-headline-md font-bold text-deep-charcoal dark:text-white hover:opacity-90 transition-opacity" href="/">
+      <a class="font-headline-md text-headline-md font-bold text-deep-charcoal hover:opacity-90 transition-opacity" href="/">
         CaulHaus
       </a>
 
@@ -317,49 +317,54 @@ void main() {
       <div class="hidden md:flex space-x-8 items-center">
         <!-- Solutions Dropdown -->
         <div class="relative" id="services-dropdown">
-          <button id="services-btn" class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium flex items-center gap-1 focus:outline-none cursor-pointer">
+          <button id="services-btn" type="button" aria-expanded="false" class="{% if page.url == '/automation/' or page.url == '/marketing/' %}text-electric-blue font-semibold{% else %}text-slate-800 font-medium{% endif %} hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md flex items-center gap-1 focus:outline-none cursor-pointer">
             Solutions
-            <span id="services-arrow" class="material-symbols-outlined text-[16px] transition-transform duration-200 text-slate-800 dark:text-slate-100">keyboard_arrow_down</span>
+            <span id="services-arrow" class="material-symbols-outlined text-[18px] transition-transform duration-200">keyboard_arrow_down</span>
           </button>
-          <div id="services-menu" class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 z-50 transition-all duration-200 opacity-0 pointer-events-none translate-y-1">
-            <div class="rounded-xl bg-white dark:bg-slate-900 border border-outline-variant/20 dark:border-slate-800 shadow-xl p-2">
-              <a href="/automation/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors {% if page.url == '/automation/' %}bg-electric-blue/10 text-electric-blue dark:text-white font-semibold{% endif %}">Capacity &amp; Delivery Systems</a>
-              <a href="/marketing/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors {% if page.url == '/marketing/' %}bg-electric-blue/10 text-electric-blue dark:text-white font-semibold{% endif %}">Sales-to-Delivery &amp; CRM</a>
-              <a href="/services/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors {% if page.url == '/services/' %}bg-electric-blue/10 text-electric-blue dark:text-white font-semibold{% endif %}">How We Work &amp; Scope</a>
+          <div id="services-menu" class="absolute top-full left-0 pt-2 w-80 z-50 transition-all duration-200 opacity-0 pointer-events-none translate-y-1">
+            <div class="rounded-2xl bg-white border border-outline-variant/40 shadow-xl p-2.5 space-y-1">
+              <a href="/automation/" class="block px-4 py-3 rounded-xl hover:bg-electric-blue/5 transition-colors {% if page.url == '/automation/' %}bg-electric-blue/10{% endif %}">
+                <span class="font-body-md text-sm font-bold block {% if page.url == '/automation/' %}text-electric-blue{% else %}text-deep-charcoal{% endif %}">Capacity &amp; Delivery Systems</span>
+                <span class="text-xs text-slate-gray font-light block mt-0.5">Google Workspace capacity planners &amp; status rollups</span>
+              </a>
+              <a href="/marketing/" class="block px-4 py-3 rounded-xl hover:bg-electric-blue/5 transition-colors {% if page.url == '/marketing/' %}bg-electric-blue/10{% endif %}">
+                <span class="font-body-md text-sm font-bold block {% if page.url == '/marketing/' %}text-electric-blue{% else %}text-deep-charcoal{% endif %}">Sales-to-Delivery &amp; CRM</span>
+                <span class="text-xs text-slate-gray font-light block mt-0.5">Closed-won project provisioning &amp; speed-to-lead routing</span>
+              </a>
             </div>
           </div>
         </div>
 
-        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium {% if page.url == '/services/' %}text-electric-blue dark:text-white font-semibold{% endif %}" href="/services/">How We Work</a>
-        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium {% if page.url == '/projects/' %}text-electric-blue dark:text-white font-semibold{% endif %}" href="/projects/">Results</a>
-        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium {% if page.url == '/about/' %}text-electric-blue dark:text-white font-semibold{% endif %}" href="/about/">About Us</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium {% if page.url == '/services/' %}text-electric-blue font-semibold{% endif %}" href="/services/">How We Work</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium {% if page.url == '/projects/' %}text-electric-blue font-semibold{% endif %}" href="/projects/">Results</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium {% if page.url == '/about/' %}text-electric-blue font-semibold{% endif %}" href="/about/">About Us</a>
       </div>
 
       <!-- CTA -->
       <div class="hidden md:block">
-        <a class="bg-electric-blue text-white px-6 py-2.5 rounded font-body-md text-body-md font-semibold hover:opacity-90 transition-opacity active:scale-95 shadow-sm" href="/contact/">Request an Audit</a>
+        <a class="bg-electric-blue text-white px-6 py-2.5 rounded-xl font-body-md text-sm font-semibold hover:bg-electric-blue/90 transition-all active:scale-95 shadow-sm" href="/contact/?area=Audit">Request an Audit</a>
       </div>
 
       <!-- Mobile Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer" aria-label="Toggle Menu">
-        <span id="menu-icon" class="material-symbols-outlined">menu</span>
+      <button id="mobile-menu-btn" type="button" class="md:hidden text-deep-charcoal p-2 rounded-lg hover:bg-surface-gray focus:outline-none cursor-pointer" aria-label="Toggle Menu">
+        <span id="menu-icon" class="material-symbols-outlined text-2xl">menu</span>
       </button>
     </nav>
 
     <!-- Mobile Navigation Panel -->
-    <div id="mobile-menu" class="hidden md:hidden px-grid-margin pb-6 pt-2 border-t border-outline-variant/10 dark:border-slate-800 bg-white/95 dark:bg-deep-charcoal/95 w-full">
-      <div class="flex flex-col gap-4 font-body-md text-body-md">
-        <span class="font-mono-label text-xs text-slate-400 uppercase tracking-widest mt-2 font-bold">Solutions</span>
-        <a class="pl-4 {% if page.url == '/automation/' %}text-electric-blue dark:text-white font-semibold{% else %}text-slate-800 dark:text-slate-200{% endif %}" href="/automation/">Capacity &amp; Delivery Systems</a>
-        <a class="pl-4 {% if page.url == '/marketing/' %}text-electric-blue dark:text-white font-semibold{% else %}text-slate-800 dark:text-slate-200{% endif %}" href="/marketing/">Sales-to-Delivery &amp; CRM</a>
-        <a class="pl-4 {% if page.url == '/services/' %}text-electric-blue dark:text-white font-semibold{% else %}text-slate-800 dark:text-slate-200{% endif %}" href="/services/">How We Work &amp; Scope</a>
+    <div id="mobile-menu" class="hidden md:hidden px-grid-margin pb-6 pt-3 border-t border-outline-variant/30 bg-white w-full shadow-lg">
+      <div class="flex flex-col gap-3.5 font-body-md text-base">
+        <span class="font-mono-label text-xs text-electric-blue uppercase tracking-widest mt-1 font-bold">Solutions</span>
+        <a class="pl-3 py-1 {% if page.url == '/automation/' %}text-electric-blue font-semibold{% else %}text-deep-charcoal{% endif %}" href="/automation/">Capacity &amp; Delivery Systems</a>
+        <a class="pl-3 py-1 {% if page.url == '/marketing/' %}text-electric-blue font-semibold{% else %}text-deep-charcoal{% endif %}" href="/marketing/">Sales-to-Delivery &amp; CRM</a>
         
-        <span class="font-mono-label text-xs text-slate-400 uppercase tracking-widest mt-2 font-bold">Company</span>
-        <a class="pl-4 {% if page.url == '/projects/' %}text-electric-blue dark:text-white font-semibold{% else %}text-slate-800 dark:text-slate-200{% endif %}" href="/projects/">Results</a>
-        <a class="pl-4 {% if page.url == '/about/' %}text-electric-blue dark:text-white font-semibold{% else %}text-slate-800 dark:text-slate-200{% endif %}" href="/about/">About Us</a>
+        <span class="font-mono-label text-xs text-electric-blue uppercase tracking-widest mt-2 font-bold">Engagement &amp; Proof</span>
+        <a class="pl-3 py-1 {% if page.url == '/services/' %}text-electric-blue font-semibold{% else %}text-deep-charcoal{% endif %}" href="/services/">How We Work &amp; Scope</a>
+        <a class="pl-3 py-1 {% if page.url == '/projects/' %}text-electric-blue font-semibold{% else %}text-deep-charcoal{% endif %}" href="/projects/">Case Study &amp; Results</a>
+        <a class="pl-3 py-1 {% if page.url == '/about/' %}text-electric-blue font-semibold{% else %}text-deep-charcoal{% endif %}" href="/about/">About Us</a>
         
-        <a class="bg-electric-blue text-white px-6 py-3 rounded text-center mt-4 shadow-sm font-semibold" href="/contact/">
-          Request an Audit
+        <a class="bg-electric-blue text-white px-6 py-3.5 rounded-xl text-center mt-3 shadow-sm font-semibold text-sm" href="/contact/?area=Audit">
+          Request a 2-Week Audit
         </a>
       </div>
     </div>
@@ -369,6 +374,33 @@ void main() {
   <main class="flex-grow">
     {{ content | safe }}
   </main>
+
+  {% if page.url != '/contact/' %}
+  <!-- Global Pre-Footer Executive CTA Banner -->
+  <section class="px-grid-margin max-w-container-max-width mx-auto pt-8 pb-4 reveal">
+    <div class="bg-deep-charcoal text-white p-8 md:p-14 rounded-3xl text-center space-y-6 tech-shadow relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#475569 1px, transparent 1px); background-size: 20px 20px;"></div>
+      <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+        <span class="font-mono-label text-xs text-terminal-green uppercase tracking-widest font-bold block">2-Week Diagnostic + Live Prototype</span>
+        <h2 class="font-headline-lg text-headline-md md:text-headline-lg font-bold text-white leading-tight">
+          Ready to get your delivery team out of fragile spreadsheets?
+        </h2>
+        <p class="text-sm md:text-base text-slate-300 font-light leading-relaxed">
+          In 14 days, we map your sales-to-delivery handoffs, quantify where billable capacity leaks, and deploy your first working automation inside your stack—with 100% of the audit fee credited toward a Full System Build.
+        </p>
+        <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/contact/?area=Audit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-electric-blue text-white px-8 py-4 rounded-xl font-body-md text-sm font-semibold hover:bg-electric-blue/90 transition-all shadow-md active:scale-95">
+            <span>Request a 2-Week Audit</span>
+            <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+          <a href="/services/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 px-8 py-4 rounded-xl font-body-md text-sm font-semibold transition-all">
+            <span>Compare Engagement Paths</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
 
   <!-- Footer -->
   <footer class="bg-deep-charcoal border-t border-slate-800/60 w-full mt-section-padding text-white">

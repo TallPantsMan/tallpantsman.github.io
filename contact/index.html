@@ -306,10 +306,10 @@ void main() {
   <!-- STITCH_SHADER_END:ANIMATION_21 -->
 
   <!-- Top Sticky Navigation Bar -->
-  <header class="bg-white/90 dark:bg-deep-charcoal/95 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/20 dark:border-slate-800">
+  <header class="bg-white/95 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/30 shadow-2xs">
     <nav class="flex justify-between items-center h-20 px-grid-margin max-w-container-max-width mx-auto" aria-label="Main Navigation">
       <!-- Logo -->
-      <a class="font-headline-md text-headline-md font-bold text-deep-charcoal dark:text-white hover:opacity-90 transition-opacity" href="/">
+      <a class="font-headline-md text-headline-md font-bold text-deep-charcoal hover:opacity-90 transition-opacity" href="/">
         CaulHaus
       </a>
 
@@ -317,49 +317,54 @@ void main() {
       <div class="hidden md:flex space-x-8 items-center">
         <!-- Solutions Dropdown -->
         <div class="relative" id="services-dropdown">
-          <button id="services-btn" class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium flex items-center gap-1 focus:outline-none cursor-pointer">
+          <button id="services-btn" type="button" aria-expanded="false" class="text-slate-800 font-medium hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md flex items-center gap-1 focus:outline-none cursor-pointer">
             Solutions
-            <span id="services-arrow" class="material-symbols-outlined text-[16px] transition-transform duration-200 text-slate-800 dark:text-slate-100">keyboard_arrow_down</span>
+            <span id="services-arrow" class="material-symbols-outlined text-[18px] transition-transform duration-200">keyboard_arrow_down</span>
           </button>
-          <div id="services-menu" class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 z-50 transition-all duration-200 opacity-0 pointer-events-none translate-y-1">
-            <div class="rounded-xl bg-white dark:bg-slate-900 border border-outline-variant/20 dark:border-slate-800 shadow-xl p-2">
-              <a href="/automation/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors ">Capacity &amp; Delivery Systems</a>
-              <a href="/marketing/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors ">Sales-to-Delivery &amp; CRM</a>
-              <a href="/services/" class="block px-4 py-2.5 rounded-lg font-body-md text-body-md text-slate-800 dark:text-slate-200 hover:bg-electric-blue/10 hover:text-electric-blue dark:hover:bg-slate-800 dark:hover:text-white transition-colors ">How We Work &amp; Scope</a>
+          <div id="services-menu" class="absolute top-full left-0 pt-2 w-80 z-50 transition-all duration-200 opacity-0 pointer-events-none translate-y-1">
+            <div class="rounded-2xl bg-white border border-outline-variant/40 shadow-xl p-2.5 space-y-1">
+              <a href="/automation/" class="block px-4 py-3 rounded-xl hover:bg-electric-blue/5 transition-colors ">
+                <span class="font-body-md text-sm font-bold block text-deep-charcoal">Capacity &amp; Delivery Systems</span>
+                <span class="text-xs text-slate-gray font-light block mt-0.5">Google Workspace capacity planners &amp; status rollups</span>
+              </a>
+              <a href="/marketing/" class="block px-4 py-3 rounded-xl hover:bg-electric-blue/5 transition-colors ">
+                <span class="font-body-md text-sm font-bold block text-deep-charcoal">Sales-to-Delivery &amp; CRM</span>
+                <span class="text-xs text-slate-gray font-light block mt-0.5">Closed-won project provisioning &amp; speed-to-lead routing</span>
+              </a>
             </div>
           </div>
         </div>
 
-        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium " href="/services/">How We Work</a>
-        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium " href="/projects/">Results</a>
-        <a class="text-slate-800 dark:text-slate-100 hover:text-electric-blue dark:hover:text-white transition-colors duration-200 font-body-md text-body-md font-medium " href="/about/">About Us</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium " href="/services/">How We Work</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium " href="/projects/">Results</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium " href="/about/">About Us</a>
       </div>
 
       <!-- CTA -->
       <div class="hidden md:block">
-        <a class="bg-electric-blue text-white px-6 py-2.5 rounded font-body-md text-body-md font-semibold hover:opacity-90 transition-opacity active:scale-95 shadow-sm" href="/contact/">Request an Audit</a>
+        <a class="bg-electric-blue text-white px-6 py-2.5 rounded-xl font-body-md text-sm font-semibold hover:bg-electric-blue/90 transition-all active:scale-95 shadow-sm" href="/contact/?area=Audit">Request an Audit</a>
       </div>
 
       <!-- Mobile Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer" aria-label="Toggle Menu">
-        <span id="menu-icon" class="material-symbols-outlined">menu</span>
+      <button id="mobile-menu-btn" type="button" class="md:hidden text-deep-charcoal p-2 rounded-lg hover:bg-surface-gray focus:outline-none cursor-pointer" aria-label="Toggle Menu">
+        <span id="menu-icon" class="material-symbols-outlined text-2xl">menu</span>
       </button>
     </nav>
 
     <!-- Mobile Navigation Panel -->
-    <div id="mobile-menu" class="hidden md:hidden px-grid-margin pb-6 pt-2 border-t border-outline-variant/10 dark:border-slate-800 bg-white/95 dark:bg-deep-charcoal/95 w-full">
-      <div class="flex flex-col gap-4 font-body-md text-body-md">
-        <span class="font-mono-label text-xs text-slate-400 uppercase tracking-widest mt-2 font-bold">Solutions</span>
-        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/automation/">Capacity &amp; Delivery Systems</a>
-        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/marketing/">Sales-to-Delivery &amp; CRM</a>
-        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/services/">How We Work &amp; Scope</a>
+    <div id="mobile-menu" class="hidden md:hidden px-grid-margin pb-6 pt-3 border-t border-outline-variant/30 bg-white w-full shadow-lg">
+      <div class="flex flex-col gap-3.5 font-body-md text-base">
+        <span class="font-mono-label text-xs text-electric-blue uppercase tracking-widest mt-1 font-bold">Solutions</span>
+        <a class="pl-3 py-1 text-deep-charcoal" href="/automation/">Capacity &amp; Delivery Systems</a>
+        <a class="pl-3 py-1 text-deep-charcoal" href="/marketing/">Sales-to-Delivery &amp; CRM</a>
         
-        <span class="font-mono-label text-xs text-slate-400 uppercase tracking-widest mt-2 font-bold">Company</span>
-        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/projects/">Results</a>
-        <a class="pl-4 text-slate-800 dark:text-slate-200" href="/about/">About Us</a>
+        <span class="font-mono-label text-xs text-electric-blue uppercase tracking-widest mt-2 font-bold">Engagement &amp; Proof</span>
+        <a class="pl-3 py-1 text-deep-charcoal" href="/services/">How We Work &amp; Scope</a>
+        <a class="pl-3 py-1 text-deep-charcoal" href="/projects/">Case Study &amp; Results</a>
+        <a class="pl-3 py-1 text-deep-charcoal" href="/about/">About Us</a>
         
-        <a class="bg-electric-blue text-white px-6 py-3 rounded text-center mt-4 shadow-sm font-semibold" href="/contact/">
-          Request an Audit
+        <a class="bg-electric-blue text-white px-6 py-3.5 rounded-xl text-center mt-3 shadow-sm font-semibold text-sm" href="/contact/?area=Audit">
+          Request a 2-Week Audit
         </a>
       </div>
     </div>
@@ -407,8 +412,17 @@ void main() {
 
 <!-- Clean Single-Screen Contact Form Section -->
 <section class="pb-16 px-margin-mobile max-w-[640px] mx-auto relative reveal">
-  <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 md:p-10 border border-outline-variant/50 shadow-xl relative overflow-hidden">
+  <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 md:p-10 border border-outline-variant/50 shadow-xl relative overflow-hidden">
     
+    <!-- Dynamic Context Banner (shown when arriving from Calculator, Stack Configurator, or Engagement Path) -->
+    <div id="contact-context-banner" class="hidden mb-6 p-4 rounded-2xl bg-electric-blue/5 border border-electric-blue/25 flex items-start gap-3">
+      <span class="material-symbols-outlined text-electric-blue text-xl mt-0.5 shrink-0">check_circle</span>
+      <div class="text-left">
+        <span id="contact-context-title" class="font-mono-label text-xs uppercase tracking-wider font-bold text-electric-blue block">Scope Pre-Loaded</span>
+        <p id="contact-context-desc" class="text-sm text-deep-charcoal font-medium mt-0.5"></p>
+      </div>
+    </div>
+
     <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
       
       <!-- Web3Forms Access Key -->
@@ -544,29 +558,98 @@ void main() {
 
 <!-- Direct Form Submission Script -->
 <script>
-  // Pre-fill from URL parameters (e.g. calculator or stack configurator)
+  // Pre-fill from URL parameters (calculator, stack configurator, or engagement area)
   (function() {
     const params = new URLSearchParams(window.location.search);
     const messageField = document.getElementById('contact-message');
     const areaField = document.getElementById('contact-area');
+    const contextBanner = document.getElementById('contact-context-banner');
+    const contextTitle = document.getElementById('contact-context-title');
+    const contextDesc = document.getElementById('contact-context-desc');
+
+    const areaMap = {
+      'audit': {
+        option: '2-Week Workflow & Capacity Audit',
+        title: 'Path 01 Selected · 2-Week Workflow & Capacity Audit',
+        desc: '14-day diagnostic, technical specification, and your first working automation prototype (100% credited toward a Full Build).',
+        msg: 'We would like to request the 2-Week Workflow & Capacity Audit to map our delivery handoffs and deploy an initial automation prototype.'
+      },
+      'build': {
+        option: 'Capacity & Resource Planning Build',
+        title: 'Path 02 Selected · Full Capacity & System Build',
+        desc: '4–6 week production rollout of a custom Google Workspace capacity planner and connected CRM-to-delivery pipeline.',
+        msg: 'We are interested in scoping a Full Capacity & System Build inside Google Workspace and our existing project tools.'
+      },
+      'capacity': {
+        option: 'Capacity & Resource Planning Build',
+        title: 'Focus Area · Capacity & Delivery Systems',
+        desc: 'Replacing manual staffing spreadsheets and Friday status chases with a live Google Workspace capacity engine.',
+        msg: 'We want to replace our manual staffing and status spreadsheets with a custom Google Workspace capacity and delivery system.'
+      },
+      'handoffs': {
+        option: 'Sales-to-Delivery & CRM Handoffs',
+        title: 'Focus Area · Sales-to-Delivery & CRM Handoffs',
+        desc: 'Connecting HubSpot, Salesforce, or Pipedrive directly to automated project spin-up and capacity forecasting.',
+        msg: 'We want to automate our closed-won CRM handoffs into Google Drive, project boards, and team staffing.'
+      },
+      'partner': {
+        option: 'Fractional CFO / Agency Partnership',
+        title: 'Path 03 / Partnership Inquiry',
+        desc: 'Monthly Continuous Ops & Capacity retainer or Fractional CFO / CRM Partner collaboration.',
+        msg: 'We would like to discuss an ongoing Continuous Ops & Capacity partnership with CaulHaus.'
+      }
+    };
 
     if (params.has('team') && params.has('hours') && params.has('cost')) {
       const team = params.get('team');
       const hours = params.get('hours');
       const cost = Number(params.get('cost')).toLocaleString();
-      if (messageField && !messageField.value) {
-        messageField.value = `I calculated our team capacity: ${team} FTEs spending ~${hours} hrs/wk in spreadsheets (estimated annual time cost: $${cost}). We'd like to discuss automating these workflows.`;
-      }
       if (areaField) {
-        areaField.value = 'Workflow Automation & Tools';
+        areaField.value = '2-Week Workflow & Capacity Audit';
+      }
+      if (messageField && !messageField.value) {
+        messageField.value = `We ran the Capacity Waste Calculator for our ${team}-person team (~${hours} hrs/wk in manual staffing & status sheets = ~$${cost}/yr in lost billable capacity). We'd like to discuss a 2-Week Workflow & Capacity Audit.`;
+      }
+      if (contextBanner && contextTitle && contextDesc) {
+        contextTitle.textContent = 'Capacity Calculator Estimate Pre-Loaded';
+        contextDesc.textContent = `${team} FTEs · ${hours} hrs/wk in manual sheets (~$${cost}/yr estimated capacity drain)`;
+        contextBanner.classList.remove('hidden');
       }
     } else if (params.has('stack')) {
-      const stack = params.get('stack').split(',').join(', ');
-      if (messageField && !messageField.value) {
-        messageField.value = `We are exploring automations for our stack: ${stack}. We would like to discuss connecting these tools.`;
-      }
+      const toolLabels = {
+        sheets: 'Google Sheets & Docs',
+        slack: 'Slack / Teams',
+        hubspot: 'HubSpot CRM',
+        salesforce: 'Salesforce',
+        airtable: 'Airtable',
+        jira: 'Jira / Linear',
+        stripe: 'Stripe / Billing',
+        webhooks: 'Custom APIs / Webhooks'
+      };
+      const rawStack = params.get('stack').split(',').filter(Boolean);
+      const friendlyStack = rawStack.map(k => toolLabels[k.trim().toLowerCase()] || k).join(', ');
       if (areaField) {
-        areaField.value = 'Workflow Automation & Tools';
+        areaField.value = 'Capacity & Resource Planning Build';
+      }
+      if (messageField && !messageField.value) {
+        messageField.value = `We configured our stack on your site (${friendlyStack}) and would like to discuss automating our capacity and delivery workflows across these tools.`;
+      }
+      if (contextBanner && contextTitle && contextDesc) {
+        contextTitle.textContent = 'Custom Tool Stack Pre-Loaded';
+        contextDesc.textContent = `Selected tools: ${friendlyStack}`;
+        contextBanner.classList.remove('hidden');
+      }
+    } else if (params.has('area')) {
+      const rawArea = (params.get('area') || '').trim().toLowerCase();
+      const matched = areaMap[rawArea];
+      if (matched) {
+        if (areaField) areaField.value = matched.option;
+        if (messageField && !messageField.value) messageField.value = matched.msg;
+        if (contextBanner && contextTitle && contextDesc) {
+          contextTitle.textContent = matched.title;
+          contextDesc.textContent = matched.desc;
+          contextBanner.classList.remove('hidden');
+        }
       }
     }
   })();
@@ -626,6 +709,8 @@ void main() {
 </script>
 
   </main>
+
+  
 
   <!-- Footer -->
   <footer class="bg-deep-charcoal border-t border-slate-800/60 w-full mt-section-padding text-white">
