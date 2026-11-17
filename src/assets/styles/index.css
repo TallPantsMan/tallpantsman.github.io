@@ -12,6 +12,7 @@
   
   --font-headline-lg-mobile: 'Hanken Grotesk', sans-serif;
   --font-display-lg: 'Hanken Grotesk', sans-serif;
+  --font-display-md: 'Hanken Grotesk', sans-serif;
   --font-headline-lg: 'Hanken Grotesk', sans-serif;
   --font-body-lg: 'Inter', sans-serif;
   --font-body-md: 'Inter', sans-serif;
@@ -28,6 +29,11 @@
   --text-display-lg--line-height: 1.1;
   --text-display-lg--letter-spacing: -0.025em;
   --text-display-lg--font-weight: 700;
+
+  --text-display-md: 42px;
+  --text-display-md--line-height: 1.18;
+  --text-display-md--letter-spacing: -0.02em;
+  --text-display-md--font-weight: 700;
 
   --text-headline-lg: 42px;
   --text-headline-lg--line-height: 1.2;
@@ -147,6 +153,10 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 38px !important;
     line-height: 1.15 !important;
   }
+  .text-display-md {
+    font-size: 28px !important;
+    line-height: 1.22 !important;
+  }
   .text-headline-lg {
     font-size: 30px !important;
     line-height: 1.22 !important;
@@ -161,6 +171,10 @@ h1, h2, h3, h4, h5, h6 {
   .text-display-lg {
     font-size: 50px !important;
     line-height: 1.12 !important;
+  }
+  .text-display-md {
+    font-size: 34px !important;
+    line-height: 1.2 !important;
   }
   .text-headline-lg {
     font-size: 36px !important;
@@ -178,6 +192,10 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* Glassmorphism custom card helper for Light Mode */
@@ -192,8 +210,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 88, 190, 0.15);
-  box-shadow: 0 12px 30px rgba(0, 88, 190, 0.04);
+  border-color: rgba(180, 76, 39, 0.22);
+  box-shadow: 0 12px 30px rgba(180, 76, 39, 0.06);
 }
 
 /* Ambient glow container with slow breathing animation */
@@ -212,7 +230,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(0, 88, 190, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(180, 76, 39, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
   border-radius: 50%;
   z-index: 0;
   pointer-events: none;
@@ -265,15 +283,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Scroll-Reveal transition classes */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+@media (prefers-reduced-motion: no-preference) {
+  html.js-reveal .reveal:not(:first-of-type) {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.js-reveal .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-fade-in-up,
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 .delay-100 { animation-delay: 100ms; }

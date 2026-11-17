@@ -92,6 +92,58 @@ description: How we've helped teams replace manual work with systems that scale.
             <dd class="text-base sm:text-lg font-bold text-brand-emerald">~590 Hrs/Mo</dd>
           </div>
         </dl>
+
+        <!-- Visual System Architecture & Utilization Preview -->
+        <div class="rounded-2xl border border-[#D5CEC2] bg-[#FAF8F4] p-5 md:p-6 mb-8 space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#D5CEC2]">
+            <span class="font-mono-label text-xs uppercase tracking-wider font-bold text-deep-charcoal">System Architecture &amp; Sample Capacity Rollup</span>
+            <span class="font-mono-label text-xs text-brand-emerald bg-[#E8F2EC] px-2.5 py-0.5 rounded-full font-bold self-start sm:self-auto">Google Workspace Native</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="bg-[#FFFEFA] rounded-xl border border-[#D5CEC2] p-3.5">
+              <span class="font-mono-label text-[11px] font-bold text-[#9A3B1B] uppercase block mb-1">01 · Inputs</span>
+              <div class="text-sm font-bold text-deep-charcoal">17 Team Rosters &amp; SOWs</div>
+              <p class="text-xs text-slate-gray font-light mt-1">Department sheets with role-protected access by team lead.</p>
+            </div>
+            <div class="bg-deep-charcoal text-white rounded-xl border border-[#B44C27] p-3.5">
+              <span class="font-mono-label text-[11px] font-bold text-[#F5CBA7] uppercase block mb-1">02 · Apps Script Core</span>
+              <div class="text-sm font-bold text-white">Validation &amp; Rollup Engine</div>
+              <p class="text-xs text-[#D5CEC2] font-light mt-1">Scheduled triggers sync headcount, catch over-allocations &amp; lock formulas.</p>
+            </div>
+            <div class="bg-[#FFFEFA] rounded-xl border border-[#D5CEC2] p-3.5">
+              <span class="font-mono-label text-[11px] font-bold text-brand-emerald uppercase block mb-1">03 · Output</span>
+              <div class="text-sm font-bold text-deep-charcoal">Live Executive Capacity View</div>
+              <p class="text-xs text-slate-gray font-light mt-1">Leadership sees 8-week availability without Slack chasing.</p>
+            </div>
+          </div>
+
+          <!-- Sample Anonymized Utilization Preview -->
+          <div class="bg-[#1C1917] rounded-xl p-4 text-white space-y-2.5">
+            <div class="flex justify-between items-center text-[11px] font-mono-label uppercase tracking-wider text-[#D5CEC2] font-bold">
+              <span>Anonymized Department Utilization View</span>
+              <span class="text-[#84C5A2]">Real-Time Rollup</span>
+            </div>
+            <div class="space-y-1">
+              <div class="flex justify-between text-xs">
+                <span class="font-medium text-white">Pod A · Creative &amp; Design</span>
+                <span class="font-mono-metric font-bold text-[#84C5A2]">86% Allocated</span>
+              </div>
+              <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full rounded-full bg-[#84C5A2]" style="width: 86%"></div>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex justify-between text-xs">
+                <span class="font-medium text-white">Pod B · Engineering &amp; QA</span>
+                <span class="font-mono-metric font-bold text-[#F5CBA7]">94% Near Cap</span>
+              </div>
+              <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full rounded-full bg-[#F5CBA7]" style="width: 94%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         
         <div class="space-y-4 text-sm md:text-base text-slate-gray mb-8 leading-relaxed font-light">
           <p>
@@ -115,19 +167,25 @@ description: How we've helped teams replace manual work with systems that scale.
   <!-- Frequently Asked Questions -->
   <div class="mt-16 pt-12 border-t border-outline-variant/30">
     <h2 class="font-headline-sm text-headline-sm text-deep-charcoal font-bold mb-6">Frequently Asked Questions</h2>
-    <div class="space-y-6">
-      <div class="p-6 bg-white rounded-2xl border border-outline-variant/40 shadow-sm">
-        <h3 class="font-bold text-deep-charcoal text-lg mb-2">Why build inside Google Workspace instead of buying specialized resource software?</h3>
-        <p class="text-sm md:text-base text-slate-gray leading-relaxed font-light">
+    <div class="space-y-4">
+      <details class="group p-6 bg-white rounded-2xl border border-outline-variant/40 shadow-xs transition-all focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden" open>
+        <summary class="flex justify-between items-center font-bold text-deep-charcoal text-base md:text-lg cursor-pointer select-none">
+          <span>Why build inside Google Workspace instead of buying specialized resource software?</span>
+          <span class="material-symbols-outlined text-electric-blue transition-transform duration-200 group-open:rotate-180 shrink-0">keyboard_arrow_down</span>
+        </summary>
+        <p class="mt-4 text-sm md:text-base text-slate-gray leading-relaxed font-light border-t border-outline-variant/20 pt-4">
           Many organizations already pay for Google Workspace and have teams comfortable working in Sheets. Building custom logic on top of Apps Script provides a tailored solution directly within their daily interface, without requiring additional per-seat licensing. When standard market tools don't map cleanly to your internal process, building natively often leads to faster team adoption.
         </p>
-      </div>
-      <div class="p-6 bg-white rounded-2xl border border-outline-variant/40 shadow-sm">
-        <h3 class="font-bold text-deep-charcoal text-lg mb-2">Can you share more detailed case studies or client references?</h3>
-        <p class="text-sm md:text-base text-slate-gray leading-relaxed font-light">
+      </details>
+      <details class="group p-6 bg-white rounded-2xl border border-outline-variant/40 shadow-xs transition-all focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex justify-between items-center font-bold text-deep-charcoal text-base md:text-lg cursor-pointer select-none">
+          <span>Can you share more detailed case studies or client references?</span>
+          <span class="material-symbols-outlined text-electric-blue transition-transform duration-200 group-open:rotate-180 shrink-0">keyboard_arrow_down</span>
+        </summary>
+        <p class="mt-4 text-sm md:text-base text-slate-gray leading-relaxed font-light border-t border-outline-variant/20 pt-4">
           Most of our work involves proprietary client data, custom financial formulas, or internal operations governed by NDAs. We share architecture patterns and anonymized metrics publicly, and can discuss specific technical scenarios directly on an introductory call.
         </p>
-      </div>
+      </details>
     </div>
   </div>
 </section>

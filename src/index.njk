@@ -45,11 +45,11 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
         
         <!-- Slider 1: Team Size -->
         <div>
-          <div class="flex justify-between items-center mb-2">
+          <div class="flex justify-between items-center gap-2 mb-2">
             <span class="flex items-center gap-2 font-bold text-sm text-deep-charcoal">
-              <span class="material-symbols-outlined text-lg text-electric-blue">group</span> Delivery &amp; Ops Team Size
+              <span class="material-symbols-outlined text-lg text-electric-blue shrink-0">group</span> Delivery &amp; Ops Team Size
             </span>
-            <span id="display-team" class="font-mono-metric font-bold bg-deep-charcoal text-white text-xs px-2.5 py-1 rounded-md shadow-xs">25 people</span>
+            <span id="display-team" class="font-mono-metric font-bold bg-deep-charcoal text-white text-xs px-2.5 py-1 rounded-md shadow-xs whitespace-nowrap shrink-0">25 people</span>
           </div>
           <input type="range" id="calc-team" min="10" max="150" value="25" step="5" class="w-full accent-[#B44C27] cursor-pointer h-2.5 bg-[#E4DFD5] rounded-lg">
           <div class="flex justify-between text-xs text-slate-gray font-semibold font-mono-label mt-1.5">
@@ -61,11 +61,11 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
 
         <!-- Slider 2: Weekly Hours in Spreadsheets -->
         <div>
-          <div class="flex justify-between items-center mb-2">
+          <div class="flex justify-between items-center gap-2 mb-2">
             <span class="flex items-center gap-2 font-bold text-sm text-deep-charcoal">
-              <span class="material-symbols-outlined text-lg text-electric-blue">schedule</span> Hrs in Staffing &amp; Status Sheets / Wk
+              <span class="material-symbols-outlined text-lg text-electric-blue shrink-0">schedule</span> Hrs in Staffing &amp; Status Sheets / Wk
             </span>
-            <span id="display-hours" class="font-mono-metric font-bold bg-deep-charcoal text-white text-xs px-2.5 py-1 rounded-md shadow-xs">4 hrs/wk</span>
+            <span id="display-hours" class="font-mono-metric font-bold bg-deep-charcoal text-white text-xs px-2.5 py-1 rounded-md shadow-xs whitespace-nowrap shrink-0">4 hrs/wk</span>
           </div>
           <input type="range" id="calc-hours" min="1" max="15" value="4" step="0.5" class="w-full accent-[#B44C27] cursor-pointer h-2.5 bg-[#E4DFD5] rounded-lg">
           <div class="flex justify-between text-xs text-slate-gray font-semibold font-mono-label mt-1.5">
@@ -77,11 +77,11 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
 
         <!-- Slider 3: Blended Hourly Rate -->
         <div>
-          <div class="flex justify-between items-center mb-2">
+          <div class="flex justify-between items-center gap-2 mb-2">
             <span class="flex items-center gap-2 font-bold text-sm text-deep-charcoal">
-              <span class="material-symbols-outlined text-lg text-electric-blue">payments</span> Blended Cost / Billable Value
+              <span class="material-symbols-outlined text-lg text-electric-blue shrink-0">payments</span> Blended Cost / Billable Value
             </span>
-            <span id="display-rate" class="font-mono-metric font-bold bg-deep-charcoal text-white text-xs px-2.5 py-1 rounded-md shadow-xs">$75 / hr</span>
+            <span id="display-rate" class="font-mono-metric font-bold bg-deep-charcoal text-white text-xs px-2.5 py-1 rounded-md shadow-xs whitespace-nowrap shrink-0">$75 / hr</span>
           </div>
           <input type="range" id="calc-rate" min="40" max="175" value="75" step="5" class="w-full accent-[#B44C27] cursor-pointer h-2.5 bg-[#E4DFD5] rounded-lg">
           <div class="flex justify-between text-xs text-slate-gray font-semibold font-mono-label mt-1.5">
@@ -94,25 +94,25 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
       </div>
 
       <!-- Live Calculation Results Banner (High-Contrast Dark Espresso/Forest Card) -->
-      <div class="p-5 bg-deep-charcoal rounded-2xl border border-[#3A332C] space-y-4 text-white shadow-inner">
-        <div class="grid grid-cols-2 gap-3.5 text-center">
-          <div class="p-3.5 bg-white/5 rounded-xl border border-white/10">
-            <div class="font-mono-label text-xs uppercase tracking-wider text-[#D5CEC2] font-bold">Monthly Capacity Lost</div>
-            <div id="result-hours" class="font-mono-metric text-2xl font-black text-white mt-1">433 hrs/mo</div>
+      <div class="p-4 sm:p-5 bg-deep-charcoal rounded-2xl border border-[#3A332C] space-y-4 text-white shadow-inner">
+        <div class="grid grid-cols-2 gap-2.5 sm:gap-3.5 text-center">
+          <div class="p-2.5 sm:p-3.5 bg-white/5 rounded-xl border border-white/10 min-w-0">
+            <div class="font-mono-label text-[11px] sm:text-xs uppercase tracking-wider text-[#D5CEC2] font-bold leading-tight">Monthly Capacity Lost</div>
+            <div id="result-hours" class="font-mono-metric text-lg sm:text-2xl font-black text-white mt-1 whitespace-nowrap">433 hrs/mo</div>
           </div>
-          <div class="p-3.5 bg-[#B44C27]/20 rounded-xl border border-[#E5C5B3]/30">
-            <div class="font-mono-label text-xs uppercase tracking-wider text-[#F5CBA7] font-bold">Annual Capacity Drain</div>
-            <div id="result-cost" class="font-mono-metric text-2xl font-black text-[#F5CBA7] mt-1">$389,700/yr</div>
+          <div class="p-2.5 sm:p-3.5 bg-[#B44C27]/20 rounded-xl border border-[#E5C5B3]/30 min-w-0">
+            <div class="font-mono-label text-[11px] sm:text-xs uppercase tracking-wider text-[#F5CBA7] font-bold leading-tight">Annual Capacity Drain</div>
+            <div id="result-cost" class="font-mono-metric text-lg sm:text-2xl font-black text-[#F5CBA7] mt-1 whitespace-nowrap">$389,700/yr</div>
           </div>
         </div>
 
         <!-- Proof point tag -->
-        <div class="flex items-center justify-between text-sm text-[#E4DFD5] pt-2 px-1 border-t border-white/10">
-          <span class="flex items-center gap-1.5 font-medium">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm text-[#E4DFD5] pt-2 px-1 border-t border-white/10">
+          <span class="flex items-center gap-1.5 font-medium whitespace-nowrap">
             <span class="material-symbols-outlined text-terminal-green text-base">verified</span>
             Flagship Capacity Rollout:
           </span>
-          <span class="font-mono-metric font-bold text-terminal-green text-sm">~590 hrs/mo saved across 17 teams</span>
+          <span class="font-mono-metric font-bold text-terminal-green text-xs sm:text-sm whitespace-nowrap">~590 hrs/mo saved · 17 teams</span>
         </div>
       </div>
 
@@ -124,9 +124,9 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
         </a>
 
         <!-- Quick 1-click email capture -->
-        <form id="calc-quick-form" class="flex gap-2">
-          <input type="email" id="calc-email" placeholder="Enter work email for 2-week audit overview" required class="flex-grow text-sm px-4 py-3 rounded-xl border-2 border-[#D5CEC2] focus:outline-none focus:border-electric-blue bg-[#FFFEFA] text-deep-charcoal placeholder:text-slate-gray/70 font-medium">
-          <button type="submit" id="calc-submit-btn" class="bg-deep-charcoal text-white font-mono-label text-sm font-bold px-4 py-3 rounded-xl transition-opacity hover:opacity-90 cursor-pointer shrink-0 shadow-sm">
+        <form id="calc-quick-form" class="flex flex-col sm:flex-row gap-2">
+          <input type="email" id="calc-email" aria-label="Work email for 2-week audit overview" placeholder="Work email for audit overview" required class="flex-grow min-w-0 text-sm px-3.5 py-3 rounded-xl border-2 border-[#D5CEC2] focus:outline-none focus:border-electric-blue bg-[#FFFEFA] text-deep-charcoal placeholder:text-slate-gray/80 font-medium">
+          <button type="submit" id="calc-submit-btn" class="bg-deep-charcoal text-white font-mono-label text-xs sm:text-sm font-bold px-4 py-3 rounded-xl transition-opacity hover:opacity-90 cursor-pointer shrink-0 shadow-sm whitespace-nowrap">
             Send Summary
           </button>
         </form>
@@ -235,21 +235,21 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
 <!-- Metrics Banner -->
 <section class="border-y border-surface-container-highest bg-surface-container-lowest reveal mt-4">
   <div class="max-w-container-max-width mx-auto px-grid-margin py-10">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-center mb-6">
-      <div class="md:col-span-1">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center mb-6">
+      <div class="lg:col-span-1">
         <p class="font-body-md text-body-md text-deep-charcoal font-semibold leading-snug">Custom capacity planning, resource allocation, and sales-to-delivery automation.</p>
       </div>
-      <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="text-center md:text-left border-l-2 border-electric-blue/40 pl-6">
-          <div class="font-display-lg text-headline-lg text-electric-blue mb-1 font-bold counter" data-target="17">17 Teams</div>
+      <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="text-center sm:text-left border-l-0 sm:border-l-2 border-electric-blue/40 sm:pl-6">
+          <div class="font-display-lg text-2xl xl:text-headline-lg text-electric-blue mb-1 font-bold counter" data-target="17">17 Teams</div>
           <div class="font-mono-label text-mono-label text-slate-gray uppercase font-semibold">Onboarded to Our Capacity Engine</div>
         </div>
-        <div class="text-center md:text-left border-l-2 border-electric-blue/40 pl-6">
-          <div class="font-display-lg text-headline-lg text-electric-blue mb-1 font-bold counter" data-target="590">~590 Hours/Mo</div>
+        <div class="text-center sm:text-left border-l-0 sm:border-l-2 border-electric-blue/40 sm:pl-6">
+          <div class="font-display-lg text-2xl xl:text-headline-lg text-electric-blue mb-1 font-bold counter" data-target="590">~590 Hours/Mo</div>
           <div class="font-mono-label text-mono-label text-slate-gray uppercase font-semibold">Saved in Manual Scheduling*</div>
         </div>
-        <div class="text-center md:text-left border-l-2 border-electric-blue/40 pl-6">
-          <div class="font-display-lg text-headline-lg text-electric-blue mb-1 font-bold">$0 / Seat</div>
+        <div class="text-center sm:text-left border-l-0 sm:border-l-2 border-electric-blue/40 sm:pl-6">
+          <div class="font-display-lg text-2xl xl:text-headline-lg text-electric-blue mb-1 font-bold">$0 / Seat</div>
           <div class="font-mono-label text-mono-label text-slate-gray uppercase font-semibold">New SaaS Licensing Tax</div>
         </div>
       </div>
@@ -260,23 +260,242 @@ description: Replace fragile staffing spreadsheets and manual project handoffs w
   </div>
 </section>
 
-<!-- Visual System Map (Centerpiece Interactive Graphic) -->
+<!-- Visual System Map: 4-Stage Connected Lifecycle (Lightweight Static HTML/SVG) -->
 <section class="py-section-padding px-grid-margin max-w-container-max-width mx-auto reveal" id="lifecycle">
   <div class="text-center mb-10 space-y-3">
-    <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold">System Architecture &amp; Impact</span>
+    <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold">The 4-Stage Connected Lifecycle</span>
     <h2 class="font-headline-lg text-headline-lg text-deep-charcoal font-bold">How CaulHaus Connects Your Existing Stack</h2>
     <p class="font-body-lg text-body-lg text-slate-gray max-w-2xl mx-auto font-light">
-      We plug directly into your existing tools via custom Google Apps Script and webhooks—turning manual spreadsheet silos into live, automated capacity.
+      Instead of disconnected point zaps or $50/seat software, we engineer one continuous operational lifecycle inside your Google Workspace, CRM, and project boards.
     </p>
   </div>
 
-  <div class="max-w-6xl mx-auto" id="hero-pipeline-root">
-    <!-- Interactive React component rendered by /assets/js/hero-pipeline.js -->
+  <div class="max-w-6xl mx-auto rounded-3xl border-2 border-[#D5CEC2] p-6 sm:p-10 shadow-2xl relative overflow-hidden" style="background: linear-gradient(160deg, #FFFEFA 0%, #F2ECE1 100%);">
+    <!-- Top Bar -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#D5CEC2]">
+      <span class="px-3.5 py-1.5 rounded-full bg-deep-charcoal text-[#F5CBA7] text-xs font-mono-label font-bold uppercase tracking-wider">
+        For 20–150 Person Agencies &amp; Consultancies
+      </span>
+      <div class="inline-flex flex-wrap items-center gap-2 rounded-xl bg-[#EAE4D9] px-3.5 py-2 border border-[#D5CEC2] text-xs font-bold">
+        <span class="px-2 py-0.5 rounded bg-red-900/10 text-[#9A3B1B] line-through">Before: Manual Silos</span>
+        <span aria-hidden="true" class="text-slate-gray">&rarr;</span>
+        <span class="px-2.5 py-0.5 rounded bg-brand-emerald text-white flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">check_circle</span> With CaulHaus: Connected Lifecycle
+        </span>
+      </div>
+    </div>
+
+    <!-- 4-Stage Connected Lifecycle Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+      <!-- Stage 01 -->
+      <div class="bg-[#FFFEFA] border-2 border-[#D5CEC2] rounded-2xl p-5 flex flex-col justify-between shadow-xs relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono-label text-xs font-bold text-[#9A3B1B] bg-[#F2E7DF] px-2.5 py-1 rounded-md uppercase tracking-wider">Stage 01</span>
+            <span class="font-mono-label text-[11px] font-bold text-slate-gray uppercase">CRM &rarr; Delivery</span>
+          </div>
+          <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">Closed-Won Handoff</h3>
+          <p class="text-sm text-slate-gray font-light leading-relaxed">
+            Deal closes in HubSpot, Salesforce, or Pipedrive &rarr; auto-creates Drive folders, project boards, and Slack channels in 10 seconds.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#E4DFD5] flex flex-wrap gap-1.5 text-[11px] font-mono-label font-semibold text-deep-charcoal">
+          <span class="px-2 py-0.5 rounded bg-surface-gray">HubSpot / SFDC</span>
+          <span class="px-2 py-0.5 rounded bg-surface-gray">Drive API</span>
+        </div>
+      </div>
+
+      <!-- Stage 02 -->
+      <div class="bg-[#FFFEFA] border-2 border-[#B44C27] rounded-2xl p-5 flex flex-col justify-between shadow-sm relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono-label text-xs font-bold text-white bg-electric-blue px-2.5 py-1 rounded-md uppercase tracking-wider">Stage 02</span>
+            <span class="font-mono-label text-[11px] font-bold text-brand-emerald uppercase">Flagship Engine</span>
+          </div>
+          <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">Capacity &amp; Staffing</h3>
+          <p class="text-sm text-slate-gray font-light leading-relaxed">
+            Custom Google Apps Script capacity planner syncs rosters, role targets, and 8–12 week project allocations with role-based permissions.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#E4DFD5] flex flex-wrap gap-1.5 text-[11px] font-mono-label font-semibold text-deep-charcoal">
+          <span class="px-2 py-0.5 rounded bg-[#E8F2EC] text-brand-emerald">Apps Script</span>
+          <span class="px-2 py-0.5 rounded bg-surface-gray">Google Sheets</span>
+        </div>
+      </div>
+
+      <!-- Stage 03 -->
+      <div class="bg-[#FFFEFA] border-2 border-[#D5CEC2] rounded-2xl p-5 flex flex-col justify-between shadow-xs relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono-label text-xs font-bold text-[#9A3B1B] bg-[#F2E7DF] px-2.5 py-1 rounded-md uppercase tracking-wider">Stage 03</span>
+            <span class="font-mono-label text-[11px] font-bold text-slate-gray uppercase">PM &rarr; Slack</span>
+          </div>
+          <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">Weekly Execution</h3>
+          <p class="text-sm text-slate-gray font-light leading-relaxed">
+            Background scripts pull sprint progress from Asana, Jira, or ClickUp and push Monday Slack digests and overload alerts automatically.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#E4DFD5] flex flex-wrap gap-1.5 text-[11px] font-mono-label font-semibold text-deep-charcoal">
+          <span class="px-2 py-0.5 rounded bg-surface-gray">Asana / Jira</span>
+          <span class="px-2 py-0.5 rounded bg-surface-gray">Slack Digests</span>
+        </div>
+      </div>
+
+      <!-- Stage 04 -->
+      <div class="bg-[#FFFEFA] border-2 border-[#D5CEC2] rounded-2xl p-5 flex flex-col justify-between shadow-xs relative">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="font-mono-label text-xs font-bold text-brand-emerald bg-[#E8F2EC] px-2.5 py-1 rounded-md uppercase tracking-wider">Stage 04</span>
+            <span class="font-mono-label text-[11px] font-bold text-slate-gray uppercase">Delivery &rarr; Finance</span>
+          </div>
+          <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">Margin &amp; Billing</h3>
+          <p class="text-sm text-slate-gray font-light leading-relaxed">
+            Completed milestones trigger finance alerts and draft invoices in Stripe or QuickBooks while tracking forecast vs. actual margin.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#E4DFD5] flex flex-wrap gap-1.5 text-[11px] font-mono-label font-semibold text-deep-charcoal">
+          <span class="px-2 py-0.5 rounded bg-surface-gray">Stripe / QBO</span>
+          <span class="px-2 py-0.5 rounded bg-surface-gray">Margin Views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile & Desktop Directional Flow Summary -->
+    <div class="my-6 flex items-center justify-center gap-2 text-xs font-mono-label font-bold text-slate-gray">
+      <span class="h-px flex-1 bg-[#D5CEC2]"></span>
+      <span class="px-3 py-1 rounded-full bg-[#EAE4D9] text-deep-charcoal border border-[#D5CEC2] whitespace-nowrap">Live Operational Output &amp; Proof</span>
+      <span class="h-px flex-1 bg-[#D5CEC2]"></span>
+    </div>
+
+    <!-- Bottom Capacity Engine & Before/After Impact Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      <!-- Dark Engine Card -->
+      <div class="lg:col-span-6 rounded-2xl p-6 text-white border-2 border-[#B44C27] shadow-xl flex flex-col justify-between bg-deep-charcoal">
+        <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/15 gap-2">
+          <div>
+            <div class="text-sm font-bold text-white">CaulHaus Automation Engine</div>
+            <div class="text-xs text-[#F5CBA7]">Custom Apps Script + Webhooks inside Google Workspace</div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-[#2D6A4F]/50 text-[#84C5A2] border border-[#84C5A2]/40 whitespace-nowrap shrink-0">
+            Live Sync
+          </span>
+        </div>
+
+        <div class="space-y-3 mb-5">
+          <div class="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-[#D5CEC2]">
+            <span>Team Capacity</span>
+            <span class="text-[#84C5A2]">Before &rarr; With CaulHaus</span>
+          </div>
+
+          <div class="space-y-1">
+            <div class="flex justify-between items-center text-xs gap-2">
+              <span class="font-bold text-white">Design Team</span>
+              <div class="flex items-center gap-1.5 whitespace-nowrap">
+                <span class="text-red-300/80 line-through text-[11px]">118% Overloaded</span>
+                <span aria-hidden="true" class="text-[#F5CBA7]">&rarr;</span>
+                <span class="font-bold text-[#84C5A2]">88% Optimal</span>
+              </div>
+            </div>
+            <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-[#2D6A4F] to-[#84C5A2]" style="width: 88%"></div>
+            </div>
+          </div>
+
+          <div class="space-y-1">
+            <div class="flex justify-between items-center text-xs gap-2">
+              <span class="font-bold text-white">Engineering</span>
+              <div class="flex items-center gap-1.5 whitespace-nowrap">
+                <span class="text-red-300/80 line-through text-[11px]">52% Idle</span>
+                <span aria-hidden="true" class="text-[#F5CBA7]">&rarr;</span>
+                <span class="font-bold text-[#84C5A2]">84% Optimal</span>
+              </div>
+            </div>
+            <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-[#2D6A4F] to-[#84C5A2]" style="width: 84%"></div>
+            </div>
+          </div>
+
+          <div class="space-y-1">
+            <div class="flex justify-between items-center text-xs gap-2">
+              <span class="font-bold text-white">Strategy &amp; PM</span>
+              <div class="flex items-center gap-1.5 whitespace-nowrap">
+                <span class="text-red-300/80 line-through text-[11px]">110% Overloaded</span>
+                <span aria-hidden="true" class="text-[#F5CBA7]">&rarr;</span>
+                <span class="font-bold text-[#84C5A2]">82% Optimal</span>
+              </div>
+            </div>
+            <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+              <div class="h-full rounded-full bg-gradient-to-r from-[#2D6A4F] to-[#84C5A2]" style="width: 82%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 pt-4 border-t border-white/15 text-center">
+          <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-xs font-bold text-[#F5CBA7]">Auto-Folders</div>
+            <div class="text-[11px] text-[#84C5A2] font-semibold mt-0.5">&#10003; Automated</div>
+          </div>
+          <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-xs font-bold text-[#F5CBA7]">8-Wk Staffing</div>
+            <div class="text-[11px] text-[#84C5A2] font-semibold mt-0.5">&#10003; Live Sync</div>
+          </div>
+          <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-xs font-bold text-[#F5CBA7]">Mon. Digest</div>
+            <div class="text-[11px] text-[#84C5A2] font-semibold mt-0.5">&#10003; Slack Alert</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Impact KPI Cards -->
+      <div class="lg:col-span-6 grid grid-cols-1 gap-3.5">
+        <div class="bg-[#FFFEFA] border-2 border-[#D5CEC2] rounded-2xl p-4 shadow-xs flex flex-col justify-center">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-bold uppercase text-slate-gray flex items-center gap-1">
+              <span class="material-symbols-outlined text-base text-electric-blue">schedule</span> Admin Time
+            </span>
+            <span class="text-xs font-bold text-brand-emerald bg-[#E8F2EC] px-2.5 py-0.5 rounded-full">17-Team Proof</span>
+          </div>
+          <div class="flex items-baseline gap-2 flex-wrap">
+            <span class="text-xs font-semibold text-[#9A3B1B] line-through bg-red-900/10 px-2 py-0.5 rounded">16 hrs/person lost</span>
+            <span aria-hidden="true" class="text-slate-gray">&rarr;</span>
+            <span class="text-xl font-black text-deep-charcoal">~590 hrs/mo Saved</span>
+          </div>
+          <div class="text-xs text-slate-gray mt-1">~16 hrs/person/mo reclaimed across 37 users without new SaaS</div>
+        </div>
+
+        <div class="bg-[#FFFEFA] border-2 border-[#D5CEC2] rounded-2xl p-4 shadow-xs flex flex-col justify-center">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-bold uppercase text-slate-gray flex items-center gap-1">
+              <span class="material-symbols-outlined text-base text-electric-blue">bolt</span> Deal Kickoff
+            </span>
+            <span class="text-xs font-bold text-[#9A3B1B] bg-[#F2E7DF] px-2.5 py-0.5 rounded-full">Instant Handoff</span>
+          </div>
+          <div class="flex items-baseline gap-2 flex-wrap">
+            <span class="text-xs font-semibold text-[#9A3B1B] line-through bg-red-900/10 px-2 py-0.5 rounded">2–3 Days Manual</span>
+            <span aria-hidden="true" class="text-slate-gray">&rarr;</span>
+            <span class="text-xl font-black text-deep-charcoal">10 Seconds</span>
+          </div>
+          <div class="text-xs text-slate-gray mt-1">Auto-provisions Google Drive folders, staffing sheets &amp; PM boards</div>
+        </div>
+
+        <div class="bg-[#FFFEFA] border-2 border-[#D5CEC2] rounded-2xl p-4 shadow-xs flex flex-col justify-center">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs font-bold uppercase text-slate-gray flex items-center gap-1">
+              <span class="material-symbols-outlined text-base text-brand-emerald">payments</span> New SaaS Fees
+            </span>
+            <span class="text-xs font-bold text-brand-emerald bg-[#E8F2EC] px-2.5 py-0.5 rounded-full">You Own the Code</span>
+          </div>
+          <div class="flex items-baseline gap-2 flex-wrap">
+            <span class="text-xs font-semibold text-[#9A3B1B] line-through bg-red-900/10 px-2 py-0.5 rounded">$50/Seat PSA</span>
+            <span aria-hidden="true" class="text-slate-gray">&rarr;</span>
+            <span class="text-xl font-black text-brand-emerald">$0 / Seat</span>
+          </div>
+          <div class="text-xs text-slate-gray mt-1">Runs directly inside your existing Google Workspace domain</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- Operations Pipeline Component Script -->
-<script defer src="/assets/js/hero-pipeline.js?v=20261112b"></script>
 
 <!-- Compact 3-Card Engagement Path -->
 <section class="py-section-padding bg-background border-t border-surface-container-highest reveal" id="process">

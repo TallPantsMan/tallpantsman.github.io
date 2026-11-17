@@ -5,8 +5,8 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
 ---
 
 <!-- Hero Section -->
-<section class="pt-24 pb-section-gap-lg text-center md:text-left flex flex-col md:flex-row items-center gap-12 max-w-container-max mx-auto px-margin-mobile md:px-gutter reveal">
-  <div class="md:w-1/2 flex flex-col items-center md:items-start space-y-6">
+<section class="pt-24 pb-section-gap-lg text-center lg:text-left flex flex-col lg:flex-row items-center gap-12 max-w-container-max mx-auto px-margin-mobile md:px-gutter reveal">
+  <div class="lg:w-1/2 flex flex-col items-center lg:items-start space-y-6">
     <div class="inline-block border border-outline-variant/30 rounded-full px-4 py-1.5 bg-surface-container-lowest">
       <span class="font-mono-label text-mono-label text-electric-blue uppercase tracking-wider font-bold">Capacity &amp; Delivery Systems</span>
     </div>
@@ -26,17 +26,17 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
   </div>
   
   <!-- Interactive Before/After Toggle Visual -->
-  <div class="md:w-1/2 w-full bg-white rounded-3xl p-6 md:p-8 border border-outline-variant/40 shadow-lg flex flex-col justify-between min-h-[420px]">
+  <div class="lg:w-1/2 w-full bg-white rounded-3xl p-6 md:p-8 border border-outline-variant/40 shadow-lg flex flex-col justify-between min-h-[420px]">
     <div>
       <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-outline-variant/20">
-        <span class="font-mono-label text-xs text-slate-gray font-bold tracking-widest uppercase">Workflow Comparison</span>
+        <span class="font-mono-label text-xs text-slate-gray font-bold tracking-widest uppercase whitespace-nowrap">Workflow Comparison</span>
         
         <!-- Tab Toggles -->
-        <div class="inline-flex rounded-full bg-surface-gray border border-outline-variant/40 p-1">
-          <button type="button" onclick="toggleWorkflow('before')" id="tab-before" class="px-4 py-1.5 rounded-full text-xs font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-xs cursor-pointer focus:outline-none">
+        <div class="inline-flex rounded-full bg-surface-gray border border-outline-variant/40 p-1 shrink-0" role="tablist" aria-label="Workflow comparison">
+          <button type="button" role="tab" aria-selected="true" onclick="toggleWorkflow('before')" id="tab-before" class="px-3.5 py-1.5 rounded-full text-xs font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-xs cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue/50">
             Manual Workflow
           </button>
-          <button type="button" onclick="toggleWorkflow('after')" id="tab-after" class="px-4 py-1.5 rounded-full text-xs font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer focus:outline-none">
+          <button type="button" role="tab" aria-selected="false" onclick="toggleWorkflow('after')" id="tab-after" class="px-3.5 py-1.5 rounded-full text-xs font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue/50">
             Automated Workflow
           </button>
         </div>
@@ -82,32 +82,32 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
         <div class="p-4 bg-brand-emerald/10 rounded-2xl border border-brand-emerald/30 flex items-start gap-3.5">
           <span class="w-7 h-7 rounded-full bg-brand-emerald text-white flex items-center justify-center shrink-0 font-mono-metric font-bold text-sm">1</span>
           <div>
-            <h4 class="text-sm font-bold text-deep-charcoal mb-0.5">Centralized Database</h4>
-            <p class="text-sm text-slate-gray font-light leading-snug">One source of truth for capacity and status, updated automatically.</p>
+            <h4 class="text-sm font-bold text-deep-charcoal mb-0.5">Live Workspace Capacity Engine</h4>
+            <p class="text-sm text-slate-gray font-light leading-snug">One Google Apps Script capacity planner with role permissions, live utilization math, and burnout alerts.</p>
           </div>
         </div>
 
         <div class="p-4 bg-brand-emerald/10 rounded-2xl border border-brand-emerald/30 flex items-start gap-3.5">
           <span class="w-7 h-7 rounded-full bg-brand-emerald text-white flex items-center justify-center shrink-0 font-mono-metric font-bold text-sm">2</span>
           <div>
-            <h4 class="text-sm font-bold text-deep-charcoal mb-0.5">Automatic Routing</h4>
-            <p class="text-sm text-slate-gray font-light leading-snug">Work and resources are allocated by the script based on your rules.</p>
+            <h4 class="text-sm font-bold text-deep-charcoal mb-0.5">Instant Closed-Won Provisioning</h4>
+            <p class="text-sm text-slate-gray font-light leading-snug">Signed CRM deals automatically spin up Drive folders, Asana/Jira boards, and Slack channels in 10 seconds.</p>
           </div>
         </div>
 
         <div class="p-4 bg-brand-emerald/10 rounded-2xl border border-brand-emerald/30 flex items-start gap-3.5">
           <span class="w-7 h-7 rounded-full bg-brand-emerald text-white flex items-center justify-center shrink-0 font-mono-metric font-bold text-sm">3</span>
           <div>
-            <h4 class="text-sm font-bold text-deep-charcoal mb-0.5">Direct Visibility</h4>
-            <p class="text-sm text-slate-gray font-light leading-snug">Team leads and managers see project workloads as they change.</p>
+            <h4 class="text-sm font-bold text-deep-charcoal mb-0.5">Automated Monday Slack Digests</h4>
+            <p class="text-sm text-slate-gray font-light leading-snug">Background scripts aggregate sprint progress and staffing capacity straight to leadership—ending Friday chases.</p>
           </div>
         </div>
 
         <div class="p-4 bg-brand-emerald/10 rounded-2xl border border-brand-emerald/30 flex items-start gap-3.5">
           <span class="w-7 h-7 rounded-full bg-brand-emerald text-white flex items-center justify-center shrink-0 font-mono-metric font-bold text-sm">4</span>
           <div>
-            <h4 class="text-sm font-bold text-deep-charcoal mb-0.5">Connected Tools</h4>
-            <p class="text-sm text-slate-gray font-light leading-snug">Data moves between apps automatically without duplicate typing.</p>
+            <h4 class="text-sm font-bold text-deep-charcoal mb-0.5">Milestone-to-Finance Alerts</h4>
+            <p class="text-sm text-slate-gray font-light leading-snug">Completed deliverables trigger finance alerts and draft invoices in Stripe or QuickBooks without manual handoffs.</p>
           </div>
         </div>
       </div>
@@ -137,16 +137,20 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
       flowAfter.classList.add('hidden');
       flowAfter.classList.remove('animate-fade-in');
       
-      tabBefore.className = "px-4 py-1.5 rounded-full text-xs font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-xs cursor-pointer focus:outline-none";
-      tabAfter.className = "px-4 py-1.5 rounded-full text-xs font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer focus:outline-none";
+      tabBefore.setAttribute('aria-selected', 'true');
+      tabAfter.setAttribute('aria-selected', 'false');
+      tabBefore.className = "px-3.5 py-1.5 rounded-full text-xs font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-xs cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue/50";
+      tabAfter.className = "px-3.5 py-1.5 rounded-full text-xs font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue/50";
     } else {
       flowBefore.classList.add('hidden');
       flowBefore.classList.remove('animate-fade-in');
       flowAfter.classList.remove('hidden');
       flowAfter.classList.add('animate-fade-in');
       
-      tabBefore.className = "px-4 py-1.5 rounded-full text-xs font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer focus:outline-none";
-      tabAfter.className = "px-4 py-1.5 rounded-full text-xs font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-xs cursor-pointer focus:outline-none";
+      tabBefore.setAttribute('aria-selected', 'false');
+      tabAfter.setAttribute('aria-selected', 'true');
+      tabBefore.className = "px-3.5 py-1.5 rounded-full text-xs font-mono-label font-medium transition-all bg-transparent text-slate-gray hover:text-deep-charcoal cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue/50";
+      tabAfter.className = "px-3.5 py-1.5 rounded-full text-xs font-mono-label font-bold transition-all bg-white text-deep-charcoal shadow-xs cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue/50";
     }
   }
 </script>
@@ -242,7 +246,7 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
         <button type="button" onclick="resetStackTools()" class="text-sm font-mono-label text-electric-blue hover:underline cursor-pointer">Reset Selection</button>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="tool-buttons-grid">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="tool-buttons-grid">
         <!-- Buttons populated by script -->
       </div>
     </div>
@@ -284,7 +288,7 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
       <div class="text-sm text-slate-gray font-light text-center sm:text-left">
         Have custom internal databases, webhooks, or software not shown here?
       </div>
-      <a id="stack-contact-cta" href="/contact/?stack=sheets,slack,hubspot" class="w-full sm:w-auto bg-electric-blue text-white font-body-md text-sm font-semibold px-6 py-3 rounded-xl hover:bg-electric-blue/90 transition-colors flex items-center justify-center gap-2 shadow-sm">
+      <a id="stack-contact-cta" href="/contact/?stack=sheets,slack,hubspot,asana" class="w-full sm:w-auto bg-electric-blue text-white font-body-md text-sm font-semibold px-6 py-3 rounded-xl hover:bg-electric-blue/90 transition-colors flex items-center justify-center gap-2 shadow-sm">
         <span>Inquire About This Stack</span>
         <span class="material-symbols-outlined text-base">arrow_forward</span>
       </a>
@@ -299,11 +303,12 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
   const tools = [
     { id: 'sheets', name: 'Google Sheets & Docs', icon: 'table_chart', default: true },
     { id: 'slack', name: 'Slack / Teams', icon: 'forum', default: true },
-    { id: 'hubspot', name: 'HubSpot CRM', icon: 'group', default: true },
+    { id: 'hubspot', name: 'HubSpot / Pipedrive', icon: 'group', default: true },
+    { id: 'asana', name: 'Asana / ClickUp / Monday', icon: 'view_kanban', default: true },
     { id: 'salesforce', name: 'Salesforce', icon: 'cloud', default: false },
-    { id: 'airtable', name: 'Airtable', icon: 'grid_view', default: false },
     { id: 'jira', name: 'Jira / Linear', icon: 'check_circle', default: false },
-    { id: 'stripe', name: 'Stripe / Billing', icon: 'payments', default: false },
+    { id: 'airtable', name: 'Airtable', icon: 'grid_view', default: false },
+    { id: 'stripe', name: 'Stripe / QuickBooks', icon: 'payments', default: false },
     { id: 'webhooks', name: 'Custom APIs / Webhooks', icon: 'webhook', default: false }
   ];
 
@@ -314,6 +319,22 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
       title: 'Automated Capacity & Status Rollup',
       desc: 'Aggregates weekly workloads from departmental sheets and pushes automated team allocation summaries and overload alerts into Slack channels.',
       tags: ['Google Apps Script', 'Slack Bot API'],
+      hours: 12
+    },
+    {
+      id: 'asana-slack-rollup',
+      requires: ['asana', 'slack'],
+      title: 'Automated Weekly Status & Sprint Rollup',
+      desc: 'Pulls project health, milestone slippage, and logged hours from Asana, ClickUp, or Monday.com into automated Monday Slack digests.',
+      tags: ['Asana / ClickUp API', 'Slack Digests'],
+      hours: 14
+    },
+    {
+      id: 'crm-asana-spinup',
+      requires: ['hubspot', 'asana'],
+      title: 'Closed-Won Project Board Spin-Up',
+      desc: 'When a deal hits Closed-Won in HubSpot or Pipedrive, automatically creates your templated project board, subtasks, and staffing placeholders.',
+      tags: ['HubSpot / Pipedrive', 'Auto-Provisioning'],
       hours: 12
     },
     {
@@ -401,17 +422,18 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
       const isSelected = activeTools.has(tool.id);
       const btn = document.createElement('button');
       btn.type = 'button';
+      btn.setAttribute('aria-pressed', String(isSelected));
       btn.onclick = () => toggleTool(tool.id);
-      btn.className = `p-3.5 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex items-center gap-3 ${
+      btn.className = `p-3.5 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue/50 ${
         isSelected
           ? 'border-2 border-electric-blue bg-electric-blue/5 shadow-xs'
           : 'border-outline-variant/60 bg-white hover:border-outline-variant hover:bg-surface-gray/50'
       }`;
 
       btn.innerHTML = `
-        <span class="material-symbols-outlined text-xl ${isSelected ? 'text-electric-blue' : 'text-slate-400'}">${tool.icon}</span>
+        <span class="material-symbols-outlined text-xl shrink-0 ${isSelected ? 'text-electric-blue' : 'text-slate-400'}">${tool.icon}</span>
         <div class="flex-grow min-w-0">
-          <span class="text-sm font-bold block truncate ${isSelected ? 'text-deep-charcoal' : 'text-slate-600'}">${tool.name}</span>
+          <span class="text-sm font-bold block leading-snug ${isSelected ? 'text-deep-charcoal' : 'text-slate-600'}">${tool.name}</span>
         </div>
         <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs shrink-0 font-bold ${
           isSelected ? 'bg-electric-blue text-white' : 'border border-outline-variant text-transparent'
@@ -479,7 +501,7 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
   };
 
   window.resetStackTools = function() {
-    activeTools = new Set(['sheets', 'slack', 'hubspot']);
+    activeTools = new Set(['sheets', 'slack', 'hubspot', 'asana']);
     renderButtons();
     renderRecipes();
   };
@@ -539,26 +561,35 @@ description: Replace fragile staffing spreadsheets, manual project handoffs, and
     <h2 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">Process Automation FAQ</h2>
   </div>
 
-  <div class="max-w-3xl mx-auto space-y-6">
-    <article class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
-      <h3 class="font-headline-sm text-lg font-bold text-deep-charcoal mb-2">When does custom Google Workspace automation make sense versus commercial SaaS?</h3>
-      <p class="font-body-md text-slate-gray font-light leading-relaxed text-base">
+  <div class="max-w-3xl mx-auto space-y-4">
+    <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs transition-all focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden" open>
+      <summary class="flex justify-between items-center font-headline-sm text-base md:text-lg font-bold text-deep-charcoal cursor-pointer select-none">
+        <span>When does custom Google Workspace automation make sense versus commercial SaaS?</span>
+        <span class="material-symbols-outlined text-electric-blue transition-transform duration-200 group-open:rotate-180 shrink-0">keyboard_arrow_down</span>
+      </summary>
+      <p class="mt-4 font-body-md text-slate-gray font-light leading-relaxed text-base border-t border-outline-variant/20 pt-4">
         Commercial SaaS products excel at standardized, out-of-the-box workflows. However, for specialized internal handoffs and proprietary operational steps, custom Apps Script tools avoid per-seat recurring fees and adapt directly to your team's existing workflow and domain permissions.
       </p>
-    </article>
+    </details>
 
-    <article class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
-      <h3 class="font-headline-sm text-lg font-bold text-deep-charcoal mb-2">What types of automations do you build?</h3>
-      <p class="font-body-md text-slate-gray font-light leading-relaxed text-base">
+    <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs transition-all focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden">
+      <summary class="flex justify-between items-center font-headline-sm text-base md:text-lg font-bold text-deep-charcoal cursor-pointer select-none">
+        <span>What types of automations do you build?</span>
+        <span class="material-symbols-outlined text-electric-blue transition-transform duration-200 group-open:rotate-180 shrink-0">keyboard_arrow_down</span>
+      </summary>
+      <p class="mt-4 font-body-md text-slate-gray font-light leading-relaxed text-base border-t border-outline-variant/20 pt-4">
         Resource allocation dashboards, live workload planners, multi-department approval triggers, automated report generation, and API integrations that connect your CRM, spreadsheets, and Slack.
       </p>
-    </article>
+    </details>
 
-    <article class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
-      <h3 class="font-headline-sm text-lg font-bold text-deep-charcoal mb-2">Who maintains the automation scripts after deployment?</h3>
-      <p class="font-body-md text-slate-gray font-light leading-relaxed text-base">
+    <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs transition-all focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden">
+      <summary class="flex justify-between items-center font-headline-sm text-base md:text-lg font-bold text-deep-charcoal cursor-pointer select-none">
+        <span>Who maintains the automation scripts after deployment?</span>
+        <span class="material-symbols-outlined text-electric-blue transition-transform duration-200 group-open:rotate-180 shrink-0">keyboard_arrow_down</span>
+      </summary>
+      <p class="mt-4 font-body-md text-slate-gray font-light leading-relaxed text-base border-t border-outline-variant/20 pt-4">
         We write clean, modular, and thoroughly documented code meant for internal self-sufficiency. We provide technical walkthroughs and reference docs for your team, alongside ongoing on-call support from Alex and our engineering bench for new features or maintenance.
       </p>
-    </article>
+    </details>
   </div>
 </section>

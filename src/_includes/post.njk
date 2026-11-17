@@ -23,13 +23,13 @@ layout: base.njk
         </time>
       </div>
 
-      <h1 class="font-display-md text-display-md text-deep-charcoal leading-tight">
+      <h1 class="font-display-md text-display-md font-bold text-deep-charcoal leading-tight">
         {{ title }}
       </h1>
 
       <!-- Author snippet -->
       <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100">
-        <img src="/assets/images/about_hero.png" alt="Alex Herbstman" class="w-10 h-10 rounded-full object-cover border border-slate-200">
+        <img src="/assets/images/alex_herbstman.jpg" alt="Alex Herbstman" width="40" height="40" class="w-10 h-10 rounded-full object-cover object-top border border-[#D5CEC2] shrink-0">
         <div>
           <div class="flex items-center gap-2">
             <span class="font-body-md text-sm font-bold text-deep-charcoal">Alex Herbstman</span>
@@ -50,8 +50,8 @@ layout: base.njk
       </article>
 
       <!-- Author Bio Footer Box -->
-      <div class="mt-14 pt-8 border-t border-slate-200/70 flex flex-col sm:flex-row items-start sm:items-center gap-5 bg-slate-50/70 p-6 rounded-2xl border border-slate-200/50">
-        <img src="/assets/images/about_hero.png" alt="Alex Herbstman" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm shrink-0">
+      <div class="mt-14 pt-8 border-t border-outline-variant/40 flex flex-col sm:flex-row items-start sm:items-center gap-5 bg-[#FAF8F4] p-6 rounded-2xl border border-outline-variant/50">
+        <img src="/assets/images/alex_herbstman.jpg" alt="Alex Herbstman" width="56" height="56" class="w-14 h-14 rounded-full object-cover object-top border-2 border-[#B44C27]/40 shadow-sm shrink-0">
         <div class="space-y-1">
           <h4 class="font-headline-sm text-sm font-bold text-deep-charcoal">Written by Alex Herbstman</h4>
           <p class="text-xs text-slate-gray font-light leading-relaxed">
@@ -88,12 +88,12 @@ layout: base.njk
     startOnLoad: false,
     theme: 'base',
     themeVariables: {
-      primaryColor: '#eff6ff',
-      primaryTextColor: '#0f172a',
-      primaryBorderColor: '#2563eb',
-      lineColor: '#2563eb',
-      secondaryColor: '#f8fafc',
-      tertiaryColor: '#ffffff',
+      primaryColor: '#F2E7DF',
+      primaryTextColor: '#1C1917',
+      primaryBorderColor: '#B44C27',
+      lineColor: '#2D6A4F',
+      secondaryColor: '#E8F2EC',
+      tertiaryColor: '#FFFEFA',
       fontSize: '14px',
       fontFamily: 'Inter, system-ui, sans-serif'
     }
@@ -109,7 +109,7 @@ layout: base.njk
       const diagramContent = code.textContent;
       
       const container = document.createElement('div');
-      container.className = 'mermaid my-8 flex justify-center bg-slate-50/80 p-6 rounded-2xl border border-slate-200/80 shadow-xs overflow-x-auto';
+      container.className = 'mermaid my-8 flex justify-center bg-[#FAF8F4] p-6 rounded-2xl border border-[#D5CEC2] shadow-xs overflow-x-auto';
       container.textContent = diagramContent;
       
       pre.replaceWith(container);
@@ -156,7 +156,7 @@ layout: base.njk
     // Style TL;DR and callout blockquotes
     const blockquotes = document.querySelectorAll('article blockquote');
     blockquotes.forEach(bq => {
-      bq.classList.add('bg-blue-50/60', 'border-l-4', 'border-electric-blue', 'p-5', 'rounded-r-xl', 'my-8', 'shadow-xs', 'not-italic', 'text-slate-800');
+      bq.classList.add('bg-[#F2E7DF]/70', 'border-l-4', 'border-electric-blue', 'p-5', 'rounded-r-xl', 'my-8', 'shadow-xs', 'not-italic', 'text-deep-charcoal');
     });
   });
 </script>

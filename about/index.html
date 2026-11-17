@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Delivery Operations &amp; Capacity Engineering | CaulHaus</title>
   <meta name="description" content="Founder-led delivery operations and capacity engineering for 20–150 person agencies, consultancies, and multi-team organizations running on Google Workspace.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231C1917'/%3E%3Ctext x='32' y='43' font-family='sans-serif' font-weight='800' font-size='28' text-anchor='middle' fill='%23F5CBA7'%3ECH%3C/text%3E%3C/svg%3E">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://caulhaus.com/about/">
@@ -113,7 +114,7 @@
         "worksFor": {
           "@id": "https://caulhaus.com/#organization"
         },
-        "image": "https://caulhaus.com/assets/images/about_hero.png",
+        "image": "https://caulhaus.com/assets/images/alex_herbstman.jpg",
         "description": "Systems architect with over a decade of operational problem-solving and software integration experience, specializing in custom Google Workspace capacity engines and agency delivery automation.",
         "knowsAbout": [
           "Agency & Consultancy Delivery Operations",
@@ -169,11 +170,12 @@
   }
   </script>
 
+  <script>document.documentElement.classList.add('js-reveal');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/styles/tailwind.css?v=20261112b">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/tailwind.css?v=20261116">
   <style>
     /* Mobile nav transition */
     #mobile-menu {
@@ -293,6 +295,9 @@ void main() {
             }
           });
 
+          const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          let rafId = null;
+
           function render(t) {
             if (typeof ResizeObserver === 'undefined') syncSize();
             gl.viewport(0, 0, canvas.width, canvas.height);
@@ -300,8 +305,19 @@ void main() {
             if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
             if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-            requestAnimationFrame(render);
+            if (!prefersReducedMotion && !document.hidden) {
+              rafId = requestAnimationFrame(render);
+            } else {
+              rafId = null;
+            }
           }
+
+          document.addEventListener('visibilitychange', () => {
+            if (!document.hidden && !prefersReducedMotion && rafId === null) {
+              rafId = requestAnimationFrame(render);
+            }
+          });
+
           render(0);
         } catch (e) {
           console.warn("WebGL initialization failed:", e);
@@ -315,20 +331,22 @@ void main() {
   <header class="bg-[#FAF8F4]/95 backdrop-blur-md w-full sticky top-0 z-[100] border-b border-outline-variant/50 shadow-2xs">
     <nav class="flex justify-between items-center h-20 px-grid-margin max-w-container-max-width mx-auto" aria-label="Main Navigation">
       <!-- Logo -->
-      <a class="font-headline-md text-headline-md font-bold text-deep-charcoal hover:opacity-90 transition-opacity" href="/">
+      <a class="font-headline-md text-headline-md font-bold text-deep-charcoal hover:opacity-90 transition-opacity shrink-0" href="/">
         CaulHaus
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex space-x-8 items-center">
+      <div class="hidden lg:flex items-center gap-7 xl:gap-8 whitespace-nowrap">
         <!-- Solutions Dropdown -->
         <div class="relative" id="services-dropdown">
-          <button id="services-btn" type="button" aria-expanded="false" class="text-slate-800 font-medium hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md flex items-center gap-1 focus:outline-none cursor-pointer">
+          <button id="services-btn" type="button" aria-expanded="false" aria-controls="services-menu" class="text-slate-800 font-medium hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue/50 rounded-lg px-1 py-0.5 cursor-pointer whitespace-nowrap">
             Solutions
-            <span id="services-arrow" class="material-symbols-outlined text-[18px] transition-transform duration-200">keyboard_arrow_down</span>
+            <svg id="services-arrow" class="w-4 h-4 transition-transform duration-200 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            </svg>
           </button>
-          <div id="services-menu" class="absolute top-full left-0 pt-2 w-80 z-50 transition-all duration-200 opacity-0 pointer-events-none translate-y-1">
-            <div class="rounded-2xl bg-white border border-outline-variant/40 shadow-xl p-2.5 space-y-1">
+          <div id="services-menu" class="absolute top-full left-0 pt-2 w-80 z-50 transition-all duration-200 opacity-0 pointer-events-none invisible translate-y-1">
+            <div class="rounded-2xl bg-white border border-outline-variant/40 shadow-xl p-2.5 space-y-1 whitespace-normal">
               <a href="/automation/" class="block px-4 py-3 rounded-xl hover:bg-electric-blue/5 transition-colors ">
                 <span class="font-body-md text-sm font-bold block text-deep-charcoal">Capacity &amp; Delivery Systems</span>
                 <span class="text-xs text-slate-gray font-light block mt-0.5">Google Workspace capacity planners &amp; status rollups</span>
@@ -341,25 +359,25 @@ void main() {
           </div>
         </div>
 
-        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium " href="/services/">How We Work</a>
-        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium " href="/projects/">Results</a>
-        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium " href="/blog/">Articles</a>
-        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium text-electric-blue font-semibold" href="/about/">About Us</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium whitespace-nowrap " href="/services/">How We Work</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium whitespace-nowrap " href="/projects/">Results</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium whitespace-nowrap " href="/blog/">Articles</a>
+        <a class="text-slate-800 hover:text-electric-blue transition-colors duration-200 font-body-md text-body-md font-medium whitespace-nowrap text-electric-blue font-semibold" href="/about/">About Us</a>
       </div>
 
       <!-- CTA -->
-      <div class="hidden md:block">
-        <a class="bg-electric-blue text-white px-6 py-2.5 rounded-xl font-body-md text-sm font-semibold hover:bg-electric-blue/90 transition-all active:scale-95 shadow-sm" href="/contact/?area=Audit">Request an Audit</a>
+      <div class="hidden lg:block shrink-0">
+        <a class="bg-electric-blue text-white px-6 py-2.5 rounded-xl font-body-md text-sm font-semibold hover:bg-electric-blue/90 transition-all active:scale-95 shadow-sm whitespace-nowrap inline-block" href="/contact/?area=Audit">Request an Audit</a>
       </div>
 
       <!-- Mobile Button -->
-      <button id="mobile-menu-btn" type="button" class="md:hidden text-deep-charcoal p-2 rounded-lg hover:bg-surface-gray focus:outline-none cursor-pointer" aria-label="Toggle Menu">
+      <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden text-deep-charcoal p-2 rounded-lg hover:bg-surface-gray focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue/50 cursor-pointer" aria-label="Toggle Menu">
         <span id="menu-icon" class="material-symbols-outlined text-2xl">menu</span>
       </button>
     </nav>
 
     <!-- Mobile Navigation Panel -->
-    <div id="mobile-menu" class="hidden md:hidden px-grid-margin pb-6 pt-3 border-t border-outline-variant/30 bg-white w-full shadow-lg">
+    <div id="mobile-menu" class="hidden lg:hidden px-grid-margin pb-6 pt-3 border-t border-outline-variant/30 bg-white w-full shadow-lg">
       <div class="flex flex-col gap-3.5 font-body-md text-base">
         <span class="font-mono-label text-xs text-electric-blue uppercase tracking-widest mt-1 font-bold">Solutions</span>
         <a class="pl-3 py-1 text-deep-charcoal" href="/automation/">Capacity &amp; Delivery Systems</a>
@@ -466,6 +484,7 @@ void main() {
 
   <!-- Primary Named Lead -->
   <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl border-2 border-electric-blue shadow-md mb-12 text-center">
+    <img src="/assets/images/alex_herbstman.jpg" alt="Alex Herbstman, Founder of CaulHaus" width="80" height="80" class="w-20 h-20 rounded-full object-cover object-top mx-auto mb-4 border-2 border-[#B44C27] shadow-sm">
     <span class="font-mono-label text-xs text-electric-blue uppercase tracking-widest font-bold block mb-2">Founder &amp; Engineer</span>
     <h3 class="font-headline-md text-headline-md font-bold text-deep-charcoal mb-1">Alex Herbstman</h3>
     <p class="font-mono-label text-sm text-slate-gray font-semibold mb-4">Founder &amp; Systems Developer</p>
@@ -546,34 +565,46 @@ void main() {
       <h2 class="font-headline-lg text-headline-lg font-bold text-deep-charcoal">About CaulHaus: FAQ</h2>
     </div>
 
-    <div class="space-y-6">
-      <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
-        <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">Who runs CaulHaus?</h3>
-        <p class="text-base text-slate-gray leading-relaxed font-light">
+    <div class="space-y-4">
+      <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs transition-all focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden" open>
+        <summary class="flex justify-between items-center font-headline-md text-base md:text-lg font-bold text-deep-charcoal cursor-pointer select-none">
+          <span>Who runs CaulHaus?</span>
+          <span class="material-symbols-outlined text-electric-blue transition-transform duration-200 group-open:rotate-180 shrink-0">keyboard_arrow_down</span>
+        </summary>
+        <p class="mt-4 text-base text-slate-gray leading-relaxed font-light border-t border-outline-variant/20 pt-4">
           CaulHaus is an operations and automation studio led by founder Alex Herbstman. Alex leads every project directly to diagnose bottlenecks and build core integrations, collaborating with a trusted bench of senior specialists for niche software platforms and additional development capacity.
         </p>
-      </div>
+      </details>
 
-      <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
-        <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">What kind of projects do you take on?</h3>
-        <p class="text-base text-slate-gray leading-relaxed font-light">
+      <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs transition-all focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex justify-between items-center font-headline-md text-base md:text-lg font-bold text-deep-charcoal cursor-pointer select-none">
+          <span>What kind of projects do you take on?</span>
+          <span class="material-symbols-outlined text-electric-blue transition-transform duration-200 group-open:rotate-180 shrink-0">keyboard_arrow_down</span>
+        </summary>
+        <p class="mt-4 text-base text-slate-gray leading-relaxed font-light border-t border-outline-variant/20 pt-4">
           We build custom operational automations: linking disparate tools, building Google Apps Script tools inside Sheets and Drive, routing CRM leads, and replacing fragile spreadsheets with dependable scripts.
         </p>
-      </div>
+      </details>
 
-      <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
-        <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">What size teams do you work with?</h3>
-        <p class="text-base text-slate-gray leading-relaxed font-light">
+      <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs transition-all focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex justify-between items-center font-headline-md text-base md:text-lg font-bold text-deep-charcoal cursor-pointer select-none">
+          <span>What size teams do you work with?</span>
+          <span class="material-symbols-outlined text-electric-blue transition-transform duration-200 group-open:rotate-180 shrink-0">keyboard_arrow_down</span>
+        </summary>
+        <p class="mt-4 text-base text-slate-gray leading-relaxed font-light border-t border-outline-variant/20 pt-4">
           Most clients are 20 to 150 person agencies, consultancies, implementation partners, and multi-team organizations running on Google Workspace that have outgrown manual staffing and status spreadsheets—without wanting the per-seat cost and adoption friction of bloated PSA software.
         </p>
-      </div>
+      </details>
 
-      <div class="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs">
-        <h3 class="font-headline-md text-lg font-bold text-deep-charcoal mb-2">What deliverables do we receive at the end of an engagement?</h3>
-        <p class="text-base text-slate-gray leading-relaxed font-light">
+      <details class="group bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-xs transition-all focus-within:ring-2 focus-within:ring-electric-blue/30 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex justify-between items-center font-headline-md text-base md:text-lg font-bold text-deep-charcoal cursor-pointer select-none">
+          <span>What deliverables do we receive at the end of an engagement?</span>
+          <span class="material-symbols-outlined text-electric-blue transition-transform duration-200 group-open:rotate-180 shrink-0">keyboard_arrow_down</span>
+        </summary>
+        <p class="mt-4 text-base text-slate-gray leading-relaxed font-light border-t border-outline-variant/20 pt-4">
           You receive working code and automated workflows tested on your production data, accompanied by clear documentation and video walkthroughs so your team can maintain and adapt them independently.
         </p>
-      </div>
+      </details>
     </div>
   </div>
 </section>
@@ -674,10 +705,11 @@ void main() {
         mobileMenuBtn.addEventListener('click', () => {
           const isHidden = mobileMenu.classList.toggle('hidden');
           menuIcon.textContent = isHidden ? 'menu' : 'close';
+          mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
       }
 
-      // Services Dropdown JS Controller with 200ms Grace Period & Tap Support
+      // Services Dropdown JS Controller with 200ms Grace Period, Keyboard & Tap Support
       const sDropdown = document.getElementById('services-dropdown');
       const sDropdownBtn = document.getElementById('services-btn');
       const sDropdownMenu = document.getElementById('services-menu');
@@ -688,28 +720,35 @@ void main() {
 
         function openMenu() {
           if (closeTimeout) clearTimeout(closeTimeout);
-          sDropdownMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-1');
+          sDropdownMenu.classList.remove('opacity-0', 'pointer-events-none', 'invisible', 'translate-y-1');
           sDropdownMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          sDropdownBtn.setAttribute('aria-expanded', 'true');
           if (sDropdownArrow) sDropdownArrow.classList.add('rotate-180');
         }
 
-        function closeMenu() {
+        function closeMenu(immediate = false) {
           if (closeTimeout) clearTimeout(closeTimeout);
-          closeTimeout = setTimeout(() => {
+          const doClose = () => {
             sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
+            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'invisible', 'translate-y-1');
+            sDropdownBtn.setAttribute('aria-expanded', 'false');
             if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
-          }, 200);
+          };
+          if (immediate) {
+            doClose();
+          } else {
+            closeTimeout = setTimeout(doClose, 200);
+          }
         }
 
         sDropdown.addEventListener('mouseenter', openMenu);
-        sDropdown.addEventListener('mouseleave', closeMenu);
+        sDropdown.addEventListener('mouseleave', () => closeMenu(false));
 
         sDropdownBtn.addEventListener('click', (e) => {
           e.stopPropagation();
           const isOpen = sDropdownMenu.classList.contains('opacity-100');
           if (isOpen) {
-            closeMenu();
+            closeMenu(true);
           } else {
             openMenu();
           }
@@ -717,9 +756,24 @@ void main() {
 
         document.addEventListener('click', (e) => {
           if (!sDropdown.contains(e.target)) {
-            sDropdownMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-            sDropdownMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-1');
-            if (sDropdownArrow) sDropdownArrow.classList.remove('rotate-180');
+            closeMenu(true);
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            if (sDropdownMenu.classList.contains('opacity-100')) {
+              closeMenu(true);
+              sDropdownBtn.focus();
+            }
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+              if (menuIcon) menuIcon.textContent = 'menu';
+              if (mobileMenuBtn) {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.focus();
+              }
+            }
           }
         });
       }
@@ -729,10 +783,12 @@ void main() {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
+            observer.unobserve(entry.target);
           }
         });
       }, {
-        threshold: 0.1
+        threshold: 0.05,
+        rootMargin: '0px 0px 40px 0px'
       });
 
       document.querySelectorAll('.reveal').forEach((el) => {

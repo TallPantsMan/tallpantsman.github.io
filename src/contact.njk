@@ -64,22 +64,22 @@ description: Get in touch with CaulHaus to discuss your workflows, explore custo
       <div class="space-y-4">
         <div>
           <label for="contact-name" class="font-mono-label text-xs text-slate-gray font-bold uppercase tracking-wider block mb-1.5">Your Name</label>
-          <input type="text" id="contact-name" name="name" required aria-required="true" placeholder="Jane Doe" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
+          <input type="text" id="contact-name" name="name" required aria-required="true" placeholder="Jane Doe" class="w-full h-12 px-3.5 py-0 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal placeholder:text-slate-gray/80 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
         </div>
 
         <div>
           <label for="contact-email" class="font-mono-label text-xs text-slate-gray font-bold uppercase tracking-wider block mb-1.5">Work Email</label>
-          <input type="email" id="contact-email" name="email" required aria-required="true" placeholder="you@company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
+          <input type="email" id="contact-email" name="email" required aria-required="true" placeholder="you@company.com" class="w-full h-12 px-3.5 py-0 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal placeholder:text-slate-gray/80 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
           <div>
-            <label for="contact-website" class="font-mono-label text-xs text-slate-gray font-bold uppercase tracking-wider block mb-1.5">Company Website <span class="text-slate-gray/50 font-normal lowercase">(optional)</span></label>
-            <input type="text" id="contact-website" name="website" placeholder="company.com" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
+            <label for="contact-website" class="font-mono-label text-xs text-slate-gray font-bold uppercase tracking-wider block mb-1.5">Company Website <span class="text-slate-gray/75 font-normal lowercase">(optional)</span></label>
+            <input type="text" id="contact-website" name="website" placeholder="company.com" class="w-full h-12 px-3.5 py-0 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal placeholder:text-slate-gray/80 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all">
           </div>
           <div>
             <label for="contact-area" class="font-mono-label text-xs text-slate-gray font-bold uppercase tracking-wider block mb-1.5">Primary Area of Interest</label>
-            <select id="contact-area" name="area_of_interest" class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none bg-white transition-all">
+            <select id="contact-area" name="area_of_interest" class="w-full h-12 px-3.5 py-0 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none bg-white transition-all truncate">
               <option value="2-Week Workflow & Capacity Audit">2-Week Workflow &amp; Capacity Audit</option>
               <option value="Capacity & Resource Planning Build">Capacity &amp; Resource Planning Build</option>
               <option value="Sales-to-Delivery & CRM Handoffs">Sales-to-Delivery &amp; CRM Handoffs</option>
@@ -91,7 +91,7 @@ description: Get in touch with CaulHaus to discuss your workflows, explore custo
 
         <div>
           <label for="contact-message" class="font-mono-label text-xs text-slate-gray font-bold uppercase tracking-wider block mb-1.5">Project Overview or Questions</label>
-          <textarea id="contact-message" name="message" rows="4" required aria-required="true" placeholder="Tell us about your team's tools, workflows, or what you're looking to build..." class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal placeholder:text-slate-gray/50 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all resize-none"></textarea>
+          <textarea id="contact-message" name="message" rows="4" required aria-required="true" placeholder="Tell us about your team's tools, workflows, or what you're looking to build..." class="w-full p-3.5 rounded-xl border border-outline-variant/60 text-sm text-deep-charcoal placeholder:text-slate-gray/80 focus:border-electric-blue focus:ring-2 focus:ring-electric-blue/20 focus:outline-none transition-all resize-none"></textarea>
         </div>
 
         <div class="pt-2">
@@ -256,11 +256,12 @@ description: Get in touch with CaulHaus to discuss your workflows, explore custo
       const toolLabels = {
         sheets: 'Google Sheets & Docs',
         slack: 'Slack / Teams',
-        hubspot: 'HubSpot CRM',
+        hubspot: 'HubSpot / Pipedrive',
+        asana: 'Asana / ClickUp / Monday',
         salesforce: 'Salesforce',
         airtable: 'Airtable',
         jira: 'Jira / Linear',
-        stripe: 'Stripe / Billing',
+        stripe: 'Stripe / QuickBooks',
         webhooks: 'Custom APIs / Webhooks'
       };
       const rawStack = params.get('stack').split(',').filter(Boolean);
