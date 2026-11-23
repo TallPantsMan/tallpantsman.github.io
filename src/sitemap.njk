@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
   {% if item.url and not item.data.eleventyExcludeFromCollections and not item.url.includes('/assets/') and not item.url.includes('sitemap.xml') %}
   <url>
     <loc>https://caulhaus.com{{ item.url }}</loc>
-    <lastmod>{{ "2026-11-12" }}</lastmod>
+    <lastmod>{{ "2026-11-23" }}</lastmod>
     <changefreq>{% if "/blog/" in item.url %}weekly{% else %}monthly{% endif %}</changefreq>
     <priority>{% if item.url == "/" %}1.0{% elif "/blog/" in item.url %}0.9{% else %}0.8{% endif %}</priority>
   </url>

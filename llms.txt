@@ -35,6 +35,7 @@ Growing agencies and consultancies lose hundreds of billable hours every month r
 - Accessibility Statement: https://caulhaus.com/accessibility/
 
 ## High-Intent Technical Guides & Articles
+- Agency Capacity Planning Architecture in Google Apps Script: https://caulhaus.com/blog/agency-capacity-planning-architecture/
 - The Anti-Bloated-PSA Guide: https://caulhaus.com/blog/anti-bloated-psa-guide/
 - Automating the Sales to CS Handoff: https://caulhaus.com/blog/automating-sales-cs-handoff/
 

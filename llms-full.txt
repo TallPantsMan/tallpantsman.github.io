@@ -76,7 +76,14 @@ Connects delivery completion directly to billing and revenue operations:
 
 ---
 
-## 5. Contact & Official Profiles
+## 5. High-Intent Technical Guides & Reference Architecture
+- **Agency Capacity Planning Architecture in Google Apps Script:** https://caulhaus.com/blog/agency-capacity-planning-architecture/ — Detailed engineering architecture covering normalized `Roster`/`Projects`/`Allocations` tabs, batch `getValues()`/`setValues()` array calculations, `LockService` concurrency protection, Google Calendar PTO deduction, and Slack overload alerts.
+- **The Anti-Bloated-PSA Guide:** https://caulhaus.com/blog/anti-bloated-psa-guide/ — Why 20–150 person agencies abandon $40–$60/seat PSA software for custom Google Workspace capacity engines and 3-year TCO comparisons.
+- **Automating the Sales-to-CS Handoff:** https://caulhaus.com/blog/automating-sales-cs-handoff/ — Eliminating dropped scope and manual project spin-up between CRM Closed-Won deals and delivery boards.
+
+---
+
+## 6. Contact & Official Profiles
 
 - **Official Website:** https://caulhaus.com
 - **Services:** https://caulhaus.com/services/
@@ -87,7 +94,7 @@ Connects delivery completion directly to billing and revenue operations:
 
 ---
 
-## 6. Legal, Trust & Compliance
+## 7. Legal, Trust & Compliance
 
 - **Legal Entity:** Caul Haus Group, Inc.
 - **Privacy Policy:** https://caulhaus.com/privacy/ (Zero advertising trackers, strict data minimization, GDPR/CCPA/CPRA compliant).
